@@ -1,0 +1,113 @@
+// Based on Flutter implementation of TextTheme and Material Design specifications
+// TODO: store in service worker
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+}
+
+// TODO: create a pipe or verify if already exists
+.TextCase {
+  &--sentence {
+    text-transform: lowercase;
+  }
+
+  &--sentence::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.TextTheme {
+
+  /* Headline1, display4 */
+  &--display4 {
+    font-size: 6rem;
+    font-weight: 300;
+    letter-spacing: -0.09375rem;
+  }
+
+  /* Headline2, display3 */
+  &--display3 {
+    font-size: 3.75rem;
+    font-weight: 300;
+    letter-spacing: -0.03125rem;
+  }
+
+  /* Headline3, display2 */
+  &--display2 {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  /* Headline4, display1 */
+  &--display1 {
+    font-size: 2.125rem;
+    font-weight: 400;
+    letter-spacing: 0.015625rem;
+  }
+
+  /* Headline5, headline */
+  &--headline {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  /* Headline6, title */
+  &--title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.009375rem;
+  }
+
+  /* subtitle1, subhead */
+  &--subhead {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.009375rem;
+  }
+
+  /* body1, body2 */
+  &--body2 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.009375rem;
+  }
+
+  /* body2, body1 */
+  &--body1 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.015625rem;
+  }
+
+  /* caption, caption */
+  &--caption {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.025rem;
+  }
+
+  /* button, button */
+  &--button {
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.078125rem;
+    text-transform: uppercase;
+  }
+
+  /* subtitle2, subtitle */
+  &--subtitle {
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.0625rem;
+  }
+
+  /* overline, overline */
+  &--overline {
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.09375rem;
+    text-transform: uppercase;
+  }
+}
