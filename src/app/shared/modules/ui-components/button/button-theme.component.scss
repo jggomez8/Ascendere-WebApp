@@ -1,0 +1,59 @@
+.basic {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+.primary {
+  --color-1: var(--on-primary);
+  --color-2: var(--primary-color);
+}
+.accent {
+  --color-1: var(--on-secondary);
+  --color-2: var(--secondary-color);
+}
+.error {
+  --color-1: var(--on-error);
+  --color-2: var(--error-color);
+}
+
+.indev-button,
+.indev-stroked-button {
+  &[class*="indev-"][disabled] {
+    color: #7c7b7b;
+    background-color: #ffffff;
+  }
+}
+.indev-raised-button,
+.indev-flat-button {
+  &[class*="indev-"][disabled] {
+    color: #7c7b7b;
+    background-color: #7c7b7b56;
+  }
+}
+
+.indev-button {
+  background-color: var(--color-1);
+  color: var(--color-2);
+  &:hover {
+    // background-color: var(--color-2);
+    background-color: rgba(var(--color-2), 0.9) !important;
+  }
+}
+
+.indev-flat-button {
+  background-color: var(--color-2);
+  color: var(--color-1);
+}
+
+.indev-icon-button {
+  background-color: var(--color-1);
+  color: var(--color-2);
+}
+.indev-raised-button {
+  background-color: var(--color-2);
+  color: var(--color-1);
+}
+.indev-stroked-button {
+  background-color: var(--color-1);
+  color: var(--color-2);
+  border-color: #b3b3b3;
+}

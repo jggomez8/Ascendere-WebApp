@@ -1,0 +1,72 @@
+// Apply base style for all buttons
+.indev-button,
+.indev-flat-button,
+.indev-icon-button,
+.indev-raised-button,
+.indev-stroked-button {
+  box-sizing: border-box;
+  position: relative;
+
+  // reset browser <button> styles
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+
+  // Make anchors render like buttons.
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+
+  // Sizing.
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 15px;
+  border-radius: 5px;
+
+  // Explicitly set the default overflow to `visible`. It is already set
+  // on most browsers except on IE11 where it defaults to `hidden`.
+  overflow: visible;
+
+  &[disabled] {
+    cursor: default;
+  }
+}
+
+// Applies styles to buttons with backgrounds: raised
+.indev-raised-button {
+  // Force hardware acceleration.
+  transform: translate3d(0, 0, 0);
+
+  // Animation.
+  transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.indev-stroked-button {
+  border: 1px solid currentColor;
+  padding: 0 14px;
+  line-height: 34px;
+}
+
+.indev-icon-button {
+  padding: 0;
+
+  // Reset the min-width from the button base.
+  min-width: 0;
+
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+  line-height: 40px;
+  border-radius: 50%;
+
+  i,
+  .mat-icon {
+    line-height: 24px;
+  }
+}

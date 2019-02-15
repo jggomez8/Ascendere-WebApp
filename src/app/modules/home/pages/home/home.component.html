@@ -1,30 +1,105 @@
-<!--The content below is only a placeholder and can be replaced.-->
-
-<div style="text-align:center; color: var(--on-primary)">
+<div style="text-align:center;">
   <h1 class="TextTheme--display1">
     Welcome to Home!
   </h1>
-  <img width="300"
-       alt="Angular Logo"
-       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank"
-         rel="noopener"
-         href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank"
-         rel="noopener"
-         href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank"
-         rel="noopener"
-         href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<p class="TextTheme--display4">display4 display4</p>
+<p class="TextTheme--display3">display3 display3 display3</p>
+<p class="TextTheme--display2">display2 display2 display2 display2</p>
+<p class="TextTheme--display1">
+  display1 display1 display1 display1display1 display1 display1
+</p>
+<p class="TextTheme--headline">
+  headline headline headline headline headline headline headline headline
+</p>
+<p class="TextTheme--title">title title title title title title title title</p>
+<p class="TextTheme--subhead">
+  subhead subhead subhead subhead subhead subhead subhead subhead
+</p>
+<p class="TextTheme--body2">body2 body2 body2 body2 body2 body2 body2 body2</p>
+<p class="TextTheme--body1">body1 body1 body1 body1 body1 body1 body1 body1</p>
+<p class="TextTheme--caption">
+  caption caption caption caption caption caption caption caption
+</p>
+<p class="TextTheme--button">
+  button button button button button button button button
+</p>
+<p class="TextTheme--subtitle">
+  subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle
+</p>
+<p class="TextTheme--overline">
+  overline overline overline overline overline overline overline overline
+</p>
+<br />
+<br />
+<br />
+<br />
+<div theme class="container">
+  <h1>Hello</h1>
+  <section>
+    <h3>Basic Buttons</h3>
+    <div class="example-button-row">
+      <button indev-button>Basic</button>
+      <button indev-button color="primary">Primary</button>
+      <button indev-button color="accent">Accent</button>
+      <button indev-button color="error">error</button>
+      <button indev-button disabled>Disabled</button>
+      <a indev-button routerLink=".">Link</a>
+    </div>
 
-<indev-button></indev-button>
+    <h3>Raised Buttons</h3>
+    <div class="example-button-row">
+      <button indev-raised-button>Basic</button>
+      <button indev-raised-button color="primary">Primary</button>
+      <button indev-raised-button color="accent">Accent</button>
+      <button indev-raised-button color="error">error</button>
+      <button indev-raised-button disabled>Disabled</button>
+      <a indev-raised-button routerLink=".">Link</a>
+    </div>
+
+    <h3>Stroked Buttons</h3>
+    <div class="example-button-row">
+      <button indev-stroked-button>Basic</button>
+      <button indev-stroked-button color="primary">Primary</button>
+      <button indev-stroked-button color="accent">Accent</button>
+      <button indev-stroked-button color="error">error</button>
+      <button indev-stroked-button disabled>Disabled</button>
+      <a indev-stroked-button routerLink=".">Link</a>
+    </div>
+
+    <h3>Flat Buttons</h3>
+    <div class="example-button-row">
+      <button indev-flat-button>Basic</button>
+      <button indev-flat-button color="primary">Primary</button>
+      <button indev-flat-button color="accent">Accent</button>
+      <button indev-flat-button color="error">error</button>
+      <button indev-flat-button disabled>Disabled</button>
+      <a indev-flat-button routerLink=".">Link</a>
+    </div>
+
+    <h3>Icon Buttons</h3>
+    <div class="example-button-row">
+      <button indev-icon-button>
+        ♥
+        <!-- <indev-icon aria-label="Example icon-button with a heart icon">favorite</indev-icon> -->
+      </button>
+      <button indev-icon-button color="primary">
+        ♥
+        <!-- <indev-icon aria-label="Example icon-button with a heart icon">favorite</indev-icon> -->
+      </button>
+      <button indev-icon-button color="accent">
+        ♥
+        <!-- <indev-icon aria-label="Example icon-button with a heart icon">favorite</indev-icon> -->
+      </button>
+      <button indev-icon-button color="error">
+        ♥
+        <!-- <indev-icon aria-label="Example icon-button with a heart icon">favorite</indev-icon> -->
+      </button>
+      <button indev-icon-button disabled>
+        ♥
+        <!-- <indev-icon aria-label="Example icon-button with a heart icon">favorite</indev-icon> -->
+      </button>
+    </div>
+  </section>
+</div>
+<br />

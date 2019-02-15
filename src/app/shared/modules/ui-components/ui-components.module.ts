@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from './button/button.component';
+import { ButtonComponent, AnchorComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
     ButtonComponent,
+    AnchorComponent,
   ],
   imports: [
     CommonModule,
@@ -12,6 +13,7 @@ import { ButtonComponent } from './button/button.component';
   exports: [
     CommonModule,
     ButtonComponent,
+    AnchorComponent,
   ],
 })
 export class UiComponentsModule { }
