@@ -69,8 +69,22 @@
   left: 0;
   right: 0;
   bottom: 0;
+  top: 0;
 
-  padding: 15px;
+
+  padding: 5px 15px;
+
+  // align items
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+
+  // space between elements
+  * {
+    padding-bottom: 10px;
+  }
+
   h4 {
     max-width: 100%;
     text-overflow: ellipsis;

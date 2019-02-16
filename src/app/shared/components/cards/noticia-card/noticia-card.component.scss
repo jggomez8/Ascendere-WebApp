@@ -55,13 +55,19 @@
   // position items inside flex
   display: flex;
   flex-direction: column;
-  padding: 15px 25px;
+  padding: 15px 25px 5px 25px;
 
   // style content
   background-color: var(--surface-color);
+  color: var(--on-surface);
 
-  // title in one line
+   > * {
+    // give elements inside spacing
+    padding-bottom: 10px;
+  }
+
   h4 {
+    // title in one line
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
