@@ -5,6 +5,7 @@ import { ButtonComponent, AnchorComponent } from './components/button/button.com
 import { SectionHeaderComponent } from './components/section/section-header.component';
 import { SectionControlsComponent } from './components/section/section-controls.component';
 import { SectionTitleComponent } from './components/section/section-title.component';
+import { EncuentroCardComponent } from './components/cards/encuentro-card/encuentro-card.component';
 
 const DECLARATIONS = [
   ContainerComponent,
@@ -12,7 +13,8 @@ const DECLARATIONS = [
   AnchorComponent,
   SectionHeaderComponent,
   SectionTitleComponent,
-  SectionControlsComponent
+  SectionControlsComponent,
+  EncuentroCardComponent
 ];
 
 @NgModule({

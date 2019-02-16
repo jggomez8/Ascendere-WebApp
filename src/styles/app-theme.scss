@@ -5,8 +5,9 @@
   // A secondary color provides more ways to accent accent select parts of the UI.
   --secondary-color: rgb(233, 28, 97);
   --on-secondary: hsl(0, 0%, 100%);
-  // Surface colors affect surfaces of components, such as cards, sheets, and menus.
+  // Surface colors, image affect surfaces of components, such as cards, sheets, and menus.
   --surface-color: rgb(255, 255, 255);
+  --surface-background: url('/assets/images/default-background.png');
   --on-surface: rgb(15, 15, 15);
   // The background color appears behind scrollable content.
   --background-color: rgb(239, 240, 244);

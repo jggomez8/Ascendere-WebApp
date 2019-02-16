@@ -1,0 +1,12 @@
+<!-- Encuentro card has 3 layers: background image, gradient, content on top -->
+
+<div class="card">
+  <div class="background-image">
+    <img [src]="backgroundImage" alt="Image" />
+  </div>
+  <div class="overlay"></div>
+  <div class="content">
+    <h4 class="TextTheme--headline">{{ title }}</h4>
+    <small class="TextTheme--overline">{{ fecha | date }}</small>
+  </div>
+</div>
