@@ -1,0 +1,18 @@
+<!-- Noticia card has 2 main parts: hero image and content -->
+<!-- Content has 4 sections: Title, date, short description, 'Read More' Button -->
+
+<div class="card">
+  <div class="hero-image">
+    <img [src]="heroImage" alt="Image" />
+  </div>
+  <div class="content">
+    <h4 class="TextTheme--title">{{ title }}</h4>
+    <span class="TextTheme--subhead">{{ fecha | date }}</span>
+    <p>{{ description }}</p>
+    <div class="expanded"></div>
+    <div class="actions">
+      <button indev-button>compartir</button>
+      <button indev-button color="primary">VEr mas</button>
+    </div>
+  </div>
+</div>

@@ -6,15 +6,23 @@ import { SectionHeaderComponent } from './components/section/section-header.comp
 import { SectionControlsComponent } from './components/section/section-controls.component';
 import { SectionTitleComponent } from './components/section/section-title.component';
 import { EncuentroCardComponent } from './components/cards/encuentro-card/encuentro-card.component';
+import { NoticiaCardComponent } from './components/cards/noticia-card/noticia-card.component';
 
 const DECLARATIONS = [
   ContainerComponent,
+
+  // Button Components
   ButtonComponent,
   AnchorComponent,
+
+  // Section Components
   SectionHeaderComponent,
   SectionTitleComponent,
   SectionControlsComponent,
-  EncuentroCardComponent
+
+  // Cards Components
+  EncuentroCardComponent,
+  NoticiaCardComponent
 ];
 
 @NgModule({
