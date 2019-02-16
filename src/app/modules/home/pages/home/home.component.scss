@@ -13,5 +13,18 @@ p {
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  grid-auto-rows: 270px;
+}
+
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+indev-encuentro-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }

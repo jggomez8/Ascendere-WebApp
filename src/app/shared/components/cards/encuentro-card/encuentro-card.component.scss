@@ -14,7 +14,7 @@
 
   // add default background
   background-color: var(--surface-color);
-  background-image:var(--surface-background);
+  background-image: var(--surface-background);
   border-radius: 3px;
   background-position: center;
   background-size: cover;
@@ -24,14 +24,14 @@
   // animation shadow
   transform: translate3d(0, 0, 0);
   transition: all 0.4s ease-in-out;
+}
 
-  // style elements when focused
-  &:hover {
-    box-shadow: 4px 4px 20px #00000088;
-    .background-image {
-      img {
-        transform: scale(1.03);
-      }
+// style elements when focused
+.card:hover {
+  box-shadow: 4px 4px 20px #00000088;
+  .background-image {
+    img {
+      transform: scale(1.03);
     }
   }
 }
