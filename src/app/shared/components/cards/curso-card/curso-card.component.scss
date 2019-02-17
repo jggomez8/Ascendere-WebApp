@@ -1,20 +1,15 @@
 .card {
-  // make card take all available space
+  // position card inside aspect ratio
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  overflow: hidden;
 
   // style card
-  border-radius: 5px;
   cursor: pointer;
-  box-shadow: 2px 2px 10px #0000003e;
-  background: linear-gradient(to bottom right, #364d9d, #1ea3de);
-
-  // animation shadow
-  transition: all 0.4s ease-in-out;
+  // TODO: add Variables
+  // background: linear-gradient(to bottom right, var(--color-1), var(--color-2));
 
   // place content inside card
   display: flex;
@@ -30,12 +25,6 @@
     overflow: hidden;
     padding-bottom: 10px;
   }
-}
-
-// style elements when focused
-.card:hover {
-  transform: translate3d(0, 0, 0);
-  box-shadow: 4px 4px 20px #00000088;
 }
 
 .expanded {
