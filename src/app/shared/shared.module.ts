@@ -8,6 +8,7 @@ import { EncuentroCardComponent } from './components/cards/encuentro-card/encuen
 import { NoticiaCardComponent } from './components/cards/noticia-card/noticia-card.component';
 import { CursoCardComponent } from './components/cards/curso-card/curso-card.component';
 import { SectionComponent } from './components/section/section.component';
+import { ProyectosInnovacionCardComponent } from './components/cards/proyectos-innovacion-card/proyectos-innovacion-card.component';
 
 const DECLARATIONS = [
   ContainerComponent,
@@ -24,7 +25,8 @@ const DECLARATIONS = [
   // Cards Components
   EncuentroCardComponent,
   NoticiaCardComponent,
-  CursoCardComponent
+  CursoCardComponent,
+  ProyectosInnovacionCardComponent
 ];
 
 @NgModule({
