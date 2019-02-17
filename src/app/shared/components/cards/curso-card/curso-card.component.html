@@ -1,8 +1,9 @@
-<!-- Curso Card has 3 main elements: Type of Course, Name of curse, and start Date with and end Date  -->
-
-<div class="card">
-  <span class="TextTheme--subhead">{{ type }}</span>
-  <div class="expanded"></div>
-  <h4 class="TextTheme--title">{{ title }}</h4>
-  <h4 class="TextTheme--subhead ">{{ starDate | date }} hasta {{ endDate | date }}</h4>
+<!-- Curso Card has  3 elements: Type of Course, Name of curse, and start Date with and end Date  -->
+<div class="aspect-ratio" style="--aspect-ratio: 21/9">
+  <div class="card">
+    <span class="TextTheme--subhead">{{ type | uppercase }}</span>
+    <div class="expanded"></div>
+    <h4 class="TextTheme--title">{{ title }}</h4>
+    <span class="TextTheme--subhead ">{{ starDate | date }} hasta {{ endDate | date }}</span>
+  </div>
 </div>
