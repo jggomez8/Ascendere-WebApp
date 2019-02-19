@@ -9,6 +9,7 @@ import { NoticiaCardComponent } from './components/cards/noticia-card/noticia-ca
 import { CursoCardComponent } from './components/cards/curso-card/curso-card.component';
 import { SectionComponent } from './components/section/section.component';
 import { ProyectosInnovacionCardComponent } from './components/cards/proyectos-innovacion-card/proyectos-innovacion-card.component';
+import { LazyLoadComponent, LazyLoadImage } from './components/lazy-load/lazy-load.component';
 
 const DECLARATIONS = [
   ContainerComponent,
@@ -26,7 +27,11 @@ const DECLARATIONS = [
   EncuentroCardComponent,
   NoticiaCardComponent,
   CursoCardComponent,
-  ProyectosInnovacionCardComponent
+  ProyectosInnovacionCardComponent,
+
+  // lazy load component
+  LazyLoadComponent,
+  LazyLoadImage
 ];
 
 @NgModule({
