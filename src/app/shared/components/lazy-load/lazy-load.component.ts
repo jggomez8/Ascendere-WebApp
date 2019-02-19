@@ -1,14 +1,11 @@
-import { Component, OnInit, Input, ElementRef, AfterViewInit } from '@angular/core';
-
-/**
- * Lazy load components or elements using Interception Observer API
- */
+import { Component, Input, ElementRef, AfterViewInit, OnInit } from '@angular/core';
 
 // Animation when component appears
 const TRANSITIONS = ['fade-in', 'translate'];
 
 @Component({
-  selector: 'indev-lazy-load',
+  selector: 'indev-lazy-transition',
+  exportAs: 'LazyTransitionComponent',
   template: `
     <div class="lazy-load">
       <ng-content *ngIf="loaded"></ng-content>
@@ -16,17 +13,22 @@ const TRANSITIONS = ['fade-in', 'translate'];
   `,
   styleUrls: ['./lazy-load.component.scss']
 })
-export class LazyLoadComponent implements AfterViewInit {
-  // TODO: Improve or remove this component
+export class LazyTransitionComponent implements OnInit,  AfterViewInit {
   // Transition elements will use when loaded
-  @Input() transition: string = 'fade-in';
+  @Input() transition: string;
 
   private _intersectionObserver?: IntersectionObserver;
 
   // state of current element.
   public loaded = false;
 
-  constructor(public _element: ElementRef) {}
+  constructor(public _element: ElementRef) { }
+
+  ngOnInit(): void {
+    // set transition if included or define to defaukt transition
+    this.transition = TRANSITIONS.includes(this.transition) ? this.transition : 'fade-in'
+      ;
+  }
 
   ngAfterViewInit() {
     this._intersectionObserver = new IntersectionObserver(this.checkForIntersection);
@@ -50,14 +52,13 @@ export class LazyLoadComponent implements AfterViewInit {
 
 @Component({
   selector: 'indev-lazy-image',
+  exportAs: 'LazyImageComponent',
   template: `
-    <div>
       <img *ngIf="loaded" [src]="src" alt="TODO: temp img" />
-    </div>
   `,
   styleUrls: ['./lazy-load.component.scss']
 })
-export class LazyLoadImage extends LazyLoadComponent {
+export class LazyLoadImage extends LazyTransitionComponent {
   @Input() src: string;
 
   constructor(public _element: ElementRef) {
