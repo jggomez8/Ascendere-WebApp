@@ -11,6 +11,7 @@ import { SectionComponent } from './components/section/section.component';
 import { ProyectosInnovacionCardComponent } from './components/cards/proyectos-innovacion-card/proyectos-innovacion-card.component';
 import { LazyTransitionComponent, LazyLoadImage } from './components/lazy-load/lazy-load.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownComponent } from './components/markdown/markdown.component';
 
 const DECLARATIONS = [
   ContainerComponent,
@@ -32,7 +33,10 @@ const DECLARATIONS = [
 
   // lazy load component
   LazyTransitionComponent,
-  LazyLoadImage
+  LazyLoadImage,
+
+  // markdown conponent
+  MarkdownComponent
 ];
 
 @NgModule({

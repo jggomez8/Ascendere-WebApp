@@ -8,36 +8,26 @@ const BUTTON_HOST_ATTRIBUTES = [
   'indev-flat-button',
   'indev-icon-button',
   'indev-raised-button',
-  'indev-stroked-button',
+  'indev-stroked-button'
 ];
 
-const BUTTON_HOST_COLOR = [
-  'basic',
-  'primary',
-  'accent',
-  'warning',
-  'error',
-];
+const BUTTON_HOST_COLOR = ['basic', 'primary', 'accent', 'warning', 'error'];
 
 @Component({
   selector: `button[indev-button], button[indev-raised-button], button[indev-icon-button], button[indev-stroked-button],
               button[indev-flat-button]`,
   exportAs: 'indevButton',
   templateUrl: './button.component.html',
-  styleUrls: [
-    './button.component.scss',
-    './button-theme.component.scss',
-  ],
+  styleUrls: ['./button.component.scss', './button-theme.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent implements OnInit {
-
   @Input() color: string;
 
   /** Whether the button is icon button. */
   readonly isIconButton: boolean = this._hasHostAttributes('indev-icon-button');
 
-  constructor(public elementRef: ElementRef) { }
+  constructor(public elementRef: ElementRef) {}
 
   ngOnInit(): void {
     // For each of the variant selectors that is prevent in the button's host
@@ -74,15 +64,11 @@ export class ButtonComponent implements OnInit {
               a[indev-flat-button]`,
   exportAs: 'indevButton',
   templateUrl: './button.component.html',
-  styleUrls: [
-    './button.component.scss',
-    './button-theme.component.scss',
-  ],
+  styleUrls: ['./button.component.scss', './button-theme.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AnchorComponent extends ButtonComponent {
   constructor(public elementRef: ElementRef) {
     super(elementRef);
   }
-
 }

@@ -1,0 +1,11 @@
+indev-markdown {
+  .header-link {
+    color: var(--on-background);
+    text-decoration: none;
+
+    transition: 0.1s ease-in-out;
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}
