@@ -10,6 +10,7 @@ import { CursoCardComponent } from './components/cards/curso-card/curso-card.com
 import { SectionComponent } from './components/section/section.component';
 import { ProyectosInnovacionCardComponent } from './components/cards/proyectos-innovacion-card/proyectos-innovacion-card.component';
 import { LazyTransitionComponent, LazyLoadImage } from './components/lazy-load/lazy-load.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 const DECLARATIONS = [
   ContainerComponent,
@@ -36,7 +37,7 @@ const DECLARATIONS = [
 
 @NgModule({
   declarations: DECLARATIONS,
-  imports: [CommonModule],
-  exports: [CommonModule, ...DECLARATIONS]
+  imports: [CommonModule, MarkdownModule.forChild()],
+  exports: [CommonModule, MarkdownModule, ...DECLARATIONS]
 })
 export class SharedModule {}

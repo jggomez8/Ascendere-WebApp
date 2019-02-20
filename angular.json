@@ -32,7 +32,9 @@
               "src/styles/text-theme.scss",
               "src/styles/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/marked/lib/marked.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -88,7 +90,9 @@
               "src/styles/text-theme.scss",
               "src/styles/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/marked/lib/marked.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
