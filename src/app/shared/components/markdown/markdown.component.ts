@@ -15,9 +15,6 @@ export class MarkdownComponent implements OnInit {
   constructor(private md: MarkdownService) {}
 
   ngOnInit() {
-    this.md.renderer.paragraph = (text: string) => {
-      return '<p class="TextTheme--overline">' + text + '</p>';
-    };
     this.md.renderer.heading = this.MD_Heading;
   }
 
@@ -31,14 +28,10 @@ export class MarkdownComponent implements OnInit {
       'TextTheme--title'
     ];
 
-    const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
-
     return `
       <h${level} class="${levelStyles[level - 1]}" >
-        <a name="${escapedText}" href="#${escapedText}" class="header-link" >
-          ${text}
-        </a>
+        ${text}
       </h${level}>
-    `;
+      `;
   }
 }
