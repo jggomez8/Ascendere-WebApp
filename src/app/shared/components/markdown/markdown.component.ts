@@ -16,6 +16,7 @@ export class MarkdownComponent implements OnInit {
   // TODO: add custom image loader
   // TODO: Validate bloquote
   // TODO: test more elements
+  // TODO: Header classes should be apart from TextTheme
 
   constructor(private md: MarkdownService) {}
 
