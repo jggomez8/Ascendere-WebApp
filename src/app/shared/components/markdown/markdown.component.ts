@@ -12,6 +12,11 @@ import { MarkdownService } from 'ngx-markdown';
   encapsulation: ViewEncapsulation.None
 })
 export class MarkdownComponent implements OnInit {
+
+  // TODO: add custom image loader
+  // TODO: Validate bloquote
+  // TODO: test more elements
+
   constructor(private md: MarkdownService) {}
 
   ngOnInit() {
