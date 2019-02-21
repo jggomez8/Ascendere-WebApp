@@ -4,30 +4,3 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-nav {
-  background-color: var(--surface-color);
-  color: var(--on-surface);
-  padding: 25px 0;
-  .navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 10px;
-      li {
-        display: inline;
-
-        // style ascendere chip
-        padding: 5px 15px;
-        background-color: var(--surface-color);
-        color: var(--on-surface);
-        border-radius: 32px;
-        border: 3px solid var(--primary-color);
-      }
-    }
-  }
-}
