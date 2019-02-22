@@ -1,60 +1,69 @@
+<!-- Navbar Container -->
 <nav>
   <indev-container>
-    <div class="header-1">
-      <img src="/assets/images/logo.svg" alt="Logo Ascendere" />
-    </div>
-    <div class="header-menu">
-      <ul class="main-menu">
-        <li>
-          Servicios
-        </li>
-        <li>
-          Innovacion
-          <ul class='dropdown'>
-            <li>Buenas Practicas</li>
-            <li>Proyectos Actuales</li>
-            <li>Ayudantes de Catedra</li>
-          </ul>
-        </li>
-        <li>
-          Formacion
-          ul.dropdown>
-        </li>
-        <li>
-          Evaluacion
+    <!-- Main Navbar -->
+    <div class="navbar">
+      <!-- Brand and actions (small screen) -->
+      <div class="brand">
+        <img src="/assets/images/logo.svg" alt="Logo Ascendere" />
+        <div class="actions">
+          <!-- <button>close</button> -->
+        </div>
+      </div>
+
+      <!-- TODO: add active class to elements with goto -->
+      <!-- Main Navbar content, Direct links to content -->
+      <ul class="header-menu">
+        <!-- Each item from main navbar is clickable. -->
+        <li *ngFor="let headerMenuItem of headerMenu" class="menuItem">
+          <!-- Items with dropdown have different layout than normal ones -->
+          <div *ngIf="!headerMenuItem.children; else dropdown">
+            <button indev-button>{{ headerMenuItem.name }}</button>
+          </div>
+
+          <ng-template #dropdown>
+            <!-- Dropdown containers, need to position dropdown content  -->
+            <div class="dropdown">
+              <button indev-button>{{ headerMenuItem.name }} 🍕</button>
+              <ul class="dropdown-content">
+                <!-- dropdown container have sections, with borders.
+                But if just section, remove section decorators-->
+                <li
+                  *ngFor="let menuSection of headerMenuItem.children"
+                  class="dropdown-section"
+                  [ngClass]="{ 'remove-section-decorator': !menuSection.children }"
+                >
+                  <!-- Sections names can be: name or name with goto-->
+                  <button
+                    indev-button
+                    color="primary"
+                    href="#feaasd"
+                    [disabled]="!menuSection.goto"
+                    class="dropdown-section-button"
+                  >
+                    {{ menuSection.name }}
+                  </button>
+
+                  <!-- section content -->
+                  <ul *ngIf="menuSection.children">
+                    <li *ngFor="let sectionDetail of menuSection.children">
+                      <button indev-button>
+                        {{ sectionDetail.name }}
+                      </button>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </ng-template>
         </li>
       </ul>
+
+      <!-- Actions for Navbar -->
+      <div class="navbar-actions">
+        <input type="text" />
+        <button indev-stroked-button>Iniciar Sesión</button>
+      </div>
     </div>
   </indev-container>
 </nav>
-
-<!--
-    Navbar is at the top of the app, and it is stikie
-    Structure of navbar:
-
-
-    - brand section
-      - logo
-      - actions (only on small screens)
-    - Header menu
-      - Main menu
-        - sections
-          - dropdown
-            - dropdown section
-              - header
-              - links
-      - Actions Section
-        - Search bar
-        - Sign In button
-   -->
-
-<!-- <div class="navbar">
-        <div class="brand " style="--aspect-ratio:1/1">
-          <img src="/assets/images/logo.svg" alt="Logo Ascendere">
-        </div>
-        <ul class="responsive-nav">
-          <li class="TextTheme--subhead">Innovación</li>
-          <li class="TextTheme--subhead">Formación</li>
-          <li class="TextTheme--subhead">Evaluación</li>
-        </ul>
-      </div> -->

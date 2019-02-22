@@ -7,21 +7,21 @@ import { NavbarItem } from './navbar-item';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  links: Array<NavbarItem> = [
+  headerMenu: Array<NavbarItem> = [
     {
       name: 'Servicios'
     },
     {
-      name: 'Innovacion',
+      name: 'Innovación',
       children: [
         {
-          name: 'Proyectos de Innovacion',
+          name: 'Proyectos de Innovación',
           children: [
             {
-              name: 'Buenas Paacticas'
+              name: 'Buenas Practicas'
             },
             {
-              name: 'Proyectos de Innovacion'
+              name: 'Proyectos de Innovación'
             }
           ]
         },
@@ -29,20 +29,21 @@ export class NavbarComponent {
           name: 'Otros Links',
           children: [
             {
-              name: 'Ayudantes de Catedra'
+              name: 'Ayudantes de Cátedra'
             },
             {
-              name: 'Combocatorias'
+              name: 'Combinatorias'
             }
           ]
         }
       ]
     },
     {
-      name: 'Formacion',
+      name: 'Formación',
       children: [
         {
-          name: 'Programa de formcion',
+          name: 'Programa de Formación',
+          goto: '/',
           children: [
             {
               name: 'Cursos Actuales'
@@ -53,10 +54,11 @@ export class NavbarComponent {
           ]
         },
         {
-          name: 'Encuentro',
+          name: 'Encuentros',
+          goto: '/',
           children: [
             {
-              name: 'Cafe Cientifico'
+              name: 'Cafe Científico'
             },
             {
               name: 'Vitamina i'
@@ -65,6 +67,7 @@ export class NavbarComponent {
         },
         {
           name: 'Jornadas De Reflection',
+          goto: '/',
           children: [
             {
               name: 'Jornada 2019'
@@ -73,6 +76,7 @@ export class NavbarComponent {
         },
         {
           name: 'Diseño y desarrollo de mi asignatura',
+          goto: '/',
           children: [
             {
               name: 'Como Elaborar mi Plan Docente'
@@ -84,7 +88,7 @@ export class NavbarComponent {
               name: 'Recursos Digitales'
             },
             {
-              name: 'Bases DE datos'
+              name: 'Bases de Datos'
             },
             {
               name: 'Asesoramiento'
@@ -94,21 +98,24 @@ export class NavbarComponent {
       ]
     },
     {
-      name: 'Observatorio Edutendencias',
+      name: 'Observatorio EduTendencias',
       children: [
         {
-          name: 'Tips de Innovacion'
+          name: 'Tips de Innovación',
+          goto: '/'
         },
         {
-          name: 'Noticias'
+          name: 'Noticias',
+          goto: '/'
         },
         {
-          name: 'Docentes Ascenderes'
+          name: 'Docentes Ascenderse',
+          goto: '/'
         }
       ]
     },
     {
-      name: 'Evaluacion'
+      name: 'Evaluación'
     }
   ];
 }
