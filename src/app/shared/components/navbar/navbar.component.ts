@@ -21,12 +21,11 @@ export class NavbarComponent {
               name: 'Buenas Practicas'
             },
             {
-              name: 'Proyectos de Innovación'
+              name: 'Proyectos Actuales'
             }
           ]
         },
         {
-          name: 'Otros Links',
           children: [
             {
               name: 'Ayudantes de Cátedra'
@@ -113,9 +112,6 @@ export class NavbarComponent {
           goto: '/'
         }
       ]
-    },
-    {
-      name: 'Evaluación'
     }
   ];
 }
