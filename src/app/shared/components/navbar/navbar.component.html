@@ -22,7 +22,7 @@
           <li *ngFor="let headerMenuItem of headerMenu">
             <!-- Items with dropdown have different layout than normal ones -->
             <div *ngIf="!headerMenuItem.children; else dropdown">
-              <button indev-button>
+              <button indev-button class="menu-item">
                 <h3>{{ headerMenuItem.name }}</h3>
               </button>
             </div>
@@ -30,7 +30,7 @@
             <ng-template #dropdown>
               <!-- Dropdown containers, need to position dropdown content  -->
               <div class="dropdown">
-                <button indev-button>
+                <button indev-button class="menu-item">
                   <h3>{{ headerMenuItem.name }} 🍕</h3>
                 </button>
                 <ul class="dropdown-content">
@@ -47,7 +47,6 @@
                       color="primary"
                       href="#feaasd"
                       [disabled]="!menuSection.goto"
-                      class="dropdown-section-button"
                       *ngIf="menuSection.name"
                     >
                       <h4>

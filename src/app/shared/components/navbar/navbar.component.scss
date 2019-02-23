@@ -1,201 +1,179 @@
-// display breakopints
+// display breakpoints
+$display-small: 500px;
+$display-tablet: 700px;
 $display-desktop: 1100px;
 
+// style navbar with default color, background and space
 nav {
   background-color: var(--surface-color);
   color: var(--on-surface);
   padding: 25px 0;
+  // TODO: edit space on small and large screens
   max-height: 200px;
 }
 
+// Navbar by default is a flex element to give items space between
+// in desktop screen
 .navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  @media screen and (min-width: $display-desktop) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
 
-  .navbar-header {
+// Navbar header contains mainly logo and on small screens actions
+.navbar-header {
+  width: auto;
+
+  // Take all space to position actions on the other side of the row
+  @media screen and (max-width: $display-desktop) {
     width: 100%;
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
-    .navbar-icon {
-      height: 75px;
-      width: 75px;
-      margin-right: 25px;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-  // Contains header and navbar actions
-  // Mobile: hide everything
-  .main-header {
-    display: none;
-    &.active-navbar {
-      @media screen and (max-width: $display-desktop) {
-        max-width: 400px;
-        max-height: 100% !important;
-        overflow: auto;
-
-        position: fixed !important;
-        bottom: 0;
-        right: 0;
-        top: 0;
-
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: flex-end;
-
-        padding: 25px;
-
-        background-color: #fff;
-        box-shadow: 0 10px 50px rgba(27, 31, 35, 0.15);
-        z-index: 100;
-        .close-navbar {
-          align-self: flex-end;
-          order: 1;
-        }
-      }
-    }
-
-    .header-menu {
-      > li {
-        border-bottom: 1px dotted rgba(0, 0, 0, 0.692);
-
-        :last-child {
-          border-bottom: none;
-        }
-      }
-      button {
-        margin: 0 -15px;
-      }
-      .dropdown {
-        overflow: hidden;
-
-        // TODO: change to check box
-        &:hover .dropdown-content {
-          display: block;
-        }
-
-        .dropdown-content {
-          display: none;
-
-          padding: 10px 0 20px 15px;
-
-          // style content
-          border-radius: 5px;
-          background-color: var(--surface-color);
-
-          .dropdown-section {
-            padding: 15px 0;
-            border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
-
-            &:first-child {
-              padding-top: 0;
-            }
-            &:last-child {
-              padding-bottom: 0;
-              border-bottom: none;
-            }
-
-            // remove buttons internal padding
-            button {
-              width: 100%;
-              text-align: left;
-            }
-          }
-
-          .remove-section-decorator {
-            padding: 0;
-            border: 0;
-          }
-        }
-      }
-    }
   }
 }
 
-// TODO: add active class
+// hide navbar-header.actions on desktop
+.navbar-header .actions {
+  @media screen and (min-width: $display-desktop) {
+    display: none;
+  }
+}
 
-// Style for desktop
-@media screen and (min-width: $display-desktop) {
-  .navbar {
-    .navbar-header {
-      width: auto;
-      .actions {
-        display: none;
+// size ascendere brand logo
+.navbar-icon {
+  // TODO: resise logo depending on screen size
+  height: 75px;
+  width: 75px;
+  margin-right: 25px;
+}
+
+// main links and actions, by default display is none, but in desktop is a flex row
+.main-header {
+  display: none;
+  @media screen and (min-width: $display-desktop) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+// TODO: add checkbox
+// when main is activated and is on small screen, items will be displayed at left sode
+.main-header.active-navbar {
+  @media screen and (max-width: $display-desktop) {
+    width: auto;
+    overflow: auto;
+
+    position: fixed !important;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    @media screen and (max-width: $display-tablet) {
+      left: 0;
+    }
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+
+    padding: 25px;
+
+    background-color: #fff;
+    box-shadow: 0 10px 50px rgba(27, 31, 35, 0.15);
+    z-index: 100;
+  }
+}
+
+// Close button on side bar is displayed onlu on small screens, and sidebar is active
+.main-header.active-navbar .close-navbar {
+  @media screen and (max-width: $display-desktop) {
+    align-self: flex-end;
+    order: 1;
+  }
+  @media screen and (min-width: $display-desktop) {
+    display: none;
+  }
+}
+
+// contains links, on desktop align them on a row, and mobile as a column and a border
+.header-menu {
+  display: flex;
+  @media screen and (max-width: $display-desktop) {
+    flex-direction: column;
+    > li {
+      border-bottom: 1px dotted rgba(0, 0, 0, 0.692);
+      &:last-child {
+        border-bottom: none;
       }
     }
-
-    .main-header {
-      display: flex;
-      flex-direction: row;
-      .header-menu {
-        list-style: none;
-        display: flex;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 10px;
-        > li {
-          border-bottom: none;
-        }
-        button {
-          margin: 0 ;
-        }
-        .dropdown {
-          overflow: hidden;
-
-          // TODO: change to check box
-          &:hover .dropdown-content {
-            display: block;
-          }
-
-          .dropdown-content {
-            display: none;
-            position: absolute;
-            z-index: 100;
-
-            padding: 15px 20px;
-
-            // style content
-            border-radius: 5px;
-            background-color: var(--surface-color);
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-
-            .dropdown-section {
-              padding: 15px 0;
-              border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
-
-              &:first-child {
-                padding-top: 0;
-              }
-              &:last-child {
-                padding-bottom: 0;
-                border-bottom: none;
-              }
-
-              // remove buttons internal padding
-              button {
-                margin: 0 -15px;
-                width: 100%;
-                text-align: left;
-              }
-            }
-
-            .remove-section-decorator {
-              padding: 0;
-              border: 0;
-            }
-          }
-        }
-      }
-    }
-    .navbar-actions {
-      margin-left: 20px;
+    button.menu-item {
+      margin: 0 -15px;
     }
   }
+  @media screen and (min-width: $display-desktop) {
+    flex-direction: row;
+  }
+}
+
+.dropdown {
+  overflow: hidden;
+}
+
+// TODO: change to check box
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+// content by default is hidden
+.dropdown-content {
+  display: none;
+
+  padding: 15px 25px;
+
+  // style content
+  border-radius: 5px;
+  background-color: var(--surface-color);
+
+  @media screen and (min-width: $display-desktop) {
+    position: absolute;
+    z-index: 100;
+
+    // style content
+    border-radius: 5px;
+    background-color: var(--surface-color);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.dropdown-section {
+  padding: 15px 0;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+
+  &:first-child {
+    padding-top: 0;
+  }
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.dropdown-section button {
+  width: 100%;
+  text-align: left;
+  margin: 0 -15px;
+}
+
+.remove-section-decorator {
+  padding: 0;
+  border: none;
+}
+
+.navbar-actions {
+  margin-left: 20px;
 }
