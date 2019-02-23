@@ -66,16 +66,13 @@ nav {
 // when main is activated and is on small screen, items will be displayed at left sode
 .main-header.active-navbar {
   @media screen and (max-width: $display-desktop) {
-    width: auto;
+    width: 40vw;
     overflow: auto;
 
     position: fixed !important;
     bottom: 0;
     right: 0;
     top: 0;
-    @media screen and (max-width: $display-tablet) {
-      left: 0;
-    }
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
@@ -86,9 +83,13 @@ nav {
     box-shadow: 0 10px 50px rgba(27, 31, 35, 0.15);
     z-index: 100;
   }
+  @media screen and (max-width: $display-tablet) {
+    width: 60vw;
+  }
 }
 
 // Close button on side bar is displayed onlu on small screens, and sidebar is active
+// remove button margin
 .main-header.active-navbar .close-navbar {
   @media screen and (max-width: $display-desktop) {
     align-self: flex-end;
@@ -175,5 +176,20 @@ nav {
 }
 
 .navbar-actions {
-  margin-left: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  @media screen and (max-width: $display-desktop) {
+    flex-direction: column;
+    margin-top: 10px;
+    > * {
+      margin-bottom: 15px;
+    }
+  }
+  @media screen and (min-width: $display-desktop) {
+    flex-direction: row;
+    margin-left: 10px;
+    > * {
+      margin-left: 10px;
+    }
+  }
 }
