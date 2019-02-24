@@ -56,7 +56,7 @@ export class LazyTransitionComponent implements OnInit, AfterViewInit {
   exportAs: 'LazyImageComponent',
   template: `
     <div class="lazy-container" [ngClass]="{ fade: loaded }">
-      <img *ngIf="loaded" [src]="dataSource" alt="TODO: temp img" />
+      <img *ngIf="loaded" [src]="dataSource"/>
     </div>
   `,
   styleUrls: ['./lazy-load.component.scss']

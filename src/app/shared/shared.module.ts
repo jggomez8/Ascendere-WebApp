@@ -11,7 +11,6 @@ import { SectionComponent } from './components/section/section.component';
 import { ProyectosInnovacionCardComponent } from './components/cards/proyectos-innovacion-card/proyectos-innovacion-card.component';
 import { LazyTransitionComponent, LazyLoadImage } from './components/lazy-load/lazy-load.component';
 import { MarkdownModule } from 'ngx-markdown';
-import { MarkdownComponent } from './components/markdown/markdown.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 const DECLARATIONS = [
@@ -35,9 +34,6 @@ const DECLARATIONS = [
   // lazy load component
   LazyTransitionComponent,
   LazyLoadImage,
-
-  // markdown conponent
-  MarkdownComponent,
 
   // Navbar
   NavbarComponent

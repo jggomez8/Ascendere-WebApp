@@ -5,11 +5,15 @@ $display-desktop: 1100;
 
 // style navbar with default color, background and space
 nav {
+  max-height: 200px;
   background-color: var(--surface-color);
   color: var(--on-surface);
-  padding: 25px 0;
-  // TODO: edit space on small and large screens
-  max-height: 200px;
+  padding: 15px 0;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.404);
+
+  @media screen and (min-width: $display-desktop+'px') {
+    padding: 25px 0;
+  }
 }
 
 // Navbar by default is a flex element to give items space between
@@ -47,10 +51,13 @@ nav {
 
 // size ascendere brand logo
 .navbar-icon {
-  // TODO: resise logo depending on screen size
-  height: 75px;
-  width: 75px;
+  height: 50px;
+  width: 50px;
   margin-right: 25px;
+  @media screen and (min-width: $display-desktop+'px') {
+    height: 75px;
+    width: 75px;
+  }
 }
 
 // main links and actions, by default display is none, but in desktop is a flex row
@@ -62,7 +69,6 @@ nav {
   }
 }
 
-// TODO: add checkbox
 // when main is activated and is on small screen, items will be displayed at left sode
 .main-header.active-navbar {
   @media screen and (max-width: $display-desktop+'px') {
@@ -126,8 +132,6 @@ nav {
 .dropdown {
   overflow: hidden;
 }
-
-// TODO: change to check box
 
 .dropdown.active-dropdown .dropdown-content {
   display: block;

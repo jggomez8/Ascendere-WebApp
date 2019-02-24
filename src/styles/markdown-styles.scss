@@ -1,4 +1,7 @@
-indev-markdown {
+// TODO: add blockquote style
+// TODO: images have different size depending on view
+
+markdown {
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.015625rem;
@@ -12,6 +15,31 @@ indev-markdown {
   h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
+    font-weight: 400;
+  }
+
+  h1, .h1 {
+    font-size: 3.4rem;
+  }
+
+  h2, .h2 {
+    font-size: 2.7rem;
+  }
+
+  h3, .h3 {
+    font-size: 2.0rem;
+  }
+
+  h4, .h4 {
+    font-size: 1.5rem;
+  }
+
+  h5, .h5 {
+    font-size: 1.25rem;
+  }
+
+  h6, .h6 {
+    font-size: 1rem;
   }
 
   p {
@@ -20,15 +48,6 @@ indev-markdown {
     margin-bottom: 1em;
   }
 
-  .header-link {
-    color: var(--on-background);
-    text-decoration: none;
-
-    transition: 0.1s ease-in-out;
-    &:hover {
-      color: var(--primary-color);
-    }
-  }
   strong {
     font-weight: 500;
     letter-spacing: 0.009375rem;

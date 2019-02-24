@@ -1,8 +1,21 @@
 <indev-navbar></indev-navbar>
 
-<indev-markdown>
-  <markdown [data]="markdown"> </markdown>
-</indev-markdown>
+<indev-container>
+  <markdown ngPreserveWhitespaces>
+    # Hola
+
+    ## Hola
+
+    ### Hola
+    #### Hola
+    ##### Hola
+    ###### Hola
+    If you want to embed images, this is how you do it:
+
+    ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+      </markdown>
+<markdown [data]="markdown"> </markdown>
+</indev-container>
 
 <indev-container>
   <div style="text-align:center;">
