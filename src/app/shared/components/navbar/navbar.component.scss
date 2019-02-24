@@ -1,7 +1,7 @@
 // display breakpoints
-$display-small: 500px;
-$display-tablet: 700px;
-$display-desktop: 1100px;
+$display-small: 500;
+$display-tablet: 700;
+$display-desktop: 1100;
 
 // style navbar with default color, background and space
 nav {
@@ -15,7 +15,7 @@ nav {
 // Navbar by default is a flex element to give items space between
 // in desktop screen
 .navbar {
-  @media screen and (min-width: $display-desktop) {
+  @media screen and (min-width: $display-desktop+'px') {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -28,7 +28,7 @@ nav {
   width: auto;
 
   // Take all space to position actions on the other side of the row
-  @media screen and (max-width: $display-desktop) {
+  @media screen and (max-width: $display-desktop+'px') {
     width: 100%;
 
     display: flex;
@@ -40,7 +40,7 @@ nav {
 
 // hide navbar-header.actions on desktop
 .navbar-header .actions {
-  @media screen and (min-width: $display-desktop) {
+  @media screen and (min-width: $display-desktop+'px') {
     display: none;
   }
 }
@@ -56,7 +56,7 @@ nav {
 // main links and actions, by default display is none, but in desktop is a flex row
 .main-header {
   display: none;
-  @media screen and (min-width: $display-desktop) {
+  @media screen and (min-width: $display-desktop+'px') {
     display: flex;
     flex-direction: row;
   }
@@ -65,7 +65,7 @@ nav {
 // TODO: add checkbox
 // when main is activated and is on small screen, items will be displayed at left sode
 .main-header.active-navbar {
-  @media screen and (max-width: $display-desktop) {
+  @media screen and (max-width: $display-desktop+'px') {
     width: 40vw;
     overflow: auto;
 
@@ -83,7 +83,7 @@ nav {
     box-shadow: 0 10px 50px rgba(27, 31, 35, 0.15);
     z-index: 100;
   }
-  @media screen and (max-width: $display-tablet) {
+  @media screen and (max-width: $display-tablet+'px') {
     width: 60vw;
   }
 }
@@ -91,19 +91,22 @@ nav {
 // Close button on side bar is displayed onlu on small screens, and sidebar is active
 // remove button margin
 .main-header.active-navbar .close-navbar {
-  @media screen and (max-width: $display-desktop) {
+  @media screen and (max-width: $display-desktop+'px') {
     align-self: flex-end;
     order: 1;
   }
-  @media screen and (min-width: $display-desktop) {
+}
+.close-navbar {
+  @media screen and (min-width: $display-desktop+'px') {
     display: none;
   }
 }
 
 // contains links, on desktop align them on a row, and mobile as a column and a border
 .header-menu {
+  overflow: auto;
   display: flex;
-  @media screen and (max-width: $display-desktop) {
+  @media screen and (max-width: $display-desktop+'px') {
     flex-direction: column;
     > li {
       border-bottom: 1px dotted rgba(0, 0, 0, 0.692);
@@ -115,7 +118,7 @@ nav {
       margin: 0 -15px;
     }
   }
-  @media screen and (min-width: $display-desktop) {
+  @media screen and (min-width: $display-desktop+'px') {
     flex-direction: row;
   }
 }
@@ -126,7 +129,7 @@ nav {
 
 // TODO: change to check box
 
-.dropdown:hover .dropdown-content {
+.dropdown.active-dropdown .dropdown-content {
   display: block;
 }
 
@@ -140,7 +143,7 @@ nav {
   border-radius: 5px;
   background-color: var(--surface-color);
 
-  @media screen and (min-width: $display-desktop) {
+  @media screen and (min-width: $display-desktop+'px') {
     position: absolute;
     z-index: 100;
 
@@ -178,14 +181,14 @@ nav {
 .navbar-actions {
   display: flex;
   flex-wrap: nowrap;
-  @media screen and (max-width: $display-desktop) {
+  @media screen and (max-width: $display-desktop+'px') {
     flex-direction: column;
     margin-top: 10px;
     > * {
       margin-bottom: 15px;
     }
   }
-  @media screen and (min-width: $display-desktop) {
+  @media screen and (min-width: $display-desktop+'px') {
     flex-direction: row;
     margin-left: 10px;
     > * {

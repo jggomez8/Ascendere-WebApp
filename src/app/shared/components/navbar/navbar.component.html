@@ -10,27 +10,28 @@
         </div>
         <div class="actions">
           <button indev-stroked-button>Sign In</button>
-          <button indev-button>📚</button>
+          <button indev-button (click)="toggleNavbar()">📚</button>
         </div>
       </div>
 
-      <div class="main-header active-navbar">
-        <button indev-stroked-button class="close-navbar">❌</button>
+      <div class="main-header" #mainNavbar>
+        <button indev-stroked-button class="close-navbar" (click)="toggleNavbar()">❌</button>
         <!-- Main Navbar content, Direct links to content -->
         <ul class="header-menu">
           <!-- Each item from main navbar is clickable. -->
           <li *ngFor="let headerMenuItem of headerMenu">
             <!-- Items with dropdown have different layout than normal ones -->
-            <div *ngIf="!headerMenuItem.children; else dropdown">
+            <div *ngIf="!headerMenuItem.children; else dropdownContent">
               <button indev-button class="menu-item">
                 <h3>{{ headerMenuItem.name }}</h3>
               </button>
             </div>
 
-            <ng-template #dropdown>
+            <ng-template #dropdownContent>
               <!-- Dropdown containers, need to position dropdown content  -->
-              <div class="dropdown">
-                <button indev-button class="menu-item">
+              <div class="dropdown" #dropdown [id]="headerMenuItem.id">
+                <!-- Button should toggle dropdown -->
+                <button indev-button class="menu-item" (click)="toggleDropdown(headerMenuItem.id)">
                   <h3>{{ headerMenuItem.name }} 🍕</h3>
                 </button>
                 <ul class="dropdown-content">
@@ -70,11 +71,11 @@
         </ul>
 
         <!-- Actions for Navbar -->
-        <div class="navbar-actions">
+        <!-- <div class="navbar-actions">
           <input type="text" />
           <button indev-stroked-button>Iniciar Sesión</button>
           <button indev-stroked-button>Registrarse</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </indev-container>
