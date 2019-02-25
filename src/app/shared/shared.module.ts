@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+// material components
+import 'hammerjs';
+
+import { AngularMaterialModule } from './modules/angular-material.module';
+
 import { ContainerComponent } from './components/container/container.component';
-import { ButtonComponent, AnchorComponent } from './components/button/button.component';
 import { SectionControlsComponent } from './components/section/section-controls.component';
 import { SectionTitleComponent } from './components/section/section-title.component';
 import { EncuentroCardComponent } from './components/cards/encuentro-card/encuentro-card.component';
@@ -14,11 +19,8 @@ import { MarkdownModule } from 'ngx-markdown';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 const DECLARATIONS = [
+  // Container component
   ContainerComponent,
-
-  // Button Components
-  ButtonComponent,
-  AnchorComponent,
 
   // Section Components
   SectionComponent,
@@ -41,7 +43,7 @@ const DECLARATIONS = [
 
 @NgModule({
   declarations: DECLARATIONS,
-  imports: [CommonModule, MarkdownModule.forChild()],
-  exports: [CommonModule, MarkdownModule, ...DECLARATIONS]
+  imports: [CommonModule, MarkdownModule.forChild(), AngularMaterialModule],
+  exports: [CommonModule, MarkdownModule, ...DECLARATIONS, AngularMaterialModule]
 })
 export class SharedModule {}

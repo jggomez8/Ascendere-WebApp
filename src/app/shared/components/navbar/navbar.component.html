@@ -9,20 +9,20 @@
           <img src="/assets/images/logo.svg" alt="Logo Ascendere" />
         </div>
         <div class="actions">
-          <button indev-stroked-button>Sign In</button>
-          <button indev-button (click)="toggleNavbar()">📚</button>
+          <button mat-stroked-button>Sign In</button>
+          <button mat-button (click)="toggleNavbar()">📚</button>
         </div>
       </div>
 
       <div class="main-header" #mainNavbar>
-        <button indev-stroked-button class="close-navbar" (click)="toggleNavbar()">❌</button>
+        <button mat-stroked-button class="close-navbar" (click)="toggleNavbar()">❌</button>
         <!-- Main Navbar content, Direct links to content -->
         <ul class="header-menu">
           <!-- Each item from main navbar is clickable. -->
           <li *ngFor="let headerMenuItem of headerMenu">
             <!-- Items with dropdown have different layout than normal ones -->
             <div *ngIf="!headerMenuItem.children; else dropdownContent">
-              <button indev-button class="menu-item">
+              <button mat-button class="menu-item">
                 <h3>{{ headerMenuItem.name }}</h3>
               </button>
             </div>
@@ -31,7 +31,7 @@
               <!-- Dropdown containers, need to position dropdown content  -->
               <div class="dropdown" #dropdown [id]="headerMenuItem.id">
                 <!-- Button should toggle dropdown -->
-                <button indev-button class="menu-item" (click)="toggleDropdown(headerMenuItem.id)">
+                <button mat-button class="menu-item" (click)="toggleDropdown(headerMenuItem.id)">
                   <h3>{{ headerMenuItem.name }} 🍕</h3>
                 </button>
                 <ul class="dropdown-content">
@@ -44,7 +44,7 @@
                   >
                     <!-- Sections names can be: name or name with goto-->
                     <button
-                      indev-button
+                      mat-button
                       color="primary"
                       href="#feaasd"
                       [disabled]="!menuSection.goto"
@@ -58,7 +58,7 @@
                     <!-- section content -->
                     <ul *ngIf="menuSection.children">
                       <li *ngFor="let sectionDetail of menuSection.children">
-                        <button indev-button>
+                        <button mat-button>
                           {{ sectionDetail.name }}
                         </button>
                       </li>
