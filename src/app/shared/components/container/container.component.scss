@@ -1,5 +1,0 @@
-// Container is not centered at all, left side is bigger than right side
-.grid-container {
-  display: grid;
-  grid-template-columns: minmax(15px, 3fr) minmax(auto, 1400px) minmax(15px, 2fr);
-}

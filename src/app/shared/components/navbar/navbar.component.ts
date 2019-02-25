@@ -1,11 +1,4 @@
-import {
-  Component,
-  AfterViewInit,
-  ViewChildren,
-  QueryList,
-  ElementRef,
-  ViewChild
-} from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavbarItem } from './navbar-item';
 
 @Component({
@@ -13,16 +6,13 @@ import { NavbarItem } from './navbar-item';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements AfterViewInit {
+export class NavbarComponent {
   headerMenu: Array<NavbarItem> = [
     {
-      name: 'Servicios',
-      id: 'servicios'
+      name: 'Servicios'
     },
     {
       name: 'Innovación',
-      id: 'innovacion',
-
       children: [
         {
           name: 'Proyectos de Innovación',
@@ -36,15 +26,12 @@ export class NavbarComponent implements AfterViewInit {
           ]
         },
         {
-          id: '',
           children: [
             {
-              name: 'Ayudantes de Cátedra',
-              id: 'ayudante-catedra'
+              name: 'Ayudantes de Cátedra'
             },
             {
-              name: 'Combinatorias',
-              id: 'convocatiorias'
+              name: 'Combinatorias'
             }
           ]
         }
@@ -52,7 +39,6 @@ export class NavbarComponent implements AfterViewInit {
     },
     {
       name: 'Formación',
-      id: 'formacion',
       children: [
         {
           name: 'Programa de Formación',
@@ -112,11 +98,24 @@ export class NavbarComponent implements AfterViewInit {
     },
     {
       name: 'Observatorio EduTendencias',
-      id: 'edutendencias',
       children: [
         {
           name: 'Tips de Innovación',
-          goto: '/'
+          goto: '/',
+          children: [
+            {
+              name: 'Aula Divertido'
+            },
+            {
+              name: 'Docentes del Futuro'
+            },
+            {
+              name: 'Podcast'
+            },
+            {
+              name: 'Videos'
+            }
+          ]
         },
         {
           name: 'Noticias',
@@ -129,42 +128,7 @@ export class NavbarComponent implements AfterViewInit {
       ]
     }
   ];
-
-  @ViewChildren('dropdown') dropdownElements: QueryList<ElementRef>;
   @ViewChild('mainNavbar') mainNavbarElement: ElementRef;
-
-  // TODO: test performances after all TODO's are done
-  // TODO: subscribe to router, so in router change deactivate all dropdown
-  // TODO:subscribe when scroll change so deactivate all active dropdown
-
-  ngAfterViewInit(): void {}
-
-  /**
-   * Toggle dropdowns from navbar elements
-   */
-  toggleDropdown(id: string) {
-    // get element with id
-    let clickedEl: HTMLElement;
-    this.dropdownElements.forEach((el: ElementRef) => {
-      if (id === (el.nativeElement as HTMLElement).id) clickedEl = el.nativeElement;
-    });
-
-    // if element has active-dropdown, remove class and return
-    if (clickedEl.classList.contains('active-dropdown')) {
-      clickedEl.classList.remove('active-dropdown');
-      return;
-    }
-
-    // element to be activated is different from old element
-    // 1. deactivate other elements, so only one is active at the moment
-    this.dropdownElements.forEach((el: ElementRef) => {
-      if (el.nativeElement.classList.contains('active-dropdown')) {
-        el.nativeElement.classList.remove('active-dropdown');
-      }
-    });
-    // 2 activate needed element
-    clickedEl.classList.add('active-dropdown');
-  }
 
   /**
    * toggle navbar open or close

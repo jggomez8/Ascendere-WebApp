@@ -1,5 +1,4 @@
-// Based on Flutter implementation of TextTheme and Material Design specifications
-// TODO: store in service worker
+// Based on Flutter implementation of .TextTheme and Material Design specifications
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
 body {
@@ -7,109 +6,100 @@ body {
   font-size: 1rem;
 }
 
-// TODO: create a pipe or verify if already exists
-.TextCase {
-  &--sentence {
-    text-transform: lowercase;
-  }
-
-  &--sentence::first-letter {
-    text-transform: uppercase;
-  }
+/* Headline1, display4 */
+.TextTheme--display4 {
+  font-size: 6rem;
+  font-weight: 300;
+  letter-spacing: -0.09375rem;
+  line-height: 1.2;
 }
 
-.TextTheme {
-  /* Headline1, display4 */
-  &--display4 {
-    font-size: 6rem;
-    font-weight: 300;
-    letter-spacing: -0.09375rem;
-    line-height: 1.2;
-  }
+/* Headline2, display3 */
+.TextTheme--display3 {
+  font-size: 3.75rem;
+  font-weight: 300;
+  letter-spacing: -0.03125rem;
+  line-height: 1.2;
+}
 
-  /* Headline2, display3 */
-  &--display3 {
-    font-size: 3.75rem;
-    font-weight: 300;
-    letter-spacing: -0.03125rem;
-    line-height: 1.2;
-  }
+/* Headline3, display2 */
+.TextTheme--display2 {
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
 
-  /* Headline3, display2 */
-  &--display2 {
-    font-size: 3rem;
-    font-weight: 400;
-    line-height: 1.2;
-  }
+/* Headline4, display1 */
+.TextTheme--display1 {
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: 0.015625rem;
+  line-height: 1.2;
+}
 
-  /* Headline4, display1 */
-  &--display1 {
-    font-size: 2.125rem;
-    font-weight: 400;
-    letter-spacing: 0.015625rem;
-    line-height: 1.2;
-  }
+/* Headline5, headline */
+.TextTheme--headline {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
 
-  /* Headline5, headline */
-  &--headline {
-    font-size: 1.5rem;
-    font-weight: 400;
-  }
+/* Headline6, title */
+.TextTheme--title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.009375rem;
+}
 
-  /* Headline6, title */
-  &--title {
-    font-size: 1.25rem;
-    font-weight: 500;
-    letter-spacing: 0.009375rem;
-  }
+/* subtitle1, subhead */
+.TextTheme--subhead {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.009375rem;
+}
 
-  /* subtitle1, subhead */
-  &--subhead {
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.009375rem;
-  }
+/* body1, body2 */
+.TextTheme--body2,
+b {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.009375rem;
+}
 
-  /* body1, body2 */
-  &--body2 {
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 0.009375rem;
-  }
+/* body2, body1 */
+.TextTheme--body1,p {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.015625rem;
+}
 
-  /* body2, body1 */
-  &--body1 {
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.015625rem;
-  }
+/* caption, caption */
+.TextTheme--caption {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.025rem;
+}
 
-  /* caption, caption */
-  &--caption {
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0.025rem;
-  }
+/* button, button */
+.TextTheme--button,
+button,
+a {
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.078125rem !important;
+  text-transform: uppercase !important;
+}
 
-  /* button, button */
-  &--button {
-    font-weight: 500;
-    font-size: 0.875rem;
-    letter-spacing: 0.078125rem;
-  }
+/* subtitle2, subtitle */
+.TextTheme--subtitle {
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.0625rem;
+}
 
-  /* subtitle2, subtitle */
-  &--subtitle {
-    font-weight: 500;
-    font-size: 0.875rem;
-    letter-spacing: 0.0625rem;
-  }
-
-  /* overline, overline */
-  &--overline {
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0.09375rem;
-    text-transform: uppercase;
-  }
+/* overline, overline */
+.TextTheme--overline {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.09375rem;
+  text-transform: uppercase;
 }

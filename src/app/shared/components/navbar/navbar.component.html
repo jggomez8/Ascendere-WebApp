@@ -29,9 +29,9 @@
 
             <ng-template #dropdownContent>
               <!-- Dropdown containers, need to position dropdown content  -->
-              <div class="dropdown" #dropdown [id]="headerMenuItem.id">
+              <div class="dropdown" #dropdown>
                 <!-- Button should toggle dropdown -->
-                <button mat-button class="menu-item" (click)="toggleDropdown(headerMenuItem.id)">
+                <button mat-button class="menu-item">
                   <h3>{{ headerMenuItem.name }} 🍕</h3>
                 </button>
                 <ul class="dropdown-content">
