@@ -43,7 +43,7 @@
                     [ngClass]="{ 'remove-section-decorator': !menuSection.children }"
                   >
                     <!-- Sections names can be: name or name with goto-->
-                    <button
+                    <a
                       mat-button
                       color="primary"
                       href="#feaasd"
@@ -53,14 +53,14 @@
                       <h4>
                         {{ menuSection.name }}
                       </h4>
-                    </button>
+                    </a>
 
                     <!-- section content -->
                     <ul *ngIf="menuSection.children">
                       <li *ngFor="let sectionDetail of menuSection.children">
-                        <button mat-button>
+                        <a mat-button>
                           {{ sectionDetail.name }}
-                        </button>
+                        </a>
                       </li>
                     </ul>
                   </li>

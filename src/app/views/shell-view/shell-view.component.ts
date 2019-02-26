@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'indev-root',
+  selector: 'indev-shell-view',
   template: `
+    <indev-navbar></indev-navbar>
     <router-outlet></router-outlet>
   `
 })
-export class AppComponent {}
+export class ShellViewComponent {}

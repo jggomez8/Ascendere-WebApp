@@ -104,7 +104,7 @@ export class NavbarComponent {
           goto: '/',
           children: [
             {
-              name: 'Aula Divertido'
+              name: 'Aula Divertida'
             },
             {
               name: 'Docentes del Futuro'
@@ -119,11 +119,9 @@ export class NavbarComponent {
         },
         {
           name: 'Noticias',
-          goto: '/'
         },
         {
           name: 'Docentes Ascenderse',
-          goto: '/'
         }
       ]
     }
