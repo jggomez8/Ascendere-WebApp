@@ -1,0 +1,36 @@
+<!-- When link is not provided, disable anchor -->
+<ng-container *ngIf="!menuItemData.routerLink && !menuItemData.goto; else notDisabled">
+  <a mat-button disabled >
+    {{ menuItemData.name }}
+  </a>
+</ng-container>
+
+<ng-template #notDisabled>
+  <!-- two cases, route inside app with router link, or outside the app with href -->
+  <!-- route outside the app -->
+  <ng-container *ngIf="menuItemData.goto && menuItemData.name; else routeRouterLink">
+    <a
+      mat-button
+      [color]="color"
+      [href]="menuItemData.goto"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {{ menuItemData.name }}
+    </a>
+  </ng-container>
+  <!-- route inside the app -->
+  <ng-template #routeRouterLink>
+    <!-- TODO: routerLinkActive  -->
+    <a
+      mat-button
+      [color]="color"
+      [routerLink]="menuItemData.routerLink"
+      routerLinkActive="router-link-active"
+    >
+      <h4>
+        {{ menuItemData.name }}
+      </h4>
+    </a>
+  </ng-template>
+</ng-template>

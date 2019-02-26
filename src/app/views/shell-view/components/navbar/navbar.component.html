@@ -24,44 +24,14 @@
         <ul class="header-menu">
           <!-- Each item from main navbar is clickable. -->
           <li *ngFor="let headerMenuItem of headerMenu">
-
             <!-- Two Cases, simple link or dropdown, it depends wether it has children or not -->
-            <indev-header-menu-item [headerMenuItem]="headerMenuItem"></indev-header-menu-item>
-            <indev-header-menu-summary [headerMenuSumary]="headerMenuItem"></indev-header-menu-summary>
-            <!-- Items with dropdown have different layout than normal ones -->
-            <a *ngIf="!headerMenuItem.children; else dropdownContent">
-              <indev-navbar-route-item [routeItem]="headerMenuItem" headerMenuEnum="0">
-              </indev-navbar-route-item>
-            </a>
+            <indev-menu-button
+              [menuItemData]="headerMenuItem"
+              *ngIf="!headerMenuItem.children; else templateName"
+            ></indev-menu-button>
 
-            <ng-template #dropdownContent>
-              <!-- Dropdown containers, need to position dropdown content  -->
-              <div class="dropdown" #dropdown>
-                <!-- Button should toggle dropdown -->
-                <button mat-button class="menu-item">
-                  <h3>{{ headerMenuItem.name }} 🍕</h3>
-                </button>
-                <ul class="dropdown-content">
-                  <!-- dropdown container have sections, with borders.
-                But if just section, remove section decorators-->
-                  <li
-                    *ngFor="let menuSection of headerMenuItem.children"
-                    class="dropdown-section"
-                    [ngClass]="{ 'remove-section-decorator': !menuSection.children }"
-                  >
-                    <!-- Dropdown Section Header -->
-                    <indev-navbar-route-item [routeItem]="menuSection"> </indev-navbar-route-item>
-
-                    <!-- section content -->
-                    <ul *ngIf="menuSection.children">
-                      <li *ngFor="let sectionDetail of menuSection.children">
-                        <indev-navbar-route-item [routeItem]="sectionDetail">
-                        </indev-navbar-route-item>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
+            <ng-template #templateName>
+              <indev-menu-summary [menuSummaryData]="headerMenuItem"></indev-menu-summary>
             </ng-template>
           </li>
         </ul>

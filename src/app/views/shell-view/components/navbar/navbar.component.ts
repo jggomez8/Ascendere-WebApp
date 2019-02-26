@@ -9,8 +9,7 @@ import { NavbarItem } from '../../navbar-item.interface';
 export class NavbarComponent {
   headerMenu: Array<NavbarItem> = [
     {
-      name: 'Servicios',
-      goto: '/'
+      name: 'Servicios'
     },
     {
       name: 'Innovación',
@@ -57,7 +56,6 @@ export class NavbarComponent {
         },
         {
           name: 'Encuentros',
-          goto: '/',
           children: [
             {
               name: 'Cafe Científico'
@@ -69,7 +67,6 @@ export class NavbarComponent {
         },
         {
           name: 'Jornadas De Reflection',
-          goto: '/',
           children: [
             {
               name: 'Jornada 2019'
@@ -78,7 +75,6 @@ export class NavbarComponent {
         },
         {
           name: 'Diseño y desarrollo de mi asignatura',
-          goto: '/',
           children: [
             {
               name: 'Como Elaborar mi Plan Docente'
@@ -104,7 +100,6 @@ export class NavbarComponent {
       children: [
         {
           name: 'Tips de Innovación',
-          goto: '/',
           children: [
             {
               name: 'Aula Divertida'

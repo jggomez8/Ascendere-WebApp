@@ -27,8 +27,8 @@ nav {
   }
 }
 
-// Navbar header contains mainly logo and on small screens actions
-.navbar-header {
+// main-header contains mainly logo and on small screens actions
+.main-header {
   width: auto;
 
   // Take all space to position actions on the other side of the row
@@ -42,15 +42,15 @@ nav {
   }
 }
 
-// hide navbar-header.actions on desktop
-.navbar-header .actions {
+// hide main-header.actions on desktop
+.main-header .main-actions {
   @media screen and (min-width: $display-desktop+'px') {
     display: none;
   }
 }
 
 // size ascendere brand logo
-.navbar-icon {
+.main-icon {
   height: 50px;
   width: 50px;
   margin-right: 25px;
@@ -61,7 +61,7 @@ nav {
 }
 
 // main links and actions, by default display is none, but in desktop is a flex row
-.main-header {
+.main-navbar {
   display: none;
   @media screen and (min-width: $display-desktop+'px') {
     display: flex;
@@ -70,7 +70,7 @@ nav {
 }
 
 // when main is activated and is on small screen, items will be displayed at left sode
-.main-header.active-navbar {
+.main-navbar.active-navbar {
   @media screen and (max-width: $display-desktop+'px') {
     width: 40vw;
     overflow: auto;
@@ -96,7 +96,7 @@ nav {
 
 // Close button on side bar is displayed onlu on small screens, and sidebar is active
 // remove button margin
-.main-header.active-navbar .close-navbar {
+.main-navbar.active-navbar .close-navbar {
   @media screen and (max-width: $display-desktop+'px') {
     align-self: flex-end;
     order: 1;
@@ -128,59 +128,6 @@ nav {
   @media screen and (min-width: $display-desktop+'px') {
     flex-direction: row;
   }
-}
-
-.dropdown {
-  overflow: hidden;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-// content by default is hidden
-.dropdown-content {
-  display: none;
-
-  padding: 15px 25px;
-
-  // style content
-  border-radius: 5px;
-  background-color: var(--surface-color);
-
-  @media screen and (min-width: $display-desktop+'px') {
-    position: absolute;
-    z-index: 100;
-
-    // style content
-    border-radius: 5px;
-    background-color: var(--surface-color);
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  }
-}
-
-.dropdown-section {
-  padding: 15px 0;
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
-
-  &:first-child {
-    padding-top: 0;
-  }
-  &:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-  }
-}
-
-.dropdown-section button,
-.dropdown-section a {
-  text-align: left;
-  margin: 0 -16px;
-}
-
-.remove-section-decorator {
-  padding: 0;
-  border: none;
 }
 
 .navbar-actions {
