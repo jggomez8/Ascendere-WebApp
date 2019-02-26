@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavbarItem } from './navbar-item';
+import { NavbarItem } from '../../navbar-item.interface';
 
 @Component({
   selector: 'indev-navbar',
@@ -9,7 +9,8 @@ import { NavbarItem } from './navbar-item';
 export class NavbarComponent {
   headerMenu: Array<NavbarItem> = [
     {
-      name: 'Servicios'
+      name: 'Servicios',
+      goto: '/'
     },
     {
       name: 'Innovación',
@@ -42,13 +43,15 @@ export class NavbarComponent {
       children: [
         {
           name: 'Programa de Formación',
-          goto: '/',
+          routerLink: ['/', 'programa-formacion'],
           children: [
             {
-              name: 'Cursos Actuales'
+              name: 'Cursos Actuales',
+              routerLink: ['/programa-formacion#cursos']
             },
             {
-              name: 'InnovaTips'
+              name: 'InnovaTips',
+              routerLink: ['/programa-formacion#tips']
             }
           ]
         },
@@ -118,10 +121,10 @@ export class NavbarComponent {
           ]
         },
         {
-          name: 'Noticias',
+          name: 'Noticias'
         },
         {
-          name: 'Docentes Ascenderse',
+          name: 'Docentes Ascenderse'
         }
       ]
     }

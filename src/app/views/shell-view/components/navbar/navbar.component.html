@@ -4,28 +4,35 @@
     <!-- Main Navbar -->
     <div class="navbar">
       <!-- Brand and actions (small screen) -->
-      <div class="navbar-header">
-        <div class="navbar-icon">
+      <div class="main-header">
+        <div class="main-icon" [routerLink]="['/']">
           <img src="/assets/images/logo.svg" alt="Logo Ascendere" />
         </div>
-        <div class="actions">
+        <div class="main-actions">
           <button mat-stroked-button>Sign In</button>
           <button mat-button (click)="toggleNavbar()">📚</button>
         </div>
       </div>
+      <!-- End Brand and Main Actions -->
 
-      <div class="main-header" #mainNavbar>
+      <!-- Main Navbar -->
+      <div class="main-navbar" #mainNavbar>
+        <!-- Close button only visible on small screens -->
         <button mat-stroked-button class="close-navbar" (click)="toggleNavbar()">❌</button>
+
         <!-- Main Navbar content, Direct links to content -->
         <ul class="header-menu">
           <!-- Each item from main navbar is clickable. -->
           <li *ngFor="let headerMenuItem of headerMenu">
+
+            <!-- Two Cases, simple link or dropdown, it depends wether it has children or not -->
+            <indev-header-menu-item [headerMenuItem]="headerMenuItem"></indev-header-menu-item>
+            <indev-header-menu-summary [headerMenuSumary]="headerMenuItem"></indev-header-menu-summary>
             <!-- Items with dropdown have different layout than normal ones -->
-            <div *ngIf="!headerMenuItem.children; else dropdownContent">
-              <button mat-button class="menu-item">
-                <h3>{{ headerMenuItem.name }}</h3>
-              </button>
-            </div>
+            <a *ngIf="!headerMenuItem.children; else dropdownContent">
+              <indev-navbar-route-item [routeItem]="headerMenuItem" headerMenuEnum="0">
+              </indev-navbar-route-item>
+            </a>
 
             <ng-template #dropdownContent>
               <!-- Dropdown containers, need to position dropdown content  -->
@@ -42,25 +49,14 @@
                     class="dropdown-section"
                     [ngClass]="{ 'remove-section-decorator': !menuSection.children }"
                   >
-                    <!-- Sections names can be: name or name with goto-->
-                    <a
-                      mat-button
-                      color="primary"
-                      href="#feaasd"
-                      [disabled]="!menuSection.goto"
-                      *ngIf="menuSection.name"
-                    >
-                      <h4>
-                        {{ menuSection.name }}
-                      </h4>
-                    </a>
+                    <!-- Dropdown Section Header -->
+                    <indev-navbar-route-item [routeItem]="menuSection"> </indev-navbar-route-item>
 
                     <!-- section content -->
                     <ul *ngIf="menuSection.children">
                       <li *ngFor="let sectionDetail of menuSection.children">
-                        <a mat-button>
-                          {{ sectionDetail.name }}
-                        </a>
+                        <indev-navbar-route-item [routeItem]="sectionDetail">
+                        </indev-navbar-route-item>
                       </li>
                     </ul>
                   </li>
