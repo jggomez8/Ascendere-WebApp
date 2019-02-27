@@ -28,7 +28,6 @@
               "src/styles/app-theme.scss",
               "src/styles/text-theme.scss",
               "src/styles/styles.scss",
-              "src/styles/grid.scss",
               "src/styles/markdown-styles.scss"
             ],
             "scripts": ["node_modules/marked/lib/marked.js"],
@@ -90,7 +89,6 @@
               "src/styles/app-theme.scss",
               "src/styles/text-theme.scss",
               "src/styles/styles.scss",
-              "src/styles/grid.scss",
               "src/styles/markdown-styles.scss"
             ],
             "scripts": ["node_modules/marked/lib/marked.js"],
