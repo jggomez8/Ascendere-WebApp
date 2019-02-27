@@ -4,7 +4,9 @@ import { Component } from '@angular/core';
   selector: 'indev-shell-view',
   template: `
     <indev-navbar></indev-navbar>
-    <router-outlet></router-outlet>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
   `
 })
 export class ShellViewComponent {}

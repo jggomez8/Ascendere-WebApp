@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NavbarItem } from '../navbar-item.interface';
+import { NavbarItem } from '../../interfaces/navbar-item.interface';
 
 @Component({
   selector: 'indev-menu-button',
