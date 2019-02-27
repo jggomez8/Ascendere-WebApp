@@ -50,11 +50,13 @@ export class NavbarComponent {
           children: [
             {
               name: 'Cursos Actuales',
-              routerLink: ['/programa-formacion#cursos']
+              routerLink: ['/', 'programa-formacion'],
+              fragment: 'cursos'
             },
             {
               name: 'InnovaTips',
-              routerLink: ['/programa-formacion#tips']
+              routerLink: ['/', 'programa-formacion'],
+              fragment: 'tips'
             }
           ]
         },
