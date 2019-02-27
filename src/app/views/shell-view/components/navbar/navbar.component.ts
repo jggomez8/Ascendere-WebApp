@@ -32,6 +32,10 @@ export class NavbarComponent {
             },
             {
               name: 'Combinatorias'
+            },
+            {
+              name: 'Retos',
+              goto: 'https://retos.utpl.edu.ec/'
             }
           ]
         }
@@ -119,11 +123,13 @@ export class NavbarComponent {
           name: 'Noticias'
         },
         {
-          name: 'Docentes Ascenderse'
+          name: 'Docentes Ascenderse',
+          goto: 'https://www.youtube.com/channel/UCzRd2Y87-NJnVliV8B6e_Xg'
         }
       ]
     }
   ];
+
   @ViewChild('mainNavbar') mainNavbarElement: ElementRef;
 
   /**
