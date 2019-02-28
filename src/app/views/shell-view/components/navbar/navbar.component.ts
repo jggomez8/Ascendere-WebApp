@@ -28,10 +28,15 @@ export class NavbarComponent {
         {
           children: [
             {
-              name: 'Ayudantes de Cátedra'
+              name: 'Ayudantes de Cátedra',
+              routerLink: ['/', 'articulo', 'ayudantes-de-catedra']
             },
             {
-              name: 'Combinatorias'
+              name: 'Convocatorias'
+            },
+            {
+              name: 'Proyecto Mentores',
+              routerLink: ['/', 'articulo', 'proyecto-mentores']
             },
             {
               name: 'Retos',

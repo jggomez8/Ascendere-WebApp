@@ -13,7 +13,12 @@ const routes: Routes = [
       },
       {
         path: 'programa-formacion',
-        loadChildren: '../../modules/programa-formacion/programa-formacion.module#ProgramaFormacionModule'
+        loadChildren:
+          '../../modules/programa-formacion/programa-formacion.module#ProgramaFormacionModule'
+      },
+      {
+        path: 'articulo',
+        loadChildren: '../../modules/articulo/articulo.module#ArticuloModule'
       }
     ]
   }

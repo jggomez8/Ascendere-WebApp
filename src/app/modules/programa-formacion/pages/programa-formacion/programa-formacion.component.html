@@ -64,7 +64,8 @@
                 Cursos Específicos
             </indev-section-title>
             <indev-section-controls>
-              <button mat-button color="primary">Ver Más</button>
+              <a mat-button color="primary" [routerLink]="['/', 'articulo', 'cursos-especificos']"
+              routerLinkActive="router-link-active">Ver Más</a>
             </indev-section-controls>
 
             <markdown ngPreserveWhitespaces>
