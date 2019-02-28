@@ -6,12 +6,12 @@ import { AppRoutingModule } from './app.routing';
 import { SharedModule } from './shared/shared.module';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     SharedModule,
     HttpClientModule,
     MarkdownModule.forRoot({
@@ -28,7 +28,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
           smartypants: false
         }
       }
-    })
+    }),
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,27 @@
+<!-- Summary container, need to position summary container -->
+<div class="summary">
+  <!-- Button hover, should toggle summary container -->
+  <button mat-button class="menu-item">
+    <h3>{{ menuSummaryData.name }} 🍕</h3>
+  </button>
+
+  <!-- summary content -->
+  <ul class="summary-content">
+    <!-- Summary container have sections, with borders at the bottom. -->
+    <!-- But if just header, remove section decorators since items will align with each other -->
+    <li
+      *ngFor="let section of menuSummaryData.children"
+      class="summary-section"
+      [ngClass]="{ 'remove-section-decorator': !section.children }"
+    >
+      <indev-menu-button [menuItemData]="section" color="primary" *ngIf="section.name"></indev-menu-button>
+
+      <!-- summary section items -->
+      <ul *ngIf="section.children">
+        <li *ngFor="let sectionSummary of section.children">
+          <indev-menu-button [menuItemData]="sectionSummary"></indev-menu-button>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

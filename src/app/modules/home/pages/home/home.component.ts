@@ -22,4 +22,9 @@ export class HomeComponent implements OnInit {
 
   And, of course emoji!
   `;
+
+  dataSource = [
+    'https://cdn-images-1.medium.com/freeze/max/60/0*VcXcRE1NEvxBIUvi?q=20',
+    'https://cdn-images-1.medium.com/max/1600/0*VcXcRE1NEvxBIUvi'
+  ];
 }

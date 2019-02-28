@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+// material components
+import 'hammerjs';
+
+import { AngularMaterialModule } from './modules/angular-material.module';
+
 import { ContainerComponent } from './components/container/container.component';
-import { ButtonComponent, AnchorComponent } from './components/button/button.component';
 import { SectionControlsComponent } from './components/section/section-controls.component';
 import { SectionTitleComponent } from './components/section/section-title.component';
 import { EncuentroCardComponent } from './components/cards/encuentro-card/encuentro-card.component';
@@ -11,14 +16,11 @@ import { SectionComponent } from './components/section/section.component';
 import { ProyectosInnovacionCardComponent } from './components/cards/proyectos-innovacion-card/proyectos-innovacion-card.component';
 import { LazyTransitionComponent, LazyLoadImage } from './components/lazy-load/lazy-load.component';
 import { MarkdownModule } from 'ngx-markdown';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { LazyLoadImageComponent } from './components/lazy-load-image/lazy-load-image.component';
 
 const DECLARATIONS = [
+  // Container component
   ContainerComponent,
-
-  // Button Components
-  ButtonComponent,
-  AnchorComponent,
 
   // Section Components
   SectionComponent,
@@ -34,14 +36,13 @@ const DECLARATIONS = [
   // lazy load component
   LazyTransitionComponent,
   LazyLoadImage,
+  LazyLoadImageComponent
 
-  // Navbar
-  NavbarComponent
 ];
 
 @NgModule({
   declarations: DECLARATIONS,
-  imports: [CommonModule, MarkdownModule.forChild()],
-  exports: [CommonModule, MarkdownModule, ...DECLARATIONS]
+  imports: [CommonModule, MarkdownModule.forChild(), AngularMaterialModule],
+  exports: [CommonModule, MarkdownModule, ...DECLARATIONS, AngularMaterialModule]
 })
 export class SharedModule {}

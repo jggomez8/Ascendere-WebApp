@@ -12,8 +12,8 @@ import { Component, OnInit } from '@angular/core';
       .section-controls {
         display: flex;
         flex-wrap: wrap;
-        margin-left: -15px;
-        margin-right: -15px;
+        margin-left: -16px;
+        margin-right: -16px;
       }
     `
   ]
