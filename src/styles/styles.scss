@@ -1,3 +1,23 @@
+// Row
+.row {
+  display: block;
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 15px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .row {
+    grid-gap: 20px;
+  }
+}
+
 .aspect-ratio {
   position: relative;
   width: 100%;

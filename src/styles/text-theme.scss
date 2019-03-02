@@ -4,6 +4,8 @@
 body {
   font-family: Roboto, sans-serif;
   font-size: 1rem;
+  font-display: swap;
+  line-height: 1.5em;
 }
 
 /* Headline1, display4 */
@@ -66,7 +68,8 @@ b {
 }
 
 /* body2, body1 */
-.TextTheme--body1,p {
+.TextTheme--body1,
+p {
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.015625rem;
