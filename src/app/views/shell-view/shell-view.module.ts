@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShellViewComponent } from './shell-view.component';
-import { ShellViewRoutingModule } from './sheell-view.routing';
+import { ShellViewRoutingModule } from './shell-view.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';

@@ -53,31 +53,30 @@ export class NavbarComponent {
           name: 'Formación Docente',
           children: [
             {
-              name: 'Programa de Formación',
-              routerLink: ['/', 'programa-formacion']
-              // name: 'Cursos Actuales',
-              // routerLink: ['/', 'programa-formacion', 'cursos'],
+              name: 'Cafe Científico',
+              routerLink: ['/', 'cafe-cientifico']
+            },
+            {
+              name: 'Debate Estudiantil'
+            },
+            {
+              name: 'Talleres Académicos'
             },
             {
               name: 'InnovaTips',
               routerLink: ['/', 'innova-tips']
             },
             {
-              name: 'Cafe Científico'
+              name: 'Programa de Formación',
+              routerLink: ['/', 'programa-formacion']
             },
             {
-              name: 'Vitamina i'
+              name: 'Vitamina I',
+              routerLink: ['/', 'vitamina-i']
             }
           ]
         },
-        {
-          name: 'Jornadas De Reflection',
-          children: [
-            {
-              name: 'Jornada 2019'
-            }
-          ]
-        },
+
         {
           name: 'Diseño y desarrollo de mi asignatura',
           children: [
@@ -124,7 +123,15 @@ export class NavbarComponent {
           name: 'Noticias'
         },
         {
-          name: 'Docentes Ascenderse',
+          name: 'Jornadas De Reflection',
+          children: [
+            {
+              name: 'Jornada 2019'
+            }
+          ]
+        },
+        {
+          name: 'Docentes Ascenderes',
           goto: 'https://www.youtube.com/channel/UCzRd2Y87-NJnVliV8B6e_Xg'
         }
       ]

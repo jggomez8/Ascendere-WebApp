@@ -17,6 +17,21 @@ const routes: Routes = [
           '../../modules/programa-formacion/programa-formacion.module#ProgramaFormacionModule'
       },
       {
+        path: 'innova-tips',
+        loadChildren:
+          '../../modules/innova-tips/innova-tips.module#InnovaTipsModule'
+      },
+      {
+        path: 'cafe-cientifico',
+        loadChildren:
+          '../../modules/cafe-cientifico/cafe-cientifico.module#CafeCientificoModule'
+      },
+      {
+        path: 'vitamina-i',
+        loadChildren:
+          '../../modules/vitamina-i/vitamina-i.module#VitaminaIModule'
+      },
+      {
         path: 'articulo',
         loadChildren: '../../modules/articulo/articulo.module#ArticuloModule'
       }
