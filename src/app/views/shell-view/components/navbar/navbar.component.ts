@@ -59,10 +59,8 @@ export class NavbarComponent {
               routerLink: ['/', 'cafe-cientifico']
             },
             {
-              name: 'Debate Estudiantil'
-            },
-            {
-              name: 'Talleres Académicos'
+              name: 'Debate Estudiantil',
+              routerLink: ['/', 'debate-estudiantil']
             },
             {
               name: 'InnovaTips',
@@ -71,6 +69,10 @@ export class NavbarComponent {
             {
               name: 'Programa de Formación',
               routerLink: ['/', 'programa-formacion']
+            },
+            {
+              name: 'Talleres Académicos',
+              routerLink: ['/', 'talleres-academicos']
             },
             {
               name: 'Vitamina I',
@@ -109,8 +111,11 @@ export class NavbarComponent {
       ]
     },
     {
-      name: 'Observatorio EduTendencias',
+      name: 'EduTendencias',
       children: [
+        {
+          name: 'Observatorio Edutendencias'
+        },
         {
           name: 'Tips de Innovación',
           children: [

@@ -13,8 +13,7 @@ const routes: Routes = [
       },
       {
         path: 'ascendere',
-        loadChildren:
-          '../../modules/ascendere/ascendere.module#AscendereModule'
+        loadChildren: '../../modules/ascendere/ascendere.module#AscendereModule'
       },
       {
         path: 'proyectos-innovacion',
@@ -28,18 +27,25 @@ const routes: Routes = [
       },
       {
         path: 'innova-tips',
+        loadChildren: '../../modules/innova-tips/innova-tips.module#InnovaTipsModule'
+      },
+      {
+        path: 'talleres-academicos',
         loadChildren:
-          '../../modules/innova-tips/innova-tips.module#InnovaTipsModule'
+          '../../modules/talleres-academicos/talleres-academicos.module#TalleresAcademicosModule'
+      },
+      {
+        path: 'debate-estudiantil',
+        loadChildren:
+          '../../modules/debate-estudiantil/debate-estudiantil.module#DebateEstudiantilModule'
       },
       {
         path: 'cafe-cientifico',
-        loadChildren:
-          '../../modules/cafe-cientifico/cafe-cientifico.module#CafeCientificoModule'
+        loadChildren: '../../modules/cafe-cientifico/cafe-cientifico.module#CafeCientificoModule'
       },
       {
         path: 'vitamina-i',
-        loadChildren:
-          '../../modules/vitamina-i/vitamina-i.module#VitaminaIModule'
+        loadChildren: '../../modules/vitamina-i/vitamina-i.module#VitaminaIModule'
       },
       {
         path: 'articulo',

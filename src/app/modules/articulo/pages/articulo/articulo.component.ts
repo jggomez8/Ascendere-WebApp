@@ -27,7 +27,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   }
 
   get markdown_source(): string {
-    return `/assets/articulos/${this.id}.md`;
+    return `/assets/markdown/articulos/${this.id}.md`;
   }
 
   onLoad($event) {

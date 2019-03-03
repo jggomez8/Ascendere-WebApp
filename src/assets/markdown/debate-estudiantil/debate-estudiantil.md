@@ -1,0 +1,1 @@
+Espacio de diálogo dónde se problematizan temáticas diversas o se abordan temas de actualidad, y se desafía a estudiantes universitarios y de bachillerato a que propongan soluciones creativas, bajo la guía de docentes de la UTPL.
