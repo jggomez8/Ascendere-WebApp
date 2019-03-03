@@ -9,13 +9,15 @@ import { NavbarItem } from '../../interfaces/navbar-item.interface';
 export class NavbarComponent {
   headerMenu: Array<NavbarItem> = [
     {
-      name: 'Servicios'
+      name: 'Servicios',
+      routerLink: ['/', 'ascendere']
     },
     {
       name: 'Innovación',
       children: [
         {
           name: 'Proyectos de Innovación',
+          routerLink: ['/', 'proyectos-innovacion'],
           children: [
             {
               name: 'Buenas Practicas'
@@ -76,7 +78,14 @@ export class NavbarComponent {
             }
           ]
         },
-
+        {
+          name: 'Jornadas De Reflection',
+          children: [
+            {
+              name: 'Jornada 2019'
+            }
+          ]
+        },
         {
           name: 'Diseño y desarrollo de mi asignatura',
           children: [
@@ -122,14 +131,7 @@ export class NavbarComponent {
         {
           name: 'Noticias'
         },
-        {
-          name: 'Jornadas De Reflection',
-          children: [
-            {
-              name: 'Jornada 2019'
-            }
-          ]
-        },
+
         {
           name: 'Docentes Ascenderes',
           goto: 'https://www.youtube.com/channel/UCzRd2Y87-NJnVliV8B6e_Xg'

@@ -12,6 +12,16 @@ const routes: Routes = [
         loadChildren: '../../modules/home/home.module#HomeModule'
       },
       {
+        path: 'ascendere',
+        loadChildren:
+          '../../modules/ascendere/ascendere.module#AscendereModule'
+      },
+      {
+        path: 'proyectos-innovacion',
+        loadChildren:
+          '../../modules/proyectos-innovacion/proyectos-innovacion.module#ProyectosInnovacionModule'
+      },
+      {
         path: 'programa-formacion',
         loadChildren:
           '../../modules/programa-formacion/programa-formacion.module#ProgramaFormacionModule'
