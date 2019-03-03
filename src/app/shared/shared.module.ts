@@ -17,10 +17,14 @@ import { ProyectosInnovacionCardComponent } from './components/cards/proyectos-i
 import { LazyTransitionComponent, LazyLoadImage } from './components/lazy-load/lazy-load.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { LazyLoadImageComponent } from './components/lazy-load-image/lazy-load-image.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const DECLARATIONS = [
-  // Container component
+  // Container Component
   ContainerComponent,
+
+  // Header Component
+  HeaderComponent,
 
   // Section Components
   SectionComponent,
@@ -33,7 +37,7 @@ const DECLARATIONS = [
   CursoCardComponent,
   ProyectosInnovacionCardComponent,
 
-  // lazy load component
+  // lazy load Component
   LazyTransitionComponent,
   LazyLoadImage,
   LazyLoadImageComponent

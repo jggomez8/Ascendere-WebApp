@@ -1,0 +1,2 @@
+ Instructivo para validar tus cursos del Programa de Formación Docente - Pedagógica en el Sistema de Información Académica Científica *(SIAC)*.
+ - [Descarga el Instructivo](https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/formacion-docente%2Fprograma-formacion%2Fprograma-formacion%2FInstructivo_validacio%CC%81n_formacio%CC%81n_SIAC(1).pdf?alt=media&token=816f02a3-4f2d-4b54-9bca-6b8005614b68)
