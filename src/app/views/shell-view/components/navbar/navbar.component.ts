@@ -50,24 +50,18 @@ export class NavbarComponent {
       name: 'Formación',
       children: [
         {
-          name: 'Programa de Formación',
-          routerLink: ['/', 'programa-formacion'],
+          name: 'Formación Docente',
           children: [
             {
-              name: 'Cursos Actuales',
-              routerLink: ['/', 'programa-formacion'],
-              fragment: 'cursos'
+              name: 'Programa de Formación',
+              routerLink: ['/', 'programa-formacion']
+              // name: 'Cursos Actuales',
+              // routerLink: ['/', 'programa-formacion', 'cursos'],
             },
             {
               name: 'InnovaTips',
-              routerLink: ['/', 'programa-formacion'],
-              fragment: 'tips'
-            }
-          ]
-        },
-        {
-          name: 'Encuentros',
-          children: [
+              routerLink: ['/', 'innova-tips']
+            },
             {
               name: 'Cafe Científico'
             },
