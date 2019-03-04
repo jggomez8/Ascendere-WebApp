@@ -16,7 +16,14 @@ import {
     <main>
       <router-outlet></router-outlet>
     </main>
-  `
+  `,
+  styles: [
+    `
+      main {
+        overflow: auto;
+      }
+    `
+  ]
 })
 export class ShellViewComponent implements OnInit {
   loading: boolean = false;

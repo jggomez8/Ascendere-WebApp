@@ -7,7 +7,8 @@
 
   padding: 30px 0 20px 0;
 
-  @media screen and (min-width: 700px) {
+  @media screen and(min-width: 840px) {
+    // on laptop
     padding: 70px 0 50px 0;
   }
 
@@ -23,12 +24,12 @@
       'image'
       'markdown';
 
-    @media screen and (min-width: 700px) {
+    @media screen and(min-width: 840px) {
       grid-template-areas:
         'header  header  image'
         'markdown markdown markdown';
     }
-    @media screen and (min-width: 1000px) {
+    @media screen and(min-width: 1024px) {
       grid-template-areas:
         'header   image'
         'markdown image';
@@ -39,7 +40,7 @@
 
     text-align: center;
 
-    @media screen and (min-width: 700px) {
+    @media screen and(min-width: 840px) {
       text-align: left;
     }
   }
@@ -55,7 +56,7 @@
     align-items: center;
     justify-content: center;
 
-    @media screen and (min-width: 700px) {
+    @media screen and(min-width: 840px) {
       position: relative;
     }
 
@@ -64,7 +65,7 @@
       height: 100%;
       object-fit: contain;
 
-      @media screen and (min-width: 700px) {
+      @media screen and(min-width: 840px) {
         position: absolute;
       }
     }
