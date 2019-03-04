@@ -70,9 +70,10 @@ export class LazyLoadImageComponent implements OnInit {
     let imageEl = this.imageRef.nativeElement as HTMLImageElement;
 
     // validate index to break loop
-    if (this.index >= this.source.length - 1) {
+    if (this.index > this.source.length - 1) {
       imageEl.onload = null;
       imageEl.classList.remove('blur');
+      return;
     }
 
     imageEl.setAttribute('src', this.source[this.index++]);
