@@ -5,20 +5,19 @@ $display-desktop: 1100;
 
 // style navbar with default color, background and space
 nav {
-  max-height: 200px;
-  background-color: var(--surface-color);
-  color: var(--on-surface);
-  padding: 15px 0;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.404);
-
-  @media screen and (min-width: $display-desktop+'px') {
-    padding: 25px 0;
-  }
-
   position: sticky;
   top: 0;
-  width: 100%;
+  max-width: 100%;
   z-index: 100;
+  padding: 16px 0;
+
+  background-color: var(--surface-color);
+  color: var(--on-surface);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.404);
+
+  @media screen and (min-width: 600px) {
+    padding: 24px 0;
+  }
 }
 
 // Navbar by default is a flex element to give items space between
@@ -49,6 +48,7 @@ nav {
 
 // hide main-header.actions on desktop
 .main-header .main-actions {
+  margin-right: -15px;
   @media screen and (min-width: $display-desktop+'px') {
     display: none;
   }
@@ -71,6 +71,8 @@ nav {
   @media screen and (min-width: $display-desktop+'px') {
     display: flex;
     flex-direction: row;
+
+    margin-right: -16px;
   }
 }
 

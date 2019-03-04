@@ -6,7 +6,6 @@ import 'hammerjs';
 
 import { AngularMaterialModule } from './modules/angular-material.module';
 
-import { ContainerComponent } from './components/container/container.component';
 import { SectionControlsComponent } from './components/section/section-controls.component';
 import { SectionTitleComponent } from './components/section/section-title.component';
 import { EncuentroCardComponent } from './components/cards/encuentro-card/encuentro-card.component';
@@ -20,9 +19,6 @@ import { LazyLoadImageComponent } from './components/lazy-load-image/lazy-load-i
 import { HeaderComponent } from './components/header/header.component';
 
 const DECLARATIONS = [
-  // Container Component
-  ContainerComponent,
-
   // Header Component
   HeaderComponent,
 

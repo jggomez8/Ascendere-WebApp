@@ -4,7 +4,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   selector: 'indev-header',
   template: `
     <header class="feature">
-      <indev-container>
+      <div class="container">
         <div class="feature--container">
           <div class="feature--header">
             <ng-content select="h1"></ng-content>
@@ -16,7 +16,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
             <ng-content select="markdown"></ng-content>
           </div>
         </div>
-      </indev-container>
+      </div>
     </header>
   `,
   styleUrls: ['./header.component.scss'],
