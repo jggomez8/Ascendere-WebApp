@@ -11,13 +11,13 @@ export class CarteleraEncuentrosComponent {
   scrollLeft() {
     (this.verticalList.nativeElement as HTMLElement).scrollBy({
       behavior: 'smooth',
-      left: -330
+      left: -350
     });
   }
   scrollRight() {
     (this.verticalList.nativeElement as HTMLElement).scrollBy({
       behavior: 'smooth',
-      left: 330
+      left: 350
     });
   }
 }

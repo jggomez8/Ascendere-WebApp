@@ -10,7 +10,11 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './views/shell-view/shell-view.module#ShellViewModule'
-      }
+      },
+      {
+        path: 'empty',
+        loadChildren: './views/empty-view/empty-view.module#EmptyViewModule'
+      },
     ]
   },
   {
