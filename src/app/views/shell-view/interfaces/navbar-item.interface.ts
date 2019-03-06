@@ -4,4 +4,5 @@ export interface NavbarItem {
   children?: Array<NavbarItem>;
   routerLink?: any;
   fragment?: string;
+  queryParams?: Object;
 }

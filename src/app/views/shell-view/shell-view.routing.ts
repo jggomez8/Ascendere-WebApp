@@ -44,6 +44,10 @@ const routes: Routes = [
         loadChildren: '../../modules/vitamina-i/vitamina-i.module#VitaminaIModule'
       },
       {
+        path: 'tips-innovacion',
+        loadChildren: '../../modules/tips-innovacion/tips-innovacion.module#TipsInnovacionModule'
+      },
+      {
         path: 'articulo',
         loadChildren: '../../modules/articulo/articulo.module#ArticuloModule'
       }

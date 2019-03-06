@@ -118,18 +118,23 @@ export class NavbarComponent {
         },
         {
           name: 'Tips de Innovación',
+          routerLink: ['/', 'tips-innovacion'],
           children: [
             {
-              name: 'Aula Divertida'
+              name: 'Aula Divertida',
+              routerLink: ['/', 'tips-innovacion', 'aula-divertida']
             },
             {
-              name: 'Docentes del Futuro'
+              name: 'Docentes del Futuro',
+              routerLink: ['/', 'tips-innovacion', 'docentes-futuro']
             },
             {
-              name: 'Podcast'
+              name: 'Podcast',
+              goto: 'https://www.ivoox.com/podcast-academia-utpl_sq_f1507318_1.html'
             },
             {
-              name: 'Videos'
+              name: 'Videos',
+              routerLink: ['/', 'tips-innovacion', 'videos']
             }
           ]
         },
