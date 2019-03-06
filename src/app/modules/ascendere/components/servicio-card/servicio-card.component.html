@@ -1,0 +1,15 @@
+<div class="card">
+  <!-- Card has 3 parts: Image, content, and redirect -->
+  <div class="aspect-ratio card-header" style="--aspect-ratio: 1/1">
+    <div class="image-container">
+      <img [src]="imageSrc" [alt]="imageAlt" />
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="aspect-ratio">
+      <markdown [src]="markdownSrc"> </markdown>
+      <div class="overflow-blur"></div>
+    </div>
+    <a mat-stroked-button color="accent" [routerLink]="routerLink">Ver más</a>
+  </div>
+</div>

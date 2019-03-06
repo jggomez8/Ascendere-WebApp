@@ -1,5 +1,27 @@
 .ascendere {
   font-weight: 500;
   color: var(--primary-color);
+}
 
+.grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  @media screen and (min-width: 600px) {
+    // on tablets
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and(min-width: 840px) {
+    // on laptop
+  }
+  @media screen and(min-width: 1024px) {
+    // on laptop l
+    grid-gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and(min-width: 1440px) {
+    // on 4k
+    grid-gap: 35px 40px;
+  }
 }
