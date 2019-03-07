@@ -1,135 +1,137 @@
 <!-- Footer has various parts: A subscribe section, a social media area. Project resume, other nav, and utpl with other logos section -->
-<footer class="container">
-  <section indev-section class="subscribe-section">
-    <indev-section-title>
-      ¿Cómo te mantienes al día en todas las novedades sobre educación?
-    </indev-section-title>
-    <div class="wrap">
-      <p class="TextTheme--subhead">
-        Un buen comienzo es inscribirse en nuestro boletín semanal. Te traemos las ultimas
-        notificas, cursos, encuentros y mas para que te mantengas informado.
+<footer>
+  <div class="container">
+    <section indev-section class="subscribe-section">
+      <indev-section-title>
+        ¿Cómo te mantienes al día en todas las novedades sobre educación?
+      </indev-section-title>
+      <div class="wrap">
+        <p class="TextTheme--subhead">
+          Un buen comienzo es inscribirse en nuestro boletín semanal. Te traemos las ultimas
+          notificas, cursos, encuentros y mas para que te mantengas informado.
+        </p>
+        <!-- TODO: add form validation, and submit -->
+        <mat-form-field appearance="outline">
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput placeholder="ascendere@utpl.edu.ec" />
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+          <!-- <mat-hint>Correo electrónico debe ser valido</mat-hint> -->
+        </mat-form-field>
+        <button mat-stroked-button color="primary">Suscribirse</button>
+      </div>
+    </section>
+    <section indev-section class="social-links">
+      <indev-section-title>Redes Sociales</indev-section-title>
+      <ul>
+        <li>
+          <span class="TextTheme--title">Facebook</span>
+          <a
+            class="TextTheme--button"
+            href="https://www.facebook.com/LiiDUTPL"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Me gusta
+          </a>
+        </li>
+        <li>
+          <span class="TextTheme--title">Twitter</span>
+          <a
+            class="TextTheme--button"
+            href="https://twitter.com/utpl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Seguir
+          </a>
+        </li>
+        <li>
+          <span class="TextTheme--title">YouTube</span>
+          <a
+            class="TextTheme--button"
+            href="https://www.youtube.com/channel/UCzRd2Y87-NJnVliV8B6e_Xg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Suscribirse
+          </a>
+        </li>
+        <li>
+          <span class="TextTheme--title">Instagram</span>
+          <a
+            class="TextTheme--button"
+            href="https://www.instagram.com/liidutpl/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Seguir
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section indev-section class="website-hello">
+      <!-- TODO: add complex easterEgg with more clicks and enter -->
+
+      <indev-section-title>👋</indev-section-title>
+      <p>
+        <a href="https://github.com/InDevelopmentCompany" target="_blank" rel="noopener noreferrer">
+          @InDevelopmentCompany
+        </a>
+        crean, escriben y mantienen la pagina web del proyecto
+        <span class="TextTheme--ascendere">Ascendere</span>. Fue construida con Angular y otras
+        tecnologías web. Este proyecto es posible gracias al apoyo del ViceRectorado Académico y La
+        Dirección de Innovación, Formación y Evaluación Docente de la
+        <a href="https://www.utpl.edu.ec/" target="_blank" rel="noopener noreferrer">
+          @UTPL
+        </a>
       </p>
-      <!-- TODO: add form validation, and submit -->
-      <mat-form-field appearance="outline">
-        <mat-label>Correo Electrónico</mat-label>
-        <input matInput placeholder="ascendere@utpl.edu.ec" />
-        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-        <!-- <mat-hint>Correo electrónico debe ser valido</mat-hint> -->
-      </mat-form-field>
-      <button mat-stroked-button color="primary">Suscribirse</button>
-    </div>
-  </section>
-  <section indev-section class="social-links">
-    <indev-section-title>Redes Sociales</indev-section-title>
-    <ul>
-      <li>
-        <span class="TextTheme--title">Facebook</span>
+      <br />
+      <small class="TextTheme--caption">
+        <span (auxclick)="spotEasterEgg()" style="color: var(--primary-color)">*</span>Esta pagina
+        puede o no contener ningún
         <a
-          class="TextTheme--button"
-          href="https://www.facebook.com/LiiDUTPL"
+          href="https://es.wikipedia.org/wiki/Huevo_de_pascua_(virtual)"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Me gusta
+          "Easter Egg"
         </a>
-      </li>
-      <li>
-        <span class="TextTheme--title">Twitter</span>
-        <a
-          class="TextTheme--button"
-          href="https://twitter.com/utpl"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Seguir
-        </a>
-      </li>
-      <li>
-        <span class="TextTheme--title">YouTube</span>
-        <a
-          class="TextTheme--button"
-          href="https://www.youtube.com/channel/UCzRd2Y87-NJnVliV8B6e_Xg"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Suscribirse
-        </a>
-      </li>
-      <li>
-        <span class="TextTheme--title">Instagram</span>
-        <a
-          class="TextTheme--button"
-          href="https://www.instagram.com/liidutpl/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Seguir
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <section indev-section class="website-hello">
-    <!-- TODO: add complex easterEgg with more clicks and enter -->
-
-    <indev-section-title>👋</indev-section-title>
-    <p>
-      <a href="https://github.com/InDevelopmentCompany" target="_blank" rel="noopener noreferrer">
-        @InDevelopmentCompany
-      </a>
-      crean, escriben y mantienen la pagina web del proyecto
-      <span class="TextTheme--ascendere">Ascendere</span>. Fue construida con Angular y otras
-      tecnologías web. Este proyecto es posible gracias al apoyo del ViceRectorado Académico y La
-      Dirección de Innovación, Formación y Evaluación Docente de la
-      <a href="https://www.utpl.edu.ec/" target="_blank" rel="noopener noreferrer">
-        @UTPL
-      </a>
-    </p>
-    <br />
-    <small class="TextTheme--caption">
-      <span (auxclick)="spotEasterEgg()" style="color: var(--primary-color)">*</span>Esta pagina puede
-      o no contener ningún
+        o "Truco".
+      </small>
+    </section>
+    <section indev-section class="other-nav">
+      <indev-section-title>Acerca de</indev-section-title>
+      <!-- TODO: add links -->
+      <ul>
+        <li>
+          <button mat-button><span>Saludo del Vicerrector</span></button>
+        </li>
+        <li>
+          <button mat-button><span>Quienes Somos</span></button>
+        </li>
+        <li>
+          <button mat-button><span>Servicios</span></button>
+        </li>
+        <li>
+          <button mat-button><span>Contacto</span></button>
+        </li>
+      </ul>
+    </section>
+    <section class="website-goodBye">
       <a
-        href="https://es.wikipedia.org/wiki/Huevo_de_pascua_(virtual)"
+        href="https://github.com/InDevelopmentCompany/Ascendere-WebApp/blob/master/LICENSE"
         target="_blank"
         rel="noopener noreferrer"
       >
-        "Easter Egg"
+        Copyright © 2019 indev | MIT License
       </a>
-      o "Truco".
-    </small>
-  </section>
-  <section indev-section class="other-nav">
-    <indev-section-title>Acerca de</indev-section-title>
-    <!-- TODO: add links -->
-    <ul>
-      <li>
-        <button mat-button><span>Saludo del Vicerrector</span></button>
-      </li>
-      <li>
-        <button mat-button><span>Quienes Somos</span></button>
-      </li>
-      <li>
-        <button mat-button><span>Servicios</span></button>
-      </li>
-      <li>
-        <button mat-button><span>Contacto</span></button>
-      </li>
-    </ul>
-  </section>
-  <section class="website-goodBye">
-    <a
-      href="https://github.com/InDevelopmentCompany/Ascendere-WebApp/blob/master/LICENSE"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Copyright © 2019 indev | MIT License
-    </a>
-    <span>
-      With 🧡 and 👨‍💻 by
-      <a href="https://github.com/InDevelopmentCompany" target="_blank" rel="noopener noreferrer">
-        @InDevelopmentCompany
-      </a>
-    </span>
-  </section>
+      <span>
+        With 🧡 and 👨‍💻 by
+        <a href="https://github.com/InDevelopmentCompany" target="_blank" rel="noopener noreferrer">
+          @InDevelopmentCompany
+        </a>
+      </span>
+    </section>
+  </div>
 </footer>

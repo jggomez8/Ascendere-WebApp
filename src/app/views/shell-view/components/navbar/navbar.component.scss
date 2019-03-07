@@ -6,8 +6,8 @@ nav {
   z-index: 100;
   padding: 16px 0;
 
-  background-color: var(--surface-color);
-  color: var(--on-surface);
+  background-color: var(--background-color);
+  color: var(--on-background);
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.404);
 
   @media screen and (min-width: 600px) {
