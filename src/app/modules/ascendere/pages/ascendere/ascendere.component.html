@@ -1,21 +1,40 @@
-<indev-header>
-  <h1 class="TextTheme--display2">
-    Proyecto
-    <br />
-    <span class="TextTheme--display3 ascendere">ASCENDERE</span>
-  </h1>
-  <img src="/assets/images/Ascendere.svg" alt="Ascendere Icon" />
-  <markdown src="/assets/markdown/ascendere/ascendere.md"> </markdown>
-</indev-header>
-<section indev-section>
-  <div class="container">
-    <div class="grid">
-      <indev-servicio-card name="Vitamina i"></indev-servicio-card>
-      <indev-servicio-card name="Debate Estudiantil"></indev-servicio-card>
-      <indev-servicio-card name="Talleres Academicos"></indev-servicio-card>
-      <indev-servicio-card name="Proyectos Innovacion"></indev-servicio-card>
-      <indev-servicio-card name="Programa Formacion"></indev-servicio-card>
-      <indev-servicio-card name="Cafe Cientifico"></indev-servicio-card>
-    </div>
-  </div>
-</section>
+<div class="body" #body>
+  <main #main (click)="presentationMode()">
+    <indev-header>
+      <h1 class="TextTheme--display2">
+        Proyecto
+        <br />
+        <span class="TextTheme--display3 TextTheme--ascendere">ASCENDERE</span>
+      </h1>
+      <img src="/assets/images/Ascendere.svg" alt="Ascendere Icon" />
+      <markdown src="/assets/markdown/ascendere/ascendere.md"> </markdown>
+    </indev-header>
+    <section indev-section>
+      <div class="container">
+        <div class="grid">
+          <indev-servicio-card name="Vitamina i"></indev-servicio-card>
+          <indev-servicio-card name="Debate Estudiantil"></indev-servicio-card>
+          <indev-servicio-card name="Talleres Academicos"></indev-servicio-card>
+          <indev-servicio-card name="Proyectos Innovacion"></indev-servicio-card>
+          <indev-servicio-card name="Programa Formacion"></indev-servicio-card>
+          <indev-servicio-card name="Cafe Cientifico"></indev-servicio-card>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <img src="/assets/images/Ascendere.svg" alt="Ascendere Icon" />
+    <ul>
+      <li>
+        <a [routerLink]="['/']" mat-flat-button color="accent">innovación</a>
+      </li>
+      <li>
+        <a [routerLink]="['/']" mat-flat-button color="accent">formación</a>
+      </li>
+      <li>
+        <a [routerLink]="['/']" mat-flat-button color="accent">evaluación</a>
+      </li>
+    </ul>
+  </footer>
+</div>

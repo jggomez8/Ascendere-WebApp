@@ -2,10 +2,17 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
 body {
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, sans-serif !important;
   font-size: 1rem;
   font-display: swap;
   line-height: 1.6;
+  text-rendering: optimizelegibility;
+}
+
+.TextTheme--ascendere {
+  font-weight: 500 !important;
+  color: var(--primary-color) !important;
+  text-transform: uppercase;
 }
 
 /* Headline1, display4 */
