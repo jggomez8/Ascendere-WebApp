@@ -79,9 +79,9 @@
           @InDevelopmentCompany
         </a>
         crean, escriben y mantienen la pagina web del proyecto
-        <span class="TextTheme--ascendere">Ascendere</span>. Fue construida con Angular y otras
-        tecnologías web. Este proyecto es posible gracias al apoyo del ViceRectorado Académico y La
-        Dirección de Innovación, Formación y Evaluación Docente de la
+        <span class="TextTheme--ascendere">Ascendere</span>. Fue construida con Angular, Markdown,
+        Emoji's (😃) y otras tecnologías web. Este proyecto es posible gracias al apoyo del
+        ViceRectorado Académico y La Dirección de Innovación, Formación y Evaluación Docente de la
         <a href="https://www.utpl.edu.ec/" target="_blank" rel="noopener noreferrer">
           @UTPL
         </a>
@@ -100,6 +100,28 @@
         o "Truco".
       </small>
     </section>
+    <section indev-section class="contact">
+      <!-- TODO: get real info -->
+      <indev-section-title>Contacto</indev-section-title>
+      <ul>
+        <li>
+          <span>📞</span>
+          <span>370 1444 – Ext. 2316</span>
+        </li>
+        <li>
+          <span>📧</span>
+          <a
+            style="text-transform: lowercase !important; font-size: 0.9em !important;"
+            href="mailto:vacademico@utpl.edu.ec"
+            >vacademico@utpl.edu.ec</a
+          >
+        </li>
+        <li>
+          <span>🗺️</span>
+          <span>Campus San Cayetano Alto. </span>
+        </li>
+      </ul>
+    </section>
     <section indev-section class="other-nav">
       <indev-section-title>Acerca de</indev-section-title>
       <!-- TODO: add links -->
@@ -111,7 +133,7 @@
           <button mat-button><span>Quienes Somos</span></button>
         </li>
         <li>
-          <button mat-button><span>Servicios</span></button>
+          <a [routerLink]="['/empty/ascendere']" mat-button><span>Servicios</span></a>
         </li>
         <li>
           <button mat-button><span>Contacto</span></button>

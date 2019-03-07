@@ -6,12 +6,13 @@ footer {
     border-top: 1px solid rgba(97, 97, 97, 0.534);
 
     display: grid;
-    column-gap: 50px;
+    column-gap: 40px;
     justify-items: baseline;
     align-items: stretch;
     grid-template-areas:
       'subscribe'
       'social'
+      'contact'
       'nav'
       'hello'
       'bye';
@@ -20,20 +21,22 @@ footer {
       grid-template-areas:
         'subscribe subscribe'
         'social social'
+        'hello contact'
         'hello nav'
         'bye bye';
     }
     @media screen and(min-width: 840px) {
       // on laptop
-      grid-auto-columns: 1fr;
+      grid-template-columns: 1fr auto auto;
       grid-template-areas:
         'subscribe subscribe subscribe'
         'social social social'
-        'hello hello nav'
+        'hello nav contact'
         'bye bye bye';
     }
     @media screen and(min-width: 1024px) {
       // on laptop l
+      grid-template-columns: 2fr 1fr 1fr;
     }
     @media screen and(min-width: 1440px) {
       // on 4k
@@ -42,7 +45,7 @@ footer {
     section {
       width: 100%;
 
-      a {
+      a:not(.mat-button) {
         color: var(--primary-color);
         text-decoration: none;
         &:visited {
@@ -65,6 +68,17 @@ footer {
         mat-form-field {
           margin-bottom: -15px;
         }
+      }
+    }
+
+    .contact {
+      grid-area: contact;
+      ul li {
+        align-content: start;
+        display: grid;
+        grid-gap: 10px;
+        grid-auto-rows: auto;
+        grid-template-columns: min-content auto;
       }
     }
 
@@ -116,8 +130,11 @@ footer {
 
     .other-nav {
       grid-area: nav;
-      ul li button {
-        margin-left: -16px;
+      ul li {
+        button,
+        a {
+          margin-left: -16px;
+        }
       }
     }
     .website-goodBye {
