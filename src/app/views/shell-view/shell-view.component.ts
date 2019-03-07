@@ -16,6 +16,7 @@ import {
     <main>
       <router-outlet></router-outlet>
     </main>
+    <indev-footer></indev-footer>
   `,
   styles: [
     `
