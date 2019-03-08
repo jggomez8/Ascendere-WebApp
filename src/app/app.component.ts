@@ -12,7 +12,10 @@ export class AppComponent {
     // TODO: add message or notification
     // TODO: add to sw api
     updates.available.subscribe(event => {
-      updates.activateUpdate().then(document.location.reload);
+      let res = confirm('Existe una nueva version de esta pagina. Desea Actualizar?');
+      if (res) {
+        updates.activateUpdate().then(() => document.location.reload());
+      }
     });
   }
 }
