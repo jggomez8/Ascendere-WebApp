@@ -13,5 +13,6 @@ export class ProyectosInnovacionCardComponent {
     biologica: true,
     tecnica: true
   };
-  heroImage = 'http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg';
+  heroImage =
+    'https://images.unsplash.com/photo-1551855042-d8251a1244b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80';
 }

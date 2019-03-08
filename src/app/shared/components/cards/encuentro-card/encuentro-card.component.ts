@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class EncuentroCardComponent {
   title = 'Nombre Encuentro Prueba Esto es muy Largo';
-  backgroundImage = 'http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg';
+  backgroundImage = 'https://images.unsplash.com/photo-1551855042-d8251a1244b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80';
   fecha = new Date();
 }
