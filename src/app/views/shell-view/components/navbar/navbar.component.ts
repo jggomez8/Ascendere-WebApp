@@ -24,6 +24,9 @@ export class NavbarComponent {
             },
             {
               name: 'Proyectos Actuales'
+            },
+            {
+              name: 'Proyectos Coordinados'
             }
           ]
         },
