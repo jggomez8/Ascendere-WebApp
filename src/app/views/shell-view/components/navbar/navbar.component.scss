@@ -1,7 +1,5 @@
 // style navbar with default color, background and space
 nav {
-  position: sticky;
-  top: 0;
   width: 100%;
   z-index: 100;
   padding: 16px 0;
@@ -13,6 +11,14 @@ nav {
   @media screen and (min-width: 600px) {
     // on tablets
     padding: 24px 0;
+  }
+  @supports ((position: -webkit-sticky) or (position: sticky)) {
+    & {
+      @media screen and(min-width: 840px) {
+        position: sticky;
+        top: 0;
+      }
+    }
   }
 }
 
@@ -90,12 +96,13 @@ nav {
   justify-content: flex-end;
 
   padding: 25px;
-  width: 80vw;
+  left: 0;
 
   background-color: #fff;
   box-shadow: 0 10px 50px rgba(27, 31, 35, 0.15);
   z-index: 200;
   @media screen and (min-width: 600px) {
+    left: auto;
     // on tablets
     width: 60vw;
   }
@@ -118,6 +125,7 @@ nav {
   order: 1;
 }
 .close-navbar {
+  min-height: min-content;
   @media screen and(min-width: 840px) {
     // on laptop
     display: none;

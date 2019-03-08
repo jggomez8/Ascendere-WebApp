@@ -1,12 +1,13 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { NavbarItem } from '../../interfaces/navbar-item.interface';
+import { Router, NavigationStart, Event } from '@angular/router';
 
 @Component({
   selector: 'indev-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   headerMenu: Array<NavbarItem> = [
     {
       name: 'Servicios',
@@ -154,6 +155,22 @@ export class NavbarComponent {
   ];
 
   @ViewChild('mainNavbar') mainNavbarElement: ElementRef;
+
+  constructor(private _router: Router) {}
+
+  ngOnInit() {
+    this._router.events.subscribe((event: Event) => {
+      // user is navigating to new route
+      if (event instanceof NavigationStart) {
+        const el = this.mainNavbarElement.nativeElement as HTMLElement;
+
+        if (el.classList.contains('active-navbar')) {
+          el.classList.remove('active-navbar');
+          return;
+        }
+      }
+    });
+  }
 
   /**
    * toggle navbar open or close
