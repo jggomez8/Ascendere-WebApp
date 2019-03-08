@@ -1,0 +1,88 @@
+figure.stack {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gradient {
+    // position content
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.575);
+  }
+
+  .content {
+    // position content
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    // center items inside hero image
+    display: flex;
+    justify-items: center;
+    align-items: center;
+
+    // style
+    color: #fefefe;
+
+    .container {
+      // align items as needed
+      display: grid;
+      grid-gap: 10px 24px;
+      align-items: baseline;
+
+      grid-template-areas:
+        'header'
+        'date'
+        'description'
+        'guests';
+
+      @media screen and (min-width: 600px) {
+        grid-template-areas:
+          'header header'
+          'date description'
+          'guests description';
+      }
+      @media screen and (min-width: 1024px) {
+        grid-template-areas:
+          'header header'
+          'date date'
+          'guests description';
+      }
+
+      // set areas for items
+      .header {
+        grid-area: header;
+      }
+      .date {
+        grid-area: date;
+      }
+      .guests {
+        grid-area: guests;
+        ul {
+          padding-top: 5px;
+          padding-left: 30px;
+          list-style-type: circle;
+        }
+      }
+      .description {
+        grid-area: description;
+      }
+    }
+  }
+}

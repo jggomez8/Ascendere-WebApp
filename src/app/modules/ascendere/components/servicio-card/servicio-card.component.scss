@@ -1,0 +1,72 @@
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+
+  &-header {
+    background-color: var(--surface-color);
+
+    .image-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      // style background
+      background-image: var(--surface-background);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      // center image
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 80%;
+      }
+    }
+  }
+  &-content {
+    background-color: var(--surface-color);
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 600px) {
+      // on tablets
+      padding: 20px;
+    }
+    @media screen and(min-width: 840px) {
+      // on laptop
+      padding: 25px;
+    }
+    markdown {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      overflow: hidden;
+    }
+
+    .overflow-blur {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+      background: linear-gradient(0deg, var(--surface-color), #ffffff00);
+      height: 40px;
+    }
+    button,
+    a {
+      margin-top: 25px;
+      justify-self: flex-end;
+    }
+  }
+}

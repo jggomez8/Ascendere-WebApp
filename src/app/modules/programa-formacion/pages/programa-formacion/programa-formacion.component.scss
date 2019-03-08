@@ -3,3 +3,11 @@
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
+
+.validar-formacion {
+  grid-column: 1 /  7;
+}
+
+.cursos-especificos {
+  grid-column: 7 /  13;
+}

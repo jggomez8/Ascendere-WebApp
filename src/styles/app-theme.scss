@@ -1,16 +1,16 @@
 :root {
   // A primary color is the color displayed most frequently across the app and components.
-  --primary-color: #27adc7;
+  --primary-color: #00b0ff;
   --on-primary: rgb(255, 255, 255);
   // A secondary color provides more ways to accent accent select parts of the UI.
-  --secondary-color: rgb(233, 28, 97);
+  --secondary-color: #ffab00;
   --on-secondary: hsl(0, 0%, 100%);
   // Surface colors, image affect surfaces of components, such as cards, sheets, and menus.
-  --surface-color: rgb(255, 255, 255);
+  --surface-color: #f5f5f5;
   --surface-background: url('/assets/images/default-background.png');
   --on-surface: rgb(15, 15, 15);
   // The background color appears behind scrollable content.
-  --background-color: rgb(239, 240, 244);
+  --background-color: rgb(255, 255, 255);
   --on-background: rgb(15, 15, 15);
   // Error color indicates errors components, such as text fields.
   --error-color: rgb(233, 45, 20);

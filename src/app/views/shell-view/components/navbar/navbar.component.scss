@@ -1,25 +1,26 @@
-// display breakpoints
-$display-small: 500;
-$display-tablet: 700;
-$display-desktop: 1100;
-
 // style navbar with default color, background and space
 nav {
-  max-height: 200px;
-  background-color: var(--surface-color);
-  color: var(--on-surface);
-  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 16px 0;
+
+  background-color: var(--background-color);
+  color: var(--on-background);
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.404);
 
-  @media screen and (min-width: $display-desktop+'px') {
-    padding: 25px 0;
+  @media screen and (min-width: 600px) {
+    // on tablets
+    padding: 24px 0;
   }
 }
 
 // Navbar by default is a flex element to give items space between
 // in desktop screen
 .navbar {
-  @media screen and (min-width: $display-desktop+'px') {
+  @media screen and(min-width: 840px) {
+    // on laptop
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -29,22 +30,25 @@ nav {
 
 // main-header contains mainly logo and on small screens actions
 .main-header {
-  width: auto;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 
   // Take all space to position actions on the other side of the row
-  @media screen and (max-width: $display-desktop+'px') {
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  @media screen and(min-width: 840px) {
+    // on laptop
+    width: auto;
   }
 }
 
-// hide main-header.actions on desktop
 .main-header .main-actions {
-  @media screen and (min-width: $display-desktop+'px') {
+  margin-right: -15px;
+  @media screen and(min-width: 840px) {
+    // on laptop
+    // hide main-header.actions on desktop
     display: none;
   }
 }
@@ -54,7 +58,8 @@ nav {
   height: 50px;
   width: 50px;
   margin-right: 25px;
-  @media screen and (min-width: $display-desktop+'px') {
+  @media screen and(min-width: 840px) {
+    // on laptop
     height: 75px;
     width: 75px;
   }
@@ -63,47 +68,58 @@ nav {
 // main links and actions, by default display is none, but in desktop is a flex row
 .main-navbar {
   display: none;
-  @media screen and (min-width: $display-desktop+'px') {
+  @media screen and(min-width: 840px) {
+    // on laptop
     display: flex;
     flex-direction: row;
+
+    margin-right: -16px;
   }
 }
 
 // when main is activated and is on small screen, items will be displayed at left sode
 .main-navbar.active-navbar {
-  @media screen and (max-width: $display-desktop+'px') {
-    width: 40vw;
-    overflow: auto;
+  overflow: scroll;
 
-    position: fixed !important;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
 
-    padding: 25px;
+  padding: 25px;
+  width: 80vw;
 
-    background-color: #fff;
-    box-shadow: 0 10px 50px rgba(27, 31, 35, 0.15);
-    z-index: 100;
-  }
-  @media screen and (max-width: $display-tablet+'px') {
+  background-color: #fff;
+  box-shadow: 0 10px 50px rgba(27, 31, 35, 0.15);
+  z-index: 200;
+  @media screen and (min-width: 600px) {
+    // on tablets
     width: 60vw;
+  }
+  @media screen and(min-width: 840px) {
+    // on laptop
+    overflow: inherit;
+    position: relative;
+    display: inherit;
+    z-index: inherit;
+    box-shadow: none;
+    background-color: var(--surface-color);
+    width: auto;
   }
 }
 
 // Close button on side bar is displayed onlu on small screens, and sidebar is active
 // remove button margin
 .main-navbar.active-navbar .close-navbar {
-  @media screen and (max-width: $display-desktop+'px') {
-    align-self: flex-end;
-    order: 1;
-  }
+  align-self: flex-end;
+  order: 1;
 }
 .close-navbar {
-  @media screen and (min-width: $display-desktop+'px') {
+  @media screen and(min-width: 840px) {
+    // on laptop
     display: none;
   }
 }
@@ -112,20 +128,30 @@ nav {
 .header-menu {
   overflow: auto;
   display: flex;
-  @media screen and (max-width: $display-desktop+'px') {
-    flex-direction: column;
+  flex-direction: column;
+  > li {
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.692);
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  button.menu-item,
+  a.menu-item {
+    margin: 0 -15px;
+  }
+  @media screen and(min-width: 840px) {
+    // on laptop
+    flex-direction: row;
     > li {
-      border-bottom: 1px dotted rgba(0, 0, 0, 0.692);
-      &:last-child {
-        border-bottom: none;
-      }
+      border-bottom: none;
     }
     button.menu-item,
     a.menu-item {
-      margin: 0 -15px;
+      margin: 0;
     }
   }
-  @media screen and (min-width: $display-desktop+'px') {
+  @media screen and(min-width: 840px) {
+    // on laptop
     flex-direction: row;
   }
 }
@@ -133,14 +159,16 @@ nav {
 .navbar-actions {
   display: flex;
   flex-wrap: nowrap;
-  @media screen and (max-width: $display-desktop+'px') {
+  @media screen and(min-width: 840px) {
+    // on laptop
     flex-direction: column;
     margin-top: 10px;
     > * {
       margin-bottom: 15px;
     }
   }
-  @media screen and (min-width: $display-desktop+'px') {
+  @media screen and(min-width: 840px) {
+    // on laptop
     flex-direction: row;
     margin-left: 10px;
     > * {

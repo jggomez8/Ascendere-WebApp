@@ -1,17 +1,26 @@
-  <indev-container>
-    <markdown ngPreserveWhitespaces>
+<div class="container">
+  <markdown ngPreserveWhitespaces>
     # Hola
     ## Hola
     ### Hola
     #### Hola
     ##### Hola
-    ###### Hola If you want to embed images, this is how you do it:
+    ###### Hola
+    If you want to embed images, this is
+    how you do it:
+
     ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
+    - hola
+    - como
+    - estas
+      - muy
+      - bien
   </markdown>
   <markdown [data]="markdown"> </markdown>
-</indev-container>
+</div>
 
-<indev-container>
+<div class="container">
   <div style="text-align:center;">
     <h1 class="TextTheme--display1">
       Welcome to Home!
@@ -75,10 +84,7 @@
       </div>
     </section>
   </indev-lazy-transition> -->
-  <indev-lazy-load-image
-    [source]="dataSource"
-  >
-  </indev-lazy-load-image>
+  <indev-lazy-load-image [source]="dataSource"> </indev-lazy-load-image>
   <section indev-section>
     <indev-section-title>
       Nombre de la seccion
@@ -251,4 +257,4 @@
     </div>
   </section>
   <br />
-</indev-container>
+</div>

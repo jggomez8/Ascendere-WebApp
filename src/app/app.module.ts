@@ -7,6 +7,8 @@ import { SharedModule } from './shared/shared.module';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       }
     }),
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   bootstrap: [AppComponent]
 })

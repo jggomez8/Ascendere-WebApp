@@ -1,8 +1,3 @@
-// display breakpoints
-$display-small: 500;
-$display-tablet: 700;
-$display-desktop: 1100;
-
 .summary {
   overflow: hidden;
 }
@@ -19,15 +14,16 @@ $display-desktop: 1100;
 
   // style content
   border-radius: 5px;
-  background-color: var(--surface-color);
+  background-color: var(--background-color);
 
-  @media screen and (min-width: $display-desktop+'px') {
+  @media screen and(min-width: 840px) {
+    // on laptop
     position: absolute;
     z-index: 100;
 
     // style content
     border-radius: 5px;
-    background-color: var(--surface-color);
+    background-color: var(--background-color);
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   }
 }
@@ -45,7 +41,7 @@ $display-desktop: 1100;
   }
 }
 
-.summary-section indev-menu-button{
+.summary-section indev-menu-button {
   margin: 0 -16px;
 }
 

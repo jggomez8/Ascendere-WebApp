@@ -9,19 +9,24 @@ import { NavbarItem } from '../../interfaces/navbar-item.interface';
 export class NavbarComponent {
   headerMenu: Array<NavbarItem> = [
     {
-      name: 'Servicios'
+      name: 'Servicios',
+      routerLink: ['/', 'empty', 'ascendere']
     },
     {
       name: 'Innovación',
       children: [
         {
           name: 'Proyectos de Innovación',
+          routerLink: ['/', 'proyectos-innovacion'],
           children: [
             {
               name: 'Buenas Practicas'
             },
             {
               name: 'Proyectos Actuales'
+            },
+            {
+              name: 'Proyectos Coordinados'
             }
           ]
         },
@@ -50,29 +55,31 @@ export class NavbarComponent {
       name: 'Formación',
       children: [
         {
-          name: 'Programa de Formación',
-          routerLink: ['/', 'programa-formacion'],
+          name: 'Formación Docente',
           children: [
             {
-              name: 'Cursos Actuales',
-              routerLink: ['/', 'programa-formacion'],
-              fragment: 'cursos'
+              name: 'Cafe Científico',
+              routerLink: ['/', 'cafe-cientifico']
+            },
+            {
+              name: 'Debate Estudiantil',
+              routerLink: ['/', 'debate-estudiantil']
             },
             {
               name: 'InnovaTips',
-              routerLink: ['/', 'programa-formacion'],
-              fragment: 'tips'
-            }
-          ]
-        },
-        {
-          name: 'Encuentros',
-          children: [
-            {
-              name: 'Cafe Científico'
+              routerLink: ['/', 'innova-tips']
             },
             {
-              name: 'Vitamina i'
+              name: 'Programa de Formación',
+              routerLink: ['/', 'programa-formacion']
+            },
+            {
+              name: 'Talleres Académicos',
+              routerLink: ['/', 'talleres-academicos']
+            },
+            {
+              name: 'Vitamina I',
+              routerLink: ['/', 'vitamina-i']
             }
           ]
         },
@@ -107,30 +114,39 @@ export class NavbarComponent {
       ]
     },
     {
-      name: 'Observatorio EduTendencias',
+      name: 'EduTendencias',
       children: [
         {
+          name: 'Observatorio Edutendencias'
+        },
+        {
           name: 'Tips de Innovación',
+          routerLink: ['/', 'tips-innovacion'],
           children: [
             {
-              name: 'Aula Divertida'
+              name: 'Aula Divertida',
+              routerLink: ['/', 'tips-innovacion', 'aula-divertida']
             },
             {
-              name: 'Docentes del Futuro'
+              name: 'Docentes del Futuro',
+              routerLink: ['/', 'tips-innovacion', 'docentes-futuro']
             },
             {
-              name: 'Podcast'
+              name: 'Podcast',
+              goto: 'https://www.ivoox.com/podcast-academia-utpl_sq_f1507318_1.html'
             },
             {
-              name: 'Videos'
+              name: 'Videos',
+              routerLink: ['/', 'tips-innovacion', 'videos']
             }
           ]
         },
         {
           name: 'Noticias'
         },
+
         {
-          name: 'Docentes Ascenderse',
+          name: 'Docentes Ascenderes',
           goto: 'https://www.youtube.com/channel/UCzRd2Y87-NJnVliV8B6e_Xg'
         }
       ]

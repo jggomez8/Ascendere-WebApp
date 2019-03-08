@@ -14,7 +14,12 @@ import { Component } from '@angular/core';
   styles: [
     `
       .section {
-        padding: 35px 0 25px 0;
+        padding: 25px 0 15px 0;
+      }
+      @media screen and(min-width: 840px) {
+        .section {
+          padding: 35px 0 25px 0;
+        }
       }
       .section-header {
         display: flex;
@@ -25,6 +30,9 @@ import { Component } from '@angular/core';
 
         /* space header from content */
         padding-bottom: 15px;
+      }
+      .section-header:empty {
+        padding-bottom: 0;
       }
     `
   ]

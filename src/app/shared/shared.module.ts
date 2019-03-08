@@ -6,7 +6,6 @@ import 'hammerjs';
 
 import { AngularMaterialModule } from './modules/angular-material.module';
 
-import { ContainerComponent } from './components/container/container.component';
 import { SectionControlsComponent } from './components/section/section-controls.component';
 import { SectionTitleComponent } from './components/section/section-title.component';
 import { EncuentroCardComponent } from './components/cards/encuentro-card/encuentro-card.component';
@@ -17,10 +16,11 @@ import { ProyectosInnovacionCardComponent } from './components/cards/proyectos-i
 import { LazyTransitionComponent, LazyLoadImage } from './components/lazy-load/lazy-load.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { LazyLoadImageComponent } from './components/lazy-load-image/lazy-load-image.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const DECLARATIONS = [
-  // Container component
-  ContainerComponent,
+  // Header Component
+  HeaderComponent,
 
   // Section Components
   SectionComponent,
@@ -33,7 +33,7 @@ const DECLARATIONS = [
   CursoCardComponent,
   ProyectosInnovacionCardComponent,
 
-  // lazy load component
+  // lazy load Component
   LazyTransitionComponent,
   LazyLoadImage,
   LazyLoadImageComponent

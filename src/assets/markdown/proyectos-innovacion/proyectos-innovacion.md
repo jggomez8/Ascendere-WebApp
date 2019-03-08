@@ -1,0 +1,1 @@
+Semanalmente los profesores de Modalidad Presencial, Abierta y Postrados. Presentan su propuesta de Buenas Prácticas Docentes para potenciar el uso creativo de diferentes herramientas dentro y fuera del aula

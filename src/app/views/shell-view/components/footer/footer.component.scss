@@ -1,0 +1,156 @@
+footer {
+  // TODO: validate if margin top is still useful
+  padding-top: 48px;
+  background-color: var(--background-color);
+  .container {
+    border-top: 1px solid rgba(97, 97, 97, 0.534);
+
+    display: grid;
+    column-gap: 40px;
+    justify-items: baseline;
+    align-items: stretch;
+    grid-template-areas:
+      'subscribe'
+      'social'
+      'contact'
+      'nav'
+      'hello'
+      'bye';
+    @media screen and (min-width: 600px) {
+      // on tablets
+      grid-template-areas:
+        'subscribe subscribe'
+        'social social'
+        'hello contact'
+        'hello nav'
+        'bye bye';
+    }
+    @media screen and(min-width: 840px) {
+      // on laptop
+      grid-template-columns: 1fr auto auto;
+      grid-template-areas:
+        'subscribe subscribe subscribe'
+        'social social social'
+        'hello nav contact'
+        'bye bye bye';
+    }
+    @media screen and(min-width: 1024px) {
+      // on laptop l
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+    @media screen and(min-width: 1440px) {
+      // on 4k
+    }
+
+    section {
+      width: 100%;
+
+      a:not(.mat-button) {
+        color: var(--primary-color);
+        text-decoration: none;
+        &:visited {
+          color: var(--secondary-color);
+        }
+      }
+    }
+    .subscribe-section {
+      grid-area: subscribe;
+      text-align: center;
+      indev-section-title {
+        width: 100%;
+      }
+
+      .wrap {
+        display: grid;
+        grid-gap: 15px 20px;
+        grid-auto-rows: auto;
+        grid-template-columns: 1fr;
+        mat-form-field {
+          margin-bottom: -15px;
+        }
+      }
+    }
+
+    .contact {
+      grid-area: contact;
+      ul li {
+        align-content: start;
+        display: grid;
+        grid-gap: 10px;
+        grid-auto-rows: auto;
+        grid-template-columns: min-content auto;
+      }
+    }
+
+    .social-links {
+      grid-area: social;
+      ul {
+        display: grid;
+        grid-gap: 20px 15px;
+        grid-auto-rows: auto;
+        grid-template-columns: 1fr;
+
+        @media screen and (min-width: 600px) {
+          // on tablets
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: 1fr;
+          justify-items: center;
+        }
+        li {
+          display: grid;
+          grid-gap: 5px 15px;
+          grid-template-columns: repeat(2, 1fr);
+
+          align-items: baseline;
+
+          .TextTheme--title {
+            justify-self: end;
+          }
+          .TextTheme--button {
+            justify-self: start;
+          }
+
+          @media screen and (min-width: 600px) {
+            // on tablets
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, 1fr);
+
+            .TextTheme--title,
+            .TextTheme--button {
+              justify-self: center;
+            }
+          }
+        }
+      }
+    }
+
+    .website-hello {
+      grid-area: hello;
+    }
+
+    .other-nav {
+      grid-area: nav;
+      ul li {
+        button,
+        a {
+          margin-left: -16px;
+        }
+      }
+    }
+    .website-goodBye {
+      grid-area: bye;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+
+      padding-top: 15px;
+      padding-bottom: 30px;
+      border-top: 1px dotted rgba(97, 97, 97, 0.534);
+      > * {
+        padding-top: 15px;
+      }
+    }
+  }
+}
