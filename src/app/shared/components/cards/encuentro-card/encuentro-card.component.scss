@@ -12,12 +12,15 @@
 
 // style elements when focused
 .card:hover {
+  @media screen and (min-width: 840px) {
+
   .background-image {
     img {
       transform: translate3d(0, 0, 0);
       transform: scale(1.03);
     }
   }
+}
 }
 
 .background-image {

@@ -6,9 +6,11 @@
 
 // style elements when hovered
 .card:hover {
-  img {
-    transform: translate3d(0, 0, 0);
-    transform: scale(1.03);
+  @media screen and (min-width: 840px) {
+    img {
+      transform: translate3d(0, 0, 0);
+      transform: scale(1.03);
+    }
   }
 }
 

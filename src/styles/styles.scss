@@ -52,7 +52,10 @@
 
   // style elements when focused
   &:hover {
-    transform: translate3d(0, 0, 0);
-    box-shadow: 4px 4px 20px #00000088;
+    @media screen and (min-width: 840px) {
+      // on laptop
+      transform: translate3d(0, 0, 0);
+      box-shadow: 4px 4px 20px #00000088;
+    }
   }
 }
