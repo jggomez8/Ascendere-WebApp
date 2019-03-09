@@ -2,7 +2,7 @@
   "name": "Proyecto Ascendere",
   "short_name": "Ascendere",
   "theme_color": "#00b0ff",
-  "background_color": "#ffffff",
+  "background_color": "#00b0ff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

@@ -17,12 +17,13 @@ footer {
       'hello'
       'bye';
     @media screen and (min-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
       // on tablets
       grid-template-areas:
         'subscribe subscribe'
         'social social'
-        'hello contact'
         'hello nav'
+        'hello contact'
         'bye bye';
     }
     @media screen and(min-width: 840px) {
@@ -44,6 +45,7 @@ footer {
 
     section {
       width: 100%;
+      padding: 0;
 
       a:not(.mat-button) {
         color: var(--primary-color);
