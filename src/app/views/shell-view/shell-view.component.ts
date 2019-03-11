@@ -13,6 +13,7 @@ import {
   template: `
     <indev-navbar></indev-navbar>
     <mat-progress-bar *ngIf="loading" mode="indeterminate" color="accent"></mat-progress-bar>
+    <indev-fab></indev-fab>
     <main>
       <router-outlet></router-outlet>
     </main>

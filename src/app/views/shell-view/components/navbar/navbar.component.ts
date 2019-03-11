@@ -38,9 +38,6 @@ export class NavbarComponent implements OnInit {
               routerLink: ['/', 'articulo', 'ayudantes-de-catedra']
             },
             {
-              name: 'Convocatorias'
-            },
-            {
               name: 'Proyecto Mentores',
               routerLink: ['/', 'articulo', 'proyecto-mentores']
             },
