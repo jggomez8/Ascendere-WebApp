@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { MatButton } from '@angular/material';
 
 @Component({
   selector: 'indev-fab',
@@ -19,7 +18,6 @@ import { MatButton } from '@angular/material';
         z-index: 200;
         bottom: 35px;
         right: 30px;
-
       }
       @media screen and (min-width: 600px) {
         .fab {
@@ -30,7 +28,7 @@ import { MatButton } from '@angular/material';
 
       @media screen and(min-width: 840px) {
         .fab {
-          display: none;
+          display: none !important;
         }
       }
 
