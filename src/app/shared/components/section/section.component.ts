@@ -15,6 +15,7 @@ import { Component } from '@angular/core';
     `
       .section {
         padding: 25px 0 15px 0;
+        background-color: var(--background-color);
       }
       @media screen and(min-width: 840px) {
         .section {
