@@ -9,6 +9,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { indevMarkedOptionsFactory } from './shared/functions/markdown/markdown.functions';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,16 +21,8 @@ import { environment } from '../environments/environment';
       loader: HttpClient,
       markedOptions: {
         provide: MarkedOptions,
-        useValue: {
-          gfm: true,
-          tables: true,
-          breaks: false,
-          pedantic: false,
-          sanitize: false,
-          smartLists: true,
-          smartypants: false
-        }
-      }
+        useFactory: indevMarkedOptionsFactory,
+      },
     }),
     AppRoutingModule,
     BrowserAnimationsModule,
