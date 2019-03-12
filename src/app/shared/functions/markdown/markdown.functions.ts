@@ -4,11 +4,9 @@ import { MarkedRenderer } from 'ngx-markdown';
 export function indevMarkedOptionsFactory(): MarkedOptions {
   const renderer = new MarkedRenderer();
 
-  renderer.blockquote = (text: string) => {
-    return '<blockquote class="blockquote"><p>' + text + '</p></blockquote>';
-  };
   renderer.image = image;
   renderer.link = link;
+
 
   return {
     renderer: renderer,
