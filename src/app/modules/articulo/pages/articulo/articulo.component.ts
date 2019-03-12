@@ -1,42 +1,48 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'indev-articulo',
-  templateUrl: './articulo.component.html',
+  template: `
+  <div class="container">
+    <markdown  [src]="markdown_source" (error)="onError($event)"></markdown>
+  </div>
+  `,
   styleUrls: ['./articulo.component.scss']
 })
 export class ArticuloComponent implements OnInit, OnDestroy {
   id: number;
-  private sub: any;
+  private _sub: any;
 
-// TODO: validate if file extension is required to load asset from server
-  constructor(private route: ActivatedRoute) {}
+  // TODO: validate if file extension is required to load asset from server
+  constructor(
+    private _route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
+    private _location: Location,
+  ) {}
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this._sub = this._route.params.subscribe(params => {
       this.id = params['id'];
-      console.log(this.id);
-
-      // In a real app: dispatch action to load the details here.
     });
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    this._sub.unsubscribe();
   }
 
   get markdown_source(): string {
     return `/assets/markdown/articulos/${this.id}.md`;
   }
 
-  onLoad($event) {
-    // TODO: remove
-    console.log($event);
-  }
-
   onError($event) {
-    // TODO: remove
-    console.log($event);
+    const snackBarRef = this._snackBar.open('No se pudo Cargar el articulo.', 'Regresar');
+
+    snackBarRef.onAction().subscribe(() => {
+      this._location.back();
+    });
   }
 }
