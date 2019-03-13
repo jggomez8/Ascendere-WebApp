@@ -10,8 +10,7 @@ markdown {
   h4,
   h5,
   h6 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin: 16px 0;
     font-weight: 500;
     line-height: 1.2;
     &::before {
@@ -27,44 +26,70 @@ markdown {
     }
   }
 
-  h1,
-  .h1 {
-    font-size: 3rem;
+  h1 {
+    font-size: 2em;
+
+    margin-top: 0;
+    border-bottom: 1px solid var(--surface-color);
+    padding-bottom: 0.3em;
+
+    @media screen and(min-width: 840px) {
+      // on laptop
+      font-size: 3em;
+    }
   }
 
-  h2,
-  .h2 {
-    font-size: 2.5rem;
+  h2 {
+    font-size: 1.5em;
+
+    border-bottom: 1px solid var(--surface-color);
+    padding-bottom: 0.3em;
+    @media screen and(min-width: 840px) {
+      // on laptop
+      font-size: 2.5em;
+    }
   }
 
-  h3,
-  .h3 {
-    font-size: 2rem;
+  h3 {
+    font-size: 1.25em;
+    @media screen and(min-width: 840px) {
+      // on laptop
+      font-size: 2em;
+    }
   }
 
-  h4,
-  .h4 {
-    font-size: 1.5rem;
+  h4 {
+    font-size: 1em;
+    @media screen and(min-width: 840px) {
+      // on laptop
+      font-size: 1.5em;
+    }
   }
 
-  h5,
-  .h5 {
-    font-size: 1.25rem;
+  h5 {
+    font-size: 0.875em;
+    @media screen and(min-width: 840px) {
+      // on laptop
+      font-size: 1.25em;
+    }
   }
 
-  h6,
-  .h6 {
-    font-size: 1rem;
+  h6 {
+    font-size: 0.85em;
+    @media screen and(min-width: 840px) {
+      // on laptop
+      font-size: 1em;
+    }
   }
 
   p {
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
   }
 
   strong {
     font-weight: 600;
-    letter-spacing: 0.009375rem;
+    letter-spacing: 0.009375em;
   }
 
   em {
@@ -90,7 +115,7 @@ markdown {
   ol {
     display: block;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
     padding-left: 40px;
   }
 
@@ -105,7 +130,7 @@ markdown {
     list-style: none;
     counter-reset: li;
     li {
-      counter-increment: li;
+      counter-incement: li;
       &::before {
         content: counter(li);
         color: var(--primary-color);
@@ -131,16 +156,6 @@ markdown {
     }
   }
 
-  li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-  }
-
-  ul ul,
-  ol ul {
-    list-style-type: circle;
-  }
-
   figure {
     display: flex;
     align-items: center;
@@ -162,7 +177,7 @@ markdown {
     background: var(--surface-color);
     background-image: var(--surface-background);
     border: 10px solid var(--background-color);
-    padding: 1rem 2rem;
+    padding: 1em 2em;
     border-radius: 16px;
     position: relative;
 
@@ -183,14 +198,14 @@ markdown {
     &::after {
       content: 'Hey!';
 
-      font-size: 0.75rem;
+      font-size: 0.75em;
       font-weight: 500;
-      letter-spacing: 0.09375rem;
+      letter-spacing: 0.09375em;
       text-transform: uppercase;
 
       top: -19px;
-      left: 1rem;
-      padding: 0 0.5rem;
+      left: 1em;
+      padding: 0 0.5em;
       position: absolute;
       z-index: 1;
       color: var(--primary-color);
@@ -202,11 +217,11 @@ markdown {
       padding: 0;
     }
 
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
   }
 
   pre {
-    // TODO: remove style elements
+    // TODO: emove style elements
 
     padding: 20px;
     border-radius: 14px;
@@ -222,7 +237,6 @@ markdown {
   code {
     font-family: 'Courier New', Courier, monospace;
 
-    font-size: 90%;
     overflow-wrap: break-word;
     word-wrap: break-word;
     padding: 0.1rem 0.3rem 0.2rem;
