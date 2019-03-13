@@ -1,6 +1,6 @@
 # PROYECTO **AYUDANTE DE CÁTEDRA**
 
-![Banner Proyectos](https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/innovacion-docente%2Fayudante%20de%20catedra%2Fcarrusel.png?alt=media&token=2719920a-67a6-4927-aa16-178b2c5192fb)
+[![Banner Proyectos](https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/innovacion-docente%2Fayudante%20de%20catedra%2Fcarrusel.png?alt=media&token=2719920a-67a6-4927-aa16-178b2c5192fb)](http://google.com)
 
 La necesidad de apoyo al profesorado en la UTPL conlleva a que los estudiantes de pregrado puedan realizar tareas de soporte a la docencia en calidad de Ayudantes de Cátedra. Con estos proyectos se pretende contribuir a la formación de estudiantes que tienen un perfil profesional de investigación, docencia y que podrían contribuir en el futuro como docentes.
 
@@ -13,12 +13,13 @@ El estudiante que decide incursar en esta actividad académica tiene la oportuni
 El ayudante de cátedra es un estudiante que por sus méritos académicos será seleccionado para cumplir funciones concretas y específicas relacionadas con actividades de docencia, investigación y prácticum.
 
 ### Estos son los requisitos que debes cumplir:
- - Ser alumno matriculado en el período académico en curso.
- - Haber aprobado la (s) materia (s) motivo de la convocatoria con una nota mínima de 34 puntos sobre 40, requisito establecido en el Artículo 28 literal b del Reglamento de carrera y escalafón del profesor investigador del sistema de Educación Superior.
- - Demostrar un rendimiento académico en la titulación, cuyo promedio sea de 30 o mayor.
- - Debes haber aprobado o estar matriculado en el componente académico de Gestión Productiva 3.
- - Debes ser un alumno con perfil de investigador, liderazgo, vocación de servicio, iniciativa, compromiso y mantener buenas relaciones interpersonales.
- - No registrar ninguna sanción disciplinaria.
+
+- Ser alumno matriculado en el período académico en curso.
+- Haber aprobado la (s) materia (s) motivo de la convocatoria con una nota mínima de 34 puntos sobre 40, requisito establecido en el Artículo 28 literal b del Reglamento de carrera y escalafón del profesor investigador del sistema de Educación Superior.
+- Demostrar un rendimiento académico en la titulación, cuyo promedio sea de 30 o mayor.
+- Debes haber aprobado o estar matriculado en el componente académico de Gestión Productiva 3.
+- Debes ser un alumno con perfil de investigador, liderazgo, vocación de servicio, iniciativa, compromiso y mantener buenas relaciones interpersonales.
+- No registrar ninguna sanción disciplinaria.
 
 ### Reconocimiento
 
@@ -35,7 +36,6 @@ Los estudiantes que actualmente se encuentran siendo parte de este proyecto han 
 - [Ayudantes de Cátedra octubre 2018 febrero 2019]()
 
 ## ¿Quieres fortalecer el vinculo docente - estudiante?
-
 
 - [Planificación de actividades de Ayudante de Cátedra (Anexo I)]()
 - [Planificación de actividades de Ayudante de Cátedra (Anexo 2)]()

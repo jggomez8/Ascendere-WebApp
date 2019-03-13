@@ -7,9 +7,9 @@ import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'indev-articulo',
   template: `
-  <div class="container">
-    <markdown  [src]="markdown_source" (error)="onError($event)"></markdown>
-  </div>
+    <div class="container">
+      <markdown [src]="markdown_source" (error)="onError($event)"></markdown>
+    </div>
   `,
   styleUrls: ['./articulo.component.scss']
 })
@@ -21,12 +21,13 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   constructor(
     private _route: ActivatedRoute,
     private _snackBar: MatSnackBar,
-    private _location: Location,
+    private _location: Location
   ) {}
 
   ngOnInit() {
     this._sub = this._route.params.subscribe(params => {
       this.id = params['id'];
+      this._snackBar.dismiss();
     });
   }
 

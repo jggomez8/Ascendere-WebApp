@@ -6,7 +6,7 @@ export function indevMarkedOptionsFactory(): MarkedOptions {
 
   renderer.image = image;
   renderer.link = link;
-
+  renderer.html = html;
 
   return {
     renderer: renderer,
@@ -26,6 +26,12 @@ function image(href: string, _: string, text: string) {
     <img alt="${text}" src="${href}">
   </figure>
   `;
+}
+
+function html(html) {
+  // TODO: do something
+  console.log(html);
+  return html;
 }
 
 /**
