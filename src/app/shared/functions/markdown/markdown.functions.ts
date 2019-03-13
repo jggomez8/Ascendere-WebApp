@@ -1,4 +1,4 @@
-import { MarkedOptions } from 'marked';
+import { MarkedOptions, Slugger } from 'marked';
 import { MarkedRenderer } from 'ngx-markdown';
 
 export function indevMarkedOptionsFactory(): MarkedOptions {

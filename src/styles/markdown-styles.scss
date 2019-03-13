@@ -14,6 +14,17 @@ markdown {
     margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
+    &::before {
+      content: '#';
+      color: var(--primary-color);
+      margin-right: 0.25rem;
+    }
+    a {
+      font-weight: inherit !important;
+      font-size: inherit !important;
+      letter-spacing: inherit !important;
+      text-transform: inherit !important;
+    }
   }
 
   h1,
