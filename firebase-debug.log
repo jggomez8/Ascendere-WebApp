@@ -1,0 +1,75 @@
+[debug] [2019-03-14T22:04:46.653Z] ----------------------------------------------------------------------
+[debug] [2019-03-14T22:04:46.657Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-03-14T22:04:46.657Z] CLI Version:   6.3.1
+[debug] [2019-03-14T22:04:46.657Z] Platform:      win32
+[debug] [2019-03-14T22:04:46.657Z] Node Version:  v11.6.0
+[debug] [2019-03-14T22:04:46.658Z] Time:          Thu Mar 14 2019 17:04:46 GMT-0500 (Colombia Standard Time)
+[debug] [2019-03-14T22:04:46.658Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-03-14T22:04:46.682Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-03-14T22:04:46.685Z] > authorizing via signed-in user
+[debug] [2019-03-14T22:04:46.686Z] [iam] checking project labs-63faf for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-03-14T22:04:46.688Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/labs-63faf:testIamPermissions  
+
+[debug] [2019-03-14T22:04:47.311Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-14T22:04:47.314Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/labs-63faf  
+ 
+[debug] [2019-03-14T22:04:48.072Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'labs-63faf'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-03-14T22:04:48.079Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/labs-63faf/versions  
+
+[debug] [2019-03-14T22:04:50.000Z] <<< HTTP RESPONSE 200
+[info] i  hosting[labs-63faf]: beginning deploy...
+[info] i  hosting[labs-63faf]: found 70 files in dist/Ascendere-WebApp
+[debug] [2019-03-14T22:04:50.035Z] [hosting] hash cache [ZGlzdFxBc2NlbmRlcmUtV2ViQXBw] load error: lines is not defined
+[debug] [2019-03-14T22:04:50.175Z] [hosting] hash cache [ZGlzdFxBc2NlbmRlcmUtV2ViQXBw] stored for 70 files
+[debug] [2019-03-14T22:04:50.175Z] [hosting][hash queue][FINAL]
+[debug] [2019-03-14T22:04:50.176Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/labs-63faf/versions/1418e58cd5fa18ab:populateFiles  
+ <request body omitted>
+[debug] [2019-03-14T22:04:54.305Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-14T22:04:54.309Z] [hosting][populate queue][FINAL]
+[debug] [2019-03-14T22:04:54.309Z] [hosting] uploads queued: 4
+[debug] [2019-03-14T22:04:56.566Z] [hosting][upload queue][FINAL]
+[info] +  hosting[labs-63faf]: file upload complete
+[debug] [2019-03-14T22:04:56.567Z] [hosting] deploy completed after 6565ms
+[debug] [2019-03-14T22:04:57.181Z] [
+  {
+    "config": {
+      "public": "dist/Ascendere-WebApp",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "labs-63faf"
+    },
+    "site": "labs-63faf",
+    "version": "sites/labs-63faf/versions/1418e58cd5fa18ab"
+  }
+]
+[info] i  hosting[labs-63faf]: finalizing version...
+[debug] [2019-03-14T22:04:57.183Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/labs-63faf/versions/1418e58cd5fa18ab?updateMask=status  
+
+[debug] [2019-03-14T22:04:58.227Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-14T22:04:58.228Z] [hosting] finalized version for labs-63faf:
+[info] +  hosting[labs-63faf]: version finalized
+[info] i  hosting[labs-63faf]: releasing new version...
+[debug] [2019-03-14T22:04:58.229Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/labs-63faf/releases?version_name=sites/labs-63faf/versions/1418e58cd5fa18ab  
+
+[debug] [2019-03-14T22:04:59.013Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-14T22:04:59.016Z] [hosting] release:
+[info] +  hosting[labs-63faf]: release complete
+[info] 
+[info] +  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/labs-63faf/overview
+[info] Hosting URL: https://labs-63faf.firebaseapp.com

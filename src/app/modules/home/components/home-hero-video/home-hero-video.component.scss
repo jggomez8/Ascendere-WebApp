@@ -12,9 +12,6 @@
     bottom: 0;
     left: 0;
 
-    opacity: 0.9;
-    transition: 1s all ease-in-out;
-
     &[poster] {
       object-fit: cover;
       width: 100%;
@@ -40,22 +37,17 @@
     left: 0;
 
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
 
-    padding-bottom: 10vmin;
+    background-color: white;
+    color: black;
+    mix-blend-mode: screen;
 
+    transition: 0.3s all ease-in-out;
     h1 {
-      color: black;
-      background-color: white;
-      mix-blend-mode: screen;
-
-      line-height: 1em;
-      padding: 0 16px;
       font-weight: 700;
       text-transform: uppercase;
-
-      transition: 0.3s all ease-in-out;
 
       @media screen and (min-width: 600px) {
         // on tablets
@@ -68,15 +60,7 @@
     }
   }
 
-  &:hover {
-    video {
-      opacity: 0.7;
-    }
-    h1 {
-      color: var(--on-secondary);
-      background-color: var(--secondary-color);
-      box-shadow: 1rem 1rem var(--primary-color);
-      mix-blend-mode: normal;
-    }
+  &:hover &--content {
+    background-color: rgba(255, 255, 255, 0);
   }
 }
