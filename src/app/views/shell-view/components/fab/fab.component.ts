@@ -44,7 +44,7 @@ export class FabComponent implements AfterViewInit {
     // show fab after user scrolled
     document.addEventListener('scroll', () => {
       const fab = this.fabRef.nativeElement as HTMLElement;
-      if (document.documentElement.scrollTop > 0) {
+      if (document.documentElement.scrollTop > 150) {
         // user scrolled
         fab.classList.add('visible');
       } else {

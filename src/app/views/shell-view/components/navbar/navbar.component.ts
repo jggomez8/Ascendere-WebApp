@@ -112,11 +112,8 @@ export class NavbarComponent implements OnInit {
       ]
     },
     {
-      name: 'EduTendencias',
+      name: 'Observatorio Edutendencias',
       children: [
-        {
-          name: 'Observatorio Edutendencias'
-        },
         {
           name: 'Tips de Innovación',
           routerLink: ['/', 'tips-innovacion'],
