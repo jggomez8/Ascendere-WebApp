@@ -1,0 +1,50 @@
+.features-scroll {
+  padding: 0;
+  position: relative;
+  background-color: var(--surface-color);
+  @media screen and (min-width: 840px) {
+    &::before {
+      content: '';
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      left: 0;
+      width: 50%;
+
+      background-color: var(--primary-color);
+    }
+  }
+
+  .container {
+    @media screen and (min-width: 840px) {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: min-content 1fr;
+    }
+    header {
+      display: none;
+
+      padding-top: 50px;
+      padding-right: 50px;
+      section {
+        width: 100%;
+        @supports ((position: -webkit-sticky) or (position: sticky)) {
+          position: -webkit-sticky; /* Safari */
+          position: sticky;
+          top: 0;
+          left: 0;
+        }
+        @media screen and (min-width: 840px) {
+          display: inline;
+        }
+      }
+    }
+    .scroll-content {
+      background-color: var(--surface-color);
+      @media screen and (min-width: 840px) {
+        padding-top: 50px;
+        padding-left: 50px;
+      }
+    }
+  }
+}
