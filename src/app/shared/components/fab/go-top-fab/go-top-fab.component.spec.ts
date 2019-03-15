@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FabComponent } from './fab.component';
+import { GoTopFabComponent } from './go-top-fab.component';
 
-describe('FabComponent', () => {
-  let component: FabComponent;
-  let fixture: ComponentFixture<FabComponent>;
+describe('GoTopFabComponent', () => {
+  let component: GoTopFabComponent;
+  let fixture: ComponentFixture<GoTopFabComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FabComponent ]
-    })
-    .compileComponents();
+      declarations: [GoTopFabComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FabComponent);
+    fixture = TestBed.createComponent(GoTopFabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -132,6 +132,7 @@ markdown {
     li {
       counter-increment: li;
       &::before {
+        display: inline-block;
         content: counter(li);
         color: var(--primary-color);
         display: inline-block;

@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'indev-fab',
+  selector: 'indev-go-top-fab',
   template: `
     <div #fab class="fab">
       <button mat-fab>
@@ -17,12 +17,12 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
         position: fixed;
         z-index: 200;
         bottom: 35px;
-        right: 30px;
+        right: 16px;
       }
       @media screen and (min-width: 600px) {
         .fab {
           bottom: 40px;
-          right: 50px;
+          right: 24px;
         }
       }
 
@@ -38,7 +38,7 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
     `
   ]
 })
-export class FabComponent implements AfterViewInit {
+export class GoTopFabComponent implements AfterViewInit {
   @ViewChild('fab') fabRef: ElementRef;
   ngAfterViewInit() {
     // show fab after user scrolled

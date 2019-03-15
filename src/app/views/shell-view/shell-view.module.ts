@@ -7,7 +7,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { MenuSummaryComponent } from './components/menu-summary/menu-summary.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FabComponent } from './components/fab/fab.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,6 @@ import { FabComponent } from './components/fab/fab.component';
     MenuButtonComponent,
     MenuSummaryComponent,
     FooterComponent,
-    FabComponent
   ],
   imports: [CommonModule, ShellViewRoutingModule, SharedModule]
 })

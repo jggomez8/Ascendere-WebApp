@@ -56,8 +56,10 @@
       display: flex;
       flex-direction: column;
       @media screen and (orientation: portrait) {
+        flex-direction: column-reverse;
         padding: 6px;
         background-color: white;
+        border-radius: 5px;
       }
       span.play {
         font-weight: 700;

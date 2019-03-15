@@ -17,6 +17,8 @@ import { LazyTransitionComponent, LazyLoadImage } from './components/lazy-load/l
 import { MarkdownModule } from 'ngx-markdown';
 import { LazyLoadImageComponent } from './components/lazy-load-image/lazy-load-image.component';
 import { HeaderComponent } from './components/header/header.component';
+import { GoTopFabComponent } from './components/fab/go-top-fab/go-top-fab.component';
+import { ReturnFabComponent } from './components/fab/return-fab/return-fab.component';
 
 const DECLARATIONS = [
   // Header Component
@@ -36,8 +38,11 @@ const DECLARATIONS = [
   // lazy load Component
   LazyTransitionComponent,
   LazyLoadImage,
-  LazyLoadImageComponent
+  LazyLoadImageComponent,
 
+  // Fab Component
+  GoTopFabComponent,
+  ReturnFabComponent
 ];
 
 @NgModule({
