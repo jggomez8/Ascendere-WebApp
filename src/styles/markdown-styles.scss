@@ -173,6 +173,17 @@ markdown {
       padding: 2px;
     }
   }
+  p img {
+    max-width: 100%;
+    height: auto !important;
+
+    display: block;
+    border-radius: 8px;
+
+    background: var(--background-color);
+    border: 1px solid #eee;
+    padding: 2px;
+  }
 
   blockquote {
     background: var(--surface-color);
