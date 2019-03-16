@@ -1,7 +1,8 @@
 .features-scroll {
-  padding: 0;
+  width: 100%;
+  height: 100%;
+
   position: relative;
-  background-color: var(--surface-color);
   @media screen and (min-width: 840px) {
     &::before {
       content: '';
@@ -9,42 +10,83 @@
       bottom: 0;
       position: absolute;
       left: 0;
-      width: 50%;
+      right: 0;
 
-      background-color: var(--primary-color);
+      overflow: auto;
+      background: var(--background-color) url('/assets/images/background.svg') repeat-y 50% 0;
+      background-size: 100vw;
+      width: 100%;
+      padding: 0;
+      background-size: cover;
+      background-attachment: fixed;
+
+      opacity: 0.7;
     }
   }
 
   .container {
+    // padding variable to align both elements
+    --padding: 100px 40px 50px 40px;
+
+    height: 100%;
     @media screen and (min-width: 840px) {
-      display: grid;
-      grid-template-rows: 1fr;
-      grid-template-columns: min-content 1fr;
+      // two columns on laptop
+      display: flex;
     }
-    header {
+    // first column contains links
+    aside {
       display: none;
 
-      padding-top: 50px;
-      padding-right: 50px;
-      section {
-        width: 100%;
-        @supports ((position: -webkit-sticky) or (position: sticky)) {
-          position: -webkit-sticky; /* Safari */
-          position: sticky;
-          top: 0;
-          left: 0;
-        }
-        @media screen and (min-width: 840px) {
-          display: inline;
-        }
+      width: min-content;
+
+      padding: var(--padding);
+      padding-left: 0;
+      padding-right: 0;
+
+      @media screen and (min-width: 840px) {
+        display: block;
+      }
+      @supports ((position: -webkit-sticky) or (position: sticky)) {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        align-self: flex-start;
       }
     }
+
+    // second column contains content
     .scroll-content {
-      background-color: var(--surface-color);
+      flex-grow: 1;
       @media screen and (min-width: 840px) {
-        padding-top: 50px;
-        padding-left: 50px;
+        padding: var(--padding);
+        padding-right: 0;
+
+        section {
+          margin-bottom: 50px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
       }
     }
   }
+}
+
+section {
+  @media screen and (min-width: 840px) {
+    background-color: var(--background-color);
+    // background-image: url('/assets/images/default-background.png');
+    background-size: cover;
+
+    border-radius: 35px;
+    padding: 20px 48px;
+
+    box-shadow: 4px 4px 20px #00000088;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
