@@ -8,7 +8,7 @@ nav {
   color: var(--on-background);
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.404);
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 840px) {
     // on tablets
     padding: 16px 0;
   }
@@ -102,7 +102,7 @@ nav {
   background-color: #fff;
   box-shadow: 0 10px 50px rgba(27, 31, 35, 0.15);
   z-index: 200;
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 840px) {
     left: auto;
     // on tablets
     width: 60vw;
