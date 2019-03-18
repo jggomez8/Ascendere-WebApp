@@ -1,3 +1,5 @@
+<!-- TODO: add message if empty -->
+<!-- TODO: add selected active element -->
 <div class="container">
   <section indev-section>
     <indev-section-title>
@@ -13,19 +15,8 @@
     </indev-section-controls>
 
     <div class="vertical-list" #verticalList>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
-      <indev-encuentro-card> </indev-encuentro-card>
+      <indev-encuentro-card *ngFor="let encuentro of encuentros" [encuentro]="encuentro">
+      </indev-encuentro-card>
     </div>
   </section>
 </div>

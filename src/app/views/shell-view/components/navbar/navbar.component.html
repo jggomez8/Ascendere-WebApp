@@ -10,7 +10,9 @@
         </div>
         <div class="main-actions">
           <button mat-stroked-button>Sign In</button>
-          <button mat-button (click)="toggleNavbar()">📚</button>
+          <button mat-icon-button (click)="toggleNavbar()">
+            📚
+          </button>
         </div>
       </div>
       <!-- End Brand and Main Actions -->
@@ -18,7 +20,7 @@
       <!-- Main Navbar -->
       <div class="main-navbar" #mainNavbar>
         <!-- Close button only visible on small screens -->
-        <button mat-stroked-button class="close-navbar" (click)="toggleNavbar()">❌</button>
+        <button mat-icon-button class="close-navbar" (click)="toggleNavbar()">❌</button>
 
         <!-- Main Navbar content, Direct links to content -->
         <ul class="header-menu">

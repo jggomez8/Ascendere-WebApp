@@ -72,9 +72,9 @@
     .scroll-content {
       flex-grow: 1;
       background-color: var(--surface-color);
-      padding-top: 25px;
 
       @media screen and (min-width: 840px) {
+        padding-top: 25px;
         padding: var(--padding);
         padding-right: 0;
       }
@@ -90,22 +90,26 @@
 
 section[indev-section] {
   position: relative;
-
-  padding-top: 100px;
+  padding-top: 0;
+  @media screen and (min-width: 840px) {
+    padding-top: 100px;
+  }
 
   &:nth-child() {
     margin-bottom: 0;
   }
-  &::before {
-    content: '';
+  @media screen and (min-width: 840px) {
+    &::before {
+      content: '';
 
-    position: absolute;
-    top: 100px;
-    left: 0;
-    width: 5em;
+      position: absolute;
+      left: 0;
+      top: 100px;
+      width: 5em;
 
-    background-color: #000;
-    border-radius: 5px;
-    height: 5px;
+      background-color: #000;
+      border-radius: 5px;
+      height: 5px;
+    }
   }
 }

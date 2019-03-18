@@ -8,15 +8,19 @@
   <!-- Content for hero image -->
   <div class="content">
     <div class="container">
-      <h2 class="TextTheme--display1 header">{{ encuentro.name }}</h2>
-      <span class="TextTheme--overline date">{{ encuentroDate | date: 'fullDate':'es' }}</span>
-      <div class="invitados guests">
-        <h3 class="TextTheme--headline">Invitados</h3>
-        <ul>
-          <li *ngFor="let guest of encuentro.guests">{{ guest.name }}</li>
-        </ul>
+      <div class="main-content">
+        <h2 class="TextTheme--display1 header">{{ encuentro.name }}</h2>
+        <span class="TextTheme--overline date">📆 {{ encuentroDate | date: 'fullDate':'es' }}</span>
+        <div class="invitados guests">
+          <h3 class="TextTheme--headline">Invitados</h3>
+          <markdown>
+            <ul>
+              <li *ngFor="let guest of encuentro.guests">{{ guest.name }}</li>
+            </ul>
+          </markdown>
+        </div>
+        <markdown class="description" [data]="encuentro.description"></markdown>
       </div>
-      <markdown class="description" [data]="encuentro.description"></markdown>
     </div>
   </div>
 </figure>

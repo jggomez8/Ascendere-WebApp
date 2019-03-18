@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+// types
+import { Encuentro } from 'src/app/interfaces/encuentro';
 
 @Component({
   selector: 'indev-encuentro-card',
@@ -6,7 +9,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./encuentro-card.component.scss']
 })
 export class EncuentroCardComponent {
-  title = 'Nombre Encuentro Prueba Esto es muy Largo';
-  backgroundImage = 'https://images.unsplash.com/photo-1551855042-d8251a1244b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80';
-  fecha = new Date();
+  @Input() encuentro: Encuentro;
+
+  get encuentroDate(): number {
+    return this.encuentro.date.seconds * 1000;
+  }
 }

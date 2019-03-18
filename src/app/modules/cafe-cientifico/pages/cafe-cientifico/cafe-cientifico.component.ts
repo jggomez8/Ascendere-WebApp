@@ -11,6 +11,7 @@ import { Encuentro } from 'src/app/interfaces/encuentro';
 })
 export class CafeCientificoComponent implements OnInit {
   private _encuentros: Encuentro[];
+
   constructor(private _route: ActivatedRoute) {}
 
   /**
@@ -18,7 +19,6 @@ export class CafeCientificoComponent implements OnInit {
    */
   ngOnInit(): void {
     this._encuentros = this._route.snapshot.data['encuentros'] as Encuentro[];
-    console.log(this._encuentros);
   }
 
   get hasActiveEncuentro(): boolean {
@@ -27,5 +27,9 @@ export class CafeCientificoComponent implements OnInit {
 
   get encuentro(): Encuentro {
     return this._encuentros[0];
+  }
+
+  get encuentros(): Encuentro[] {
+    return this._encuentros;
   }
 }
