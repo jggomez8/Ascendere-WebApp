@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+// components
 import { CafeCientificoComponent } from './pages/cafe-cientifico/cafe-cientifico.component';
+
+// providers
+import { EncuentrosResolver } from './resolver/encuentros.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: CafeCientificoComponent
+    component: CafeCientificoComponent,
+    resolve: {
+      encuentros: EncuentrosResolver
+    }
   }
 ];
 

@@ -1,7 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 
 // material components
+// TODO: import in correct file
 import 'hammerjs';
 
 import { AngularMaterialModule } from './modules/angular-material.module';
@@ -19,6 +21,15 @@ import { LazyLoadImageComponent } from './components/lazy-load-image/lazy-load-i
 import { HeaderComponent } from './components/header/header.component';
 import { GoTopFabComponent } from './components/fab/go-top-fab/go-top-fab.component';
 import { ReturnFabComponent } from './components/fab/return-fab/return-fab.component';
+import { FirebaseModule } from './modules/firebase.module';
+import { AuthService } from './services/auth.service';
+
+// importar locales
+// TODO: create module for locate
+import localeEsAr from '@angular/common/locales/es-AR';
+
+// registrar los locales con el nombre que quieras utilizar a la hora de proveer
+registerLocaleData(localeEsAr, 'es-Ar');
 
 const DECLARATIONS = [
   // Header Component
@@ -47,7 +58,14 @@ const DECLARATIONS = [
 
 @NgModule({
   declarations: DECLARATIONS,
-  imports: [CommonModule, MarkdownModule.forChild(), AngularMaterialModule],
-  exports: [CommonModule, MarkdownModule, ...DECLARATIONS, AngularMaterialModule]
+  imports: [CommonModule, MarkdownModule.forChild(), AngularMaterialModule, FirebaseModule],
+  exports: [CommonModule, MarkdownModule, ...DECLARATIONS, AngularMaterialModule, FirebaseModule]
 })
-export class SharedModule {}
+export class SharedModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: [AuthService, { provide: LOCALE_ID, useValue: 'es-Ar' }]
+    };
+  }
+}
