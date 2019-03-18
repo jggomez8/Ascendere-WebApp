@@ -11,20 +11,14 @@
 <div class="container">
   <section indev-section>
     <indev-section-title>
-      Cursos Actuales
+      Próximos Cursos
     </indev-section-title>
     <indev-section-controls>
       <button mat-button color="primary">Portafolio de Cursos</button>
     </indev-section-controls>
-
-    <markdown ngPreserveWhitespaces> </markdown>
     <div class="grid">
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
+      <!-- TODO: add message if empty -->
+      <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"> </indev-curso-card>
     </div>
   </section>
 

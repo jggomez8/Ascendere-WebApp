@@ -40,7 +40,7 @@ figure.stack {
     justify-items: center;
     align-items: center;
 
-    .container {
+    .main-content {
       // align items as needed
       display: grid;
       grid-gap: 10px 24px;
@@ -65,33 +65,31 @@ figure.stack {
           'guests description';
       }
 
-      .main-content {
-        cursor: pointer;
+      cursor: pointer;
 
-        // style
-        color: var(--on-background);
-        background-color: var(--background-color);
-        padding: 16px;
-        margin: 16px;
-        margin-left: 0;
+      // style
+      color: var(--on-background);
+      background-color: var(--background-color);
+      padding: 16px;
+      margin: 16px;
+      margin-left: 0;
 
-        // style
-        box-shadow: 16px 16px var(--primary-color);
-      }
+      // style
+      box-shadow: 16px 16px var(--primary-color);
+    }
 
-      // set areas for items
-      .header {
-        grid-area: header;
-      }
-      .date {
-        grid-area: date;
-      }
-      .guests {
-        grid-area: guests;
-      }
-      .description {
-        grid-area: description;
-      }
+    // set areas for items
+    .header {
+      grid-area: header;
+    }
+    .date {
+      grid-area: date;
+    }
+    .guests {
+      grid-area: guests;
+    }
+    .description {
+      grid-area: description;
     }
   }
 }
