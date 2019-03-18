@@ -3,7 +3,6 @@ import Timestamp = firestore.Timestamp;
 
 // types
 import { DefaultInterface } from './default';
-import { Guest } from './guests';
 
 export interface Encuentro extends DefaultInterface {
   description: string;
@@ -14,4 +13,9 @@ export interface Encuentro extends DefaultInterface {
   guests: Guest[];
   banner: string;
   participation: string;
+}
+
+export interface Guest {
+  description: string;
+  name: string;
 }

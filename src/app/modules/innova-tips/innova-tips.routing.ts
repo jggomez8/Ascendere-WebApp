@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+// component
 import { InnovaTipsComponent } from './pages/innova-tips/innova-tips.component';
+
+// provider
+import { InnovaTipsResolver } from './providers/innova-tips.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: InnovaTipsComponent
+    component: InnovaTipsComponent,
+    resolve: {
+      innovaTips: InnovaTipsResolver
+    }
   }
 ];
 

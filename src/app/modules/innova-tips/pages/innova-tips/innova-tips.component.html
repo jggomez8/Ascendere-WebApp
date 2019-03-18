@@ -15,9 +15,12 @@
       <button mat-button color="primary">Ver más InnovaTips</button>
     </indev-section-controls>
 
-    <div class="grid">
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
-    </div>
+    <markdown>
+      <pre>
+        <code *ngFor="let tip of innovaTips">
+            {{ tip | json }}
+        </code>
+      </pre>
+    </markdown>
   </section>
 </div>
