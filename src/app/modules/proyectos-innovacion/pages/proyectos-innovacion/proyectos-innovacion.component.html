@@ -27,9 +27,27 @@
       Proyectos de Innovacion Docente
     </indev-section-title>
     <indev-section-controls>
-      <button mat-button color="accent">Buenas Practicas</button>
-      <button mat-button color="accent">Proyectos Actuales</button>
-      <button mat-button color="accent">Proyectos Coordinados</button>
+      <a
+        mat-button
+        color="primary"
+        [routerLink]="['/', 'proyectos-innovacion', 'proyectos']"
+        [queryParams]="{ type: 'buena-practica' }"
+        >Buenas Practicas</a
+      >
+      <a
+        mat-button
+        color="primary"
+        [routerLink]="['/', 'proyectos-innovacion', 'proyectos']"
+        [queryParams]="{ type: 'proyecto-actual' }"
+        >Proyectos Actuales</a
+      >
+      <a
+        mat-button
+        color="primary"
+        [routerLink]="['/', 'proyectos-innovacion', 'proyectos']"
+        [queryParams]="{ type: 'proyecto-coordinado' }"
+        >Proyectos Coordinados</a
+      >
     </indev-section-controls>
   </section>
 </div>

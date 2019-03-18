@@ -3,7 +3,7 @@ import Timestamp = firestore.Timestamp;
 
 export interface DefaultInterface {
   creator?: string;
-  created?: Timestamp;
+  created?: Timestamp | Date;
   editor?: string;
-  edited: Timestamp;
+  edited: Timestamp | Date;
 }

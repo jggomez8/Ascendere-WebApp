@@ -21,13 +21,19 @@ export class NavbarComponent implements OnInit {
           routerLink: ['/', 'proyectos-innovacion'],
           children: [
             {
-              name: 'Buenas Practicas'
+              name: 'Buenas Practicas',
+              routerLink: ['/', 'proyectos-innovacion','proyectos'],
+              queryParams: { type: 'buena-practica' }
             },
             {
-              name: 'Proyectos Actuales'
+              name: 'Proyectos Actuales',
+              routerLink: ['/', 'proyectos-innovacion','proyectos'],
+              queryParams: { type: 'proyecto-actual' }
             },
             {
-              name: 'Proyectos Coordinados'
+              name: 'Proyectos Coordinados',
+              routerLink: ['/', 'proyectos-innovacion','proyectos'],
+              queryParams: { type: 'proyecto-coordinado' }
             }
           ]
         },
