@@ -23,7 +23,6 @@ export class ProyectosResolver implements Resolve<any> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.log({ route, state });
     try {
       let proyectosCollection = this.getCollectionQuery(route);
 

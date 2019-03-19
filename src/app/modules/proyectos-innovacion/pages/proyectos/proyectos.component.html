@@ -1,8 +1,11 @@
-<div class="container">
+<indev-header *ngIf="pageTitle">
+  <h1 class="TextTheme--display2">{{ pageTitle }}</h1>
+</indev-header>
+<section indev-section class="container">
   <div class="grid">
     <indev-proyectos-innovacion-card
       *ngFor="let proyecto of proyectos"
       [proyecto]="proyecto"
     ></indev-proyectos-innovacion-card>
   </div>
-</div>
+</section>

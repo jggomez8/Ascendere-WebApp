@@ -29,8 +29,6 @@ function image(href: string, _: string, text: string) {
 }
 
 function html(html: string) {
-  console.log(html.includes('iframe'));
-
   if (html.includes('iframe'))
     return `<div class="aspect-ratio" style="--aspect-ratio: 21/9">${html}</div>`;
   return html;

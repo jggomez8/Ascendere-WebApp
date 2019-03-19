@@ -9,22 +9,46 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./proyectos.component.scss']
 })
 export class ProyectosComponent implements OnInit, OnDestroy {
-  proyectos: ProyectoInnovacion[];
-
-  private _sub: Subscription;
-
   constructor(private _route: ActivatedRoute) {}
 
+  /**
+   * Map of project types with areas in the query and value. In this case
+   * value is used to get the title for this page
+   */
+  _proyectTypes: Object = {
+    'buena-practica': 'Buenas Practicas',
+    'proyecto-actual': 'Proyectos Actuales',
+    'proyecto-coordinado': 'Proyectos Coordinados'
+  };
+
+  /**
+   * Store all projects fo be displayed in the page
+   */
+  proyectos: ProyectoInnovacion[];
+
+  pageTitle: string;
+
+  /**
+   * Subscribe to new incoming projects from the Route data when query changes
+   */
+  private _projectSub: Subscription;
+  private _nameSub: Subscription;
+
   ngOnInit() {
-    this._sub = this._route.data.subscribe(
+    this._projectSub = this._route.data.subscribe(
       data => {
         this.proyectos = data['proyectos'] as ProyectoInnovacion[];
       },
       err => console.error('TODO: do something')
     );
+
+    this._nameSub = this._route.queryParams.subscribe(queryParams => {
+      this.pageTitle = this._proyectTypes[queryParams['type']];
+    });
   }
 
   ngOnDestroy() {
-    this._sub.unsubscribe();
+    this._projectSub.unsubscribe();
+    this._nameSub.unsubscribe();
   }
 }
