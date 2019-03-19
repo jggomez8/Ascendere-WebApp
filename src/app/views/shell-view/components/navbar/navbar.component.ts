@@ -22,17 +22,17 @@ export class NavbarComponent implements OnInit {
           children: [
             {
               name: 'Buenas Practicas',
-              routerLink: ['/', 'proyectos-innovacion','proyectos'],
+              routerLink: ['/', 'proyectos-innovacion', 'proyectos'],
               queryParams: { type: 'buena-practica' }
             },
             {
               name: 'Proyectos Actuales',
-              routerLink: ['/', 'proyectos-innovacion','proyectos'],
+              routerLink: ['/', 'proyectos-innovacion', 'proyectos'],
               queryParams: { type: 'proyecto-actual' }
             },
             {
               name: 'Proyectos Coordinados',
-              routerLink: ['/', 'proyectos-innovacion','proyectos'],
+              routerLink: ['/', 'proyectos-innovacion', 'proyectos'],
               queryParams: { type: 'proyecto-coordinado' }
             }
           ]
@@ -88,10 +88,11 @@ export class NavbarComponent implements OnInit {
           ]
         },
         {
-          name: 'Jornadas De Reflection',
+          name: 'Jornadas De Reflection Académica',
           children: [
             {
-              name: 'Jornada 2019'
+              name: 'Jornada Actual',
+              fragment: 'jornada-actual'
             }
           ]
         },
