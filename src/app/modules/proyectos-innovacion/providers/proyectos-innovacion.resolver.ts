@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  Resolve,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Router,
-} from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import {
   AngularFirestoreCollection,
   AngularFirestore,
@@ -35,10 +30,8 @@ export class ProyectosResolver implements Resolve<any> {
       const cursosSnap = await proyectosCollection.get().toPromise();
 
       if (cursosSnap.empty) return [];
-      let temp = cursosSnap.docs.map(doc => Object.assign({ id: doc.id }, doc.data()));
-      console.log(temp);
 
-      return temp;
+      return cursosSnap.docs.map(doc => Object.assign({ id: doc.id }, doc.data()));
     } catch (error) {
       console.error(error);
       // TODO: add err page

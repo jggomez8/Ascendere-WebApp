@@ -1,3 +1,8 @@
-<p>
-  proyectos works!
-</p>
+<div class="container">
+  <div class="grid">
+    <indev-proyectos-innovacion-card
+      *ngFor="let proyecto of proyectos"
+      [proyecto]="proyecto"
+    ></indev-proyectos-innovacion-card>
+  </div>
+</div>

@@ -2,13 +2,13 @@
 content displays name of project, coordinator, participants, areas and read more button -->
 <div class="card">
   <div class="aspect-ratio hero-image">
-    <img [src]="heroImage" alt="Imagen" />
+    <img [src]="proyecto.img" [alt]="imgAlt" />
   </div>
   <div class="content">
-    <h4 class="TextTheme--title">{{ title }}</h4>
-    <p>Coordinador: {{ coordinador }}</p>
-    <p>Participantes: {{ pariticpantes }}</p>
-    <div class="areas">{{ area }}</div>
+    <h4 class="TextTheme--title">{{ proyecto.name }}</h4>
+    <p style="text-transform: capitalize">Coordinador: {{ proyectoCoordinator }}</p>
+    <p>Participantes: {{ proyecto.participants.length }}</p>
+    <!-- TODO: <div class="areas">{{ area }}</div> -->
     <div class="expanded"></div>
     <div class="actions">
       <button mat-button color="primary">VEr Proyecto</button>

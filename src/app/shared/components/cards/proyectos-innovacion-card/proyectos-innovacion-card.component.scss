@@ -42,7 +42,7 @@
   flex-direction: column;
   padding: 15px 25px 5px 25px;
 
-  > * {
+  > * :not(.expanded) {
     // give elements inside spacing
     padding-bottom: 10px;
   }
