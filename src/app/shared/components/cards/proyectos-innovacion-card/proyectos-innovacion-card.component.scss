@@ -2,14 +2,20 @@
   // make card take all available space
   width: 100%;
   height: 100%;
-}
+  overflow: hidden;
 
-// style elements when hovered
-.card:hover {
-  @media screen and (min-width: 840px) {
-    img {
-      transform: translate3d(0, 0, 0);
-      transform: scale(1.03);
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px #0000003e;
+
+  transition: all 0.4s ease-in-out;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+
+  &:hover {
+    @media screen and (min-width: 840px) {
+      transform: translate3d(-5px, -5px, 0);
     }
   }
 }
@@ -32,17 +38,36 @@
 
     transition: all 0.4s ease-in-out;
   }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.089);
+  }
 }
 
 .content {
   max-width: 100%;
+  overflow: hidden;
 
   // position items inside flex
   display: flex;
   flex-direction: column;
-  padding: 15px 25px 5px 25px;
+  padding: 16px;
 
-  > * :not(.expanded) {
+  color: var(--on-surface);
+  background-color: var(--surface-color);
+
+  @media screen and (min-width: 840px) {
+    padding: 16px 25px;
+  }
+  h4,
+  p,
+  mat-chip-list {
     // give elements inside spacing
     padding-bottom: 10px;
   }
@@ -61,9 +86,10 @@
   }
 
   .actions {
+    justify-self: flex-end;
     // align items with other content
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-left: -16px;
+    margin-right: -16px;
 
     // position items
     display: flex;
@@ -71,4 +97,21 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+}
+
+.administrativa {
+  background-color: #979797;
+  color: rgb(255, 255, 255);
+}
+.biologica {
+  background-color: #00981c;
+  color: white;
+}
+.sociohumanistica {
+  background-color: #34d4ea;
+  color: white;
+}
+.tecnica {
+  background-color: #ffd76b;
+  color: black;
 }

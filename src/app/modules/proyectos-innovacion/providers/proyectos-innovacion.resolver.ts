@@ -68,9 +68,9 @@ export class ProyectosResolver implements Resolve<any> {
         return this._areaTypes.includes(area)
           ? ref
               .where('type', '==', route.queryParams['type'])
+              .orderBy('name')
               .where(`area.${area}`, '==', true)
-              .limit(2)
-          : ref.where('type', '==', route.queryParams['type']).limit(2);
+          : ref.where('type', '==', route.queryParams['type']).orderBy('name');
       });
 
     return null;
