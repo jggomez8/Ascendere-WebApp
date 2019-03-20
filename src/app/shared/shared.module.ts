@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders, LOCALE_ID } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { registerLocaleData } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 // material components
 // TODO: import in correct file
@@ -58,8 +58,8 @@ const DECLARATIONS = [
 
 @NgModule({
   declarations: DECLARATIONS,
-  imports: [CommonModule, MarkdownModule.forChild(), AngularMaterialModule, FirebaseModule],
-  exports: [CommonModule, MarkdownModule, ...DECLARATIONS, AngularMaterialModule, FirebaseModule]
+  imports: [CommonModule,RouterModule, MarkdownModule.forChild(), AngularMaterialModule, FirebaseModule],
+  exports: [CommonModule,RouterModule, MarkdownModule, ...DECLARATIONS, AngularMaterialModule, FirebaseModule]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

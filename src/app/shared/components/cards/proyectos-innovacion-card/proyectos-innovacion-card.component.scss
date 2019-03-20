@@ -35,8 +35,6 @@
     height: 100%;
 
     object-fit: cover;
-
-    transition: all 0.4s ease-in-out;
   }
   &::after {
     content: '';
@@ -97,21 +95,4 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
-}
-
-.administrativa {
-  background-color: #979797;
-  color: rgb(255, 255, 255);
-}
-.biologica {
-  background-color: #00981c;
-  color: white;
-}
-.sociohumanistica {
-  background-color: #34d4ea;
-  color: white;
-}
-.tecnica {
-  background-color: #ffd76b;
-  color: black;
 }

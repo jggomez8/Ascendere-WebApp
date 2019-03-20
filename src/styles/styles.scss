@@ -38,6 +38,23 @@
   padding-bottom: calc(100% / (var(--aspect-ratio, 16/9)));
 }
 
+.administrativa {
+  background-color: #979797 !important;
+  color: white !important;
+}
+.biologica {
+  background-color: #00981c !important;
+  color: white !important;
+}
+.sociohumanistica {
+  background-color: #34d4ea !important;
+  color: white !important;
+}
+.tecnica {
+  background-color: #ffd76b !important;
+  color: black !important;
+}
+
 // // Card base style for all card based components
 // .card {
 //   overflow: hidden;

@@ -8,6 +8,7 @@ import { ProyectoComponent } from './pages/proyecto/proyecto.component';
 
 // providers
 import { ProyectosResolver } from './providers/proyectos-innovacion.resolver';
+import { ProyectoResolver } from './providers/proyecto.resolver';
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
     path: 'proyecto/:id',
     component: ProyectoComponent,
     resolve: {
-      proyecto: ProyectosResolver
+      proyecto: ProyectoResolver
     },
     runGuardsAndResolvers: 'paramsChange'
   }

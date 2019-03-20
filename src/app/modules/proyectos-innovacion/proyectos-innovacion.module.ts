@@ -12,10 +12,11 @@ import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 
 // providers
 import { ProyectosResolver } from './providers/proyectos-innovacion.resolver';
+import { ProyectoResolver } from './providers/proyecto.resolver';
 
 @NgModule({
   declarations: [ProyectosInnovacionComponent, ProyectosComponent, ProyectoComponent],
   imports: [CommonModule, ProyectosInnovacionRoutingModule, SharedModule],
-  providers: [ProyectosResolver]
+  providers: [ProyectosResolver, ProyectoResolver]
 })
 export class ProyectosInnovacionModule {}

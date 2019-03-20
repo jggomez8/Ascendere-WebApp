@@ -16,7 +16,7 @@ export class ProyectosComponent implements OnInit, OnDestroy {
    * value is used to get the title for this page
    */
   _proyectTypes: Object = {
-    'buena-practica': 'Buenas Practicas',
+    'buena-practica': 'Buenas Prácticas',
     'proyecto-actual': 'Proyectos Actuales',
     'proyecto-coordinado': 'Proyectos Coordinados'
   };
@@ -31,11 +31,11 @@ export class ProyectosComponent implements OnInit, OnDestroy {
   /**
    * Subscribe to new incoming projects from the Route data when query changes
    */
-  private _projectSub: Subscription;
+  private _projectsSub: Subscription;
   private _nameSub: Subscription;
 
   ngOnInit() {
-    this._projectSub = this._route.data.subscribe(
+    this._projectsSub = this._route.data.subscribe(
       data => {
         this.proyectos = data['proyectos'] as ProyectoInnovacion[];
       },
@@ -48,7 +48,11 @@ export class ProyectosComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this._projectSub.unsubscribe();
+    this._projectsSub.unsubscribe();
     this._nameSub.unsubscribe();
+  }
+
+  get hasProjects(): boolean {
+    return this.proyectos && this.proyectos.length > 0;
   }
 }

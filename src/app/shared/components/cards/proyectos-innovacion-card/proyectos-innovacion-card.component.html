@@ -8,21 +8,33 @@ content displays name of project, coordinator, participants, areas and read more
     <h4 class="TextTheme--headline">{{ proyecto.name }}</h4>
     <p style="text-transform: capitalize">
       <span class="TextTheme--body2">Coordinador:</span>
-      {{ proyectoCoordinator }}
+      {{ proyecto.coordinator | titlecase }}
     </p>
     <p>
       <span class="TextTheme--body2">Participantes:</span>
       {{ proyecto.participants.length }}
     </p>
     <mat-chip-list>
-      <mat-chip *ngIf="proyecto.area.administrativa" class="administrativa">Área Administrativa</mat-chip>
-      <mat-chip *ngIf="proyecto.area.biologica" class="biologica">Área Biológica y Biomédica</mat-chip>
-      <mat-chip *ngIf="proyecto.area.sociohumanistica" class="sociohumanistica">Área Sociohumanística</mat-chip>
+      <mat-chip *ngIf="proyecto.area.administrativa" class="administrativa"
+        >Área Administrativa</mat-chip
+      >
+      <mat-chip *ngIf="proyecto.area.biologica" class="biologica"
+        >Área Biológica y Biomédica</mat-chip
+      >
+      <mat-chip *ngIf="proyecto.area.sociohumanistica" class="sociohumanistica"
+        >Área Sociohumanística</mat-chip
+      >
       <mat-chip *ngIf="proyecto.area.tecnica" class="tecnica">Área Técnica</mat-chip>
     </mat-chip-list>
     <div class="expanded"></div>
     <div class="actions">
-      <button mat-button color="primary">VEr Proyecto</button>
+      <a
+        mat-button
+        color="primary"
+        [routerLink]="['/', 'proyectos-innovacion', 'proyecto', proyecto.id]"
+      >
+        Ver Proyecto
+      </a>
     </div>
   </div>
 </div>

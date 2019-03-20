@@ -6,15 +6,15 @@ export interface ProyectoInnovacion extends DefaultInterface {
   modality: string; // modalidad
   participants: Participant[]; // participantes
   strategicLine: string; // linea estrategica
-  type: String; // tipo de propuesta
-  periods: string[]; // periodo
+  type: string; // tipo de propuesta
+  periods: Period[]; // periodo
   subject: string; // asignatura
 
   // other data
   img: string;
   infografic: string;
   videoID: string;
-  documents: string[];
+  documents: Document[];
   area: Area;
 }
 
@@ -30,4 +30,11 @@ export interface Participant {
   department: string; // carrera
   subject: string; // carrera
   mail: string; // carrera
+}
+
+export interface Period {
+  name: string;
+}
+export interface Document {
+  url: string;
 }

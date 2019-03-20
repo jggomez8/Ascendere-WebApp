@@ -10,11 +10,7 @@ import { ProyectoInnovacion } from 'src/app/interfaces/proyecto-innovacion';
 export class ProyectosInnovacionCardComponent {
   @Input() proyecto: ProyectoInnovacion;
 
-  get proyectoCoordinator() {
-    return this.proyecto.coordinator.toLowerCase();
-  }
-
   get imgAlt() {
-    return `Banner Proyecto: ${this.proyecto.name}`
+    return `Banner Proyecto: ${this.proyecto.name}`;
   }
 }
