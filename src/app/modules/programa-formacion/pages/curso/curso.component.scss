@@ -1,0 +1,28 @@
+.container {
+  display: grid;
+  grid-gap: 20px;
+
+  grid-template-areas:
+    'main'
+    'aside';
+
+  @media screen and(min-width: 840px) {
+    // on laptop
+    grid-template-areas: 'aside main';
+    grid-template-columns: 1fr 4fr;
+  }
+
+  aside {
+    grid-area: aside;
+
+    // position elements inside
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    grid-gap: 16px;
+  }
+
+  main {
+    grid-area: main;
+  }
+}

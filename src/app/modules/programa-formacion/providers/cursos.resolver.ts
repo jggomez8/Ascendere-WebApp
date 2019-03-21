@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-
-// types
+import {
+  AngularFirestoreCollection,
+  AngularFirestore,
+  AngularFirestoreDocument
+} from '@angular/fire/firestore';
 import { Curso } from 'src/app/interfaces/curso';
+import { ProgramaFormacionComponent } from '../pages/programa-formacion/programa-formacion.component';
+import { HomeComponent } from '../../home/pages/home/home.component';
+import { PortfolioComponent } from '../pages/portfolio/portfolio.component';
 
-// TODO: add type encuentro
+// TODO: add type curso
 @Injectable()
 export class CursosResolver implements Resolve<any> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
@@ -15,15 +20,9 @@ export class CursosResolver implements Resolve<any> {
    */
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
-      const startDate = new Date();
-      startDate.setDate(startDate.getDate() - 1);
-
-      const cursosCollection: AngularFirestoreCollection<Curso[]> = this._afs
-        .collection('formacion-docente')
-        .doc('programa-formacion')
-        .collection('cursos', ref => ref.where('date', '>=', startDate).orderBy('date', 'asc'));
-
-      const cursosSnap = await cursosCollection.get().toPromise();
+      const cursosSnap = await this._getCursosCollection(route)
+        .get()
+        .toPromise();
 
       if (cursosSnap.empty) return [];
       return cursosSnap.docs.map(doc => Object.assign({ id: doc.id }, doc.data()));
@@ -31,7 +30,34 @@ export class CursosResolver implements Resolve<any> {
       console.error(error);
       // TODO: add err page
       this.router.navigate(['/404']);
-      return [];
+      return null;
     }
+  }
+
+  private _getCursosCollection(route: ActivatedRouteSnapshot): AngularFirestoreCollection<Curso[]> {
+    const component = route.component;
+    const programaFormacionDocument: AngularFirestoreDocument = this._afs
+      .collection('formacion-docente')
+      .doc('programa-formacion');
+
+    // If data is requested by the `home` or `programa-formacion home` return the future courses
+    // TODO: get ongoing courses
+    if (component === ProgramaFormacionComponent || component === HomeComponent) {
+      const startDate = new Date();
+      startDate.setDate(startDate.getDate() - 1);
+      return programaFormacionDocument.collection('cursos', ref =>
+        ref.where('date', '>=', startDate).orderBy('date', 'asc')
+      );
+    }
+
+    // Check if component is portfolio type, if so use queries in the route
+    if (component === PortfolioComponent) {
+      // TODO: add pagination
+      return programaFormacionDocument.collection('cursos', ref =>
+        ref.orderBy('date', 'asc').limit(3)
+      );
+    }
+
+    return null;
   }
 }

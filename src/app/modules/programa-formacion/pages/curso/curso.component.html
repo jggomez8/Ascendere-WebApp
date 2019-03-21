@@ -7,17 +7,37 @@
     {{ curso.name }}
   </h1>
 </indev-header>
-<section class="container">
-  <aside>
-    <button mat-stroked-button>
-      Postular
-    </button>
-    <button mat-stroked-button>
-      📄 Contenido
-    </button>
-  </aside>
-  <main>
-    <markdown [data]="curso.description"></markdown>
-  </main>
-  <pre>{{ curso | json }}</pre>
+<section indev-section>
+  <div class="container">
+    <aside>
+      <button mat-stroked-button>
+        Postular
+      </button>
+      <button mat-stroked-button>
+        📄 Contenido
+      </button>
+    </aside>
+    <main>
+      <markdown [data]="curso.description"></markdown>
+
+      <p *ngIf="curso.instructors">
+        <span class="TextTheme--body2">
+          Instructor:
+        </span>
+        <span *ngFor="let instructor of curso.instructors">
+          <span class="TextTheme--ascendere">*</span>
+          {{ instructor.name }}
+          <span class="TextTheme--subtitle">({{ instructor.about }})</span>
+        </span>
+      </p>
+      <p>
+        <span class="TextTheme--body2">
+          Fecha Inicio:
+        </span>
+        <span>
+          
+        </span>
+      </p>
+    </main>
+  </div>
 </section>

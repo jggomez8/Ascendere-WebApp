@@ -15,7 +15,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'portfolio',
+    path: 'portafolio',
     component: PortfolioComponent,
     resolve: {
       cursos: CursosResolver

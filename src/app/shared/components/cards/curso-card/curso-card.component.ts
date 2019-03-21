@@ -10,13 +10,14 @@ export class CursoCardComponent {
   @Input() curso: Curso;
 
   get singleDate(): boolean {
-    return this.curso.endDate === null && this.curso.date !== null;
+    return this.curso.endDate === undefined && this.curso.date !== null;
   }
 
   get startDate(): number {
     return this.curso.date.seconds * 1000;
   }
   get endDate(): number {
+    console.log(this.curso.endDate);
     return this.curso.endDate.seconds * 1000;
   }
 

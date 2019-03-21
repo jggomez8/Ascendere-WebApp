@@ -14,7 +14,7 @@
       Próximos Cursos
     </indev-section-title>
     <indev-section-controls>
-      <button mat-button color="primary">Portafolio de Cursos</button>
+      <a mat-button color="primary" [routerLink]="['portafolio']">Portafolio de Cursos</a>
     </indev-section-controls>
     <div class="grid" *ngIf="hasCursos; else emptyMessage">
       <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"> </indev-curso-card>
@@ -46,8 +46,9 @@
             color="primary"
             [routerLink]="['/', 'articulo', 'cursos-especificos']"
             routerLinkActive="router-link-active"
-            >Ver Más</a
           >
+            Ver Más
+          </a>
         </indev-section-controls>
 
         <markdown src="/assets/markdown/programa-formacion/cursos-especificos.md"> </markdown>
