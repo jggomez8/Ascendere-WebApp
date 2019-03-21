@@ -84,7 +84,7 @@ export class Curso {
 
     if (this.img.includes('gestion-proyectos'))
       return {
-        'background-image': 'linear-gradient(to bottom right,#2aa9dc,#2bb4e2)'
+        'background-image': 'linear-gradient(to bottom right,#2aeeee,#2bb4e2)'
       };
 
     if (this.img.includes('identidad'))
@@ -94,12 +94,12 @@ export class Curso {
 
     if (this.img.includes('pedagogia'))
       return {
-        'background-image': 'linear-gradient(to bottom right,#07b5d6,#00a5c4)'
+        'background-image': 'linear-gradient(to bottom right,#07ccd6,#00a5c4)'
       };
 
     if (this.img.includes('investigacion'))
       return {
-        'background-image': 'linear-gradient(to bottom right,#ffb31b,#ffaa00)'
+        'background-image': 'linear-gradient(to bottom right,#ffcf10,#ffbb22)'
       };
 
     if (this.img.includes('tic'))
@@ -145,7 +145,7 @@ export class Instructor {
 
   constructor(args) {
     this.name = args['name'];
-    this.about = args['about'];
+    this.about = args['about'] ? args['about'].replace(/[{()}]/g, '') : null;
   }
 }
 

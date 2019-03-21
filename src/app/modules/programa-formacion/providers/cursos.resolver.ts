@@ -44,7 +44,7 @@ export class CursosResolver implements Resolve<any> {
     // TODO: get ongoing courses
     if (component === ProgramaFormacionComponent || component === HomeComponent) {
       const startDate = new Date();
-      startDate.setDate(startDate.getDate() - 10);
+      startDate.setDate(startDate.getDate() - 1);
       return programaFormacionDocument.collection('cursos', ref =>
         ref.where('date', '>=', startDate).orderBy('date', 'asc')
       );
