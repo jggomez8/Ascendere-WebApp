@@ -18,4 +18,8 @@ export class ProgramaFormacionComponent implements OnInit {
   ngOnInit(): void {
     this.cursos = this._route.snapshot.data['cursos'] as Curso[];
   }
+
+  get hasCursos(): boolean {
+    return this.cursos && this.cursos.length > 0;
+  }
 }

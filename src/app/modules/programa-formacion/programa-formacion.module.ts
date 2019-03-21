@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// modules
 import { SharedModule } from 'src/app/shared/shared.module';
-
-// providers
 import { ProgramaFormacionService } from './providers/programa-formacion.service';
 import { CursosResolver } from './providers/cursos.resolver';
-
-// declarations
 import { ProgramaFormacionComponent } from './pages/programa-formacion/programa-formacion.component';
 import { ProgramaFormacionRoutingModule } from './programa-formacion.routing';
+import { PortfolioComponent } from './pages/portfolio/portfolio.component';
+import { CursoComponent } from './pages/curso/curso.component';
+import { CursoResolver } from './providers/curso.resolver';
 
 @NgModule({
-  declarations: [ProgramaFormacionComponent],
+  declarations: [ProgramaFormacionComponent, PortfolioComponent, CursoComponent],
   imports: [CommonModule, ProgramaFormacionRoutingModule, SharedModule],
-  providers: [ProgramaFormacionService, CursosResolver]
+  providers: [ProgramaFormacionService, CursosResolver, CursoResolver]
 })
 export class ProgramaFormacionModule {}

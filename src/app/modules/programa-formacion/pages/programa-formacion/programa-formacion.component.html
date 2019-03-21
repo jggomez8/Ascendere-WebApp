@@ -16,10 +16,14 @@
     <indev-section-controls>
       <button mat-button color="primary">Portafolio de Cursos</button>
     </indev-section-controls>
-    <div class="grid">
-      <!-- TODO: add message if empty -->
+    <div class="grid" *ngIf="hasCursos; else emptyMessage">
       <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"> </indev-curso-card>
     </div>
+    <ng-template #emptyMessage>
+      <span class="TextTheme--headline">
+        ❗ Aun no hay cursos para visualizar
+      </span>
+    </ng-template>
   </section>
 
   <div class="row">

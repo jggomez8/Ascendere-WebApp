@@ -10,9 +10,6 @@ section {
     'main'
     'aside';
 
-  @media screen and (min-width: 600px) {
-    // on tablets
-  }
   @media screen and(min-width: 840px) {
     // on laptop
     grid-gap: 24px;
@@ -20,12 +17,6 @@ section {
       'hero hero'
       'aside main';
     grid-template-columns: 1fr 3fr;
-  }
-  @media screen and(min-width: 1024px) {
-    // on laptop l
-  }
-  @media screen and(min-width: 1440px) {
-    // on 4k
   }
 
   .hero--img {

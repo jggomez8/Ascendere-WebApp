@@ -16,7 +16,7 @@ export class ProyectoResolver implements Resolve<any> {
         .collection('innovacion-docente')
         .doc('proyectos-innovacion')
         .collection('proyectos')
-        .doc('6DoEMdUj6ItVTcaGpgbL');
+        .doc(route.params.id);
 
       const proyectoSnap = await proyectoDocument.get().toPromise();
 
@@ -26,7 +26,7 @@ export class ProyectoResolver implements Resolve<any> {
       console.error(error);
       // TODO: add err page
       this._router.navigate(['/404']);
-      return [];
+      return null;
     }
   }
 }

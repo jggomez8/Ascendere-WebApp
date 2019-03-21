@@ -1,12 +1,16 @@
 <!-- Curso Card has  3 elements: Type of Course, Name of curse, and start Date with and end Date  -->
 <div class="aspect-ratio">
-  <div class="card" [ngStyle]="background">
-    <span class="TextTheme--subhead">{{ curso.id | uppercase }}</span>
-    <div class="expanded"></div>
+  <a
+    class="card"
+    [ngStyle]="background"
+    [routerLink]="['curso', curso.id]"
+    routerLinkActive="router-link-active"
+  >
+    <span class="TextTheme--subhead card--type">{{ curso.id | uppercase }}</span>
     <h4 class="TextTheme--title">{{ curso.name }}</h4>
     <span *ngIf="singleDate; else doubleDate"> Inicia el {{ startDate | date }} </span>
     <ng-template class="TextTheme--subhead " #doubleDate>
       {{ startDate | date }} hasta {{ endDate | date }}
     </ng-template>
-  </div>
+  </a>
 </div>

@@ -13,7 +13,7 @@ export class ProyectoComponent implements OnInit, OnDestroy {
   // Map for diferent kind of project combinations
   _proyectTypes: Object = {
     'buena-practica': 'Buena Práctica',
-    'proyecto-actual': 'Proyecto Actuale',
+    'proyecto-actual': 'Proyecto Actual',
     'proyecto-coordinado': 'Proyectos Coordinados'
   };
 

@@ -1,0 +1,23 @@
+<indev-header>
+  <h1 class="TextTheme--display2">
+    <span class="TextTheme--title">
+      {{ curso.id }}
+    </span>
+    <br />
+    {{ curso.name }}
+  </h1>
+</indev-header>
+<section class="container">
+  <aside>
+    <button mat-stroked-button>
+      Postular
+    </button>
+    <button mat-stroked-button>
+      📄 Contenido
+    </button>
+  </aside>
+  <main>
+    <markdown [data]="curso.description"></markdown>
+  </main>
+  <pre>{{ curso | json }}</pre>
+</section>

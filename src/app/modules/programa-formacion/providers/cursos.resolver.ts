@@ -18,7 +18,7 @@ export class CursosResolver implements Resolve<any> {
       const startDate = new Date();
       startDate.setDate(startDate.getDate() - 1);
 
-      const cursosCollection: AngularFirestoreCollection<Curso> = this._afs
+      const cursosCollection: AngularFirestoreCollection<Curso[]> = this._afs
         .collection('formacion-docente')
         .doc('programa-formacion')
         .collection('cursos', ref => ref.where('date', '>=', startDate).orderBy('date', 'asc'));
