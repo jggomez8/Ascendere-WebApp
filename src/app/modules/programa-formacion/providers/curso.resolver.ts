@@ -23,7 +23,7 @@ export class CursoResolver implements Resolve<any> {
 
       const cursoSnap = await cursoDocument.get({ source: 'cache' }).toPromise();
 
-      if (cursoSnap.exists) return Object.assign({ id: cursoSnap.id }, cursoSnap.data());
+      if (cursoSnap.exists) return new Curso(Object.assign({ id: cursoSnap.id }, cursoSnap.data()));
       throw new Error('El curso no existe');
     } catch (error) {
       console.error(error);

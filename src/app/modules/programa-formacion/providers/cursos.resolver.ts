@@ -25,7 +25,7 @@ export class CursosResolver implements Resolve<any> {
         .toPromise();
 
       if (cursosSnap.empty) return [];
-      return cursosSnap.docs.map(doc => Object.assign({ id: doc.id }, doc.data()));
+      return cursosSnap.docs.map(doc => new Curso(Object.assign({ id: doc.id }, doc.data())));
     } catch (error) {
       console.error(error);
       // TODO: add err page
@@ -44,7 +44,7 @@ export class CursosResolver implements Resolve<any> {
     // TODO: get ongoing courses
     if (component === ProgramaFormacionComponent || component === HomeComponent) {
       const startDate = new Date();
-      startDate.setDate(startDate.getDate() - 1);
+      startDate.setDate(startDate.getDate() - 10);
       return programaFormacionDocument.collection('cursos', ref =>
         ref.where('date', '>=', startDate).orderBy('date', 'asc')
       );
@@ -53,9 +53,7 @@ export class CursosResolver implements Resolve<any> {
     // Check if component is portfolio type, if so use queries in the route
     if (component === PortfolioComponent) {
       // TODO: add pagination
-      return programaFormacionDocument.collection('cursos', ref =>
-        ref.orderBy('date', 'asc').limit(3)
-      );
+      return programaFormacionDocument.collection('cursos', ref => ref.orderBy('date', 'desc'));
     }
 
     return null;

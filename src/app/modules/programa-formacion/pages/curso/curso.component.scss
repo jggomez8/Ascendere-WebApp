@@ -1,6 +1,14 @@
+indev-header {
+  color: white !important;
+}
+section {
+  width: 100%;
+}
+
 .container {
+  width: 100%;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 20px 40px;
 
   grid-template-areas:
     'main'
@@ -23,6 +31,24 @@
   }
 
   main {
+    width: 100%;
+    overflow: hidden;
+
     grid-area: main;
+
+    p {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+      > span {
+        display: block;
+
+        &:not(.TextTheme--body2) {
+          margin-left: 16px;
+        }
+      }
+    }
   }
 }

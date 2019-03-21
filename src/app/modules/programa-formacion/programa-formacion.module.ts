@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ProgramaFormacionService } from './providers/programa-formacion.service';
 import { CursosResolver } from './providers/cursos.resolver';
 import { ProgramaFormacionComponent } from './pages/programa-formacion/programa-formacion.component';
 import { ProgramaFormacionRoutingModule } from './programa-formacion.routing';
@@ -12,6 +11,6 @@ import { CursoResolver } from './providers/curso.resolver';
 @NgModule({
   declarations: [ProgramaFormacionComponent, PortfolioComponent, CursoComponent],
   imports: [CommonModule, ProgramaFormacionRoutingModule, SharedModule],
-  providers: [ProgramaFormacionService, CursosResolver, CursoResolver]
+  providers: [CursosResolver, CursoResolver]
 })
 export class ProgramaFormacionModule {}

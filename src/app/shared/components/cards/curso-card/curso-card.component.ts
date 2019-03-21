@@ -8,22 +8,4 @@ import { Curso } from 'src/app/interfaces/curso';
 })
 export class CursoCardComponent {
   @Input() curso: Curso;
-
-  get singleDate(): boolean {
-    return this.curso.endDate === undefined && this.curso.date !== null;
-  }
-
-  get startDate(): number {
-    return this.curso.date.seconds * 1000;
-  }
-  get endDate(): number {
-    console.log(this.curso.endDate);
-    return this.curso.endDate.seconds * 1000;
-  }
-
-  get background(): object {
-    if (this.curso.img === 'investigacion')
-      return { 'background-image': 'linear-gradient(to bottom right,#ffb31b,#ffaa00)' };
-    return { 'background-image': 'linear-gradient(to bottom right,#ffb31b,#ffaa00)' };
-  }
 }

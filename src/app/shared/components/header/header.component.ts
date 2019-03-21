@@ -1,9 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
   selector: 'indev-header',
   template: `
-    <header class="feature">
+    <header class="feature" [ngStyle]="style">
       <div class="container">
         <div class="feature--container">
           <div class="feature--header">
@@ -24,4 +24,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class HeaderComponent {
   // TODO: add metatag
+
+  @Input() style: Object = {};
 }
