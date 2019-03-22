@@ -281,7 +281,7 @@ markdown {
     background-color: var(--surface-color);
   }
 
-  &:last-child {
-    margin-bottom: 0 !important;
+  :last-child {
+    margin-bottom: 0px !important;
   }
 }

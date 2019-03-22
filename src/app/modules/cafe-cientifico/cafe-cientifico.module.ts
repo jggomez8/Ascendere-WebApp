@@ -11,12 +11,17 @@ import { CarteleraEncuentrosComponent } from './components/cartelera-encuentros/
 import { HeroEncuentroComponent } from './components/hero-encuentro/hero-encuentro.component';
 
 // providers
-import { CafeCientificoService } from './cafe-cientifico.service';
 import { EncuentrosResolver } from './resolver/encuentros.resolver';
+import { EncuentroDetailComponent } from './pages/encuentro-detail/encuentro-detail.component';
 
 @NgModule({
-  declarations: [CafeCientificoComponent, HeroEncuentroComponent, CarteleraEncuentrosComponent],
+  declarations: [
+    CafeCientificoComponent,
+    HeroEncuentroComponent,
+    CarteleraEncuentrosComponent,
+    EncuentroDetailComponent
+  ],
   imports: [CommonModule, CafeCientificoRoutingModule, SharedModule],
-  providers: [CafeCientificoService, EncuentrosResolver]
+  providers: [EncuentrosResolver]
 })
 export class CafeCientificoModule {}

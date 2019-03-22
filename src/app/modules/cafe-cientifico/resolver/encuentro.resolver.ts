@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Encuentro } from 'src/app/interfaces/encuentro';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable()
-export class EncuentrosResolver implements Resolve<Encuentro[]> {
-  /**
-   * Service used to load all the data from firebase
-   * before user navigates to the page
-   */
+export class EncuentroResolver implements Resolve<Encuentro> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
 
   /**
@@ -16,17 +12,17 @@ export class EncuentrosResolver implements Resolve<Encuentro[]> {
    */
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
-      let encuentrosSnap = await this._afs
+      const cursoDocument: AngularFirestoreDocument<Encuentro> = this._afs
         .collection('formacion-docente')
         .doc('cafe-cientifico')
-        .collection('encuentros', ref => ref.orderBy('date', 'desc').limit(6))
-        .get()
-        .toPromise();
+        .collection('encuentros')
+        .doc(route.params.id);
 
-      if (encuentrosSnap.empty) return [];
-      return encuentrosSnap.docs.map(
-        doc => new Encuentro(Object.assign({ id: doc.id }, doc.data()))
-      );
+      const cursoSnap = await cursoDocument.get().toPromise();
+
+      if (cursoSnap.exists)
+        return new Encuentro(Object.assign({ id: cursoSnap.id }, cursoSnap.data()));
+      throw new Error('El encuentro no existe');
     } catch (error) {
       console.error(error);
       // TODO: add err page

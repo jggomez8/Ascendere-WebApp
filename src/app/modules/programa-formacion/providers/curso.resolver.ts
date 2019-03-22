@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-
-// types
 import { Curso } from 'src/app/interfaces/curso';
 
-// TODO: add type curso
 @Injectable()
-export class CursoResolver implements Resolve<any> {
+export class CursoResolver implements Resolve<Curso> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
 
   /**
@@ -21,7 +18,7 @@ export class CursoResolver implements Resolve<any> {
         .collection('cursos')
         .doc(route.params.id);
 
-      const cursoSnap = await cursoDocument.get({ source: 'cache' }).toPromise();
+      const cursoSnap = await cursoDocument.get().toPromise();
 
       if (cursoSnap.exists) return new Curso(Object.assign({ id: cursoSnap.id }, cursoSnap.data()));
       throw new Error('El curso no existe');
