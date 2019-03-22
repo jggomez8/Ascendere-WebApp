@@ -10,13 +10,4 @@ import { Encuentro } from 'src/app/interfaces/encuentro';
 })
 export class HeroEncuentroComponent {
   @Input() encuentro: Encuentro;
-
-  get altImage() {
-    // TODO:
-    return `${this.encuentro.name} Banner`;
-  }
-
-  get encuentroDate(): number {
-    return this.encuentro.date.seconds * 1000;
-  }
 }

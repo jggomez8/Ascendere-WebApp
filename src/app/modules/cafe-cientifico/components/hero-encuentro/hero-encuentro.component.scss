@@ -39,7 +39,9 @@ figure.stack {
     display: flex;
     justify-items: center;
     align-items: center;
-
+    a {
+      text-decoration: none;
+    }
     .main-content {
       // align items as needed
       display: grid;
@@ -64,8 +66,6 @@ figure.stack {
           'date date'
           'guests description';
       }
-
-      cursor: pointer;
 
       // style
       color: var(--on-background);

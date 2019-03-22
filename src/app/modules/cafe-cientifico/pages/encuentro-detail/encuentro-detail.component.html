@@ -1,3 +1,41 @@
-<p>
-  encuentro-detail works!
-</p>
+<indev-header>
+  <h1 class="TextTheme--display2">{{ encuentro.name }}</h1>
+  <markdown> ##### **Fecha:** {{ encuentro.date | date: 'fullDate' }} </markdown>
+</indev-header>
+
+<section indev-section class="container">
+  <h2 class="TextTheme--headline" *ngIf="encuentro.canInscribe">
+    Inscribete hasta el
+    <a
+      class="TextTheme--ascendere"
+      style="text-transform: none"
+      [routerLink]="['/', 'cafe-cientifico', 'encuentro', encuentro.id, 'inscripcion']"
+    >
+      {{ encuentro.postulations | date: 'fullDate' }}
+    </a>
+  </h2>
+
+  <markdown [data]="encuentro.description"> </markdown>
+
+  <div *ngIf="encuentro.hasGuests" class="guests">
+    <h3 class="TextTheme--headline">Invitados</h3>
+    <ul>
+      <li *ngFor="let guest of encuentro.guests">
+        <span class="TextTheme--title">{{ guest.name }}</span>
+        <div>
+          <markdown [data]="guest.description"></markdown>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="encuentro.canInscribe" class="inscription">
+    <a
+      mat-raised-button
+      color="primary"
+      [routerLink]="['/', 'cafe-cientifico', 'encuentro', encuentro.id, 'inscripcion']"
+    >
+      Inscribirse en el encuentro
+    </a>
+  </div>
+</section>
