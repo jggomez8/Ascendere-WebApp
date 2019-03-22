@@ -14,7 +14,6 @@ import { EncuentroCardComponent } from './components/cards/encuentro-card/encuen
 import { NoticiaCardComponent } from './components/cards/noticia-card/noticia-card.component';
 import { CursoCardComponent } from './components/cards/curso-card/curso-card.component';
 import { SectionComponent } from './components/section/section.component';
-import { ProyectosInnovacionCardComponent } from './components/cards/proyectos-innovacion-card/proyectos-innovacion-card.component';
 import { LazyTransitionComponent, LazyLoadImage } from './components/lazy-load/lazy-load.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { LazyLoadImageComponent } from './components/lazy-load-image/lazy-load-image.component';
@@ -23,10 +22,12 @@ import { GoTopFabComponent } from './components/fab/go-top-fab/go-top-fab.compon
 import { ReturnFabComponent } from './components/fab/return-fab/return-fab.component';
 import { FirebaseModule } from './modules/firebase.module';
 import { AuthService } from './services/auth.service';
+import { ProyectoCardComponent } from './components/cards/proyecto-card/proyecto-card.component';
 
 // importar locales
 // TODO: create module for locate
 import localeEsAr from '@angular/common/locales/es-AR';
+import { SafePipe } from './pipes/safe.pipe';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localeEsAr, 'es-Ar');
@@ -44,7 +45,7 @@ const DECLARATIONS = [
   EncuentroCardComponent,
   NoticiaCardComponent,
   CursoCardComponent,
-  ProyectosInnovacionCardComponent,
+  ProyectoCardComponent,
 
   // lazy load Component
   LazyTransitionComponent,
@@ -53,13 +54,29 @@ const DECLARATIONS = [
 
   // Fab Component
   GoTopFabComponent,
-  ReturnFabComponent
+  ReturnFabComponent,
+
+  // pipe
+  SafePipe
 ];
 
 @NgModule({
   declarations: DECLARATIONS,
-  imports: [CommonModule,RouterModule, MarkdownModule.forChild(), AngularMaterialModule, FirebaseModule],
-  exports: [CommonModule,RouterModule, MarkdownModule, ...DECLARATIONS, AngularMaterialModule, FirebaseModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    MarkdownModule.forChild(),
+    AngularMaterialModule,
+    FirebaseModule
+  ],
+  exports: [
+    CommonModule,
+    RouterModule,
+    MarkdownModule,
+    ...DECLARATIONS,
+    AngularMaterialModule,
+    FirebaseModule
+  ]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

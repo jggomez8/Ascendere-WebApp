@@ -5,18 +5,13 @@ import {
   AngularFirestore,
   AngularFirestoreDocument
 } from '@angular/fire/firestore';
-
-// declarations
 import { ProyectosInnovacionComponent } from '../pages/proyectos-innovacion/proyectos-innovacion.component';
 import { ProyectosComponent } from '../pages/proyectos/proyectos.component';
 import { HomeComponent } from '../../home/pages/home/home.component';
+import { Proyecto } from 'src/app/interfaces/proyecto';
 
-// types
-import { ProyectoInnovacion } from 'src/app/interfaces/proyecto-innovacion';
-
-// TODO: add type proyecto
 @Injectable()
-export class ProyectosResolver implements Resolve<any> {
+export class ProyectosResolver implements Resolve<Proyecto[]> {
   private _projectTypes: string[] = ['buena-practica', 'proyecto-actual', 'proyecto-coordinado'];
   private _areaTypes: string[] = ['administrativa', 'biologica', 'sociohumanistica', 'tecnica'];
 
@@ -24,18 +19,18 @@ export class ProyectosResolver implements Resolve<any> {
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
-      let proyectosCollection = this.getCollectionQuery(route);
+      const proyectosCollection = this.getCollectionQuery(route);
 
       const cursosSnap = await proyectosCollection.get().toPromise();
 
       if (cursosSnap.empty) return [];
 
-      return cursosSnap.docs.map(doc => Object.assign({ id: doc.id }, doc.data()));
+      return cursosSnap.docs.map(doc => new Proyecto(Object.assign({ id: doc.id }, doc.data())));
     } catch (error) {
       console.error(error);
       // TODO: add err page
       this.router.navigate(['/404']);
-      return [];
+      return null;
     }
   }
 
@@ -43,9 +38,7 @@ export class ProyectosResolver implements Resolve<any> {
    * Get query for resolver based on state of the route, component calling and data
    * required by the component bia queries
    */
-  private getCollectionQuery(
-    route: ActivatedRouteSnapshot
-  ): AngularFirestoreCollection<ProyectoInnovacion> {
+  private getCollectionQuery(route: ActivatedRouteSnapshot): AngularFirestoreCollection<Proyecto> {
     const component = route.component;
     const proyectosDocument: AngularFirestoreDocument = this._afs
       .collection('innovacion-docente')

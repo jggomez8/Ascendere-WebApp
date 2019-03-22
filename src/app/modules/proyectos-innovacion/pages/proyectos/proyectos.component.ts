@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProyectoInnovacion } from 'src/app/interfaces/proyecto-innovacion';
 import { Subscription } from 'rxjs';
+import { Proyecto } from 'src/app/interfaces/proyecto';
 
 @Component({
   selector: 'indev-proyectos',
@@ -24,7 +24,7 @@ export class ProyectosComponent implements OnInit, OnDestroy {
   /**
    * Store all projects fo be displayed in the page
    */
-  proyectos: ProyectoInnovacion[];
+  proyectos: Proyecto[];
 
   pageTitle: string;
 
@@ -37,7 +37,7 @@ export class ProyectosComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._projectsSub = this._route.data.subscribe(
       data => {
-        this.proyectos = data['proyectos'] as ProyectoInnovacion[];
+        this.proyectos = data['proyectos'] as Proyecto[];
       },
       err => console.error('TODO: do something')
     );

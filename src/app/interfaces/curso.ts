@@ -1,11 +1,6 @@
 import { DefaultInterface } from './default';
 import { firestore } from 'firebase';
 
-export interface ProgramaFormacion {
-  cursos: Curso[];
-  bannerCursos: BannerCurso[];
-}
-
 export class Curso {
   public id: any;
   public name: string;

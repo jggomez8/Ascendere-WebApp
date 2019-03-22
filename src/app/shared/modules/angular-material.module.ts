@@ -8,7 +8,8 @@ import {
   MatFormFieldModule,
   MatChipsModule,
   MatSnackBarModule,
-  MAT_SNACK_BAR_DEFAULT_OPTIONS
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatTabsModule
 } from '@angular/material';
 
 const MAT_MODULES = [
@@ -18,7 +19,8 @@ const MAT_MODULES = [
   MatInputModule,
   MatFormFieldModule,
   MatChipsModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatTabsModule
 ];
 
 @NgModule({

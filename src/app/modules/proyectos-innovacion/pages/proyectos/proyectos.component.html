@@ -3,10 +3,10 @@
 </indev-header>
 <section indev-section class="container">
   <div class="grid" *ngIf="hasProjects; else emptyMessage">
-    <indev-proyectos-innovacion-card
+    <indev-proyecto-card
       *ngFor="let proyecto of proyectos"
       [proyecto]="proyecto"
-    ></indev-proyectos-innovacion-card>
+    ></indev-proyecto-card>
   </div>
   <ng-template #emptyMessage>
     <span class="TextTheme--display1">

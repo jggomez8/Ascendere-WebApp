@@ -4,10 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 // declarations
 import { ProyectosInnovacionComponent } from './pages/proyectos-innovacion/proyectos-innovacion.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
-import { ProyectoComponent } from './pages/proyecto/proyecto.component';
+import { ProyectoDetailComponent } from './pages/proyecto/proyecto-detail.component';
 
 // providers
-import { ProyectosResolver } from './providers/proyectos-innovacion.resolver';
+import { ProyectosResolver } from './providers/proyectos.resolver';
 import { ProyectoResolver } from './providers/proyecto.resolver';
 
 const routes: Routes = [
@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'proyecto/:id',
-    component: ProyectoComponent,
+    component: ProyectoDetailComponent,
     resolve: {
       proyecto: ProyectoResolver
     },

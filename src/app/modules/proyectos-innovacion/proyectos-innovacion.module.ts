@@ -7,15 +7,15 @@ import { ProyectosInnovacionRoutingModule } from './proyectos-innovacion.routing
 
 // declarations
 import { ProyectosInnovacionComponent } from './pages/proyectos-innovacion/proyectos-innovacion.component';
-import { ProyectoComponent } from './pages/proyecto/proyecto.component';
+import { ProyectoDetailComponent } from './pages/proyecto/proyecto-detail.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 
 // providers
-import { ProyectosResolver } from './providers/proyectos-innovacion.resolver';
+import { ProyectosResolver } from './providers/proyectos.resolver';
 import { ProyectoResolver } from './providers/proyecto.resolver';
 
 @NgModule({
-  declarations: [ProyectosInnovacionComponent, ProyectosComponent, ProyectoComponent],
+  declarations: [ProyectosInnovacionComponent, ProyectosComponent, ProyectoDetailComponent],
   imports: [CommonModule, ProyectosInnovacionRoutingModule, SharedModule],
   providers: [ProyectosResolver, ProyectoResolver]
 })
