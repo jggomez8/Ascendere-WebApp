@@ -1,5 +1,3 @@
-# PROYECTO MENTORES
-
 El ingreso a la vida universitaria trae consigo nuevos retos, pues supone la adaptación a nuevos entornos, conocer nuevas personas y adecuarse a nuevos ritmos de trabajo. El Vicerrectorado Académico de la UTPL propone el Proyecto Mentores como un aporte para la inserción saludable de los nuevos estudiantes a nuestra casa de estudios.
 
 ### ¿Cuál es el objetivo fundamental del Proyecto Mentores en la UTPL?

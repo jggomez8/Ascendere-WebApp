@@ -9,7 +9,7 @@ const routes: Routes = [
     component: ArticuloComponent,
     resolve: {
       articulo: ArticuloResolver
-    }
+    },
   }
 ];
 
