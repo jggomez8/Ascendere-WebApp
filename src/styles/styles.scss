@@ -1,8 +1,12 @@
 // grid
 .grid {
   display: grid;
-  grid-gap: 15px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 16px;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: repeat(auto-fill, minmax(var(--size, 300px), 1fr));
+  }
 }
 
 // Container

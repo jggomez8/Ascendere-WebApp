@@ -28,6 +28,7 @@ import { ProyectoCardComponent } from './components/cards/proyecto-card/proyecto
 // TODO: create module for locate
 import localeEsAr from '@angular/common/locales/es-AR';
 import { SafePipe } from './pipes/safe.pipe';
+import { InnovaTipCardComponent } from './components/cards/innova-tip-card/innova-tip-card.component';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localeEsAr, 'es-Ar');
@@ -46,6 +47,7 @@ const DECLARATIONS = [
   NoticiaCardComponent,
   CursoCardComponent,
   ProyectoCardComponent,
+  InnovaTipCardComponent,
 
   // lazy load Component
   LazyTransitionComponent,

@@ -9,18 +9,14 @@
 <div class="container">
   <section indev-section>
     <indev-section-title>
-      Últimos InnovaTips
+      Portafolio de InnovaTips
     </indev-section-title>
-    <indev-section-controls>
-      <button mat-button color="primary">Ver más InnovaTips</button>
-    </indev-section-controls>
-
-    <markdown>
-      <pre>
-        <code *ngFor="let tip of innovaTips">
-            {{ tip | json }}
-        </code>
-      </pre>
-    </markdown>
   </section>
+
+  <div class="grid" style="--size: 350px">
+    <indev-innova-tip-card
+      *ngFor="let innovaTip of innovaTips"
+      [innovaTip]="innovaTip"
+    ></indev-innova-tip-card>
+  </div>
 </div>

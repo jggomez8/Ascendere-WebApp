@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { InnovaTip } from 'src/app/interfaces/innova-tip';
 
-// TODO: add type tip
 @Injectable()
-export class InnovaTipsResolver implements Resolve<any> {
+export class InnovaTipsResolver implements Resolve<InnovaTip[]> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
 
   /**
@@ -12,15 +12,17 @@ export class InnovaTipsResolver implements Resolve<any> {
    */
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
-      const innovaTipsCollection: AngularFirestoreCollection<any> = this._afs
+      const innovaTipsCollection: AngularFirestoreCollection<InnovaTip[]> = this._afs
         .collection('formacion-docente')
         .doc('programa-formacion')
-        .collection('tips', ref => ref.orderBy('added', 'asc').limit(2));
+        .collection('tips', ref => ref.orderBy('added', 'asc'));
 
       const innovaTipsSnap = await innovaTipsCollection.get().toPromise();
 
       if (innovaTipsSnap.empty) return [];
-      return innovaTipsSnap.docs.map(doc => Object.assign({ id: doc.id }, doc.data()));
+      return innovaTipsSnap.docs.map(
+        doc => new InnovaTip(Object.assign({ id: doc.id }, doc.data()))
+      );
     } catch (error) {
       console.error(error);
       // TODO: add err page
