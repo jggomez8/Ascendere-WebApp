@@ -50,6 +50,10 @@ const routes: Routes = [
       {
         path: 'articulo',
         loadChildren: '../../modules/articulo/articulo.module#ArticuloModule'
+      },
+      {
+        path: 'noticias',
+        loadChildren: '../../modules/noticias/noticias.module#NoticiasModule'
       }
     ]
   }

@@ -3,13 +3,14 @@
 
 <div class="card">
   <div class="hero-image aspect-ratio">
-    <img [src]="heroImage" alt="Image" />
+    <img [src]="noticia.img" [alt]="noticia.altImg" />
   </div>
   <div class="content">
-    <h4 class="TextTheme--title">{{ title }}</h4>
-    <span class="TextTheme--subhead">{{ fecha | date }}</span>
-    <p>{{ description }}</p>
-    <div class="expanded"></div>
+    <h4 class="TextTheme--title">{{ noticia.name }}</h4>
+    <small class="TextTheme--subhead">{{ noticia.date | date }}</small>
+    <div class="description aspect-ratio">
+      <p>{{ noticia.description }}</p>
+    </div>
     <div class="actions">
       <button mat-button>compartir</button>
       <button mat-button color="primary">VEr mas</button>

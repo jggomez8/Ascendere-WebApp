@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-import { Tip } from 'src/app/interfaces/tip';
+import { Noticia } from 'src/app/interfaces/noticia';
 
 @Injectable()
-export class TipsResolver implements Resolve<Tip[]> {
+export class NoticiasResolver implements Resolve<Noticia[]> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
 
   /**
@@ -12,17 +12,15 @@ export class TipsResolver implements Resolve<Tip[]> {
    */
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
-      const tipsCollection: AngularFirestoreCollection<Tip[]> = await this._afs
+      const noticiasCollection: AngularFirestoreCollection<Noticia[]> = await this._afs
         .collection('observatorio')
         .doc('edutendencias')
-        .collection('tips', ref =>
-          ref.orderBy('created', 'desc').where('tag', '==', route.params.id)
-        );
+        .collection('noticias', ref => ref.orderBy('created', 'desc'));
 
-      const tipsSnap = await tipsCollection.get().toPromise();
+      const noticiasSnap = await noticiasCollection.get().toPromise();
 
-      if (tipsSnap.empty) return [];
-      return tipsSnap.docs.map(doc => new Tip(Object.assign({ id: doc.id }, doc.data())));
+      if (noticiasSnap.empty) return [];
+      return noticiasSnap.docs.map(doc => new Noticia(Object.assign({ id: doc.id }, doc.data())));
     } catch (error) {
       console.error(error);
       // TODO: add err page

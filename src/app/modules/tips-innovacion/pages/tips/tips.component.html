@@ -1,5 +1,5 @@
 <indev-header *ngIf="tipsType">
-  <h1 class="TextTheme--display2">
+  <h1 [ngClass]="['TextTheme--display2']" [class]="rawType">
     {{ tipsType }}
   </h1>
 </indev-header>

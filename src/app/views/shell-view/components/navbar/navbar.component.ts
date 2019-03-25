@@ -144,7 +144,8 @@ export class NavbarComponent implements OnInit {
           ]
         },
         {
-          name: 'Noticias'
+          name: 'Noticias',
+          routerLink: ['/', 'noticias']
         },
 
         {

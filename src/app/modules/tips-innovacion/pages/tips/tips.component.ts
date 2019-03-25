@@ -18,6 +18,7 @@ export class TipsComponent implements OnInit, OnDestroy {
   tips: Tip[];
 
   tipsType: string;
+  rawType: string;
 
   private _tipsSub: Subscription;
   private _tipsTypeSub: Subscription;
@@ -35,6 +36,7 @@ export class TipsComponent implements OnInit, OnDestroy {
 
     this._tipsTypeSub = this._route.params.subscribe(params => {
       this.tipsType = this._tipTypes[params.id];
+      this.rawType = params.id;
     });
   }
 

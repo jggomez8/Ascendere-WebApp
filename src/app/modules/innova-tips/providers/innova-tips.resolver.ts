@@ -15,7 +15,7 @@ export class InnovaTipsResolver implements Resolve<InnovaTip[]> {
       const innovaTipsCollection: AngularFirestoreCollection<InnovaTip[]> = this._afs
         .collection('formacion-docente')
         .doc('programa-formacion')
-        .collection('tips', ref => ref.orderBy('added', 'asc'));
+        .collection('tips', ref => ref.orderBy('added', 'desc'));
 
       const innovaTipsSnap = await innovaTipsCollection.get().toPromise();
 
