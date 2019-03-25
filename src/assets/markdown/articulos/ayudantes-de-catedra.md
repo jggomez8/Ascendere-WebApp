@@ -1,5 +1,3 @@
-# PROYECTO **AYUDANTE DE CÁTEDRA**
-
 [![Banner Proyectos](https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/innovacion-docente%2Fayudante%20de%20catedra%2Fcarrusel.png?alt=media&token=2719920a-67a6-4927-aa16-178b2c5192fb)](http://google.com)
 
 La necesidad de apoyo al profesorado en la UTPL conlleva a que los estudiantes de pregrado puedan realizar tareas de soporte a la docencia en calidad de Ayudantes de Cátedra. Con estos proyectos se pretende contribuir a la formación de estudiantes que tienen un perfil profesional de investigación, docencia y que podrían contribuir en el futuro como docentes.

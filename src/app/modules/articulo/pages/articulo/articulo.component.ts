@@ -1,49 +1,39 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
-import { MatSnackBar } from '@angular/material';
+import { Subscription } from 'rxjs';
+import { Articulo } from 'src/app/interfaces/articulo';
 
 @Component({
   selector: 'indev-articulo',
   template: `
+    <indev-header>
+      <h1 class="TextTheme--display2">
+        {{ articulo.name }}
+      </h1>
+    </indev-header>
     <div class="container">
-      <markdown [src]="markdown_source" (error)="onError($event)"></markdown>
+      <markdown *ngIf="articulo.hasContent; else source" [data]="articulo.content"></markdown>
+      <ng-template #source>
+        <markdown [src]="articulo.source"></markdown>
+      </ng-template>
     </div>
   `,
   styleUrls: ['./articulo.component.scss']
 })
 export class ArticuloComponent implements OnInit, OnDestroy {
-  id: number;
-  private _sub: any;
+  private _sub: Subscription;
+  articulo: Articulo;
 
-  // TODO: validate if file extension is required to load asset from server
-  constructor(
-    private _route: ActivatedRoute,
-    private _snackBar: MatSnackBar,
-    private _location: Location
-  ) {}
+  constructor(private _route: ActivatedRoute) {}
 
   ngOnInit() {
-    this._sub = this._route.params.subscribe(params => {
-      this.id = params['id'];
-      this._snackBar.dismiss();
+    this._sub = this._route.data.subscribe(data => {
+      this.articulo = data['articulo'];
     });
   }
 
   ngOnDestroy() {
     this._sub.unsubscribe();
-  }
-
-  get markdown_source(): string {
-    return `/assets/markdown/articulos/${this.id}.md`;
-  }
-
-  onError($event) {
-    const snackBarRef = this._snackBar.open('No se pudo Cargar el articulo.', 'Regresar');
-
-    snackBarRef.onAction().subscribe(() => {
-      this._location.back();
-    });
   }
 }

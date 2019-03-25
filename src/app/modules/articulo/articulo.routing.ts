@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticuloComponent } from './pages/articulo/articulo.component';
+import { ArticuloResolver } from './providers/articulo.resolver';
 
 const routes: Routes = [
   {
-    // TODO: add not found article or redirect
-    path: ''
-  },
-  {
     path: ':id',
-    component: ArticuloComponent
+    component: ArticuloComponent,
+    resolve: {
+      articulo: ArticuloResolver
+    }
   }
 ];
 
