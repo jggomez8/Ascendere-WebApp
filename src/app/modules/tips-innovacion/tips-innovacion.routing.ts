@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TipsInnovacionComponent } from './pages/tips-innovacion/tips-innovacion.component';
 import { TipsComponent } from './pages/tips/tips.component';
+import { TipsResolver } from './providers/tips.resolver';
 
 const routes: Routes = [
   {
@@ -10,7 +11,11 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: TipsComponent
+    component: TipsComponent,
+    resolve: {
+      tips: TipsResolver
+    },
+    runGuardsAndResolvers: 'paramsChange'
   }
 ];
 

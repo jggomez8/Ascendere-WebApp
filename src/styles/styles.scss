@@ -1,7 +1,7 @@
 // grid
 .grid {
   display: grid;
-  grid-gap: 16px;
+  grid-gap: var(--gap, 16px);
   grid-template-columns: 1fr;
 
   @media screen and (min-width: 600px) {

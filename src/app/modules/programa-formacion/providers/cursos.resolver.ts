@@ -10,9 +10,8 @@ import { ProgramaFormacionComponent } from '../pages/programa-formacion/programa
 import { HomeComponent } from '../../home/pages/home/home.component';
 import { PortfolioComponent } from '../pages/portfolio/portfolio.component';
 
-// TODO: add type curso
 @Injectable()
-export class CursosResolver implements Resolve<any> {
+export class CursosResolver implements Resolve<Curso[]> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
 
   /**
