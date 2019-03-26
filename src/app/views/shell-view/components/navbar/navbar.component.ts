@@ -92,12 +92,17 @@ export class NavbarComponent implements OnInit {
           children: [
             {
               name: 'Jornada Actual',
-              fragment: 'jornada-actual'
+              routerLink: ['/', 'jornadas']
+            },
+            {
+              name: 'Portafolio de Jornadas',
+              routerLink: ['/', 'jornadas', 'portafolio']
             }
           ]
         },
         {
-          name: 'Diseño y desarrollo de mi asignatura',
+          name: 'Desarrollo de mi asignatura',
+          routerLink: ['/', 'desarrollo-asignatura'],
           children: [
             {
               name: 'Como Elaborar mi Plan Docente'

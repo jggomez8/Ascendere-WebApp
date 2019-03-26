@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+
+  grid-gap: 10px 20px;
+
+  grid-template-areas:
+    'main'
+    'aside';
+
+  @media screen and (min-width: 840px) {
+    grid-template-areas: 'aside main';
+  }
+
+  aside {
+    grid-area: aside;
+
+    display: flex;
+    flex-direction: column;
+    > * {
+      margin-bottom: 10px;
+    }
+  }
+
+  main {
+    grid-area: main;
+  }
+}
