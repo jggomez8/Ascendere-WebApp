@@ -7,17 +7,21 @@ import { Jornada } from 'src/app/interfaces/jornada';
 export class JornadasResolver implements Resolve<Jornada[]> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
 
-  // TODO: return all, exept the last document
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
-      const jornadaCollection = this._afs.collection('jornadas', ref =>
-        ref.orderBy('date', 'desc')
-      );
+      const jornadaCollection = this._afs.collection('jornadas', ref => ref.orderBy('date', 'asc'));
 
       const jornadasSnap = await jornadaCollection.get().toPromise();
 
       if (jornadasSnap.empty) return [];
-      return jornadasSnap.docs.map(doc => new Jornada(Object.assign({ id: doc.id }, doc.data())));
+
+      // remove actual jornada
+      const arr = jornadasSnap.docs.map(
+        doc => new Jornada(Object.assign({ id: doc.id }, doc.data()))
+      );
+      arr.pop();
+
+      return arr;
     } catch (error) {
       console.error(error);
       // TODO: add err page

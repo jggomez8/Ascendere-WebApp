@@ -23,5 +23,7 @@ export class PortafolioJornadasComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {}
+  ngOnDestroy() {
+    this._jornadasSub.unsubscribe();
+  }
 }

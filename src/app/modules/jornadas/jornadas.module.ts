@@ -7,9 +7,10 @@ import { UltimaJornadaComponent } from './pages/ultima-jornada/ultima-jornada.co
 import { JornadaResolver } from './providers/jornada.resolver';
 import { JornadasResolver } from './providers/jornadas.resolver';
 import { PortafolioJornadasComponent } from './pages/portafolio-jornadas/portafolio-jornadas.component';
+import { JornadaFormacionComponent } from './pages/jornada-formacion/jornada-formacion.component';
 
 @NgModule({
-  declarations: [JornadaDetailComponent, UltimaJornadaComponent, PortafolioJornadasComponent],
+  declarations: [JornadaDetailComponent, UltimaJornadaComponent, PortafolioJornadasComponent, JornadaFormacionComponent],
   imports: [CommonModule, SharedModule, JornadasRoutingModule],
   providers: [JornadaResolver, JornadasResolver]
 })

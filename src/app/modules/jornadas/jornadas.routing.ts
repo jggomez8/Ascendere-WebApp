@@ -5,6 +5,7 @@ import { UltimaJornadaComponent } from './pages/ultima-jornada/ultima-jornada.co
 import { JornadaDetailComponent } from './pages/jornada-detail/jornada-detail.component';
 import { JornadaResolver } from './providers/jornada.resolver';
 import { PortafolioJornadasComponent } from './pages/portafolio-jornadas/portafolio-jornadas.component';
+import { JornadaFormacionComponent } from './pages/jornada-formacion/jornada-formacion.component';
 
 const routes: Routes = [
   {
@@ -22,11 +23,19 @@ const routes: Routes = [
     },
     children: [
       {
+        path: 'jornadas-reflexion',
+        component: JornadaFormacionComponent
+      },
+      {
         path: ':id',
         component: JornadaDetailComponent,
         resolve: {
           jornada: JornadaResolver
         }
+      },
+      {
+        path: '',
+        redirectTo: 'jornadas-reflexion'
       }
     ]
   }

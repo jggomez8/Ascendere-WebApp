@@ -8,6 +8,7 @@
     'aside';
 
   @media screen and (min-width: 840px) {
+    grid-template-columns: max-content 1fr;
     grid-template-areas: 'aside main';
   }
 

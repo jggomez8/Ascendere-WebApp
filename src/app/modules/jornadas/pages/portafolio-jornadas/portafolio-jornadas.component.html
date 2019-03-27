@@ -8,14 +8,22 @@
   <div class="container">
     <aside>
       <h2 class="TextTheme--headline">Jornadas Anteriores</h2>
-      <a mat-stroked-button [routerLink]="['/', 'jornadas', 'portafolio']">
+      <a
+        mat-stroked-button
+        [color]="rla.isActive ? 'primary' : ''"
+        [routerLink]="['/', 'jornadas', 'portafolio', 'jornadas-reflexion']"
+        routerLinkActive
+        #rla="routerLinkActive"
+      >
         Jornadas de Reflexión
       </a>
       <a
         mat-stroked-button
-        color="primary"
+        [color]="rla.isActive ? 'primary' : ''"
         [routerLink]="['/', 'jornadas', 'portafolio', jornada.id]"
         *ngFor="let jornada of jornadas"
+        routerLinkActive
+        #rla="routerLinkActive"
       >
         {{ jornada.periodo }}
       </a>
