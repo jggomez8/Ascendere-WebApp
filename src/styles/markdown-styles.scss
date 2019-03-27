@@ -159,24 +159,8 @@ markdown {
     }
   }
 
-  figure {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    img {
-      max-width: 100%;
-      height: auto !important;
-
-      display: block;
-      border-radius: 8px;
-
-      background: var(--background-color);
-      border: 1px solid #eee;
-      padding: 2px;
-    }
-  }
-  p img {
-    max-width: 100%;
+  img {
+    width: 100%;
     height: auto !important;
 
     display: block;
@@ -185,6 +169,23 @@ markdown {
     background: var(--background-color);
     border: 1px solid #eee;
     padding: 2px;
+
+    // TODO: remove styles
+    margin: auto;
+  }
+
+  figure {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    img {
+      width: auto;
+      max-width: 100%;
+    }
+  }
+  p img {
+    width: auto;
+    max-width: 100%;
   }
 
   blockquote {
