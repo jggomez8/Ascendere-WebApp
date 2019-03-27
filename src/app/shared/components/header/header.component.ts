@@ -6,7 +6,7 @@ import { Component, ViewEncapsulation, Input } from '@angular/core';
     <header class="feature" [ngStyle]="style">
       <div class="container">
         <div class="feature--container">
-          <div class="feature--header">
+          <div class="feature--header TextTheme--display2">
             <ng-content select="h1"></ng-content>
           </div>
           <div class="feature--image">

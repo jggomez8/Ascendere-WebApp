@@ -17,6 +17,15 @@ const routes: Routes = [
           '../../modules/proyectos-innovacion/proyectos-innovacion.module#ProyectosInnovacionModule'
       },
       {
+        path: 'jornadas',
+        loadChildren: '../../modules/jornadas/jornadas.module#JornadasModule'
+      },
+      {
+        path: 'desarrollo-asignatura',
+        loadChildren:
+          '../../modules/desarrollo-asignatura/desarrollo-asignatura.module#DesarrolloAsignaturaModule'
+      },
+      {
         path: 'programa-formacion',
         loadChildren:
           '../../modules/programa-formacion/programa-formacion.module#ProgramaFormacionModule'

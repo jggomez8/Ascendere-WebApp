@@ -1,0 +1,28 @@
+<indev-header>
+  <h1>Portafolio de Jornadas de Formación Académica</h1>
+</indev-header>
+
+<!-- TODO: add portafolio info  -->
+
+<section indev-section>
+  <div class="container">
+    <aside>
+      <h2 class="TextTheme--headline">Jornadas Anteriores</h2>
+      <a mat-stroked-button [routerLink]="['/', 'jornadas', 'portafolio']">
+        Jornadas de Reflexión
+      </a>
+      <a
+        mat-stroked-button
+        color="primary"
+        [routerLink]="['/', 'jornadas', 'portafolio', jornada.id]"
+        *ngFor="let jornada of jornadas"
+      >
+        {{ jornada.periodo }}
+      </a>
+      <a mat-raised-button color="primary" [routerLink]="['/', 'jornadas']">Jornada Actual</a>
+    </aside>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</section>

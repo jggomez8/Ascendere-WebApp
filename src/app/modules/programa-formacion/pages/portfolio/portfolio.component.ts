@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })
+// TODO: rename component to PortafolioCursos
 export class PortfolioComponent implements OnInit, OnDestroy {
   cursos: Curso[];
 
