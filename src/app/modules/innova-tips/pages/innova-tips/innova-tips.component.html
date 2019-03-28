@@ -13,10 +13,16 @@
     </indev-section-title>
   </section>
 
-  <div class="grid" style="--size: 350px">
+  <div class="grid" style="--size: 350px" *ngIf="innovaTips.hasTips; emptyMessage">
     <indev-innova-tip-card
-      *ngFor="let innovaTip of innovaTips"
+      *ngFor="let innovaTip of innovaTips.innovaTips"
       [innovaTip]="innovaTip"
     ></indev-innova-tip-card>
   </div>
+
+  <ng-template #emptyMessage>
+    <span class="TextTheme--headline">
+      ❗ No se encontraron tips para mostrar
+    </span>
+  </ng-template>
 </div>
