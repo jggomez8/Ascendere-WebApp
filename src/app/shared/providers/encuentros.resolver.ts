@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Encuentro, Encuentros } from 'src/app/interfaces/encuentro';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { HomeComponent } from 'src/app/modules/home/pages/home/home.component';
 
 @Injectable()
 export class EncuentrosResolver implements Resolve<Encuentros> {
@@ -16,10 +17,7 @@ export class EncuentrosResolver implements Resolve<Encuentros> {
    */
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
-      let encuentrosSnap = await this._afs
-        .collection('formacion-docente')
-        .doc('cafe-cientifico')
-        .collection('encuentros', ref => ref.orderBy('date', 'desc').limit(6))
+      let encuentrosSnap = await this._getEncuentrosCollection(route)
         .get()
         .toPromise();
 
@@ -33,5 +31,28 @@ export class EncuentrosResolver implements Resolve<Encuentros> {
       this.router.navigate(['/404']);
       return null;
     }
+  }
+
+  private _getEncuentrosCollection(
+    route: ActivatedRouteSnapshot
+  ): AngularFirestoreCollection<Encuentros> {
+    const component = route.component;
+
+    if (component === HomeComponent) {
+      const temp = new Date();
+      const startDate = new Date(temp.getFullYear(), temp.getMonth());
+
+      return this._afs
+        .collection('formacion-docente')
+        .doc('cafe-cientifico')
+        .collection('encuentros', ref =>
+          ref.orderBy('date', 'desc').where('date', '>=', startDate)
+        );
+    }
+
+    return this._afs
+      .collection('formacion-docente')
+      .doc('cafe-cientifico')
+      .collection('encuentros', ref => ref.orderBy('date', 'desc').limit(6));
   }
 }

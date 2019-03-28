@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { CursosResolver } from 'src/app/shared/providers/cursos.resolver';
 import { EncuentrosResolver } from 'src/app/shared/providers/encuentros.resolver';
+import { NoticiasResolver } from 'src/app/shared/providers/noticias.resolver';
+import { TipsResolver } from 'src/app/shared/providers/tips.resolver';
+import { InnovaTipsResolver } from 'src/app/shared/providers/innova-tips.resolver';
 
 const routes: Routes = [
   {
@@ -10,7 +13,10 @@ const routes: Routes = [
     component: HomeComponent,
     resolve: {
       cursos: CursosResolver,
-      encuentros: EncuentrosResolver
+      encuentros: EncuentrosResolver,
+      noticias: NoticiasResolver,
+      // tips: TipsResolver,
+      innovaTips: InnovaTipsResolver
     }
   }
 ];

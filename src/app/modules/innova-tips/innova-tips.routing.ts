@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { InnovaTipsComponent } from './pages/innova-tips/innova-tips.component';
 
 // provider
-import { InnovaTipsResolver } from './providers/innova-tips.resolver';
+import { InnovaTipsResolver } from '../../shared/providers/innova-tips.resolver';
 
 const routes: Routes = [
   {

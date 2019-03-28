@@ -32,6 +32,9 @@ import { InnovaTipCardComponent } from './components/cards/innova-tip-card/innov
 
 import { CursosResolver } from './providers/cursos.resolver';
 import { EncuentrosResolver } from './providers/encuentros.resolver';
+import { NoticiasResolver } from './providers/noticias.resolver';
+import { TipsResolver } from './providers/tips.resolver';
+import { InnovaTipsResolver } from './providers/innova-tips.resolver';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localeEsAr, 'es-Ar');
@@ -65,7 +68,13 @@ const DECLARATIONS = [
   SafePipe
 ];
 
-const RESOLVERS = [CursosResolver, EncuentrosResolver];
+const RESOLVERS = [
+  CursosResolver,
+  EncuentrosResolver,
+  NoticiasResolver,
+  TipsResolver,
+  InnovaTipsResolver
+];
 
 @NgModule({
   declarations: DECLARATIONS,

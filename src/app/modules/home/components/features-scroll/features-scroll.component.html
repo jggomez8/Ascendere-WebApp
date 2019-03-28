@@ -33,7 +33,7 @@
         <indev-section-controls>
           <a mat-stroked-button [routerLink]="['/cafe-cientifico']">Ver más Encuentros</a>
         </indev-section-controls>
-        <div class="grid">
+        <div class="grid" style="--size: 400px">
           <indev-encuentro-card
             *ngFor="let encuentro of encuentros.encuentros"
             [encuentro]="encuentro"
@@ -41,11 +41,30 @@
         </div>
       </section>
 
-      <section indev-section>
-        <indev-section-title>Ultimas Noticias</indev-section-title>
+      <section indev-section *ngIf="innovaTips.hasTips">
+        <indev-section-title>Últimos InnovaTips</indev-section-title>
         <indev-section-controls>
-          <button mat-button>Ver más</button>
+          <a mat-stroked-button [routerLink]="['/innova-tips']">Ver más InnovaTips</a>
         </indev-section-controls>
+        <div class="grid" style="--size: 400px">
+          <indev-innova-tip-card
+            *ngFor="let innovaTip of innovaTips.innovaTips"
+            [innovaTip]="innovaTip"
+          ></indev-innova-tip-card>
+        </div>
+      </section>
+
+      <section indev-section *ngIf="noticias.hasNoticias">
+        <indev-section-title>Últimas Noticias</indev-section-title>
+        <indev-section-controls>
+          <a mat-stroked-button [routerLink]="['/noticias']">Ver más Noticias</a>
+        </indev-section-controls>
+        <div class="grid">
+          <indev-noticia-card
+            *ngFor="let noticia of noticias.noticias"
+            [noticia]="noticia"
+          ></indev-noticia-card>
+        </div>
       </section>
     </div>
   </div>
