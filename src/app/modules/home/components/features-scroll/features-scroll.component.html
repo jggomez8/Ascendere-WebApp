@@ -22,8 +22,18 @@
       <section indev-section>
         <indev-section-title>Próximos Cursos</indev-section-title>
         <indev-section-controls>
-          <button mat-button>Portafolio</button>
+          <a mat-stroked-button [routerLink]="['/programa-formacion']">Programa de Formación</a>
         </indev-section-controls>
+        <div *ngIf="hasCursos; else emptyMessage">
+          <div class="grid">
+            <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"></indev-curso-card>
+          </div>
+        </div>
+        <ng-template #emptyMessage>
+          <span class="TextTheme--headline">
+            ❗ No se encontraron cursos.
+          </span>
+        </ng-template>
       </section>
 
       <section indev-section>

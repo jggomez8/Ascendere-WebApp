@@ -6,9 +6,9 @@ import {
   AngularFirestoreDocument
 } from '@angular/fire/firestore';
 import { Curso } from 'src/app/interfaces/curso';
-import { ProgramaFormacionComponent } from '../pages/programa-formacion/programa-formacion.component';
-import { HomeComponent } from '../../home/pages/home/home.component';
-import { PortfolioComponent } from '../pages/portfolio/portfolio.component';
+import { ProgramaFormacionComponent } from '../../modules/programa-formacion/pages/programa-formacion/programa-formacion.component';
+import { HomeComponent } from '../../modules/home/pages/home/home.component';
+import { PortfolioComponent } from '../../modules/programa-formacion/pages/portfolio/portfolio.component';
 
 @Injectable()
 export class CursosResolver implements Resolve<Curso[]> {
@@ -40,10 +40,9 @@ export class CursosResolver implements Resolve<Curso[]> {
       .doc('programa-formacion');
 
     // If data is requested by the `home` or `programa-formacion home` return the future courses
-    // TODO: get ongoing courses
     if (component === ProgramaFormacionComponent || component === HomeComponent) {
-      const startDate = new Date();
-      startDate.setDate(startDate.getDate() - 1);
+      const temp = new Date();
+      const startDate = new Date(temp.getFullYear(), temp.getMonth());
       return programaFormacionDocument.collection('cursos', ref =>
         ref.where('date', '>=', startDate).orderBy('date', 'asc')
       );

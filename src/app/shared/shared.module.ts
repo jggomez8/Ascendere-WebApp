@@ -30,6 +30,8 @@ import localeEsAr from '@angular/common/locales/es-AR';
 import { SafePipe } from './pipes/safe.pipe';
 import { InnovaTipCardComponent } from './components/cards/innova-tip-card/innova-tip-card.component';
 
+import { CursosResolver } from './providers/cursos.resolver';
+
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localeEsAr, 'es-Ar');
 
@@ -62,6 +64,8 @@ const DECLARATIONS = [
   SafePipe
 ];
 
+const RESOLVERS = [CursosResolver];
+
 @NgModule({
   declarations: DECLARATIONS,
   imports: [
@@ -84,7 +88,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [AuthService, { provide: LOCALE_ID, useValue: 'es-Ar' }]
+      providers: [AuthService, { provide: LOCALE_ID, useValue: 'es-Ar' }, ...RESOLVERS]
     };
   }
 }
