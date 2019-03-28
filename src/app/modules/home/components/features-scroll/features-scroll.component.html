@@ -20,7 +20,7 @@
     <div class="scroll-content" *ngIf="cursos.hasCursos">
       <section indev-section>
         <indev-section-title>Próximos Cursos</indev-section-title>
-        <indev-section-controls>
+        <indev-section-controls no-negative-margin>
           <a mat-stroked-button [routerLink]="['/programa-formacion']">Programa de Formación</a>
         </indev-section-controls>
         <div class="grid">
@@ -30,7 +30,7 @@
 
       <section indev-section *ngIf="encuentros.hasEncuentros">
         <indev-section-title>Próximos Encuentros</indev-section-title>
-        <indev-section-controls>
+        <indev-section-controls no-negative-margin>
           <a mat-stroked-button [routerLink]="['/cafe-cientifico']">Ver más Encuentros</a>
         </indev-section-controls>
         <div class="grid" style="--size: 400px">
@@ -43,7 +43,7 @@
 
       <section indev-section *ngIf="innovaTips.hasTips">
         <indev-section-title>Últimos InnovaTips</indev-section-title>
-        <indev-section-controls>
+        <indev-section-controls no-negative-margin>
           <a mat-stroked-button [routerLink]="['/innova-tips']">Ver más InnovaTips</a>
         </indev-section-controls>
         <div class="grid" style="--size: 400px">
@@ -56,7 +56,7 @@
 
       <section indev-section *ngIf="noticias.hasNoticias">
         <indev-section-title>Últimas Noticias</indev-section-title>
-        <indev-section-controls>
+        <indev-section-controls no-negative-margin>
           <a mat-stroked-button [routerLink]="['/noticias']">Ver más Noticias</a>
         </indev-section-controls>
         <div class="grid">

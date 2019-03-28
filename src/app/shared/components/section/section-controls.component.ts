@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'indev-section-controls',
@@ -18,9 +18,13 @@ import { Component, Input } from '@angular/core';
         margin-right: -16px;
       }
     `
-  ]
+  ],
+  inputs: ['no-negative-margin']
 })
 export class SectionControlsComponent {
-  // TODO: add html attribute
-  @Input() negativeMargin: boolean = true;
+  negativeMargin: boolean = true;
+
+  constructor(private _el: ElementRef) {
+    this.negativeMargin = !this._el.nativeElement.hasAttribute('no-negative-margin');
+  }
 }
