@@ -1,5 +1,19 @@
 import { firestore } from 'firebase';
 
+export class Encuentros {
+  encuentros: Encuentro[];
+  constructor(encuentros?: Encuentro[]) {
+    this.encuentros = encuentros;
+  }
+
+  get hasEncuentros() {
+    return this.encuentros && this.encuentros.length > 0;
+  }
+  get primerEncuentro() {
+    return this.encuentros[0];
+  }
+}
+
 export class Encuentro {
   public id: any;
   public creator: string;

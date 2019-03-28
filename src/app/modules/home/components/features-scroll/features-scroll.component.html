@@ -8,35 +8,37 @@
       <section indev-section>
         <indev-section-title>Formación</indev-section-title>
         <ul>
-          <li class="TextTheme--headline active">
-            <a>Programa de Formación</a>
-          </li>
-          <li class="TextTheme--headline">
-            <a>Vitamina I</a>
-          </li>
+          <li class="TextTheme--headline active"><a>Cursos</a></li>
+          <li class="TextTheme--headline"><a>Encuentros</a></li>
+          <li class="TextTheme--headline"><a>Vitamina</a></li>
+          <li class="TextTheme--headline"><a>InnovaTips</a></li>
+          <li class="TextTheme--headline"><a>Noticias</a></li>
         </ul>
       </section>
     </aside>
 
-    <div class="scroll-content">
+    <div class="scroll-content" *ngIf="cursos.hasCursos">
       <section indev-section>
         <indev-section-title>Próximos Cursos</indev-section-title>
         <indev-section-controls>
           <a mat-stroked-button [routerLink]="['/programa-formacion']">Programa de Formación</a>
         </indev-section-controls>
-        <div *ngIf="cursos.hasCursos; else emptyMessage">
-          <div class="grid">
-            <indev-curso-card
-              *ngFor="let curso of cursos.cursos"
-              [curso]="curso"
-            ></indev-curso-card>
-          </div>
+        <div class="grid">
+          <indev-curso-card *ngFor="let curso of cursos.cursos" [curso]="curso"></indev-curso-card>
         </div>
-        <ng-template #emptyMessage>
-          <span class="TextTheme--headline">
-            ❗ No se encontraron cursos.
-          </span>
-        </ng-template>
+      </section>
+
+      <section indev-section *ngIf="encuentros.hasEncuentros">
+        <indev-section-title>Próximos Encuentros</indev-section-title>
+        <indev-section-controls>
+          <a mat-stroked-button [routerLink]="['/cafe-cientifico']">Ver más Encuentros</a>
+        </indev-section-controls>
+        <div class="grid">
+          <indev-encuentro-card
+            *ngFor="let encuentro of encuentros.encuentros"
+            [encuentro]="encuentro"
+          ></indev-encuentro-card>
+        </div>
       </section>
 
       <section indev-section>

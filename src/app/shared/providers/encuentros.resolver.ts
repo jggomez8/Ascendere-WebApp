@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Encuentro } from 'src/app/interfaces/encuentro';
+import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Encuentro, Encuentros } from 'src/app/interfaces/encuentro';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable()
-export class EncuentrosResolver implements Resolve<Encuentro[]> {
+export class EncuentrosResolver implements Resolve<Encuentros> {
   /**
    * Service used to load all the data from firebase
    * before user navigates to the page
@@ -23,9 +23,9 @@ export class EncuentrosResolver implements Resolve<Encuentro[]> {
         .get()
         .toPromise();
 
-      if (encuentrosSnap.empty) return [];
-      return encuentrosSnap.docs.map(
-        doc => new Encuentro(Object.assign({ id: doc.id }, doc.data()))
+      if (encuentrosSnap.empty) return new Encuentros();
+      return new Encuentros(
+        encuentrosSnap.docs.map(doc => new Encuentro(Object.assign({ id: doc.id }, doc.data())))
       );
     } catch (error) {
       console.error(error);
