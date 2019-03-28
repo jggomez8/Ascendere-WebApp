@@ -5,13 +5,13 @@ import {
   AngularFirestore,
   AngularFirestoreDocument
 } from '@angular/fire/firestore';
-import { Curso } from 'src/app/interfaces/curso';
+import { Curso, Cursos } from 'src/app/interfaces/curso';
 import { ProgramaFormacionComponent } from '../../modules/programa-formacion/pages/programa-formacion/programa-formacion.component';
 import { HomeComponent } from '../../modules/home/pages/home/home.component';
-import { PortfolioComponent } from '../../modules/programa-formacion/pages/portfolio/portfolio.component';
+import { PortfolioCursosComponent } from 'src/app/modules/programa-formacion/pages/portfolio-cursos/portfolio-cursos.component';
 
 @Injectable()
-export class CursosResolver implements Resolve<Curso[]> {
+export class CursosResolver implements Resolve<Cursos> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
 
   /**
@@ -23,8 +23,10 @@ export class CursosResolver implements Resolve<Curso[]> {
         .get()
         .toPromise();
 
-      if (cursosSnap.empty) return [];
-      return cursosSnap.docs.map(doc => new Curso(Object.assign({ id: doc.id }, doc.data())));
+      if (cursosSnap.empty) return new Cursos();
+      return new Cursos(
+        cursosSnap.docs.map(doc => new Curso(Object.assign({ id: doc.id }, doc.data())))
+      );
     } catch (error) {
       console.error(error);
       // TODO: add err page
@@ -33,7 +35,7 @@ export class CursosResolver implements Resolve<Curso[]> {
     }
   }
 
-  private _getCursosCollection(route: ActivatedRouteSnapshot): AngularFirestoreCollection<Curso[]> {
+  private _getCursosCollection(route: ActivatedRouteSnapshot): AngularFirestoreCollection<Cursos> {
     const component = route.component;
     const programaFormacionDocument: AngularFirestoreDocument = this._afs
       .collection('formacion-docente')
@@ -49,7 +51,7 @@ export class CursosResolver implements Resolve<Curso[]> {
     }
 
     // Check if component is portfolio type, if so use queries in the route
-    if (component === PortfolioComponent) {
+    if (component === PortfolioCursosComponent) {
       // TODO: add pagination
       return programaFormacionDocument.collection('cursos', ref => ref.orderBy('date', 'desc'));
     }

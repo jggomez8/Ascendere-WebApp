@@ -1,6 +1,22 @@
 import { DefaultInterface } from './default';
 import { firestore } from 'firebase';
 
+export class Cursos {
+  private _cursos: Curso[];
+
+  constructor(cursos?: Curso[]) {
+    this._cursos = cursos;
+  }
+
+  get cursos() {
+    return this._cursos;
+  }
+
+  get hasCursos() {
+    return this._cursos && this._cursos.length > 0;
+  }
+}
+
 export class Curso {
   public id: any;
   public name: string;

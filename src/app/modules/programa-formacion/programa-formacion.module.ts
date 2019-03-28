@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProgramaFormacionComponent } from './pages/programa-formacion/programa-formacion.component';
 import { ProgramaFormacionRoutingModule } from './programa-formacion.routing';
-import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { CursoComponent } from './pages/curso/curso.component';
 import { CursoResolver } from './providers/curso.resolver';
+import { PortfolioCursosComponent } from './pages/portfolio-cursos/portfolio-cursos.component';
 
 @NgModule({
-  declarations: [ProgramaFormacionComponent, PortfolioComponent, CursoComponent],
+  declarations: [ProgramaFormacionComponent, PortfolioCursosComponent, CursoComponent],
   imports: [CommonModule, ProgramaFormacionRoutingModule, SharedModule],
   providers: [CursoResolver]
 })

@@ -16,8 +16,8 @@
     <indev-section-controls>
       <a mat-button color="primary" [routerLink]="['portafolio']">Portafolio de Cursos</a>
     </indev-section-controls>
-    <div class="grid" *ngIf="hasCursos; else emptyMessage">
-      <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"> </indev-curso-card>
+    <div class="grid" *ngIf="cursos.hasCursos; else emptyMessage">
+      <indev-curso-card *ngFor="let curso of cursos.cursos" [curso]="curso"> </indev-curso-card>
     </div>
     <ng-template #emptyMessage>
       <span class="TextTheme--headline">

@@ -24,9 +24,12 @@
         <indev-section-controls>
           <a mat-stroked-button [routerLink]="['/programa-formacion']">Programa de Formación</a>
         </indev-section-controls>
-        <div *ngIf="hasCursos; else emptyMessage">
+        <div *ngIf="cursos.hasCursos; else emptyMessage">
           <div class="grid">
-            <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"></indev-curso-card>
+            <indev-curso-card
+              *ngFor="let curso of cursos.cursos"
+              [curso]="curso"
+            ></indev-curso-card>
           </div>
         </div>
         <ng-template #emptyMessage>
