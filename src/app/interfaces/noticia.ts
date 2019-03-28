@@ -1,5 +1,16 @@
 import { firestore } from 'firebase';
 
+export class Noticias {
+  noticias: Noticia[];
+  constructor(noticias?: Noticia[]) {
+    this.noticias = noticias;
+  }
+
+  get hasNoticias() {
+    return this.noticias && this.noticias.length > 0;
+  }
+}
+
 export class Noticia {
   id: any;
   creator: string;

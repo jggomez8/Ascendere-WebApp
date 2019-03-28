@@ -5,7 +5,6 @@ import { CafeCientificoRoutingModule } from './cafe-cientifico.routing';
 import { CafeCientificoComponent } from './pages/cafe-cientifico/cafe-cientifico.component';
 import { CarteleraEncuentrosComponent } from './components/cartelera-encuentros/cartelera-encuentros.component';
 import { HeroEncuentroComponent } from './components/hero-encuentro/hero-encuentro.component';
-import { EncuentrosResolver } from './resolver/encuentros.resolver';
 import { EncuentroDetailComponent } from './pages/encuentro-detail/encuentro-detail.component';
 import { EncuentroResolver } from './resolver/encuentro.resolver';
 
@@ -17,6 +16,6 @@ import { EncuentroResolver } from './resolver/encuentro.resolver';
     EncuentroDetailComponent
   ],
   imports: [CommonModule, CafeCientificoRoutingModule, SharedModule],
-  providers: [EncuentrosResolver, EncuentroResolver]
+  providers: [EncuentroResolver]
 })
 export class CafeCientificoModule {}

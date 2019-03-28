@@ -3,7 +3,7 @@
   height: 100%;
 
   position: relative;
-  background-color: var(--surface-color);
+  background-color: var(--background-color);
   @media screen and (min-width: 840px) {
     &::before {
       content: '';
@@ -71,7 +71,7 @@
     // second column contains content
     .scroll-content {
       flex-grow: 1;
-      background-color: var(--surface-color);
+      background-color: var(--background-color);
 
       @media screen and (min-width: 840px) {
         padding-top: 25px;
@@ -80,12 +80,6 @@
       }
     }
   }
-}
-
-.grid {
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 section[indev-section] {

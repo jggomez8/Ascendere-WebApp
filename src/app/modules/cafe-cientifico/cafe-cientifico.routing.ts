@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CafeCientificoComponent } from './pages/cafe-cientifico/cafe-cientifico.component';
-import { EncuentrosResolver } from './resolver/encuentros.resolver';
+import { EncuentrosResolver } from '../../shared/providers/encuentros.resolver';
 import { EncuentroDetailComponent } from './pages/encuentro-detail/encuentro-detail.component';
 import { EncuentroResolver } from './resolver/encuentro.resolver';
 

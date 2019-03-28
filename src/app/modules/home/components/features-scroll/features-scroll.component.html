@@ -8,29 +8,63 @@
       <section indev-section>
         <indev-section-title>Formación</indev-section-title>
         <ul>
-          <li class="TextTheme--headline active">
-            <a>Programa de Formación</a>
-          </li>
-          <li class="TextTheme--headline">
-            <a>Vitamina I</a>
-          </li>
+          <li class="TextTheme--headline active"><a>Cursos</a></li>
+          <li class="TextTheme--headline"><a>Encuentros</a></li>
+          <li class="TextTheme--headline"><a>Vitamina</a></li>
+          <li class="TextTheme--headline"><a>InnovaTips</a></li>
+          <li class="TextTheme--headline"><a>Noticias</a></li>
         </ul>
       </section>
     </aside>
 
-    <div class="scroll-content">
+    <div class="scroll-content" *ngIf="cursos.hasCursos">
       <section indev-section>
         <indev-section-title>Próximos Cursos</indev-section-title>
         <indev-section-controls>
-          <button mat-button>Portafolio</button>
+          <a mat-stroked-button [routerLink]="['/programa-formacion']">Programa de Formación</a>
         </indev-section-controls>
+        <div class="grid">
+          <indev-curso-card *ngFor="let curso of cursos.cursos" [curso]="curso"></indev-curso-card>
+        </div>
       </section>
 
-      <section indev-section>
-        <indev-section-title>Ultimas Noticias</indev-section-title>
+      <section indev-section *ngIf="encuentros.hasEncuentros">
+        <indev-section-title>Próximos Encuentros</indev-section-title>
         <indev-section-controls>
-          <button mat-button>Ver más</button>
+          <a mat-stroked-button [routerLink]="['/cafe-cientifico']">Ver más Encuentros</a>
         </indev-section-controls>
+        <div class="grid" style="--size: 400px">
+          <indev-encuentro-card
+            *ngFor="let encuentro of encuentros.encuentros"
+            [encuentro]="encuentro"
+          ></indev-encuentro-card>
+        </div>
+      </section>
+
+      <section indev-section *ngIf="innovaTips.hasTips">
+        <indev-section-title>Últimos InnovaTips</indev-section-title>
+        <indev-section-controls>
+          <a mat-stroked-button [routerLink]="['/innova-tips']">Ver más InnovaTips</a>
+        </indev-section-controls>
+        <div class="grid" style="--size: 400px">
+          <indev-innova-tip-card
+            *ngFor="let innovaTip of innovaTips.innovaTips"
+            [innovaTip]="innovaTip"
+          ></indev-innova-tip-card>
+        </div>
+      </section>
+
+      <section indev-section *ngIf="noticias.hasNoticias">
+        <indev-section-title>Últimas Noticias</indev-section-title>
+        <indev-section-controls>
+          <a mat-stroked-button [routerLink]="['/noticias']">Ver más Noticias</a>
+        </indev-section-controls>
+        <div class="grid">
+          <indev-noticia-card
+            *ngFor="let noticia of noticias.noticias"
+            [noticia]="noticia"
+          ></indev-noticia-card>
+        </div>
       </section>
     </div>
   </div>
