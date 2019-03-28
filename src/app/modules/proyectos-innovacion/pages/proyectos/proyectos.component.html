@@ -2,7 +2,7 @@
   <h1 class="TextTheme--display2">{{ pageTitle }}</h1>
 </indev-header>
 <section indev-section class="container">
-  <div class="grid" *ngIf="hasProjects; else emptyMessage">
+  <div class="grid" style="--size: 400px" *ngIf="hasProjects; else emptyMessage">
     <indev-proyecto-card
       *ngFor="let proyecto of proyectos"
       [proyecto]="proyecto"

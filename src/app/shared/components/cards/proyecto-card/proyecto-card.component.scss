@@ -81,9 +81,11 @@
 
   .actions {
     justify-self: flex-end;
+
     // align items with other content
     margin-left: -16px;
     margin-right: -16px;
+    margin-top: auto;
 
     // position items
     display: flex;
