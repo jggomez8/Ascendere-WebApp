@@ -1,0 +1,126 @@
+<indev-header>
+  <h1 class="TextTheme--display2">
+    {{ proyecto.name }}
+  </h1>
+</indev-header>
+
+<section class="container">
+  <div class="hero--img aspect-ratio" style="--aspect-ratio:21/9">
+    <img [src]="proyecto.img" [alt]="proyecto.imgAlt" />
+  </div>
+  <aside>
+    <span class="TextTheme--display1">
+      {{ projectType }}
+    </span>
+    <span class="TextTheme--headline"> Modalidad {{ proyecto.modality }} </span>
+    <p>
+      <span class="TextTheme--body2">
+        Coordinador de la propuesta
+      </span>
+      <span>{{ proyecto.coordinator | titlecase }}</span>
+    </p>
+    <p *ngIf="proyecto.hasParticipants">
+      <span class="TextTheme--body2">
+        Docentes que participan en la propuesta
+      </span>
+      <span *ngFor="let participant of proyecto.participants">
+        <span class="TextTheme--ascendere">*</span> {{ participant.name }}
+      </span>
+    </p>
+    <p *ngIf="proyecto.validAreas">
+      <span class="TextTheme--body2">
+        Areas
+      </span>
+      <mat-chip-list>
+        <mat-chip *ngIf="proyecto.area.administrativa" class="administrativa">
+          Área Administrativa
+        </mat-chip>
+        <mat-chip *ngIf="proyecto.area.biologica" class="biologica">
+          Área Biológica y Biomédica
+        </mat-chip>
+        <mat-chip *ngIf="proyecto.area.sociohumanistica" class="sociohumanistica">
+          Área Sociohumanística
+        </mat-chip>
+        <mat-chip *ngIf="proyecto.area.tecnica" class="tecnica">
+          Área Técnica
+        </mat-chip>
+      </mat-chip-list>
+    </p>
+    <p *ngIf="proyecto.hasParticipants">
+      <span class="TextTheme--body2">
+        Titulaciones Participantes
+      </span>
+      <span *ngFor="let career of proyecto.participantCareers">
+        <span class="TextTheme--ascendere">*</span> {{ career }}
+      </span>
+    </p>
+    <p *ngIf="proyecto.hasPeriods">
+      <span class="TextTheme--body2">
+        Período académico de ejecución
+      </span>
+      <span *ngFor="let period of proyecto.periods">
+        <span class="TextTheme--ascendere">*</span> {{ period.name }}
+      </span>
+    </p>
+    <p>
+      <span class="TextTheme--body2">
+        Línea estratégica que se desarrollará en la propuesta
+      </span>
+      <span>{{ proyecto.strategicLine }}</span>
+    </p>
+    <p>
+      <span class="TextTheme--body2">
+        Asignatura
+      </span>
+      <span>{{ proyecto.subject }}</span>
+    </p>
+    <p *ngIf="proyecto.hasDocuments">
+      <span class="TextTheme--body2">
+        Documentos
+      </span>
+      <span *ngFor="let document of proyecto.documents; let i = index">
+        <a mat-stroked-button [href]="document.url" target="_blank" rel="noopener noreferrer">
+          <span class="TextTheme--ascendere">*</span>
+          Documento {{ i + 1 }}
+        </a>
+        <br />
+      </span>
+    </p>
+  </aside>
+
+  <main>
+    <mat-tab-group color="primary">
+      <mat-tab label="Pdf" [disabled]="!proyecto.pdf">
+        <ng-template matTabContent>
+          <div class="aspect-ratio">
+            <object
+              class="pdf"
+              *ngIf="proyecto.pdf"
+              [data]="proyecto.pdf | safe: 'resourceUrl'"
+              type="application/pdf"
+            ></object>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Video" [disabled]="!proyecto.videoUrl">
+        <ng-template matTabContent>
+          <div class="aspect-ratio">
+            <iframe
+              [src]="proyecto.videoUrl | safe: 'resourceUrl'"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Infografia" [disabled]="!proyecto.infografic">
+        <ng-template matTabContent>
+          <a [href]="proyecto.infografic" target="_blank" rel="noopener noreferrer">
+            <img [src]="proyecto.infografic" alt="proyecto.infograficAlt" />
+          </a>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </main>
+</section>

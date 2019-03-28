@@ -1,0 +1,49 @@
+<!-- innova tip card contains 2 parts: card, and a modal-->
+
+<div class="card" (click)="actionModal()">
+  <div class="aspect-ratio">
+    <img [src]="innovaTip.img" [alt]="innovaTip.altImg" />
+  </div>
+  <div class="content">
+    <h3 class="TextTheme--title">{{ innovaTip.name }}</h3>
+    <span class="TextTheme--overline">{{ innovaTip.publishedAt | date }}</span>
+  </div>
+  <div class="actions">
+    <mat-icon>play_arrow</mat-icon>
+  </div>
+</div>
+
+<div class="modal" #modal>
+  <section indev-section class="container" [wrap]="false">
+    <indev-section-title>
+      {{ innovaTip.name }}
+    </indev-section-title>
+    <indev-section-controls [negativeMargin]="false">
+      <button mat-icon-button color="warn" (click)="actionModal()">
+        <mat-icon aria-label="Close modal icon">close</mat-icon>
+      </button>
+    </indev-section-controls>
+    <hr />
+    <markdown>
+      <iframe
+        [src]="innovaTip.videoSrc | safe: 'resourceUrl'"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </markdown>
+    <br />
+    <markdown [data]="innovaTip.description"> </markdown>
+    <div class="actions">
+      <a
+        mat-raised-button
+        color="primary"
+        [href]="innovaTip.url"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver en Youtube
+      </a>
+    </div>
+  </section>
+</div>

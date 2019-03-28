@@ -1,0 +1,19 @@
+<indev-header>
+  <h1 class="TextTheme--display2">Portafolio de Cursos</h1>
+</indev-header>
+
+<section indev-section class="container">
+  <!-- TODO: add search bar -->
+  <div *ngIf="hasCursos; else emptyMessage">
+    <div class="grid">
+      <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"></indev-curso-card>
+    </div>
+
+    <!-- TODO: add pagination -->
+  </div>
+  <ng-template #emptyMessage>
+    <span class="TextTheme--headline">
+      ❗ No se encontraron cursos.
+    </span>
+  </ng-template>
+</section>

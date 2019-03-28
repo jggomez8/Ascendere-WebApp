@@ -1,42 +1,59 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { Articulo } from 'src/app/interfaces/articulo';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'indev-articulo',
-  templateUrl: './articulo.component.html',
-  styleUrls: ['./articulo.component.scss']
+  template: `
+    <indev-header>
+      <h1 class="TextTheme--display2">
+        {{ articulo.name }}
+      </h1>
+    </indev-header>
+    <section indev-section class="container">
+      <markdown *ngIf="articulo.hasContent; else source" [data]="articulo.content"></markdown>
+      <ng-template #source>
+        <markdown [src]="articulo.source" (error)="onError($event)"></markdown>
+      </ng-template>
+    </section>
+  `,
+  styles: [
+    `
+      h1::before {
+        content: '📚 ';
+      }
+    `
+  ]
 })
 export class ArticuloComponent implements OnInit, OnDestroy {
-  id: number;
-  private sub: any;
+  private _sub: Subscription;
+  articulo: Articulo;
 
-// TODO: validate if file extension is required to load asset from server
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private _route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
+    private _location: Location
+  ) {}
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.id = params['id'];
-      console.log(this.id);
-
-      // In a real app: dispatch action to load the details here.
+    this._sub = this._route.data.subscribe(data => {
+      this.articulo = data['articulo'];
+      this._snackBar.dismiss();
     });
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
-  get markdown_source(): string {
-    return `/assets/markdown/articulos/${this.id}.md`;
-  }
-
-  onLoad($event) {
-    // TODO: remove
-    console.log($event);
+    this._sub.unsubscribe();
   }
 
   onError($event) {
-    // TODO: remove
-    console.log($event);
+    const snackBarRef = this._snackBar.open('No se pudo Cargar el articulo.', 'Regresar');
+
+    snackBarRef.onAction().subscribe(() => {
+      this._location.back();
+    });
   }
 }

@@ -110,8 +110,8 @@ p {
 
 /* button, button */
 .TextTheme--button,
-button,
-a {
+button[class*='mat-'],
+a[class*='mat-'] {
   font-weight: 500 !important;
   font-size: 0.75rem !important;
   letter-spacing: 0.078125rem !important;

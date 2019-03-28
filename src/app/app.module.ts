@@ -1,34 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app.routing';
-import { SharedModule } from './shared/shared.module';
-import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
+
+// decarations
+import { AppComponent } from './app.component';
+
+// modules
+import { AppRoutingModule } from './app.routing';
+import { SharedModule } from './shared/shared.module';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
+
+// functions
+import { indevMarkedOptionsFactory } from './shared/functions/markdown/markdown.functions';
+
+// Configuration
 import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    SharedModule,
+    SharedModule.forRoot(),
     HttpClientModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       markedOptions: {
         provide: MarkedOptions,
-        useValue: {
-          gfm: true,
-          tables: true,
-          breaks: false,
-          pedantic: false,
-          sanitize: false,
-          smartLists: true,
-          smartypants: false
-        }
+        useFactory: indevMarkedOptionsFactory
       }
     }),
     AppRoutingModule,

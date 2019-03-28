@@ -1,11 +1,13 @@
 <!-- Encuentro card has 3 layers: background image, gradient, content on top -->
-<div class="aspect-ratio card">
-  <div class="background-image">
-    <img [src]="backgroundImage" alt="Image" />
-  </div>
-  <div class="overlay"></div>
-  <div class="content">
-    <h4 class="TextTheme--title">{{ title }}</h4>
-    <small class="TextTheme--subhead">{{ fecha | date }}</small>
-  </div>
+<div class="aspect-ratio card" style="--aspect-ratio: 5/3">
+  <a [routerLink]="['/', 'cafe-cientifico', 'encuentro', encuentro.id]">
+    <div class="background-image">
+      <img [src]="encuentro.img" [alt]="encuentro.altImage" />
+    </div>
+    <div class="overlay"></div>
+    <div class="content">
+      <h4 class="TextTheme--title">{{ encuentro.name }}</h4>
+      <small class="TextTheme--subhead">{{ encuentro.date | date }}</small>
+    </div>
+  </a>
 </div>

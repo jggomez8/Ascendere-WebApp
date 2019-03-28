@@ -5,7 +5,11 @@ import {
   MatIconModule,
   MatProgressBarModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatChipsModule,
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatTabsModule
 } from '@angular/material';
 
 const MAT_MODULES = [
@@ -13,12 +17,16 @@ const MAT_MODULES = [
   MatButtonModule,
   MatProgressBarModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatChipsModule,
+  MatSnackBarModule,
+  MatTabsModule
 ];
 
 @NgModule({
   declarations: [],
   imports: [...MAT_MODULES],
-  exports: [...MAT_MODULES]
+  exports: [...MAT_MODULES],
+  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 4500 } }]
 })
 export class AngularMaterialModule {}

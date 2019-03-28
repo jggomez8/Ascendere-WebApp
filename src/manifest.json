@@ -1,11 +1,12 @@
 {
   "name": "Proyecto Ascendere",
   "short_name": "Ascendere",
-  "theme_color": "#00b0ff",
-  "background_color": "#ffffff",
+  "theme_color": "#fff",
+  "background_color": "#fff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
+  "description": "Pagina Web del Proyecto Ascendere",
   "lang": "es",
   "orientation": "portrait",
   "icons": [

@@ -1,10 +1,10 @@
 :root {
   // A primary color is the color displayed most frequently across the app and components.
-  --primary-color: #00b0ff;
+  --primary-color: #00bcd4;
   --on-primary: rgb(255, 255, 255);
   // A secondary color provides more ways to accent accent select parts of the UI.
   --secondary-color: #ffab00;
-  --on-secondary: hsl(0, 0%, 100%);
+  --on-secondary: rgb(0, 0, 0);
   // Surface colors, image affect surfaces of components, such as cards, sheets, and menus.
   --surface-color: #f5f5f5;
   --surface-background: url('/assets/images/default-background.png');
@@ -31,7 +31,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$candy-app-primary: mat-palette($mat-light-blue, A400);
+$candy-app-primary: mat-palette($mat-cyan);
 $candy-app-accent: mat-palette($mat-amber, A700);
 
 // The warn palette is optional (defaults to red).

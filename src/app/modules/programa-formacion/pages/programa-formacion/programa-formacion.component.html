@@ -11,21 +11,19 @@
 <div class="container">
   <section indev-section>
     <indev-section-title>
-      Cursos Actuales
+      Próximos Cursos
     </indev-section-title>
     <indev-section-controls>
-      <button mat-button color="primary">Portafolio de Cursos</button>
+      <a mat-button color="primary" [routerLink]="['portafolio']">Portafolio de Cursos</a>
     </indev-section-controls>
-
-    <markdown ngPreserveWhitespaces> </markdown>
-    <div class="grid">
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
-      <indev-curso-card> </indev-curso-card>
+    <div class="grid" *ngIf="hasCursos; else emptyMessage">
+      <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"> </indev-curso-card>
     </div>
+    <ng-template #emptyMessage>
+      <span class="TextTheme--headline">
+        ❗ Aun no hay cursos para visualizar
+      </span>
+    </ng-template>
   </section>
 
   <div class="row">
@@ -48,8 +46,9 @@
             color="primary"
             [routerLink]="['/', 'articulo', 'cursos-especificos']"
             routerLinkActive="router-link-active"
-            >Ver Más</a
           >
+            Ver Más
+          </a>
         </indev-section-controls>
 
         <markdown src="/assets/markdown/programa-formacion/cursos-especificos.md"> </markdown>

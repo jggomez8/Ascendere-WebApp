@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+// types
+import { Encuentro } from 'src/app/interfaces/encuentro';
 
 @Component({
   selector: 'indev-cafe-cientifico',
@@ -6,10 +10,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cafe-cientifico.component.scss']
 })
 export class CafeCientificoComponent implements OnInit {
+  private _encuentros: Encuentro[];
 
-  constructor() { }
+  constructor(private _route: ActivatedRoute) {}
 
-  ngOnInit() {
+  /**
+   * On load page should load all data to show components
+   */
+  ngOnInit(): void {
+    this._encuentros = this._route.snapshot.data['encuentros'] as Encuentro[];
   }
 
+  get hasActiveEncuentro(): boolean {
+    return this._encuentros.length > 0;
+  }
+
+  get encuentro(): Encuentro {
+    return this._encuentros[0];
+  }
+
+  get encuentros(): Encuentro[] {
+    return this._encuentros;
+  }
 }

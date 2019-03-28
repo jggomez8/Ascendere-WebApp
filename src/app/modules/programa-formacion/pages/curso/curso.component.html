@@ -1,0 +1,109 @@
+<indev-header [style]="curso.typeBackground">
+  <h1 class="TextTheme--display2">
+    <span class="TextTheme--title">
+      {{ curso.type }}
+    </span>
+    <br />
+    {{ curso.name }}
+  </h1>
+</indev-header>
+<section indev-section>
+  <div class="container">
+    <aside>
+      <div class="TextTheme--subtitle">
+        <span *ngIf="curso.canPostulate; else noPostulationMessage">
+          <span class="TextTheme--ascendere">*</span>
+          Postula hasta el {{ curso.postulation.date | date: 'fullDate' }}
+        </span>
+        <ng-template #noPostulationMessage>
+          Las postulaciones para este curso han finalizado
+        </ng-template>
+      </div>
+      <a
+        mat-raised-button
+        color="primary"
+        [href]="curso.postulation.link"
+        target="_blank"
+        rel="noopener noreferrer"
+        [disabled]="!curso.canPostulate"
+      >
+        Postular
+      </a>
+      <a
+        *ngFor="let content of curso.downloadableContent; let i = index"
+        mat-stroked-button
+        color="primary"
+        [href]="content.url"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📄 Contenido {{ i + 1 }}
+      </a>
+    </aside>
+    <main>
+      <markdown [data]="curso.description"></markdown>
+      <p *ngIf="curso.hasInstructors">
+        <span class="TextTheme--body2">
+          Instructor:
+        </span>
+        <span *ngFor="let instructor of curso.instructors">
+          <span class="TextTheme--ascendere">*</span>
+          {{ instructor.name }}
+          <span class="TextTheme--subtitle">({{ instructor.about }})</span>
+        </span>
+      </p>
+      <p *ngIf="curso.startDate">
+        <span class="TextTheme--body2">
+          Fecha Inicio:
+        </span>
+        <span>{{ curso.startDate | date: 'fullDate' }}</span>
+      </p>
+      <p *ngIf="curso.endDate">
+        <span class="TextTheme--body2">
+          Fecha Finalización:
+        </span>
+        <span>{{ curso.endDate | date: 'fullDate' }}</span>
+      </p>
+      <p *ngIf="curso.hasDuration">
+        <span class="TextTheme--body2">
+          Duración:
+        </span>
+        <span *ngIf="curso.duration.hours">{{ curso.duration.hours }} Horas</span>
+        <span *ngIf="curso.duration.days">{{ curso.duration.days }} Días</span>
+        <span *ngIf="curso.duration.weeks">{{ curso.duration.weeks }} Semanas</span>
+      </p>
+      <p *ngIf="curso.module">
+        <span class="TextTheme--body2">
+          Módulo:
+        </span>
+        <span>
+          {{ curso.module }}
+        </span>
+      </p>
+      <p *ngIf="curso.place">
+        <span class="TextTheme--body2">
+          Lugar:
+        </span>
+        <span>
+          {{ curso.place }}
+        </span>
+      </p>
+      <p *ngIf="curso.schedule">
+        <span class="TextTheme--body2">
+          Horario:
+        </span>
+        <span>
+          {{ curso.schedule }}
+        </span>
+      </p>
+      <p *ngIf="curso.addressedTo">
+        <span class="TextTheme--body2">
+          Dirigido:
+        </span>
+        <span>
+          {{ curso.addressedTo }}
+        </span>
+      </p>
+    </main>
+  </div>
+</section>

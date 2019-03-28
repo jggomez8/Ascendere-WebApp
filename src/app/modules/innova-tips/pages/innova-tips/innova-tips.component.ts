@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { InnovaTip } from 'src/app/interfaces/innova-tip';
 
 @Component({
   selector: 'indev-innova-tips',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./innova-tips.component.scss']
 })
 export class InnovaTipsComponent implements OnInit {
+  public innovaTips: InnovaTip[];
 
-  constructor() { }
+  constructor(private _route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.innovaTips = this._route.snapshot.data['innovaTips'] as InnovaTip[];
   }
-
 }

@@ -1,4 +1,4 @@
-<indev-hero-encuentro> </indev-hero-encuentro>
+<indev-hero-encuentro [encuentro]="encuentro" *ngIf="hasActiveEncuentro"> </indev-hero-encuentro>
 
 <indev-header>
   <h1 class="TextTheme--display2">
@@ -10,4 +10,4 @@
   <markdown src="/assets/markdown/cafe-cientifico/cafe-cientifico.md"> </markdown>
 </indev-header>
 
-<indev-cartelera-encuentros></indev-cartelera-encuentros>
+<indev-cartelera-encuentros [encuentros]="encuentros"></indev-cartelera-encuentros>

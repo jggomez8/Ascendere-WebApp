@@ -1,0 +1,115 @@
+.features-scroll {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  background-color: var(--surface-color);
+  @media screen and (min-width: 840px) {
+    &::before {
+      content: '';
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      left: 0;
+      width: 50%;
+      background-color: var(--secondary-color);
+    }
+  }
+
+  .container {
+    // padding variable to align both elements
+    --padding: 0 48px 50px 48px;
+
+    height: 100%;
+    @media screen and (min-width: 840px) {
+      // two columns on laptop
+      display: flex;
+    }
+    // first column contains links
+    aside {
+      display: none;
+
+      padding: var(--padding);
+      padding-left: 0;
+
+      white-space: nowrap;
+      ul li {
+        cursor: pointer;
+        padding: 15px 0 10px;
+        position: relative;
+
+        &::before {
+          content: '';
+
+          position: absolute;
+          left: 0;
+          bottom: 10px;
+          height: 3px;
+          width: 0;
+          border-radius: 3px;
+
+          background: var(--on-secondary) none repeat scroll 0 0;
+          -webkit-transition: 0.5s;
+          transition: 0.5s;
+        }
+        &.active::before {
+          width: 100%;
+        }
+      }
+
+      @media screen and (min-width: 840px) {
+        display: block;
+      }
+      @supports ((position: -webkit-sticky) or (position: sticky)) {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        align-self: flex-start;
+      }
+    }
+
+    // second column contains content
+    .scroll-content {
+      flex-grow: 1;
+      background-color: var(--surface-color);
+
+      @media screen and (min-width: 840px) {
+        padding-top: 25px;
+        padding: var(--padding);
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+section[indev-section] {
+  position: relative;
+  padding-top: 0;
+  @media screen and (min-width: 840px) {
+    padding-top: 100px;
+  }
+
+  &:nth-child() {
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 840px) {
+    &::before {
+      content: '';
+
+      position: absolute;
+      left: 0;
+      top: 100px;
+      width: 5em;
+
+      background-color: #000;
+      border-radius: 5px;
+      height: 5px;
+    }
+  }
+}

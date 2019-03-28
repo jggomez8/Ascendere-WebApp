@@ -1,3 +1,16 @@
-<p>
-  tips works!
-</p>
+<indev-header *ngIf="tipsType">
+  <h1 [ngClass]="['TextTheme--display2']" [class]="rawType">
+    {{ tipsType }}
+  </h1>
+</indev-header>
+
+<section indev-section class="container">
+  <div class="grid" *ngIf="hasTips; else emptyMessage">
+    <pre>{{ tips | json }}</pre>
+  </div>
+  <ng-template #emptyMessage>
+    <span class="TextTheme--headline">
+      ❗ No hay Tips para mostrar.
+    </span>
+  </ng-template>
+</section>

@@ -13,18 +13,12 @@ import {
   template: `
     <indev-navbar></indev-navbar>
     <mat-progress-bar *ngIf="loading" mode="indeterminate" color="accent"></mat-progress-bar>
+    <indev-go-top-fab></indev-go-top-fab>
     <main>
       <router-outlet></router-outlet>
     </main>
     <indev-footer></indev-footer>
-  `,
-  styles: [
-    `
-      main {
-        overflow: auto;
-      }
-    `
-  ]
+  `
 })
 export class ShellViewComponent implements OnInit {
   loading: boolean = false;

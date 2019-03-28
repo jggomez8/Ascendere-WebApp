@@ -14,7 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     MenuButtonComponent,
     MenuSummaryComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [CommonModule, ShellViewRoutingModule, SharedModule]
 })

@@ -1,12 +1,13 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { NavbarItem } from '../../interfaces/navbar-item.interface';
+import { Router, NavigationStart, Event } from '@angular/router';
 
 @Component({
   selector: 'indev-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   headerMenu: Array<NavbarItem> = [
     {
       name: 'Servicios',
@@ -20,13 +21,19 @@ export class NavbarComponent {
           routerLink: ['/', 'proyectos-innovacion'],
           children: [
             {
-              name: 'Buenas Practicas'
+              name: 'Buenas Practicas',
+              routerLink: ['/', 'proyectos-innovacion', 'proyectos'],
+              queryParams: { type: 'buena-practica' }
             },
             {
-              name: 'Proyectos Actuales'
+              name: 'Proyectos Actuales',
+              routerLink: ['/', 'proyectos-innovacion', 'proyectos'],
+              queryParams: { type: 'proyecto-actual' }
             },
             {
-              name: 'Proyectos Coordinados'
+              name: 'Proyectos Coordinados',
+              routerLink: ['/', 'proyectos-innovacion', 'proyectos'],
+              queryParams: { type: 'proyecto-coordinado' }
             }
           ]
         },
@@ -35,9 +42,6 @@ export class NavbarComponent {
             {
               name: 'Ayudantes de Cátedra',
               routerLink: ['/', 'articulo', 'ayudantes-de-catedra']
-            },
-            {
-              name: 'Convocatorias'
             },
             {
               name: 'Proyecto Mentores',
@@ -84,15 +88,21 @@ export class NavbarComponent {
           ]
         },
         {
-          name: 'Jornadas De Reflection',
+          name: 'Jornadas De Reflection Académica',
           children: [
             {
-              name: 'Jornada 2019'
+              name: 'Jornada Actual',
+              routerLink: ['/', 'jornadas']
+            },
+            {
+              name: 'Portafolio de Jornadas',
+              routerLink: ['/', 'jornadas', 'portafolio']
             }
           ]
         },
         {
-          name: 'Diseño y desarrollo de mi asignatura',
+          name: 'Desarrollo de mi asignatura',
+          routerLink: ['/', 'desarrollo-asignatura'],
           children: [
             {
               name: 'Como Elaborar mi Plan Docente'
@@ -114,11 +124,8 @@ export class NavbarComponent {
       ]
     },
     {
-      name: 'EduTendencias',
+      name: 'Observatorio Edutendencias',
       children: [
-        {
-          name: 'Observatorio Edutendencias'
-        },
         {
           name: 'Tips de Innovación',
           routerLink: ['/', 'tips-innovacion'],
@@ -142,7 +149,8 @@ export class NavbarComponent {
           ]
         },
         {
-          name: 'Noticias'
+          name: 'Noticias',
+          routerLink: ['/', 'noticias']
         },
 
         {
@@ -154,6 +162,22 @@ export class NavbarComponent {
   ];
 
   @ViewChild('mainNavbar') mainNavbarElement: ElementRef;
+
+  constructor(private _router: Router) {}
+
+  ngOnInit() {
+    this._router.events.subscribe((event: Event) => {
+      // user is navigating to new route
+      if (event instanceof NavigationStart) {
+        const el = this.mainNavbarElement.nativeElement as HTMLElement;
+
+        if (el.classList.contains('active-navbar')) {
+          el.classList.remove('active-navbar');
+          return;
+        }
+      }
+    });
+  }
 
   /**
    * toggle navbar open or close

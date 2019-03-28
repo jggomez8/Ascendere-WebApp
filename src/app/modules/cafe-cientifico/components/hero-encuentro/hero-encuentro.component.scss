@@ -1,3 +1,6 @@
+// TODO: style mobile
+// TODO: on mobile overflow
+
 figure.stack {
   width: 100%;
   height: 100vh;
@@ -36,11 +39,10 @@ figure.stack {
     display: flex;
     justify-items: center;
     align-items: center;
-
-    // style
-    color: #fefefe;
-
-    .container {
+    a {
+      text-decoration: none;
+    }
+    .main-content {
       // align items as needed
       display: grid;
       grid-gap: 10px 24px;
@@ -65,24 +67,29 @@ figure.stack {
           'guests description';
       }
 
-      // set areas for items
-      .header {
-        grid-area: header;
-      }
-      .date {
-        grid-area: date;
-      }
-      .guests {
-        grid-area: guests;
-        ul {
-          padding-top: 5px;
-          padding-left: 30px;
-          list-style-type: circle;
-        }
-      }
-      .description {
-        grid-area: description;
-      }
+      // style
+      color: var(--on-background);
+      background-color: var(--background-color);
+      padding: 16px;
+      margin: 16px;
+      margin-left: 0;
+
+      // style
+      box-shadow: 16px 16px var(--primary-color);
+    }
+
+    // set areas for items
+    .header {
+      grid-area: header;
+    }
+    .date {
+      grid-area: date;
+    }
+    .guests {
+      grid-area: guests;
+    }
+    .description {
+      grid-area: description;
     }
   }
 }

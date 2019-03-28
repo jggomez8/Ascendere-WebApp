@@ -1,0 +1,4 @@
+# Allow all URLs (see https://labs-63faf.firebaseapp.com)
+User-agent: *
+Disallow:
+Sitemap: https://labs-63faf.firebaseapp.com/sitemap.xml

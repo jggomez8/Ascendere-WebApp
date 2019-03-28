@@ -1,16 +1,28 @@
+// grid
+.grid {
+  display: grid;
+  grid-gap: var(--gap, 16px);
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: repeat(auto-fill, minmax(var(--size, 300px), 1fr));
+  }
+}
+
 // Container
 .container {
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
   position: relative;
+  // TODO: check sizes
   @media screen and (min-width: 600px) {
     max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
   @media screen and (min-width: 1024px) {
-    max-width: 1024px;
+    max-width: 960px;
   }
   @media screen and (min-width: 1440px) {
     max-width: 1300px;
@@ -37,22 +49,42 @@
   padding-bottom: calc(100% / (var(--aspect-ratio, 16/9)));
 }
 
-// Card base style for all card based components
-.card {
-  overflow: hidden;
-
-  // style card
-  color: var(--on-surface);
-  background-color: var(--surface-color);
-  border-radius: 8px;
-  box-shadow: 2px 2px 10px #0000003e;
-
-  // animation shadow
-  transition: all 0.4s ease-in-out;
-
-  // style elements when focused
-  &:hover {
-    transform: translate3d(0, 0, 0);
-    box-shadow: 4px 4px 20px #00000088;
-  }
+.administrativa {
+  background-color: #979797 !important;
+  color: white !important;
 }
+.biologica {
+  background-color: #00981c !important;
+  color: white !important;
+}
+.sociohumanistica {
+  background-color: #34d4ea !important;
+  color: white !important;
+}
+.tecnica {
+  background-color: #ffd76b !important;
+  color: black !important;
+}
+
+// // Card base style for all card based components
+// .card {
+//   overflow: hidden;
+
+//   // style card
+//   color: var(--on-surface);
+//   background-color: var(--surface-color);
+//   border-radius: 8px;
+//   box-shadow: 2px 2px 10px #0000003e;
+
+//   // animation shadow
+//   transition: all 0.4s ease-in-out;
+
+//   // style elements when focused
+//   &:hover {
+//     @media screen and (min-width: 840px) {
+//       // on laptop
+//       transform: translate3d(-10px, -10px, 0);
+//       // box-shadow: 4px 4px 20px #00000088;
+//     }
+//   }
+// }

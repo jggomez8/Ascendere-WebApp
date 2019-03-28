@@ -1,6 +1,6 @@
 <figure class="stack">
   <!-- background image of encuentro -->
-  <img [src]="encuentro.img" [alt]="altImage" />
+  <img [src]="encuentro.img" [alt]="encuentro.altImage" />
 
   <!-- gradient or blur to make text readable -->
   <div class="gradient"></div>
@@ -8,15 +8,23 @@
   <!-- Content for hero image -->
   <div class="content">
     <div class="container">
-      <h2 class="TextTheme--display1 header">{{ encuentro.nombre }}</h2>
-      <span class="TextTheme--overline date">{{ encuentro.fecha | date }}</span>
-      <div class="invitados guests">
-        <h3 class="TextTheme--headline">Invitados</h3>
-        <ul>
-          <li *ngFor="let invitado of encuentro.invitados">{{ invitado }}</li>
-        </ul>
-      </div>
-      <markdown class="description" [data]="encuentro.description"></markdown>
+      <a [routerLink]="['/', 'cafe-cientifico', 'encuentro', encuentro.id]">
+        <div class="main-content">
+          <h2 class="TextTheme--display1 header">{{ encuentro.name }}</h2>
+          <span class="TextTheme--overline date">
+            📆 {{ encuentro.date | date: 'fullDate':'es' }}
+          </span>
+          <div class="invitados guests">
+            <h3 class="TextTheme--headline">Invitados</h3>
+            <markdown>
+              <ul>
+                <li *ngFor="let guest of encuentro.guests">{{ guest.name }}</li>
+              </ul>
+            </markdown>
+          </div>
+          <markdown class="description" [data]="encuentro.description"></markdown>
+        </div>
+      </a>
     </div>
   </div>
 </figure>
