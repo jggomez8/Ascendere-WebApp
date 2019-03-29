@@ -20,7 +20,6 @@ export class FeaturesScrollComponent implements OnInit {
 
   ngOnInit() {
     const data = this._route.snapshot.data;
-    console.log(data);
     this.cursos = data['cursos'] as Cursos;
     this.encuentros = data['encuentros'] as Encuentros;
     this.noticias = data['noticias'] as Noticias;

@@ -40,8 +40,8 @@
         📄 Contenido {{ i + 1 }}
       </a>
     </aside>
+    <markdown [data]="curso.description"></markdown>
     <main>
-      <markdown [data]="curso.description"></markdown>
       <p *ngIf="curso.hasInstructors">
         <span class="TextTheme--body2">
           Instructor:
