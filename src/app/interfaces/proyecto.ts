@@ -9,6 +9,10 @@ export class ProyectosInnovacion {
       : proyectosSnap.docs.map(doc => new Proyecto(Object.assign({ id: doc.id }, doc.data())));
   }
 
+  get hasProjects() {
+    return this.proyectos && this.proyectos.length > 0;
+  }
+
   static projectTypes = ['buena-practica', 'proyecto-actual', 'proyecto-coordinado'];
 
   static projectAreas = ['administrativa', 'biologica', 'sociohumanistica', 'tecnica'];

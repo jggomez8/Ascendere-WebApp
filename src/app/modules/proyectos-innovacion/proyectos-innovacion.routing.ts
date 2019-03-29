@@ -24,7 +24,8 @@ const routes: Routes = [
     resolve: {
       proyectos: ProyectosInnovacionResolver
     },
-    runGuardsAndResolvers: 'paramsOrQueryParamsChange'
+    runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+    
   },
   {
     path: 'proyecto/:id',
