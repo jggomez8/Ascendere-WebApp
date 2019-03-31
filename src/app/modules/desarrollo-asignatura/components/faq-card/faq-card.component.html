@@ -1,0 +1,20 @@
+<div class="card">
+  <markdown [src]="faqSrc"></markdown>
+
+  <div class="actions">
+    <a
+      *ngIf="hasGoto; else gotoTemplate"
+      [href]="goto"
+      target="_blank"
+      rel="noopener noreferrer"
+      mat-stroked-button
+      color="primary"
+    >
+      Abrir Página
+    </a>
+
+    <ng-template #gotoTemplate>
+      <a mat-stroked-button color="primary" [routerLink]="routerLink">Leer Articulo</a>
+    </ng-template>
+  </div>
+</div>
