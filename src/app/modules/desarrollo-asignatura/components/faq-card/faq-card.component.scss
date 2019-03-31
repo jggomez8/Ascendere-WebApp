@@ -3,7 +3,9 @@
   border: 1px solid #333;
 
   padding: 16px 24px;
+  background-color: var(--background-color);
   @media screen and(min-width: 840px) {
+    background-color: transparent;
     // on laptop
 
     padding: 32px 48px;

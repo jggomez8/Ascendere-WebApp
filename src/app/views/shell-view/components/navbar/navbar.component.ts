@@ -105,19 +105,24 @@ export class NavbarComponent implements OnInit {
           routerLink: ['/', 'desarrollo-asignatura'],
           children: [
             {
-              name: 'Como Elaborar mi Plan Docente'
+              name: 'Como Elaborar mi Plan Docente',
+              routerLink: ['/', 'articulo', 'plan-docente']
             },
             {
-              name: 'Repositorio de Planes Docentes'
+              name: 'Repositorio de Planes Docentes',
+              routerLink: ['/', 'articulo', 'repositorio-plan-docente']
             },
             {
-              name: 'Recursos Digitales'
+              name: 'Recursos Digitales',
+              routerLink: ['/', 'articulo', 'recursos-digitales-aplicados']
             },
             {
-              name: 'Bases de Datos'
+              name: 'Bases de Datos',
+              goto: 'https://biblioteca.utpl.edu.ec/'
             },
             {
-              name: 'Asesoramiento'
+              name: 'Asesoramiento',
+              routerLink: ['/', 'articulo', 'asesoramiento-pedagogico']
             }
           ]
         }
