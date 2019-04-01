@@ -8,9 +8,16 @@ import { ServicioCardComponent } from './components/servicio-card/servicio-card.
 import { Router } from '@angular/router';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { PersonalCardComponent } from './components/personal-card/personal-card.component';
+import { SaludoVicerrectorComponent } from './pages/saludo-vicerrector/saludo-vicerrector.component';
 
 @NgModule({
-  declarations: [AscendereComponent, ServicioCardComponent, QuienesSomosComponent, PersonalCardComponent],
+  declarations: [
+    AscendereComponent,
+    ServicioCardComponent,
+    QuienesSomosComponent,
+    PersonalCardComponent,
+    SaludoVicerrectorComponent
+  ],
   imports: [CommonModule, AscendereRoutingModule, SharedModule]
 })
 export class AscendereModule {

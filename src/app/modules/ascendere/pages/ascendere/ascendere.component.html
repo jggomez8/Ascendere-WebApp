@@ -35,7 +35,9 @@
 
     <ul>
       <li>
-        <button mat-flat-button color="accent">Saludo del Vicerrector</button>
+        <a [routerLink]="['/empty/ascendere/saludo-vicerrector']" mat-flat-button color="accent">
+          <span>Saludo del Vicerrector</span>
+        </a>
       </li>
       <li>
         <a [routerLink]="['/empty/ascendere/quienes-somos']" mat-flat-button color="accent">
