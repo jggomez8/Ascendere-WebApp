@@ -1,0 +1,28 @@
+<!-- Other components for navigation -->
+<indev-return-fab></indev-return-fab>
+<indev-go-top-fab></indev-go-top-fab>
+
+<!-- Main page -->
+<main>
+  <div class="hero-banner aspect-ratio" style="--aspect-ratio: 21/9">
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FIMG_7872.jpg?alt=media&token=05891cf4-6924-4584-b480-db4236f2fd1a"
+      alt="Banner Quienes Somos"
+    />
+  </div>
+
+  <section class="container" indev-section>
+    <markdown src="/assets/markdown/ascendere/quienes-somos.md"></markdown>
+  </section>
+  <section class="container" indev-section>
+    <div class="grid">
+      <indev-personal-card
+        [persona]="persona"
+        *ngFor="let persona of personal"
+      ></indev-personal-card>
+    </div>
+  </section>
+  <section class="container" indev-section>
+    <markdown src="/assets/markdown/ascendere/indev.md"></markdown>
+  </section>
+</main>

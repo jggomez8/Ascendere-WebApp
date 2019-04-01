@@ -6,9 +6,11 @@ import { AscendereComponent } from './pages/ascendere/ascendere.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ServicioCardComponent } from './components/servicio-card/servicio-card.component';
 import { Router } from '@angular/router';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { PersonalCardComponent } from './components/personal-card/personal-card.component';
 
 @NgModule({
-  declarations: [AscendereComponent, ServicioCardComponent],
+  declarations: [AscendereComponent, ServicioCardComponent, QuienesSomosComponent, PersonalCardComponent],
   imports: [CommonModule, AscendereRoutingModule, SharedModule]
 })
 export class AscendereModule {

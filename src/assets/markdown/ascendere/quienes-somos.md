@@ -1,0 +1,3 @@
+## Quienes Somos (👋)
+
+<span class="TextTheme--ascendere">ASCENDERE</span> integra esfuerzos que potencian las competencias pedagógicas de los docentes a través de la formación, innovación académica y la investigación en nuevas metodologías de educación y uso de las TIC`s. Incluye nuevas formas o alternativas para abordar el proceso de enseñanza aprendizaje con el fin de lograr mejoras en la formación integral del estudiante. Tiene el propósito de cambiar, transformar y mejorar la práctica pedagógica de los docentes mediante la participación activa de todos los miembros de la comunidad educativa.

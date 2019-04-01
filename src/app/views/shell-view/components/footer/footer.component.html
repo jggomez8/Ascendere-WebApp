@@ -129,7 +129,9 @@
           <button mat-button><span>Saludo del Vicerrector</span></button>
         </li>
         <li>
-          <button mat-button><span>Quienes Somos</span></button>
+          <a [routerLink]="['/empty/ascendere/quienes-somos']" mat-button>
+            <span>Quienes Somos</span>
+          </a>
         </li>
         <li>
           <a [routerLink]="['/empty/ascendere']" mat-button><span>Servicios</span></a>
