@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'indev-quienes-somos',
   templateUrl: './quienes-somos.component.html',
   styleUrls: ['./quienes-somos.component.scss']
 })
-export class QuienesSomosComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+export class QuienesSomosComponent {
+  constructor(private _location: Location) {}
 
   personal = [
     {
@@ -36,4 +35,8 @@ export class QuienesSomosComponent implements OnInit {
         'https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FLourdes.jpg?alt=media&token=0d6affea-bb7a-406c-b092-100cf67c4b8d'
     }
   ];
+
+  goBack() {
+    this._location.back();
+  }
 }
