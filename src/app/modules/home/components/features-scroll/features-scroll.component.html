@@ -20,26 +20,26 @@
     <!-- Main content for this page, sections with cards -->
     <!--  -->
     <div class="scroll-content">
-      <section indev-section *ngIf="cursos.hasCursos" id="cursos">
+      <section indev-section *ngIf="cursos.length > 0" id="cursos">
         <indev-section-title>Próximos Cursos</indev-section-title>
         <indev-section-controls>
           <a mat-stroked-button [routerLink]="['/programa-formacion']">Programa de Formación</a>
         </indev-section-controls>
         <div class="grid">
-          <indev-curso-card *ngFor="let curso of cursos.cursos" [curso]="curso"></indev-curso-card>
+          <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"></indev-curso-card>
         </div>
       </section>
       <!--  -->
       <!--  -->
       <!--  -->
-      <section indev-section *ngIf="encuentros.hasEncuentros" id="encuentros">
+      <section indev-section *ngIf="encuentros.length > 0" id="encuentros">
         <indev-section-title>Próximos Encuentros</indev-section-title>
         <indev-section-controls>
           <a mat-stroked-button [routerLink]="['/cafe-cientifico']">Ver más Encuentros</a>
         </indev-section-controls>
         <div class="grid" style="--size: 400px">
           <indev-encuentro-card
-            *ngFor="let encuentro of encuentros.encuentros"
+            *ngFor="let encuentro of encuentros"
             [encuentro]="encuentro"
           ></indev-encuentro-card>
         </div>
@@ -47,14 +47,14 @@
       <!--  -->
       <!--  -->
       <!--  -->
-      <section indev-section *ngIf="innovaTips.hasTips" id="innova-tips">
+      <section indev-section *ngIf="innovaTips.length > 0" id="innova-tips">
         <indev-section-title>Últimos InnovaTips</indev-section-title>
         <indev-section-controls>
           <a mat-stroked-button [routerLink]="['/innova-tips']">Ver más InnovaTips</a>
         </indev-section-controls>
         <div class="grid" style="--size: 400px">
           <indev-innova-tip-card
-            *ngFor="let innovaTip of innovaTips.innovaTips"
+            *ngFor="let innovaTip of innovaTips"
             [innovaTip]="innovaTip"
           ></indev-innova-tip-card>
         </div>
@@ -62,14 +62,14 @@
       <!--  -->
       <!--  -->
       <!--  -->
-      <section indev-section *ngIf="noticias.hasNoticias" id="noticias">
+      <section indev-section *ngIf="noticias.length > 0" id="noticias">
         <indev-section-title>Últimas Noticias</indev-section-title>
         <indev-section-controls>
           <a mat-stroked-button [routerLink]="['/noticias']">Ver más Noticias</a>
         </indev-section-controls>
         <div class="grid">
           <indev-noticia-card
-            *ngFor="let noticia of noticias.noticias"
+            *ngFor="let noticia of noticias"
             [noticia]="noticia"
           ></indev-noticia-card>
         </div>

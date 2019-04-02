@@ -24,80 +24,38 @@
       overflow: hidden;
       object-fit: cover;
     }
-    &::after {
-      display: none;
-      opacity: 0;
-      z-index: 2;
-
-      content: '';
-
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-
-      background-color: #00000046;
-      transition: all 0.5s;
-      @media screen and (min-width: 840px) {
-        display: block;
-      }
-    }
-
-    .actions {
-      display: none;
-      opacity: 0;
-      z-index: 3;
-
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-
-      align-items: center;
-      justify-content: center;
-      transition: all 0.5s;
-
-      @media screen and (min-width: 840px) {
-        display: flex;
-      }
-      a {
-        display: none;
-        opacity: 0;
-        transition: all 0.5s;
-        @media screen and (min-width: 840px) {
-          display: block;
-        }
-      }
-    }
   }
 
   &:hover {
     @media screen and (min-width: 840px) {
       transform: translate3d(-5px, -5px, 0);
-      > .aspect-ratio {
-        &::after,
-        .actions,
-        .actions a {
-          opacity: 1;
-        }
-      }
     }
   }
 
   .content {
+    max-width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
     padding: 16px;
+
     @media screen and (min-width: 840px) {
       padding: 16px 24px;
+
+      h4 {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: justify;
+      }
     }
 
-    h4 {
-      width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: justify;
+    .TextTheme--overline {
+      color: var(--primary-color);
+      border-bottom: 1px dotted var(--primary-color);
+      margin-bottom: 10px;
     }
     > .aspect-ratio {
       display: none;
@@ -132,12 +90,7 @@
     }
 
     a {
-      display: block;
       margin-top: 10px;
-      margin-left: -16px;
-      @media screen and (min-width: 840px) {
-        display: none;
-      }
     }
   }
 }

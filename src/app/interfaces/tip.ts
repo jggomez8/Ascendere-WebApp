@@ -28,4 +28,8 @@ export class Tip {
   get srcAlt() {
     return `Imagen Tip: ${this.name}`;
   }
+
+  get type() {
+    return this.tag;
+  }
 }

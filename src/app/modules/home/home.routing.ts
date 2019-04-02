@@ -16,7 +16,7 @@ const routes: Routes = [
       cursos: CursosResolver,
       encuentros: EncuentrosResolver,
       noticias: NoticiasResolver,
-      // tips: TipsResolver,
+      tips: TipsResolver,
       innovaTips: InnovaTipsResolver,
       proyectosInnovacion: ProyectosInnovacionResolver
     }

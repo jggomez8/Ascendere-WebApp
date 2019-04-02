@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Cursos } from 'src/app/interfaces/curso';
-import { Encuentros } from 'src/app/interfaces/encuentro';
-import { Noticias } from 'src/app/interfaces/noticia';
-import { InnovaTips } from 'src/app/interfaces/innova-tip';
+import { Curso } from 'src/app/interfaces/curso';
+import { Encuentro } from 'src/app/interfaces/encuentro';
+import { InnovaTip } from 'src/app/interfaces/innova-tip';
+import { Noticia } from 'src/app/interfaces/noticia';
 
 @Component({
   selector: 'indev-features-scroll',
@@ -11,18 +11,18 @@ import { InnovaTips } from 'src/app/interfaces/innova-tip';
   styleUrls: ['./features-scroll.component.scss']
 })
 export class FeaturesScrollComponent implements OnInit {
-  encuentros: Encuentros;
-  cursos: Cursos;
-  noticias: Noticias;
-  innovaTips: InnovaTips;
-
   constructor(private _route: ActivatedRoute) {}
+
+  encuentros: Encuentro[];
+  cursos: Curso[];
+  noticias: Noticia[];
+  innovaTips: InnovaTip[];
 
   ngOnInit() {
     const data = this._route.snapshot.data;
-    this.cursos = data['cursos'] as Cursos;
-    this.encuentros = data['encuentros'] as Encuentros;
-    this.noticias = data['noticias'] as Noticias;
-    this.innovaTips = data['innovaTips'] as InnovaTips;
+    this.cursos = data['cursos'] as Curso[];
+    this.encuentros = data['encuentros'] as Encuentro[];
+    this.noticias = data['noticias'] as Noticia[];
+    this.innovaTips = data['innovaTips'] as InnovaTip[];
   }
 }

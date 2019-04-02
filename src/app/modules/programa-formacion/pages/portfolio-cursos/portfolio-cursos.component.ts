@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Cursos } from 'src/app/interfaces/curso';
+import { Curso } from 'src/app/interfaces/curso';
 
 @Component({
   selector: 'indev-portfolio',
@@ -11,9 +11,9 @@ import { Cursos } from 'src/app/interfaces/curso';
 
     <section indev-section class="container">
       <!-- TODO: add search bar -->
-      <div *ngIf="cursos.hasCursos; else emptyMessage">
+      <div *ngIf="cursos.length > 0; else emptyMessage">
         <div class="grid">
-          <indev-curso-card *ngFor="let curso of cursos.cursos" [curso]="curso"></indev-curso-card>
+          <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"></indev-curso-card>
         </div>
 
         <!-- TODO: add pagination -->
@@ -28,11 +28,11 @@ import { Cursos } from 'src/app/interfaces/curso';
 })
 // TODO: rename component to PortafolioCursos
 export class PortfolioCursosComponent implements OnInit {
-  cursos: Cursos;
+  cursos: Curso[];
 
   constructor(private _route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.cursos = this._route.snapshot.data['cursos'] as Cursos;
+    this.cursos = this._route.snapshot.data['cursos'] as Curso[];
   }
 }

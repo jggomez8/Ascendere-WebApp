@@ -1,22 +1,6 @@
 import { DefaultInterface } from './default';
 import { firestore } from 'firebase';
 
-export class Cursos {
-  private _cursos: Curso[];
-
-  constructor(cursos?: Curso[]) {
-    this._cursos = cursos;
-  }
-
-  get cursos() {
-    return this._cursos;
-  }
-
-  get hasCursos() {
-    return this._cursos && this._cursos.length > 0;
-  }
-}
-
 export class Curso {
   public id: any;
   public name: string;
@@ -105,12 +89,12 @@ export class Curso {
 
     if (this.img.includes('pedagogia'))
       return {
-        'background-image': 'linear-gradient(to bottom right,#07ccd6,#00a5c4)'
+        'background-image': 'linear-gradient(to bottom right,#07ccd6,#0097A7)'
       };
 
     if (this.img.includes('investigacion'))
       return {
-        'background-image': 'linear-gradient(to bottom right,#ffcf10,#ffbb22)'
+        'background-image': 'linear-gradient(to bottom left,#FFAB00,#FFC400)'
       };
 
     if (this.img.includes('tic'))

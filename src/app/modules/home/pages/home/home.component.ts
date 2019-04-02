@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Tip } from 'src/app/interfaces/tip';
 
 @Component({
   selector: 'indev-home',
@@ -6,12 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private _route: ActivatedRoute) {}
 
-  ngOnInit() {}
+  tips: Tip[];
 
-  dataSource = [
-    'https://cdn-images-1.medium.com/freeze/max/60/0*VcXcRE1NEvxBIUvi?q=20',
-    'https://cdn-images-1.medium.com/max/1600/0*VcXcRE1NEvxBIUvi'
-  ];
+  ngOnInit() {
+    this.tips = this._route.snapshot.data['tips'] as Tip[];
+  }
 }

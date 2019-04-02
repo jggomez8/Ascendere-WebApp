@@ -6,9 +6,10 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./ascendere.component.scss']
 })
 export class AscendereComponent implements AfterViewInit {
+  constructor() {}
+
   @ViewChild('body') bodyRef: ElementRef;
   @ViewChild('main') mainRef: ElementRef;
-  constructor() {}
 
   ngAfterViewInit() {
     const bodyEl = this.bodyRef.nativeElement as HTMLElement;
