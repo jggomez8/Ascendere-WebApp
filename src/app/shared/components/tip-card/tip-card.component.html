@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="aspect-ratio" style="">
+    <img [src]="tip.img" [alt]="tip.srcAlt" />
+    <div class="actions">
+      <a
+        [href]="tip.link"
+        target="_blank"
+        rel="noopener noreferrer"
+        mat-flat-button
+        color="primary"
+      >
+        Ver más
+      </a>
+    </div>
+  </div>
+  <div class="content">
+    <h4 class="TextTheme--title">
+      {{ tip.name }}
+    </h4>
+
+    <div class="aspect-ratio">
+      <markdown [data]="tip.description"></markdown>
+    </div>
+
+    <markdown [data]="tip.description"></markdown>
+
+    <a [href]="tip.link" target="_blank" rel="noopener noreferrer" mat-button color="primary">
+      Ver más
+    </a>
+  </div>
+</div>

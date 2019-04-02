@@ -5,8 +5,8 @@
 </indev-header>
 
 <section indev-section class="container">
-  <div class="grid" *ngIf="hasTips; else emptyMessage">
-    <pre>{{ tips | json }}</pre>
+  <div class="grid" *ngIf="hasTips; else emptyMessage" style="--size: 340px">
+    <indev-tip-card [tip]="tip" *ngFor="let tip of tips"></indev-tip-card>
   </div>
   <ng-template #emptyMessage>
     <span class="TextTheme--headline">

@@ -36,6 +36,7 @@ import { NoticiasResolver } from './providers/noticias.resolver';
 import { TipsResolver } from './providers/tips.resolver';
 import { InnovaTipsResolver } from './providers/innova-tips.resolver';
 import { ProyectosInnovacionResolver } from './providers/proyectos.resolver';
+import { TipCardComponent } from './components/tip-card/tip-card.component';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localeEsAr, 'es-Ar');
@@ -55,6 +56,7 @@ const DECLARATIONS = [
   CursoCardComponent,
   ProyectoCardComponent,
   InnovaTipCardComponent,
+  TipCardComponent,
 
   // lazy load Component
   LazyTransitionComponent,

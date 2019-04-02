@@ -24,4 +24,8 @@ export class Tip {
     this.link = args['link'];
     this.tag = args['tag'];
   }
+
+  get srcAlt() {
+    return `Imagen Tip: ${this.name}`;
+  }
 }
