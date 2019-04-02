@@ -23,7 +23,9 @@
       <section indev-section *ngIf="cursos.length > 0" id="cursos">
         <indev-section-title>Próximos Cursos</indev-section-title>
         <indev-section-controls>
-          <a mat-stroked-button [routerLink]="['/programa-formacion']">Programa de Formación</a>
+          <a mat-button color="primary" [routerLink]="['/programa-formacion']"
+            >Programa de Formación</a
+          >
         </indev-section-controls>
         <div class="grid">
           <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"></indev-curso-card>
@@ -35,7 +37,7 @@
       <section indev-section *ngIf="encuentros.length > 0" id="encuentros">
         <indev-section-title>Próximos Encuentros</indev-section-title>
         <indev-section-controls>
-          <a mat-stroked-button [routerLink]="['/cafe-cientifico']">Ver más Encuentros</a>
+          <a mat-button color="primary" [routerLink]="['/cafe-cientifico']">Ver más Encuentros</a>
         </indev-section-controls>
         <div class="grid" style="--size: 400px">
           <indev-encuentro-card
@@ -50,7 +52,7 @@
       <section indev-section *ngIf="innovaTips.length > 0" id="innova-tips">
         <indev-section-title>Últimos InnovaTips</indev-section-title>
         <indev-section-controls>
-          <a mat-stroked-button [routerLink]="['/innova-tips']">Ver más InnovaTips</a>
+          <a mat-button color="primary" [routerLink]="['/innova-tips']">Ver más InnovaTips</a>
         </indev-section-controls>
         <div class="grid" style="--size: 400px">
           <indev-innova-tip-card
@@ -65,7 +67,7 @@
       <section indev-section *ngIf="noticias.length > 0" id="noticias">
         <indev-section-title>Últimas Noticias</indev-section-title>
         <indev-section-controls>
-          <a mat-stroked-button [routerLink]="['/noticias']">Ver más Noticias</a>
+          <a mat-button color="primary" [routerLink]="['/noticias']">Ver más Noticias</a>
         </indev-section-controls>
         <div class="grid">
           <indev-noticia-card

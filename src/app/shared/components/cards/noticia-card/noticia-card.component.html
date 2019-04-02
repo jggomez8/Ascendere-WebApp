@@ -8,14 +8,14 @@
   <div class="content">
     <h4 class="TextTheme--title">{{ noticia.name }}</h4>
     <small class="TextTheme--subhead">{{ noticia.date | date }}</small>
-    <div class="description aspect-ratio">
-      <p>{{ noticia.description }}</p>
+    <div class="aspect-ratio" style="--aspect-ratio: 21/9">
+      <markdown>{{ noticia.description }}</markdown>
     </div>
     <div class="actions">
       <button mat-button>compartir</button>
-      <a mat-button color="primary" [routerLink]="['/', 'noticias', 'noticia', noticia.id]"
-        >Leer más</a
-      >
+      <a mat-button color="primary" [routerLink]="['/', 'noticias', 'noticia', noticia.id]">
+        Leer más
+      </a>
     </div>
   </div>
 </div>

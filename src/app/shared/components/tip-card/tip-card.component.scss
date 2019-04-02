@@ -36,8 +36,6 @@
     max-width: 100%;
     overflow: hidden;
 
-    display: flex;
-    flex-direction: column;
     padding: 16px;
 
     @media screen and (min-width: 840px) {
@@ -55,7 +53,7 @@
     .TextTheme--overline {
       color: var(--primary-color);
       border-bottom: 1px dotted var(--primary-color);
-      margin-bottom: 10px;
+      margin-bottom: 16px;
     }
     > .aspect-ratio {
       display: none;
@@ -90,7 +88,9 @@
     }
 
     a {
+      margin-top: auto;
       margin-top: 10px;
+      display: block;
     }
   }
 }
