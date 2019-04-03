@@ -7,6 +7,7 @@ import { HomeHeroVideoComponent } from './components/home-hero-video/home-hero-v
 import { FeaturedProjectsComponent } from './components/featured-projects/featured-projects.component';
 import { ObservatorioFeaturesComponent } from './components/observatorio-features/observatorio-features.component';
 import { FormacionFeaturesComponent } from './components/formacion-features/formacion-features.component';
+import { HomeBlobComponent } from './components/home-blob/home-blob.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FormacionFeaturesComponent } from './components/formacion-features/form
     HomeHeroVideoComponent,
     FormacionFeaturesComponent,
     FeaturedProjectsComponent,
-    ObservatorioFeaturesComponent
+    ObservatorioFeaturesComponent,
+    HomeBlobComponent
   ],
   imports: [CommonModule, HomeRoutingModule, SharedModule]
 })
