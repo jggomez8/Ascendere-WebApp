@@ -15,6 +15,7 @@ import { Component, Input } from '@angular/core';
     `
       .section {
         padding: 25px 0 15px 0;
+        position: relative;
       }
       @media screen and(min-width: 840px) {
         .section {

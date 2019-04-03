@@ -59,6 +59,23 @@ body {
   }
 }
 
+@media screen and(min-width: 840px) {
+  [class^='TextTheme--'].before {
+    position: relative;
+    padding-top: 30px;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 2.5em;
+      background-color: #000;
+      border-radius: 5px;
+      height: 5px;
+    }
+  }
+}
+
 /* Headline5, headline */
 .TextTheme--headline {
   font-size: 1.25rem;

@@ -1,5 +1,5 @@
 <section *ngIf="tips.length > 0" indev-section class="container">
-  <indev-section-title>Tips de Innovación</indev-section-title>
+  <indev-section-title before>Tips de Innovación</indev-section-title>
   <indev-section-controls>
     <a mat-button [routerLink]="['/tips-innovacion']" color="primary">Ver más tips</a>
   </indev-section-controls>
@@ -7,8 +7,10 @@
     <indev-tip-card [tip]="tip" *ngFor="let tip of tips"></indev-tip-card>
   </div>
 </section>
+<br />
+<br />
 <section *ngIf="noticias.length > 0" indev-section class="container">
-  <indev-section-title>Noticias</indev-section-title>
+  <indev-section-title before>Noticias</indev-section-title>
   <indev-section-controls>
     <a mat-button [routerLink]="['/noticias']" color="primary">Ver más noticias</a>
   </indev-section-controls>
