@@ -3,7 +3,7 @@
   height: 100%;
 
   position: relative;
-  background-color: var(--background-color);
+  background-color: var(--surface-color);
   @media screen and (min-width: 840px) {
     &::before {
       content: '';
@@ -71,7 +71,7 @@
     // second column contains content
     .scroll-content {
       flex-grow: 1;
-      background-color: var(--background-color);
+      background-color: var(--surface-color);
 
       @media screen and (min-width: 840px) {
         padding-top: 25px;
