@@ -6,6 +6,7 @@ content displays name of project, coordinator, participants, areas and read more
   </div>
   <div class="content">
     <h4 class="TextTheme--headline">{{ proyecto.name }}</h4>
+    <p class="TextTheme--body2" *ngIf="showType">{{ proyecto.nombreTipo }}</p>
     <p style="text-transform: capitalize">
       <span class="TextTheme--body2">Coordinador:</span>
       {{ proyecto.coordinator | titlecase }}

@@ -1,20 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { FeaturesScrollComponent } from './features-scroll.component';
+import { FormacionFeaturesComponent } from './formacion-features.component';
 
 describe('FeaturesScrollComponent', () => {
-  let component: FeaturesScrollComponent;
-  let fixture: ComponentFixture<FeaturesScrollComponent>;
+  let component: FormacionFeaturesComponent;
+  let fixture: ComponentFixture<FormacionFeaturesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FeaturesScrollComponent ]
-    })
-    .compileComponents();
+      declarations: [FormacionFeaturesComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FeaturesScrollComponent);
+    fixture = TestBed.createComponent(FormacionFeaturesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

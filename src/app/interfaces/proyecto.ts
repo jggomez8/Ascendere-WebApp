@@ -129,6 +129,15 @@ export class Proyecto {
       return carreers.indexOf(item) == pos;
     });
   }
+
+  get nombreTipo() {
+    const types = {
+      'buena-practica': 'Buena Práctica',
+      'proyecto-actual': 'Proyecto Actual',
+      'proyecto-coordinado': 'Proyectos Coordinados'
+    };
+    return types[this.type];
+  }
 }
 
 export class Area {

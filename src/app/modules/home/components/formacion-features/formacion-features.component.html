@@ -12,7 +12,6 @@
           <li class="TextTheme--headline"><a>Encuentros</a></li>
           <li class="TextTheme--headline"><a>Vitamina</a></li>
           <li class="TextTheme--headline"><a>InnovaTips</a></li>
-          <li class="TextTheme--headline"><a>Noticias</a></li>
         </ul>
       </section>
     </aside>
@@ -59,21 +58,6 @@
             *ngFor="let innovaTip of innovaTips"
             [innovaTip]="innovaTip"
           ></indev-innova-tip-card>
-        </div>
-      </section>
-      <!--  -->
-      <!--  -->
-      <!--  -->
-      <section indev-section *ngIf="noticias.length > 0" id="noticias">
-        <indev-section-title>Últimas Noticias</indev-section-title>
-        <indev-section-controls>
-          <a mat-button color="primary" [routerLink]="['/noticias']">Ver más Noticias</a>
-        </indev-section-controls>
-        <div class="grid">
-          <indev-noticia-card
-            *ngFor="let noticia of noticias"
-            [noticia]="noticia"
-          ></indev-noticia-card>
         </div>
       </section>
     </div>

@@ -50,7 +50,10 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   }
 
   onError($event) {
-    const snackBarRef = this._snackBar.open('No se pudo Cargar el articulo.', 'Regresar');
+    const snackBarRef = this._snackBar.open('No se pudo Cargar el articulo.', 'Regresar', {
+      verticalPosition: 'top',
+      duration: 200000
+    });
 
     snackBarRef.onAction().subscribe(() => {
       this._location.back();

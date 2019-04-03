@@ -1,19 +1,7 @@
 <indev-home-hero-video></indev-home-hero-video>
-<indev-features-scroll></indev-features-scroll>
+<indev-formacion-features></indev-formacion-features>
 <indev-featured-projects></indev-featured-projects>
-
-<section *ngIf="tips.length > 0" indev-section class="container">
-  <indev-section-title>Tips de Innovación</indev-section-title>
-  <indev-section-controls>
-    <a mat-stroked-button [routerLink]="['/tips-innovacion']" color="primary"
-      >Programa de Formación</a
-    >
-  </indev-section-controls>
-  <div class="grid">
-    <indev-tip-card [tip]="tip" *ngFor="let tip of tips"></indev-tip-card>
-  </div>
-</section>
-
+<indev-observatorio-features></indev-observatorio-features>
 <!--
 <div class="container">
   <div style="text-align:center;">
