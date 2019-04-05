@@ -7,13 +7,15 @@ import { CarteleraEncuentrosComponent } from './components/cartelera-encuentros/
 import { HeroEncuentroComponent } from './components/hero-encuentro/hero-encuentro.component';
 import { EncuentroDetailComponent } from './pages/encuentro-detail/encuentro-detail.component';
 import { EncuentroResolver } from './resolver/encuentro.resolver';
+import { IncripcionEncuentroComponent } from './pages/incripcion-encuentro/incripcion-encuentro.component';
 
 @NgModule({
   declarations: [
     CafeCientificoComponent,
     HeroEncuentroComponent,
     CarteleraEncuentrosComponent,
-    EncuentroDetailComponent
+    EncuentroDetailComponent,
+    IncripcionEncuentroComponent
   ],
   imports: [CommonModule, CafeCientificoRoutingModule, SharedModule],
   providers: [EncuentroResolver]

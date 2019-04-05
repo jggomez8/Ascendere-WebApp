@@ -69,12 +69,4 @@ export class ValorarJornadaComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     console.log(this.valoracionForm.value);
   }
-
-  get pregunta_2() {
-    return this.valoracionForm.get('2');
-  }
-
-  get pregunta_2_0() {
-    return this.pregunta_2.get('0');
-  }
 }

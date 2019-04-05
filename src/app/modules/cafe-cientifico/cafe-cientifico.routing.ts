@@ -4,6 +4,7 @@ import { CafeCientificoComponent } from './pages/cafe-cientifico/cafe-cientifico
 import { EncuentrosResolver } from '../../shared/providers/encuentros.resolver';
 import { EncuentroDetailComponent } from './pages/encuentro-detail/encuentro-detail.component';
 import { EncuentroResolver } from './resolver/encuentro.resolver';
+import { IncripcionEncuentroComponent } from './pages/incripcion-encuentro/incripcion-encuentro.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
     resolve: {
       encuentro: EncuentroResolver
     }
+  },
+  {
+    path: 'encuentro/:id/inscripcion',
+    component: IncripcionEncuentroComponent
   }
 ];
 
