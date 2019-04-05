@@ -4,11 +4,11 @@ import { Jornada } from 'src/app/interfaces/jornada';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'indev-ultima-jornada',
-  templateUrl: './ultima-jornada.component.html',
-  styleUrls: ['./ultima-jornada.component.scss']
+  selector: 'indev-jornada-actual',
+  templateUrl: './jornada-actual.component.html',
+  styleUrls: ['./jornada-actual.component.scss']
 })
-export class UltimaJornadaComponent implements OnInit, OnDestroy {
+export class JornadaActualComponent implements OnInit, OnDestroy {
   constructor(private _route: ActivatedRoute) {}
 
   jornada: Jornada;

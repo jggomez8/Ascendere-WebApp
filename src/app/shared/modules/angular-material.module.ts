@@ -9,7 +9,9 @@ import {
   MatChipsModule,
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
-  MatTabsModule
+  MatTabsModule,
+  MatSelectModule,
+  MatSliderModule
 } from '@angular/material';
 
 const MAT_MODULES = [
@@ -20,7 +22,9 @@ const MAT_MODULES = [
   MatFormFieldModule,
   MatChipsModule,
   MatSnackBarModule,
-  MatTabsModule
+  MatTabsModule,
+  MatSelectModule,
+  MatSliderModule
 ];
 
 @NgModule({

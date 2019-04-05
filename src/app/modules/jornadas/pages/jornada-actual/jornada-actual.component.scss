@@ -1,0 +1,17 @@
+.row {
+  grid-template-areas:
+    'markdown'
+    'valorar';
+  @media screen and(min-width: 840px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 'valorar markdown markdown';
+  }
+
+  indev-valorar-jornada {
+    grid-area: valorar;
+  }
+
+  markdown {
+    grid-area: markdown;
+  }
+}

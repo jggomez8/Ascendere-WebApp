@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UltimaJornadaComponent } from './ultima-jornada.component';
+import { JornadaActualComponent } from './jornada-actual.component';
 
 describe('UltimaJornadaComponent', () => {
-  let component: UltimaJornadaComponent;
-  let fixture: ComponentFixture<UltimaJornadaComponent>;
+  let component: JornadaActualComponent;
+  let fixture: ComponentFixture<JornadaActualComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UltimaJornadaComponent ]
-    })
-    .compileComponents();
+      declarations: [JornadaActualComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UltimaJornadaComponent);
+    fixture = TestBed.createComponent(JornadaActualComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

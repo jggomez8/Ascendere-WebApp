@@ -1,0 +1,99 @@
+<form [formGroup]="valoracionForm" (ngSubmit)="onSubmit()">
+  <h3 class="TextTheme--subtitle">Valorá la jornada:</h3>
+
+  <h4 class="TextTheme--caption">1. En relación a la jornada ¿Qué valoración le daría?</h4>
+  <mat-slider max="5" min="0" step="0.5" thumbLabel tickInterval="1" formControlName="1">
+  </mat-slider>
+
+  <!--  -->
+
+  <div formGroupName="2">
+    <h4 class="TextTheme--caption">
+      2. Valore la aplicabilidad del tema: Gamifi…¿qué?: Hagamos del aprendizaje algo divertido.
+    </h4>
+    <mat-form-field appearance="outline">
+      <mat-label>Seleccione un elemento</mat-label>
+      <mat-select formControlName="0" required>
+        <mat-option [value]="item.value" *ngFor="let item of aplicabilidad">
+          {{ item.description }}
+        </mat-option>
+      </mat-select>
+      <mat-error>Seleccione al menos un elemento</mat-error>
+    </mat-form-field>
+
+    <!--  -->
+
+    <h5 class="TextTheme--caption">
+      2.1 ¿En qué aspectos te resulta aplicable el tema?
+    </h5>
+    <mat-form-field appearance="outline">
+      <mat-label>Seleccione un elemento</mat-label>
+      <mat-select formControlName="1" required>
+        <mat-option [value]="item.value" *ngFor="let item of aspects">
+          {{ item.description }}
+        </mat-option>
+      </mat-select>
+      <mat-error>Seleccione al menos un aspecto</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div formGroupName="3">
+    <h4 class="TextTheme--caption">
+      3. Valore los siguientes aspectos contemplados en la jornada:
+    </h4>
+    <h5 class="TextTheme--caption">
+      3.1 Contenido y metología de los resultados de las buenas prácticas de innovación docente
+    </h5>
+    <mat-slider max="5" min="0" step="0.5" thumbLabel="true" tickInterval="1" formControlName="1">
+    </mat-slider>
+
+    <!--  -->
+
+    <h5 class="TextTheme--caption">
+      3.2 Contenido y metodología del pilotaje de aprendizaje basado en retos.
+    </h5>
+    <mat-slider max="5" min="0" step="0.5" thumbLabel="true" tickInterval="1" formControlName="2">
+    </mat-slider>
+
+    <!--  -->
+
+    <h5 class="TextTheme--caption">
+      3.3 Contenido y metodología de la charla magistral "Gamifi…¿qué?: Juego y Educación Superior”.
+    </h5>
+    <mat-slider max="5" min="0" step="0.5" thumbLabel="true" tickInterval="1" formControlName="3">
+    </mat-slider>
+
+    <!--  -->
+
+    <h5 class="TextTheme--caption">
+      3.4 Dinámica grupal puzzle “#UTPLFuturo".
+    </h5>
+    <mat-slider max="5" min="0" step="0.5" thumbLabel="true" tickInterval="1" formControlName="4">
+    </mat-slider>
+  </div>
+
+  <!--  -->
+
+  <h4 class="TextTheme--caption">
+    4. ¿Qué temáticas consideras importante que se traten en próximas jornadas?
+  </h4>
+  <mat-form-field appearance="outline">
+    <mat-label>Escriba su comentario</mat-label>
+    <textarea matInput required placeholder="Comentario" formControlName="4"></textarea>
+    <mat-error>Por favor complete este campo</mat-error>
+  </mat-form-field>
+
+  <!--  -->
+
+  <h4 class="TextTheme--caption">
+    5. Sugerencias
+  </h4>
+  <mat-form-field appearance="outline">
+    <mat-label>Escriba su comentario</mat-label>
+    <textarea matInput placeholder="Comentario" formControlName="5"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!valoracionForm.valid">
+    Finalizar
+  </button>
+</form>
