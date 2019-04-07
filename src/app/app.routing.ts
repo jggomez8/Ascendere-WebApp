@@ -14,7 +14,7 @@ const routes: Routes = [
       {
         path: 'empty',
         loadChildren: './views/empty-view/empty-view.module#EmptyViewModule'
-      },
+      }
     ]
   },
   {
@@ -24,7 +24,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled',scrollPositionRestoration:'enabled',  })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      anchorScrolling: 'enabled',
+      scrollPositionRestoration: 'enabled',
+      paramsInheritanceStrategy: 'always'
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
