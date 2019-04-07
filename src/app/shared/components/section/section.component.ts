@@ -15,6 +15,7 @@ import { Component, Input } from '@angular/core';
     `
       .section {
         padding: 25px 0 15px 0;
+        position: relative;
       }
       @media screen and(min-width: 840px) {
         .section {
@@ -25,7 +26,7 @@ import { Component, Input } from '@angular/core';
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-
+        align-items: baseline;
         /* space header from content */
         padding-bottom: 15px;
       }
@@ -42,6 +43,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SectionComponent {
   // TODO: add html attribute
-
+  // TODO: add baseline if controls have specific type of button
   @Input() wrap: boolean = true;
 }

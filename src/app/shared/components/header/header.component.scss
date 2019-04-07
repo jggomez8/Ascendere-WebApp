@@ -22,24 +22,9 @@
     grid-gap: 15px 25px;
     grid-auto-columns: 1fr;
     grid-auto-rows: auto;
-
-    grid-template-areas:
-      'header'
-      'image'
-      'markdown';
-
-    @media screen and(min-width: 840px) {
-      grid-template-areas:
-        'header  header  image'
-        'markdown markdown markdown';
-    }
-    @media screen and(min-width: 1024px) {
-      grid-template-areas:
-        'header   image'
-        'markdown image';
-    }
   }
-  &--header {
+  &--header,
+  &--subHeader {
     grid-area: header;
 
     text-align: center;
@@ -84,5 +69,101 @@
   }
   &--markdown {
     grid-area: markdown;
+  }
+
+  &--subHeader {
+    grid-area: subHeader;
+  }
+
+  //
+  //
+  //
+  // Different combinations of headers
+  //
+  //
+
+  .header {
+    grid-template-areas: 'header';
+  }
+
+  .header-image {
+    grid-template-areas:
+      'header'
+      'image';
+
+    @media screen and(min-width: 840px) {
+      grid-template-areas:
+        'header  header  image'
+        'header header image';
+    }
+  }
+
+  .header-image-markdown {
+    grid-template-areas:
+      'header'
+      'image'
+      'markdown';
+
+    @media screen and(min-width: 840px) {
+      grid-template-areas:
+        'header  header  image'
+        'markdown markdown markdown';
+    }
+    @media screen and(min-width: 1024px) {
+      grid-template-areas:
+        'header   image'
+        'markdown image';
+    }
+  }
+  .header-markdown {
+    grid-template-areas:
+      'header'
+      'markdown';
+  }
+
+  .header-subHeader {
+    grid-template-areas:
+      'subHeader'
+      'header';
+  }
+
+  .header-subHeader-image {
+    grid-template-areas:
+      'subHeader'
+      'header'
+      'image';
+
+    @media screen and(min-width: 840px) {
+      grid-template-areas:
+        'subHeader subHeader image'
+        'header header image';
+    }
+  }
+
+  .header-subHeader-image-markdown {
+    grid-template-areas:
+      'subHeader'
+      'header'
+      'image'
+      'markdown';
+
+    @media screen and(min-width: 840px) {
+      grid-template-areas:
+        'subHeader subHeader image'
+        'header  header  image'
+        'markdown markdown markdown';
+    }
+    @media screen and(min-width: 1024px) {
+      grid-template-areas:
+        'subHeader image'
+        'header   image'
+        'markdown image';
+    }
+  }
+  .header-subHeader-markdown {
+    grid-template-areas:
+      'subHeader'
+      'header'
+      'markdown';
   }
 }

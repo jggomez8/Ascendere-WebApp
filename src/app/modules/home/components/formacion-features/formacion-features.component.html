@@ -1,0 +1,65 @@
+<!-- Scroll Container has 2 main section, header and content
+      Header should have links to all components inside the content area
+    Content have sections for different modules -->
+
+<div class="features-scroll ">
+  <div class="container">
+    <aside>
+      <section indev-section>
+        <indev-section-title before>Formación</indev-section-title>
+        <ul>
+          <li class="TextTheme--headline active"><a>Cursos</a></li>
+          <li class="TextTheme--headline"><a>Encuentros</a></li>
+          <li class="TextTheme--headline"><a>Vitamina</a></li>
+          <li class="TextTheme--headline"><a>InnovaTips</a></li>
+        </ul>
+      </section>
+    </aside>
+    <!--  -->
+    <!-- Main content for this page, sections with cards -->
+    <!--  -->
+    <div class="scroll-content">
+      <section indev-section *ngIf="cursos.length > 0" id="cursos">
+        <indev-section-title before>Próximos Cursos</indev-section-title>
+        <indev-section-controls>
+          <a mat-button color="primary" [routerLink]="['/programa-formacion']"
+            >Programa de Formación</a
+          >
+        </indev-section-controls>
+        <div class="grid">
+          <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"></indev-curso-card>
+        </div>
+      </section>
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <section indev-section *ngIf="encuentros.length > 0" id="encuentros">
+        <indev-section-title before>Próximos Encuentros</indev-section-title>
+        <indev-section-controls>
+          <a mat-button color="primary" [routerLink]="['/cafe-cientifico']">Ver más Encuentros</a>
+        </indev-section-controls>
+        <div class="grid" style="--size: 400px">
+          <indev-encuentro-card
+            *ngFor="let encuentro of encuentros"
+            [encuentro]="encuentro"
+          ></indev-encuentro-card>
+        </div>
+      </section>
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <section indev-section *ngIf="innovaTips.length > 0" id="innova-tips">
+        <indev-section-title before>Últimos InnovaTips</indev-section-title>
+        <indev-section-controls>
+          <a mat-button color="primary" [routerLink]="['/innova-tips']">Ver más InnovaTips</a>
+        </indev-section-controls>
+        <div class="grid" style="--size: 400px">
+          <indev-innova-tip-card
+            *ngFor="let innovaTip of innovaTips"
+            [innovaTip]="innovaTip"
+          ></indev-innova-tip-card>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

@@ -12,10 +12,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   &:hover {
-    transform: translate3d(0, -10px, 0);
-    img {
-      transform: scale(1.06);
-    }
+    transform: translate3d(0, -5px, 0);
   }
 }
 
@@ -34,8 +31,6 @@
     height: 100%;
 
     object-fit: cover;
-
-    transition: all 0.4s ease-in-out;
   }
 }
 
@@ -70,8 +65,8 @@
     text-align: justify;
   }
 
-  .description {
-    p {
+  .aspect-ratio {
+    markdown {
       position: absolute;
       top: 0;
       left: 0;

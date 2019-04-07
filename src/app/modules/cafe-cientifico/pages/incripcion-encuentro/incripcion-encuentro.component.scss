@@ -1,0 +1,14 @@
+mat-form-field {
+  display: block;
+}
+
+.actions {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  button:not(:last-child) {
+    margin-right: 10px;
+  }
+}

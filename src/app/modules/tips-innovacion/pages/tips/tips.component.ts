@@ -5,20 +5,35 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'indev-tips',
-  templateUrl: './tips.component.html',
-  styleUrls: ['./tips.component.scss']
+  template: `
+    <indev-header *ngIf="tipsType">
+      <h1 [ngClass]="['TextTheme--display2']">
+        {{ tipsType }}
+      </h1>
+    </indev-header>
+
+    <section indev-section class="container">
+      <div class="grid" *ngIf="tips.length > 0; else emptyMessage" style="--size: 340px">
+        <indev-tip-card [tip]="tip" *ngFor="let tip of tips"></indev-tip-card>
+      </div>
+      <ng-template #emptyMessage>
+        <span class="TextTheme--headline">
+          ❗ No hay Tips para mostrar.
+        </span>
+      </ng-template>
+    </section>
+  `
 })
 export class TipsComponent implements OnInit, OnDestroy {
   _tipTypes: Object = {
-    'aula-divertida': 'Aula Divertida',
-    'docentes-futuro': 'Docentes del Futuro',
-    videos: 'Videos'
+    'aula-divertida': '🎉 Aula Divertida',
+    'docentes-futuro': '🔮 Docentes del Futuro',
+    videos: '🎥 Videos'
   };
 
   tips: Tip[];
 
   tipsType: string;
-  rawType: string;
 
   private _tipsSub: Subscription;
   private _tipsTypeSub: Subscription;
@@ -36,16 +51,11 @@ export class TipsComponent implements OnInit, OnDestroy {
 
     this._tipsTypeSub = this._route.params.subscribe(params => {
       this.tipsType = this._tipTypes[params.id];
-      this.rawType = params.id;
     });
   }
 
   ngOnDestroy() {
     this._tipsSub.unsubscribe();
     this._tipsTypeSub.unsubscribe();
-  }
-
-  get hasTips() {
-    return this.tips && this.tips.length > 0;
   }
 }

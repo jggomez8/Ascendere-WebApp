@@ -1,0 +1,12 @@
+<indev-header>
+  <h1>{{ jornada.name }}</h1>
+
+  <markdown> #### Periodo: {{ jornada.periodo }} </markdown>
+</indev-header>
+
+<section indev-section class="container">
+  <div class="row">
+    <indev-valorar-jornada></indev-valorar-jornada>
+    <markdown [data]="jornada.content"></markdown>
+  </div>
+</section>

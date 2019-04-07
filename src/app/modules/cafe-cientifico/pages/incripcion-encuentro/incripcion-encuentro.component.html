@@ -1,0 +1,73 @@
+<span class="TextTheme--headline">
+  Inscripciones
+</span>
+
+<form
+  [formGroup]="inscriptionForm"
+  (ngSubmit)="onSubmit()"
+  *ngIf="encuentro.canInscribe; else noInscriptionsTemplate"
+>
+  <!-- Form -->
+  <mat-form-field appearance="outline">
+    <mat-label>Nombres</mat-label>
+    <input required matInput formControlName="nombre" />
+    <mat-error>Los nombres son requeridos</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Apellidos</mat-label>
+    <input required matInput formControlName="apellido" />
+    <mat-error>Los apellidos son requeridos</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Titulación</mat-label>
+    <input required matInput formControlName="titulacion" />
+    <mat-error>La titulación es requerida</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Correo Electrónico</mat-label>
+    <input required matInput placeholder="Email" formControlName="email" />
+    <mat-error>Es correo electrónico es requerido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Teléfono Celular</mat-label>
+    <input required matInput placeholder="Número" formControlName="phone" />
+    <mat-error>Es Teléfono es requerido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Universidad</mat-label>
+    <input required matInput placeholder="Nombre" formControlName="university" />
+    <mat-error>El nombre de la universidad es requerido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Ciudad</mat-label>
+    <input required matInput placeholder="Nombre" formControlName="city" />
+    <mat-error>El nombre de la ciudad es requerido</mat-error>
+  </mat-form-field>
+
+  <!-- End Form -->
+  <!-- Actions -->
+  <div class="actions">
+    <button mat-stroked-button color="warn" type="button" (click)="cancelInscription()">
+      Cancelar
+    </button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="inscriptionForm.invalid">
+      Finalizar
+    </button>
+  </div>
+  <!-- End Actions -->
+</form>
+
+<ng-template #noInscriptionsTemplate>
+  <br />
+  <span class="TextTheme--body2">❗ Las Inscripciones para este encuentro están desactivadas.</span>
+  <br />
+  <button mat-stroked-button color="warn" type="button" (click)="cancelInscription()">
+    Cancelar
+  </button>
+</ng-template>

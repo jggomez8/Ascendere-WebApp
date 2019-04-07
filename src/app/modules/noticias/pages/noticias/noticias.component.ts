@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Noticias } from 'src/app/interfaces/noticia';
+import { Noticia } from 'src/app/interfaces/noticia';
 
 @Component({
   selector: 'indev-noticias',
@@ -12,8 +12,8 @@ import { Noticias } from 'src/app/interfaces/noticia';
     </indev-header>
 
     <section indev-section class="container">
-      <div class="grid" *ngIf="noticias.hasNoticias; else emptyMessage">
-        <indev-noticia-card *ngFor="let noticia of noticias.noticias" [noticia]="noticia">
+      <div class="grid" *ngIf="noticias.length > 0; else emptyMessage">
+        <indev-noticia-card *ngFor="let noticia of noticias" [noticia]="noticia">
         </indev-noticia-card>
       </div>
       <ng-template #emptyMessage>
@@ -25,11 +25,11 @@ import { Noticias } from 'src/app/interfaces/noticia';
   `
 })
 export class NoticiasComponent implements OnInit {
-  noticias: Noticias;
+  noticias: Noticia[];
 
   constructor(private _route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.noticias = this._route.snapshot.data['noticias'] as Noticias;
+    this.noticias = this._route.snapshot.data['noticias'] as Noticia[];
   }
 }

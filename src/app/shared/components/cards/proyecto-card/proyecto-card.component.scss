@@ -67,7 +67,7 @@
   p,
   mat-chip-list {
     // give elements inside spacing
-    padding-bottom: 10px;
+    padding-bottom: 8px;
   }
 
   h4 {
@@ -81,9 +81,11 @@
 
   .actions {
     justify-self: flex-end;
+
     // align items with other content
     margin-left: -16px;
     margin-right: -16px;
+    margin-top: auto;
 
     // position items
     display: flex;

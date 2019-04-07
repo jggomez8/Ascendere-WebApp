@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'indev-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
-  constructor() {}
+export class FooterComponent {
+  constructor(private _snackBar: MatSnackBar) {}
 
-  ngOnInit() {}
-
-  spotEasterEgg() {
-    alert('Felicidades. Me atrapaste');
+  spotEasterEgg($event: Event) {
+    $event.preventDefault();
+    this._snackBar.open('Felicidades. Me atrapaste', null, {
+      verticalPosition: 'bottom',
+      horizontalPosition: 'start'
+    });
   }
 }

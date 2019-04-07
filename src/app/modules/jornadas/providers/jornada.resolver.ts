@@ -3,7 +3,6 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@a
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Jornada } from 'src/app/interfaces/jornada';
 import { JornadaDetailComponent } from '../pages/jornada-detail/jornada-detail.component';
-import { UltimaJornadaComponent } from '../pages/ultima-jornada/ultima-jornada.component';
 
 @Injectable()
 export class JornadaResolver implements Resolve<Jornada> {

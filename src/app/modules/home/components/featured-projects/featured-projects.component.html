@@ -1,0 +1,19 @@
+<section indev-section class="container">
+  <indev-section-title before>Proyectos de Innovación</indev-section-title>
+  <indev-section-controls>
+    <a mat-button color="primary" [routerLink]="['/proyectos-innovacion']">Atrevete</a>
+  </indev-section-controls>
+  <div class="row">
+    <markdown ngPreserveWhitespaces>
+      <span class="TextTheme--ascendere">Ascendere</span> crea y motiva a las nuevas generaciones a
+      poner en práctica, explorar nuevas areas con el fin de crear cosas simples pero asombrosas,
+      tienes dudas pues te invitamos a explorar cada uno de los proyectos.
+    </markdown>
+    <div class="grid">
+      <indev-proyecto-card
+        *ngFor="let proyecto of proyectosInnovacion.proyectos"
+        [proyecto]="proyecto"
+      ></indev-proyecto-card>
+    </div>
+  </div>
+</section>

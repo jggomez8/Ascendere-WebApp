@@ -7,7 +7,7 @@ import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { ProyectoDetailComponent } from './pages/proyecto/proyecto-detail.component';
 
 // providers
-import { ProyectosResolver } from './providers/proyectos.resolver';
+import { ProyectosInnovacionResolver } from '../../shared/providers/proyectos.resolver';
 import { ProyectoResolver } from './providers/proyecto.resolver';
 
 const routes: Routes = [
@@ -15,16 +15,17 @@ const routes: Routes = [
     path: '',
     component: ProyectosInnovacionComponent,
     resolve: {
-      proyectos: ProyectosResolver
+      proyectos: ProyectosInnovacionResolver
     }
   },
   {
     path: 'proyectos',
     component: ProyectosComponent,
     resolve: {
-      proyectos: ProyectosResolver
+      proyectos: ProyectosInnovacionResolver
     },
-    runGuardsAndResolvers: 'paramsOrQueryParamsChange'
+    runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+    
   },
   {
     path: 'proyecto/:id',

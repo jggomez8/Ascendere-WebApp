@@ -1,7 +1,5 @@
 import { Component, ViewChild, ElementRef, Input } from '@angular/core';
-
-// types
-import { Encuentros } from 'src/app/interfaces/encuentro';
+import { Encuentro } from 'src/app/interfaces/encuentro';
 
 @Component({
   selector: 'indev-cartelera-encuentros',
@@ -9,7 +7,7 @@ import { Encuentros } from 'src/app/interfaces/encuentro';
   styleUrls: ['./cartelera-encuentros.component.scss']
 })
 export class CarteleraEncuentrosComponent {
-  @Input() encuentros: Encuentros;
+  @Input() encuentros: Encuentro[];
 
   @ViewChild('verticalList') verticalList: ElementRef;
 

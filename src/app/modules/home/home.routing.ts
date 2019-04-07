@@ -6,6 +6,7 @@ import { EncuentrosResolver } from 'src/app/shared/providers/encuentros.resolver
 import { NoticiasResolver } from 'src/app/shared/providers/noticias.resolver';
 import { TipsResolver } from 'src/app/shared/providers/tips.resolver';
 import { InnovaTipsResolver } from 'src/app/shared/providers/innova-tips.resolver';
+import { ProyectosInnovacionResolver } from 'src/app/shared/providers/proyectos.resolver';
 
 const routes: Routes = [
   {
@@ -15,8 +16,9 @@ const routes: Routes = [
       cursos: CursosResolver,
       encuentros: EncuentrosResolver,
       noticias: NoticiasResolver,
-      // tips: TipsResolver,
-      innovaTips: InnovaTipsResolver
+      tips: TipsResolver,
+      innovaTips: InnovaTipsResolver,
+      proyectosInnovacion: ProyectosInnovacionResolver
     }
   }
 ];

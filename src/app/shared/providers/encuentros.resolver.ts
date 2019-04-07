@@ -1,29 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Encuentro, Encuentros } from 'src/app/interfaces/encuentro';
+import { Encuentro } from 'src/app/interfaces/encuentro';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { HomeComponent } from 'src/app/modules/home/pages/home/home.component';
 
 @Injectable()
-export class EncuentrosResolver implements Resolve<Encuentros> {
-  /**
-   * Service used to load all the data from firebase
-   * before user navigates to the page
-   */
+export class EncuentrosResolver implements Resolve<Encuentro[]> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
 
-  /**
-   * Get documents from firebase
-   */
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
       let encuentrosSnap = await this._getEncuentrosCollection(route)
         .get()
         .toPromise();
 
-      if (encuentrosSnap.empty) return new Encuentros();
-      return new Encuentros(
-        encuentrosSnap.docs.map(doc => new Encuentro(Object.assign({ id: doc.id }, doc.data())))
+      if (encuentrosSnap.empty) return [];
+      return encuentrosSnap.docs.map(
+        doc => new Encuentro(Object.assign({ id: doc.id }, doc.data()))
       );
     } catch (error) {
       console.error(error);
@@ -35,7 +28,7 @@ export class EncuentrosResolver implements Resolve<Encuentros> {
 
   private _getEncuentrosCollection(
     route: ActivatedRouteSnapshot
-  ): AngularFirestoreCollection<Encuentros> {
+  ): AngularFirestoreCollection<Encuentro[]> {
     const component = route.component;
 
     if (component === HomeComponent) {

@@ -1,7 +1,7 @@
 <indev-header [style]="curso.typeBackground">
   <h1 class="TextTheme--display2">
     <span class="TextTheme--title">
-      {{ curso.type }}
+      {{ curso.type | uppercase }}
     </span>
     <br />
     {{ curso.name }}
@@ -40,8 +40,8 @@
         📄 Contenido {{ i + 1 }}
       </a>
     </aside>
+    <markdown [data]="curso.description"></markdown>
     <main>
-      <markdown [data]="curso.description"></markdown>
       <p *ngIf="curso.hasInstructors">
         <span class="TextTheme--body2">
           Instructor:

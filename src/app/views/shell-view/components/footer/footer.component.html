@@ -87,8 +87,8 @@
       </p>
       <br />
       <small class="TextTheme--caption">
-        <span (auxclick)="spotEasterEgg()" style="color: var(--primary-color)">*</span>Esta pagina
-        puede o no contener ningún
+        <span (contextmenu)="spotEasterEgg($event)" style="color: var(--primary-color)">*</span>Esta
+        pagina puede o no contener ningún
         <a
           href="https://es.wikipedia.org/wiki/Huevo_de_pascua_(virtual)"
           target="_blank"
@@ -126,10 +126,14 @@
       <!-- TODO: add links -->
       <ul>
         <li>
-          <button mat-button><span>Saludo del Vicerrector</span></button>
+          <a [routerLink]="['/empty/ascendere/saludo-vicerrector']" mat-button>
+            <span>Saludo del Vicerrector</span>
+          </a>
         </li>
         <li>
-          <button mat-button><span>Quienes Somos</span></button>
+          <a [routerLink]="['/empty/ascendere/quienes-somos']" mat-button>
+            <span>Quienes Somos</span>
+          </a>
         </li>
         <li>
           <a [routerLink]="['/empty/ascendere']" mat-button><span>Servicios</span></a>

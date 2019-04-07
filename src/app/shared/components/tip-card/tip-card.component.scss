@@ -1,0 +1,96 @@
+.card {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px #0000003e;
+
+  background-color: var(--surface-color);
+  transition: all 0.5s;
+
+  > .aspect-ratio {
+    background-image: var(--surface-background);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      overflow: hidden;
+      object-fit: cover;
+    }
+  }
+
+  &:hover {
+    @media screen and (min-width: 840px) {
+      transform: translate3d(-5px, -5px, 0);
+    }
+  }
+
+  .content {
+    max-width: 100%;
+    overflow: hidden;
+
+    padding: 16px;
+
+    @media screen and (min-width: 840px) {
+      padding: 16px 24px;
+
+      h4 {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: justify;
+      }
+    }
+
+    .TextTheme--overline {
+      color: var(--primary-color);
+      border-bottom: 1px dotted var(--primary-color);
+      margin-bottom: 16px;
+    }
+    > .aspect-ratio {
+      display: none;
+      --aspect-ratio: 3/1;
+      @media screen and (min-width: 840px) {
+        display: block;
+      }
+      > markdown {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        overflow: hidden;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          height: 40px;
+          background: linear-gradient(0deg, var(--surface-color), #ffffff00);
+        }
+      }
+    }
+    > markdown {
+      display: block;
+      @media screen and (min-width: 840px) {
+        display: none;
+      }
+    }
+
+    a {
+      margin-top: auto;
+      margin-top: 10px;
+      display: block;
+    }
+  }
+}

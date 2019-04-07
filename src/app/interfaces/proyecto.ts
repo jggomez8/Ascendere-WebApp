@@ -1,5 +1,31 @@
 import { firestore } from 'firebase';
 
+export class ProyectosInnovacion {
+  proyectos: Proyecto[];
+
+  constructor(proyectosSnap: firebase.firestore.QuerySnapshot) {
+    this.proyectos = proyectosSnap.empty
+      ? []
+      : proyectosSnap.docs.map(doc => new Proyecto(Object.assign({ id: doc.id }, doc.data())));
+  }
+
+  get hasProjects() {
+    return this.proyectos && this.proyectos.length > 0;
+  }
+
+  static projectTypes = ['buena-practica', 'proyecto-actual', 'proyecto-coordinado'];
+
+  static projectAreas = ['administrativa', 'biologica', 'sociohumanistica', 'tecnica'];
+
+  static validateType(projectType: string) {
+    return this.projectTypes.includes(projectType);
+  }
+
+  static validateArea(projectArea: string) {
+    return this.projectAreas.includes(projectArea);
+  }
+}
+
 export class Proyecto {
   public id: any;
   public creator: string;
@@ -102,6 +128,15 @@ export class Proyecto {
     return carreers.filter(function(item, pos) {
       return carreers.indexOf(item) == pos;
     });
+  }
+
+  get nombreTipo() {
+    const types = {
+      'buena-practica': 'Buena Práctica',
+      'proyecto-actual': 'Proyecto Actual',
+      'proyecto-coordinado': 'Proyectos Coordinados'
+    };
+    return types[this.type];
   }
 }
 

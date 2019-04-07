@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, AfterContentInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'indev-section-controls',
   template: `
-    <div class="section-controls" [ngClass]="{ 'negative-margin': negativeMargin }">
+    <div #controls class="section-controls" [ngClass]="{ 'negative-margin': negativeMargin }">
       <ng-content></ng-content>
     </div>
   `,
@@ -20,7 +20,19 @@ import { Component, Input } from '@angular/core';
     `
   ]
 })
-export class SectionControlsComponent {
-  // TODO: add html attribute
-  @Input() negativeMargin: boolean = true;
+export class SectionControlsComponent implements AfterContentInit {
+  negativeMargin: boolean;
+
+  @ViewChild('controls') controlsRef: ElementRef;
+
+  constructor() {}
+
+  ngAfterContentInit(): void {
+    const controlsEl = this.controlsRef.nativeElement as HTMLElement;
+    this.negativeMargin = false;
+
+    controlsEl.childNodes.forEach((el: HTMLElement) => {
+      this.negativeMargin = this.negativeMargin || el.classList.contains('mat-button');
+    });
+  }
 }

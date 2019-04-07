@@ -1,1 +1,3 @@
 **Talleres prácticos** en los que estudiantes de bachillerato a través de un **aprendizaje basado en retos**, se involucran activamente en problemáticas reales acordes a los perfiles profesionales de las diferentes carreras de la UTPL, bajo la guía de docentes y estudiantes universitarios. Estos espacios se convierten además en un medio para orientar a los participantes en sus intereses vocacionales y futuro profesional.
+
+- [Conoce Nuestra Oferta](https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FTalleres%202019.png?alt=media&token=e2a30af2-0961-4943-8e31-efd90bf3c28e)

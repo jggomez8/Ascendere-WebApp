@@ -1,17 +1,5 @@
 import { firestore } from 'firebase';
 
-export class InnovaTips {
-  innovaTips: InnovaTip[];
-
-  constructor(innovaTips?: InnovaTip[]) {
-    this.innovaTips = innovaTips;
-  }
-
-  get hasTips() {
-    return this.innovaTips && this.innovaTips.length > 0;
-  }
-}
-
 export class InnovaTip {
   id: any;
   addBy: string;
