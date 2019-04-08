@@ -12,8 +12,12 @@ const routes: Routes = [
         loadChildren: './views/shell-view/shell-view.module#ShellViewModule'
       },
       {
-        path: 'empty',
-        loadChildren: './views/empty-view/empty-view.module#EmptyViewModule'
+        path: 'ascendere',
+        loadChildren: './modules/ascendere/ascendere.module#AscendereModule'
+      },
+      {
+        path: 'login',
+        loadChildren: './modules/login/login.module#LoginModule'
       }
     ]
   },

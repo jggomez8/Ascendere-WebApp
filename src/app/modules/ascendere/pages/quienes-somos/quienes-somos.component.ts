@@ -66,7 +66,7 @@ export class QuienesSomosComponent {
     {
       name: 'Ing. Nuve Briceño',
       content: 'Formación Docente',
-      image: '/assets/images/ascendere/nuve-briceño.jpg'
+      image: '/assets/images/ascendere/nuve-bricenio.jpg'
     },
     {
       name: 'Mgtr. Angela Salazar',

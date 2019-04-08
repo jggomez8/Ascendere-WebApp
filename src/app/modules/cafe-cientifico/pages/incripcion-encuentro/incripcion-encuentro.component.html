@@ -1,12 +1,12 @@
-<span class="TextTheme--headline">
-  Inscripciones
-</span>
-
 <form
   [formGroup]="inscriptionForm"
   (ngSubmit)="onSubmit()"
   *ngIf="encuentro.canInscribe; else noInscriptionsTemplate"
 >
+  <span class="TextTheme--headline">
+    Inscripciones
+  </span>
+
   <!-- Form -->
   <mat-form-field appearance="outline">
     <mat-label>Nombres</mat-label>
@@ -49,12 +49,12 @@
     <input required matInput placeholder="Nombre" formControlName="city" />
     <mat-error>El nombre de la ciudad es requerido</mat-error>
   </mat-form-field>
-
   <!-- End Form -->
+
   <!-- Actions -->
   <div class="actions">
     <button mat-stroked-button color="warn" type="button" (click)="cancelInscription()">
-      Cancelar
+      Regresar
     </button>
     <button mat-raised-button color="primary" type="submit" [disabled]="inscriptionForm.invalid">
       Finalizar
@@ -67,7 +67,7 @@
   <br />
   <span class="TextTheme--body2">❗ Las Inscripciones para este encuentro están desactivadas.</span>
   <br />
-  <button mat-stroked-button color="warn" type="button" (click)="cancelInscription()">
+  <button mat-button color="warn" type="button" (click)="cancelInscription()">
     Cancelar
   </button>
 </ng-template>

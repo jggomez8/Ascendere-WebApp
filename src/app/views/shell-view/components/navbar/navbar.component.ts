@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
   headerMenu: Array<NavbarItem> = [
     {
       name: 'Servicios',
-      routerLink: ['/', 'empty', 'ascendere']
+      routerLink: ['/', 'ascendere']
     },
     {
       name: 'Innovación',

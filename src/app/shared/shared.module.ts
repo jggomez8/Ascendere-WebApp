@@ -72,13 +72,17 @@ const DECLARATIONS = [
   SafePipe
 ];
 
-const RESOLVERS = [
+const PROVIDERS = [
+  // Resolvers
   CursosResolver,
   EncuentrosResolver,
   NoticiasResolver,
   TipsResolver,
   InnovaTipsResolver,
-  ProyectosInnovacionResolver
+  ProyectosInnovacionResolver,
+
+  // Services
+  AuthService
 ];
 
 @NgModule({
@@ -105,7 +109,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [AuthService, { provide: LOCALE_ID, useValue: 'es-Ar' }, ...RESOLVERS]
+      providers: [AuthService, { provide: LOCALE_ID, useValue: 'es-Ar' }, ...PROVIDERS]
     };
   }
 }

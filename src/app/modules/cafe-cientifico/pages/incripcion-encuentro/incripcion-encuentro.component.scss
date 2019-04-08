@@ -12,3 +12,7 @@ mat-form-field {
     margin-right: 10px;
   }
 }
+
+button[mat-button] {
+  margin-left: -16px;
+}

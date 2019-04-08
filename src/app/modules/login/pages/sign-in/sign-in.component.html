@@ -1,0 +1,40 @@
+<indev-return-fab></indev-return-fab>
+<main>
+  <div class="content">
+    <img src="/assets/images/AscendereLogo.svg" alt="Ascendere Logo" />
+    <h1 class="TextTheme--headline">
+      Inicia sesión en <span class="TextTheme--ascendere">Ascendere</span>
+    </h1>
+    <form [formGroup]="authForm" (ngSubmit)="signIn()">
+      <!-- Email -->
+      <mat-form-field appearance="outline">
+        <mat-label>Correo Electrónico</mat-label>
+        <input matInput type="email" placeholder="ascendere@utpl.edu.ec" formControlName="email" />
+        <mat-error>Debe ser un correo valido</mat-error>
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <mat-icon matSuffix (click)="hide = !hide" style="cursor:pointer">
+          {{ hide ? 'visibility' : 'visibility_off' }}
+        </mat-icon>
+        <mat-error>La contraseña es requerida</mat-error>
+      </mat-form-field>
+
+      <!-- Sign in button or spinner -->
+      <button mat-raised-button color="primary" (click)="signIn()" [disabled]="isLoading">
+        {{ isLoading ? 'Cargando' : 'Ingresar' }}
+      </button>
+    </form>
+    <button mat-stroked-button [routerLink]="['new']" color="primary">
+      Crear una cuenta
+    </button>
+  </div>
+</main>
