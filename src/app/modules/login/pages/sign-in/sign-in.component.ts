@@ -55,8 +55,7 @@ export class SignInComponent implements OnInit {
       else message = 'Ha ocurrido un error al iniciar sección';
 
       this._snackBar.open(message, null, {
-        verticalPosition: 'top',
-        duration: 20000
+        verticalPosition: 'top'
       });
     }
   }

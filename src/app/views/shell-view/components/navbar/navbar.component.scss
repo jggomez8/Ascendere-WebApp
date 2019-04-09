@@ -95,22 +95,17 @@ nav {
   padding: 25px;
   left: 0;
 
-  background-color: #fff;
+  background-color: var(--background-color);
   box-shadow: 0 10px 50px rgba(27, 31, 35, 0.15);
   z-index: 200;
   @media screen and (min-width: 840px) {
-    left: auto;
-    // on tablets
-    width: 60vw;
-  }
-  @media screen and(min-width: 840px) {
     // on laptop
+    left: auto;
     overflow: inherit;
     position: relative;
     display: inherit;
     z-index: inherit;
     box-shadow: none;
-    background-color: var(--surface-color);
     width: auto;
   }
 }
@@ -162,22 +157,26 @@ nav {
 }
 
 .navbar-actions {
-  display: flex;
-  flex-wrap: nowrap;
-  @media screen and(min-width: 840px) {
-    // on laptop
-    flex-direction: column;
-    margin-top: 10px;
-    > * {
-      margin-bottom: 15px;
-    }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+
+  margin-bottom: 16px;
+
+  mat-form-field {
+    grid-column-start: 0;
+    grid-column-end: span 2;
   }
+
   @media screen and(min-width: 840px) {
     // on laptop
+    margin-bottom: 0;
+
+    display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
-    margin-left: 10px;
-    > * {
-      margin-left: 10px;
+    > *:not(:last-child) {
+      margin-right: 10px;
     }
   }
 }
