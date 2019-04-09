@@ -9,7 +9,7 @@
           <img src="/assets/images/AscendereLogo.svg" alt="Logo Ascendere" />
         </div>
         <div class="main-actions">
-          <button mat-stroked-button>Sign In</button>
+          <a mat-stroked-button [routerLink]="['/login/signIn']">Iniciar Sesión</a>
           <button mat-icon-button (click)="toggleNavbar()">
             <mat-icon>menu</mat-icon>
           </button>

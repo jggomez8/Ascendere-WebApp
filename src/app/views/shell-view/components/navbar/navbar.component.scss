@@ -8,7 +8,7 @@ nav {
   color: var(--on-background);
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.404);
 
-  @media screen and (min-width: 840px) {
+  @media screen and (min-width: 1024px) {
     // on tablets
     padding: 16px 0;
   }
@@ -22,7 +22,7 @@ nav {
 // Navbar by default is a flex element to give items space between
 // in desktop screen
 .navbar {
-  @media screen and(min-width: 840px) {
+  @media screen and(min-width: 1024px) {
     // on laptop
     display: flex;
     flex-direction: row;
@@ -41,7 +41,7 @@ nav {
   justify-content: space-between;
 
   // Take all space to position actions on the other side of the row
-  @media screen and(min-width: 840px) {
+  @media screen and(min-width: 1024px) {
     // on laptop
     width: auto;
   }
@@ -49,7 +49,7 @@ nav {
 
 .main-header .main-actions {
   margin-right: -15px;
-  @media screen and(min-width: 840px) {
+  @media screen and(min-width: 1024px) {
     // on laptop
     // hide main-header.actions on desktop
     display: none;
@@ -61,7 +61,7 @@ nav {
   height: 25px;
   width: 25px;
   margin-right: 25px;
-  @media screen and(min-width: 840px) {
+  @media screen and(min-width: 1024px) {
     // on laptop
     height: 50px;
     width: 50px;
@@ -71,7 +71,7 @@ nav {
 // main links and actions, by default display is none, but in desktop is a flex row
 .main-navbar {
   display: none;
-  @media screen and(min-width: 840px) {
+  @media screen and(min-width: 1024px) {
     // on laptop
     display: flex;
     flex-direction: row;
@@ -98,7 +98,7 @@ nav {
   background-color: var(--background-color);
   box-shadow: 0 10px 50px rgba(27, 31, 35, 0.15);
   z-index: 200;
-  @media screen and (min-width: 840px) {
+  @media screen and (min-width: 1024px) {
     // on laptop
     left: auto;
     overflow: inherit;
@@ -118,7 +118,7 @@ nav {
 }
 .close-navbar {
   min-height: min-content;
-  @media screen and(min-width: 840px) {
+  @media screen and(min-width: 1024px) {
     // on laptop
     display: none;
   }
@@ -139,7 +139,7 @@ nav {
   a.menu-item {
     margin: 0 -15px;
   }
-  @media screen and(min-width: 840px) {
+  @media screen and(min-width: 1024px) {
     // on laptop
     flex-direction: row;
     > li {
@@ -150,7 +150,7 @@ nav {
       margin: 0;
     }
   }
-  @media screen and(min-width: 840px) {
+  @media screen and(min-width: 1024px) {
     // on laptop
     flex-direction: row;
   }
@@ -168,7 +168,7 @@ nav {
     grid-column-end: span 2;
   }
 
-  @media screen and(min-width: 840px) {
+  @media screen and(min-width: 1024px) {
     // on laptop
     margin-bottom: 0;
 
