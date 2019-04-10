@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { NavbarItem } from '../../interfaces/navbar-item.interface';
 import { Router, NavigationStart, Event } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'indev-navbar',
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private _router: Router, private _auth: AuthService) {}
+  constructor(private _router: Router, private _afAuth: AngularFireAuth) {}
 
   @ViewChild('mainNavbar') mainNavbarElement: ElementRef;
   public user: firebase.User;
@@ -176,9 +177,9 @@ export class NavbarComponent implements OnInit {
     // which case navbar needs to be closed if user is in responsive mode
     this._router.events.subscribe(this._closeNavbarOnNavigation());
 
-    // Subscribe to current user state, instead of waiting for first result since
+    // Subscribe to current user state, instead of awaiting for first result since
     // user can log out and state will never be updated
-    this._auth.currentUserObservable.subscribe(user => {
+    this._afAuth.authState.subscribe(user => {
       this.user = user;
     });
   }
@@ -212,9 +213,10 @@ export class NavbarComponent implements OnInit {
   }
 
   /**
-   * Call `Sign out` method from the auth service for a correct logOut
+   * Call `Sign out` method om afAuth service for a correct logOut, and clean user data.
+   * Also update this component user
    */
   signOut() {
-    this._auth.signOut();
+    this._afAuth.auth.signOut();
   }
 }

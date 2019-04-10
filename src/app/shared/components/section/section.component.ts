@@ -14,12 +14,20 @@ import { Component, Input } from '@angular/core';
   styles: [
     `
       .section {
-        padding: 25px 0 15px 0;
+        margin-top: 25px;
+        margin-bottom: 15px;
         position: relative;
       }
-      @media screen and(min-width: 840px) {
+      @media (min-width: 600px) {
         .section {
-          padding: 35px 0 25px 0;
+          margin-top: 35px;
+          margin-bottom: 20px;
+        }
+      }
+      @media (min-width: 840px) {
+        .section {
+          margin-top: 45px;
+          margin-bottom: 25px;
         }
       }
       .section-header {
