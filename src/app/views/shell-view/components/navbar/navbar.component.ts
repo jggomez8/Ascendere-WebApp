@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { NavbarItem } from '../../interfaces/navbar-item.interface';
 import { Router, NavigationStart, Event } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'indev-navbar',
@@ -8,6 +9,10 @@ import { Router, NavigationStart, Event } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  constructor(private _router: Router, private _auth: AuthService) {}
+
+  @ViewChild('mainNavbar') mainNavbarElement: ElementRef;
+  public user: firebase.User;
   headerMenu: Array<NavbarItem> = [
     {
       name: 'Servicios',
@@ -166,35 +171,50 @@ export class NavbarComponent implements OnInit {
     }
   ];
 
-  @ViewChild('mainNavbar') mainNavbarElement: ElementRef;
-
-  constructor(private _router: Router) {}
-
   ngOnInit() {
-    this._router.events.subscribe((event: Event) => {
-      // user is navigating to new route
-      if (event instanceof NavigationStart) {
-        const el = this.mainNavbarElement.nativeElement as HTMLElement;
+    // Listen to changes if the user navigates to a different page, in
+    // which case navbar needs to be closed if user is in responsive mode
+    this._router.events.subscribe(this._closeNavbarOnNavigation());
 
-        if (el.classList.contains('active-navbar')) {
-          el.classList.remove('active-navbar');
-          return;
-        }
-      }
+    // Subscribe to current user state, instead of waiting for first result since
+    // user can log out and state will never be updated
+    this._auth.currentUserObservable.subscribe(user => {
+      this.user = user;
     });
   }
 
   /**
-   * toggle navbar open or close
+   * Method to close navigation menu if the user is in mobile mode and also
+   * the sidebar is opened.
+   */
+  private _closeNavbarOnNavigation() {
+    return (event: Event) => {
+      if (event instanceof NavigationStart) {
+        const el = this.mainNavbarElement.nativeElement as HTMLElement;
+        if (el.classList.contains('active-navbar')) {
+          el.classList.remove('active-navbar');
+        }
+      }
+    };
+  }
+
+  /**
+   * toggle navbar open or close by adding or removing class `active-navbar`
+   * to navbar element
    */
   toggleNavbar() {
     const el = this.mainNavbarElement.nativeElement as HTMLElement;
-
-    // if element contains active, remove it, otherwise add it
     if (el.classList.contains('active-navbar')) {
       el.classList.remove('active-navbar');
       return;
     }
     el.classList.add('active-navbar');
+  }
+
+  /**
+   * Call `Sign out` method from the auth service for a correct logOut
+   */
+  signOut() {
+    this._auth.signOut();
   }
 }

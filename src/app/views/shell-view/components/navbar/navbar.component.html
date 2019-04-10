@@ -9,7 +9,7 @@
           <img src="/assets/images/AscendereLogo.svg" alt="Logo Ascendere" />
         </div>
         <div class="main-actions">
-          <a mat-stroked-button [routerLink]="['/login/signIn']">Iniciar Sesión</a>
+          <a *ngIf="!user" mat-stroked-button [routerLink]="['/login/signIn']">Iniciar Sesión</a>
           <button mat-icon-button (click)="toggleNavbar()">
             <mat-icon>menu</mat-icon>
           </button>
@@ -42,10 +42,9 @@
 
         <!-- Actions for Navbar -->
         <div class="navbar-actions">
-          <!-- TODO: show if not login -->
-          <!-- TODO: overflow navbar -->
-          <a mat-stroked-button [routerLink]="['/login/signIn']">Iniciar Sesión</a>
-          <a mat-stroked-button [routerLink]="['/login/signUp']">Registrarse</a>
+          <a *ngIf="!user" mat-stroked-button [routerLink]="['/login/signIn']">Iniciar Sesión</a>
+          <a *ngIf="!user" mat-stroked-button [routerLink]="['/login/signUp']">Registrarse</a>
+          <button *ngIf="user" mat-stroked-button (click)="signOut()">Cerrar Sección</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ShellViewComponent } from './shell-view.component';
+import { AuthenticatedGuard } from 'src/app/shared/providers/authenticated.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
       {
         path: 'proyectos-innovacion',
         loadChildren:
-          '../../modules/proyectos-innovacion/proyectos-innovacion.module#ProyectosInnovacionModule'
+          '../../modules/proyectos-innovacion/proyectos-innovacion.module#ProyectosInnovacionModule',
+        canLoad: [AuthenticatedGuard]
       },
       {
         path: 'jornadas',

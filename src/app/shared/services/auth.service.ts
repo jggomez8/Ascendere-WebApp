@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,11 @@ export class AuthService {
   /**
    * Current user logged inside the application
    */
-  private _user: firebase.User;
+  public user: firebase.User;
 
   constructor(private _afAuth: AngularFireAuth, private _router: Router) {
-    _afAuth.authState.subscribe(auth => {
-      this._user = auth;
+    this._afAuth.authState.subscribe(auth => {
+      this.user = auth;
     });
   }
 
@@ -21,14 +22,14 @@ export class AuthService {
    * whether user is authenticated or not
    */
   public get isAuthenticated(): boolean {
-    return this._user !== null;
+    return this.user !== null;
   }
 
   /**
    * get user unique id
    */
   public get userId(): string {
-    return this.isAuthenticated ? this._user.uid : '';
+    return this.isAuthenticated ? this.user.uid : '';
   }
 
   /**
@@ -46,7 +47,7 @@ export class AuthService {
   public signOut(): void {
     this._afAuth.auth.signOut();
     // TODO: remove this navigation
-    this._router.navigate(['/login']);
+    // this._router.navigate(['/login']);
   }
 
   /**
@@ -54,10 +55,14 @@ export class AuthService {
    */
   async getCustomClaims() {
     try {
-      const idToken = await this._user.getIdTokenResult();
+      const idToken = await this.user.getIdTokenResult();
       return idToken.claims;
     } catch (error) {
       return null;
     }
+  }
+
+  public get currentUserObservable(): Observable<firebase.User> {
+    return this._afAuth.authState;
   }
 }

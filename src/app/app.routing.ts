@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { NotAuthenticatedGuard } from './shared/providers/not-authenticated.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
       },
       {
         path: 'login',
-        loadChildren: './modules/login/login.module#LoginModule'
+        loadChildren: './modules/login/login.module#LoginModule',
+        canLoad: [NotAuthenticatedGuard]
       }
     ]
   },
