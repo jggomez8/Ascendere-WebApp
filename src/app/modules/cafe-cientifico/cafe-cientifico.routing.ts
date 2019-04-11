@@ -39,16 +39,12 @@ const routes: Routes = [
   {
     path: 'admin',
     canActivate: [IsAdminGuard],
-    children: [
-      {
-        path: '',
-        component: CafeCientificoAdminComponent
-      },
-      {
-        path: 'create/:id',
-        component: CreateEncuentroComponent
-      }
-    ]
+    component: CafeCientificoAdminComponent
+  },
+  {
+    path: 'admin/create/:id',
+    canActivate: [IsAdminGuard],
+    component: CreateEncuentroComponent
   }
 ];
 

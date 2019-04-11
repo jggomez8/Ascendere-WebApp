@@ -119,8 +119,9 @@ p {
 }
 
 /* caption, caption */
-.TextTheme--caption {
-  font-size: 0.875rem;
+.TextTheme--caption,
+mat-error {
+  font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 0.025rem;
 }

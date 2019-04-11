@@ -11,7 +11,10 @@ import {
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
   MatTabsModule,
   MatSelectModule,
-  MatSliderModule
+  MatSliderModule,
+  MatStepperModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 
 const MAT_MODULES = [
@@ -24,7 +27,10 @@ const MAT_MODULES = [
   MatSnackBarModule,
   MatTabsModule,
   MatSelectModule,
-  MatSliderModule
+  MatSliderModule,
+  MatStepperModule,
+  MatDatepickerModule,
+  MatNativeDateModule // TODO: validate import
 ];
 
 @NgModule({

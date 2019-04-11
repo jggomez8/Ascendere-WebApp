@@ -1,3 +1,136 @@
-<p>
-  create-encuentro works!
-</p>
+<section indev-section class="container">
+  <form [formGroup]="encuentroFormGroup">
+    <mat-vertical-stepper [linear]="!shouldUpdate" class="mat-elevation-z8" #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Información del Encuentro</ng-template>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" formControlName="name" required />
+          <mat-error>El nombre es requerido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha del Evento</mat-label>
+          <input matInput [matDatepicker]="fecha" formControlName="date" required />
+          <mat-datepicker-toggle matSuffix [for]="fecha"></mat-datepicker-toggle>
+          <mat-datepicker #fecha></mat-datepicker>
+          <mat-error>La fecha es requerida</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha fin de Inscripcioness</mat-label>
+          <input matInput [matDatepicker]="postulaciones" formControlName="postulations" />
+          <mat-datepicker-toggle matSuffix [for]="postulaciones"></mat-datepicker-toggle>
+          <mat-datepicker #postulaciones></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <textarea
+            matInput
+            type="text"
+            class="big-text-area"
+            formControlName="description"
+          ></textarea>
+          <mat-error *ngIf="description.hasError('minlength')">
+            La descripción necesita al menos
+            <strong>{{ description.errors.minlength.requiredLength }} caracteres</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Participa</mat-label>
+          <input matInput type="text" formControlName="participation" />
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+        </div>
+      </mat-step>
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <mat-step>
+        <ng-template matStepLabel>Invitados o Ponentes</ng-template>
+
+        <div formArrayName="guests">
+          <div *ngFor="let guest of guests.controls; let i = index" [formGroupName]="i">
+            <!-- name -->
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre del Invitado</mat-label>
+              <input matInput type="text" formControlName="name" required />
+              <mat-error *ngIf="guestName(i).hasError('required')">
+                El nombre es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+            <!-- description -->
+            <mat-form-field appearance="outline">
+              <mat-label>Descripción</mat-label>
+              <textarea
+                matInput
+                class=" small-text-area"
+                type="text"
+                formControlName="description"
+                required
+              ></textarea>
+              <mat-error *ngIf="guestDescription(i).hasError('required')">
+                La descripción es <strong>requerida</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="button-row">
+          <button mat-button color="warn" (click)="removeGuest()">Eliminar ultimo Invitado</button>
+          <button mat-button color="primary" (click)="addGuest()">Añadir Invitado</button>
+        </div>
+        <div class="button-row">
+          <button mat-button matStepperPrevious>Anterior</button>
+          <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+        </div>
+      </mat-step>
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <mat-step>
+        <ng-template matStepLabel>Artes del Encuentro</ng-template>
+        <!-- url img -->
+        <!-- <id-upload-file
+              [path]="uploadPath"
+              type="imagen"
+              label="Url de la Imagen"
+              errorMessage="La url es requerida"
+              [formControlChild]="img"
+              required
+            ></id-upload-file> -->
+        <!-- <id-upload-file
+              [path]="uploadPath"
+              type="imagen"
+              label="Url del Banner"
+              [formControlChild]="banner"
+            ></id-upload-file> -->
+        <div class="button-row">
+          <button mat-button matStepperPrevious>Anterior</button>
+          <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+        </div>
+      </mat-step>
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <mat-step>
+        <ng-template matStepLabel>Finalizar</ng-template>
+        <p>
+          Presiona guardar para continuar, y regresar a la pagina anterior
+        </p>
+        <div class="button-row">
+          <button mat-button matStepperPrevious>Anterior</button>
+          <button mat-raised-button color="primary" (click)="submit()">Guardar</button>
+        </div>
+      </mat-step>
+      <button mat-button matStepperPrevious>Anterior</button>
+      <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+    </mat-vertical-stepper>
+  </form>
+</section>
