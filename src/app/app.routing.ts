@@ -18,8 +18,7 @@ const routes: Routes = [
       },
       {
         path: 'login',
-        loadChildren: './modules/login/login.module#LoginModule',
-        canLoad: [NotAuthenticatedGuard]
+        loadChildren: './modules/login/login.module#LoginModule'
       }
     ]
   },

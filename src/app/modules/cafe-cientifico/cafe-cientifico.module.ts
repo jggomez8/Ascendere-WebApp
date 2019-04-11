@@ -9,6 +9,8 @@ import { EncuentroDetailComponent } from './pages/encuentro-detail/encuentro-det
 import { EncuentroResolver } from './resolver/encuentro.resolver';
 import { IncripcionEncuentroComponent } from './pages/incripcion-encuentro/incripcion-encuentro.component';
 import { EncuentroComponent } from './pages/encuentro/encuentro.component';
+import { CafeCientificoAdminComponent } from './pages/cafe-cientifico-admin/cafe-cientifico-admin.component';
+import { CreateEncuentroComponent } from './pages/create-encuentro/create-encuentro.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { EncuentroComponent } from './pages/encuentro/encuentro.component';
     CarteleraEncuentrosComponent,
     EncuentroDetailComponent,
     IncripcionEncuentroComponent,
-    EncuentroComponent
+    EncuentroComponent,
+    CafeCientificoAdminComponent,
+    CreateEncuentroComponent
   ],
   imports: [CommonModule, CafeCientificoRoutingModule, SharedModule],
   providers: [EncuentroResolver]

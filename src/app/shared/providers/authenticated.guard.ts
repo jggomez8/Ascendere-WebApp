@@ -18,7 +18,7 @@ import { map, take, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthenticatedGuard implements CanActivate, CanActivateChild, CanLoad {
-  constructor(private _afAuth: AngularFireAuth, private router: Router) {}
+  constructor(private _afAuth: AngularFireAuth, private _router: Router) {}
 
   // TODO: change to promise
 
@@ -46,7 +46,7 @@ export class AuthenticatedGuard implements CanActivate, CanActivateChild, CanLoa
     return this._user.pipe(
       map(authState => !!authState),
       tap(authenticated => {
-        if (!authenticated) this.router.navigateByUrl('/login');
+        if (!authenticated) this._router.navigateByUrl('/login');
       })
     );
   }

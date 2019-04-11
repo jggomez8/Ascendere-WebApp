@@ -1,4 +1,9 @@
-<indev-hero-encuentro [encuentro]="encuentro" *ngIf="encuentros.length > 0"> </indev-hero-encuentro>
+<section indev-section class="container" *ngIf="isAdmin">
+  <indev-section-title>Modulo Admin</indev-section-title>
+  <indev-section-controls>
+    <a [routerLink]="['/cafe-cientifico/admin']" mat-button>Admin</a>
+  </indev-section-controls>
+</section>
 
 <indev-header>
   <h1 class="TextTheme--display2">
@@ -9,5 +14,6 @@
   <img src="/assets/images/CafeCientifico.svg" alt="CafeCientifico Icon" />
   <markdown src="/assets/markdown/cafe-cientifico/cafe-cientifico.md"> </markdown>
 </indev-header>
+<indev-hero-encuentro [encuentro]="encuentro" *ngIf="encuentros.length > 0"> </indev-hero-encuentro>
 
 <indev-cartelera-encuentros [encuentros]="encuentros"></indev-cartelera-encuentros>

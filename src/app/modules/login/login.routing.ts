@@ -5,6 +5,10 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'signIn'
+  },
+  {
     path: 'signIn',
     component: SignInComponent
   },

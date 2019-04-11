@@ -39,6 +39,8 @@ import { ProyectosInnovacionResolver } from './providers/proyectos.resolver';
 import { TipCardComponent } from './components/tip-card/tip-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthenticatedGuard } from './providers/authenticated.guard';
+import { UserRoleService } from './providers/services/user-role.service';
+import { IsAdminGuard } from './providers/guards/is-admin.guard';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localeEsAr, 'es-Ar');
@@ -84,9 +86,11 @@ const PROVIDERS = [
 
   // Services
   AuthService,
+  UserRoleService,
 
   // Guards
-  AuthenticatedGuard
+  AuthenticatedGuard,
+  IsAdminGuard
 ];
 
 @NgModule({
