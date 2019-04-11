@@ -74,7 +74,7 @@ export class CreateEncuentroComponent implements OnInit {
       participation: [null],
       date: [null, Validators.required],
       postulations: [null],
-      description: [null, Validators.minLength(20)],
+      description: [null],
       guests: this._formBuilder.array([])
     });
   }

@@ -1,3 +1,6 @@
+<indev-header>
+  <h1>Nuevo Encuentro</h1>
+</indev-header>
 <section indev-section class="container">
   <form [formGroup]="encuentroFormGroup">
     <mat-vertical-stepper [linear]="!shouldUpdate" class="mat-elevation-z8" #stepper>
@@ -10,20 +13,22 @@
           <mat-error>El nombre es requerido</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Fecha del Evento</mat-label>
-          <input matInput [matDatepicker]="fecha" formControlName="date" required />
-          <mat-datepicker-toggle matSuffix [for]="fecha"></mat-datepicker-toggle>
-          <mat-datepicker #fecha></mat-datepicker>
-          <mat-error>La fecha es requerida</mat-error>
-        </mat-form-field>
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha del Evento</mat-label>
+            <input matInput [matDatepicker]="fecha" formControlName="date" required />
+            <mat-datepicker-toggle matSuffix [for]="fecha"></mat-datepicker-toggle>
+            <mat-datepicker #fecha></mat-datepicker>
+            <mat-error>La fecha es requerida</mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Fecha fin de Inscripcioness</mat-label>
-          <input matInput [matDatepicker]="postulaciones" formControlName="postulations" />
-          <mat-datepicker-toggle matSuffix [for]="postulaciones"></mat-datepicker-toggle>
-          <mat-datepicker #postulaciones></mat-datepicker>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha fin de Inscripciones</mat-label>
+            <input matInput [matDatepicker]="postulaciones" formControlName="postulations" />
+            <mat-datepicker-toggle matSuffix [for]="postulaciones"></mat-datepicker-toggle>
+            <mat-datepicker #postulaciones></mat-datepicker>
+          </mat-form-field>
+        </div>
 
         <mat-form-field appearance="outline">
           <mat-label>Descripción</mat-label>
@@ -33,25 +38,22 @@
             class="big-text-area"
             formControlName="description"
           ></textarea>
-          <mat-error *ngIf="description.hasError('minlength')">
-            La descripción necesita al menos
-            <strong>{{ description.errors.minlength.requiredLength }} caracteres</strong>
-          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Participa</mat-label>
           <input matInput type="text" formControlName="participation" />
+          <mat-hint>Ejemplo: Titulación de Medicina</mat-hint>
         </mat-form-field>
         <div class="button-row">
-          <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
         </div>
       </mat-step>
+
       <!--  -->
       <!--  -->
-      <!--  -->
-      <!--  -->
-      <mat-step>
+
+      <mat-step optional>
         <ng-template matStepLabel>Invitados o Ponentes</ng-template>
 
         <div formArrayName="guests">
@@ -93,7 +95,7 @@
       <!--  -->
       <!--  -->
       <!--  -->
-      <mat-step>
+      <mat-step optional>
         <ng-template matStepLabel>Artes del Encuentro</ng-template>
         <!-- url img -->
         <!-- <id-upload-file

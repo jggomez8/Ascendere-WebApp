@@ -19,14 +19,7 @@ import { MatSnackBar } from '@angular/material';
         <markdown [src]="articulo.source" (error)="onError($event)"></markdown>
       </ng-template>
     </section>
-  `,
-  styles: [
-    `
-      h1::before {
-        content: '📚 ';
-      }
-    `
-  ]
+  `
 })
 export class ArticuloComponent implements OnInit, OnDestroy {
   private _sub: Subscription;
@@ -50,10 +43,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   }
 
   onError($event) {
-    const snackBarRef = this._snackBar.open('No se pudo Cargar el articulo.', 'Regresar', {
-      verticalPosition: 'top',
-      duration: 200000
-    });
+    const snackBarRef = this._snackBar.open('No se pudo Cargar el articulo.', 'Regresar');
 
     snackBarRef.onAction().subscribe(() => {
       this._location.back();

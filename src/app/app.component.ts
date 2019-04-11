@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
       const snackBarRef = this._snackBar.open(
         'Existe una nueva version de esta pagina. Desea Actualizar?',
         'Actualizar',
-        { verticalPosition: 'top', duration: 200000 }
+        { duration: 120000 }
       );
 
       snackBarRef.onAction().subscribe(() => {

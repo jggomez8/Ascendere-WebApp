@@ -37,6 +37,11 @@ const MAT_MODULES = [
   declarations: [],
   imports: [...MAT_MODULES],
   exports: [...MAT_MODULES],
-  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 4500 } }]
+  providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: { verticalPosition: 'top', duration: 4500 }
+    }
+  ]
 })
 export class AngularMaterialModule {}
