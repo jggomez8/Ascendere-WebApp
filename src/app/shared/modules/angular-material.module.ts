@@ -14,7 +14,8 @@ import {
   MatSliderModule,
   MatStepperModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatDialogModule
 } from '@angular/material';
 
 const MAT_MODULES = [
@@ -30,7 +31,8 @@ const MAT_MODULES = [
   MatSliderModule,
   MatStepperModule,
   MatDatepickerModule,
-  MatNativeDateModule // TODO: validate import
+  MatNativeDateModule,
+  MatDialogModule
 ];
 
 @NgModule({

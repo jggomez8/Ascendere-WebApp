@@ -3,7 +3,16 @@ mat-form-field {
 }
 
 .big-text-area {
-  height: 20vh;
+  height: 300px;
+  @media screen and (min-width: 600px) {
+    height: 20vh;
+  }
+}
+.medium-text-area {
+  height: 200px;
+  @media screen and (min-width: 600px) {
+    height: 8vh;
+  }
 }
 
 mat-vertical-stepper {

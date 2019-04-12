@@ -1,0 +1,30 @@
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 150px;
+  border: 2px dashed var(--primary-color);
+  border-radius: 5px;
+  background: white;
+  margin: 10px 0;
+
+  h3 {
+    color: var(--primary-color);
+  }
+
+  &.hovering {
+    border: 2px solid var(--primary-color);
+    color: var(--surface-color) !important;
+  }
+}
+
+.hide-input {
+  display: none;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

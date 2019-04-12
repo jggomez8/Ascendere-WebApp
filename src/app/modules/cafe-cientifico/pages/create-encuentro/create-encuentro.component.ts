@@ -105,39 +105,19 @@ export class CreateEncuentroComponent implements OnInit {
     }
   }
 
-  ////////////getters/////////////
-  // get name() {
-  //   return this.encuentroFormGroup.get('name');
-  // }
-  // get img() {
-  //   return this.encuentroFormGroup.get('img');
-  // }
-  // get participation() {
-  //   return this.encuentroFormGroup.get('participation');
-  // }
-  // get banner() {
-  //   return this.encuentroFormGroup.get('banner');
-  // }
-  // get description() {
-  //   return this.encuentroFormGroup.get('description');
-  // }
+  get img() {
+    return this.encuentroFormGroup.get('img');
+  }
+  get banner() {
+    return this.encuentroFormGroup.get('banner');
+  }
   get guests() {
     return this.encuentroFormGroup.get('guests') as FormArray;
   }
-  // guestName(i: number) {
-  //   return this.guests.controls[i].get('name');
-  // }
-  // guestDescription(i: number) {
-  //   return this.guests.controls[i].get('description');
-  // }
-  // get date() {
-  //   return this.encuentroFormGroup.get('date');
-  // }
-  // get postulations() {
-  //   return this.encuentroFormGroup.get('postulations');
-  // }
 
-  // get uploadPath() {
-  //   return `${this._encuentrosService.encuentrosCollection.ref.path}/${this.name.value}`;
-  // }
+  get uploadPath() {
+    return `${this._encuentrosService.encuentrosCollection.ref.path}/${
+      this.encuentroFormGroup.get('name').value
+    }`;
+  }
 }

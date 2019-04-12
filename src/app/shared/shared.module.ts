@@ -42,6 +42,9 @@ import { AuthenticatedGuard } from './providers/authenticated.guard';
 import { UserRoleService } from './providers/services/user-role.service';
 import { IsAdminGuard } from './providers/guards/is-admin.guard';
 import { StepControlsComponent } from './components/stepper/stepper-controls.component';
+import { DropZoneComponent } from './components/drop-zone/drop-zone.component';
+import { DropZoneDirective } from './directives/drop-zone.directive';
+import { UploadFileComponent } from './components/upload-file/upload-file.component';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localeEsAr, 'es-Ar');
@@ -76,7 +79,10 @@ const DECLARATIONS = [
   SafePipe,
 
   // Other Components
-  StepControlsComponent
+  StepControlsComponent,
+  DropZoneComponent,
+  DropZoneDirective,
+  UploadFileComponent
 ];
 
 const PROVIDERS = [
@@ -115,7 +121,8 @@ const PROVIDERS = [
     AngularMaterialModule,
     FirebaseModule,
     ReactiveFormsModule
-  ]
+  ],
+  entryComponents: [DropZoneComponent]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

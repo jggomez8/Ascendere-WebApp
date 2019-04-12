@@ -70,7 +70,7 @@
               <mat-label>Descripción</mat-label>
               <textarea
                 matInput
-                class=" small-text-area"
+                class="medium-text-area"
                 type="text"
                 formControlName="description"
                 required
@@ -100,20 +100,20 @@
       <mat-step>
         <ng-template matStepLabel>Artes del Encuentro</ng-template>
         <!-- url img -->
-        <!-- <id-upload-file
-              [path]="uploadPath"
-              type="imagen"
-              label="Url de la Imagen"
-              errorMessage="La url es requerida"
-              [formControlChild]="img"
-              required
-            ></id-upload-file> -->
-        <!-- <id-upload-file
-              [path]="uploadPath"
-              type="imagen"
-              label="Url del Banner"
-              [formControlChild]="banner"
-            ></id-upload-file> -->
+        <id-upload-file
+          [path]="uploadPath"
+          type="imagen"
+          label="Url de la Imagen"
+          errorMessage="La url es requerida"
+          [formControlChild]="img"
+          required
+        ></id-upload-file>
+        <id-upload-file
+          [path]="uploadPath"
+          type="imagen"
+          label="Url del Banner"
+          [formControlChild]="banner"
+        ></id-upload-file>
         <step-controls>
           <button mat-button matStepperPrevious type="button">Anterior</button>
           <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
@@ -134,7 +134,6 @@
             Guardar
           </button>
         </step-controls>
-        <div class="button-row"></div>
       </mat-step>
     </mat-vertical-stepper>
   </form>
