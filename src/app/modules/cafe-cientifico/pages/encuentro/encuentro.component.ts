@@ -10,18 +10,13 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'indev-encuentro',
   template: `
-    <indev-header>
-      <h1 class="TextTheme--display2">☕ {{ encuentro.name }}</h1>
-      <h2>Fecha 📆 {{ encuentro.date | date: 'fullDate' }}</h2>
-    </indev-header>
-
     <section indev-section class="container" *ngIf="isAdmin">
       <indev-section-title>Funciones Administrador</indev-section-title>
       <indev-section-controls>
-        <a mat-button>Inscritos</a>
-        <a mat-button color="warn" (click)="delete()">Eliminar Encuentro</a>
+        <a mat-stroked-button color="warn" (click)="delete()">Eliminar Encuentro</a>
+        <a mat-stroked-button color="accent">ver Inscritos</a>
         <a
-          mat-button
+          mat-stroked-button
           color="primary"
           [routerLink]="['/cafe-cientifico/admin/create', encuentro.id]"
         >
@@ -29,6 +24,11 @@ import { Location } from '@angular/common';
         </a>
       </indev-section-controls>
     </section>
+
+    <indev-header>
+      <h1 class="TextTheme--display2">☕ {{ encuentro.name }}</h1>
+      <h2>Fecha 📆 {{ encuentro.date | date: 'fullDate' }}</h2>
+    </indev-header>
 
     <section indev-section class="container">
       <router-outlet></router-outlet>

@@ -1,5 +1,5 @@
 <indev-header>
-  <h2>Modulo Administrador</h2>
+  <h2>Funciones Administrador</h2>
   <h1>Encuentros - Cafe Científico</h1>
 </indev-header>
 
@@ -18,7 +18,7 @@
             [routerLink]="['/cafe-cientifico/admin/create']"
             *ngIf="isAdmin"
           >
-            Nuevo
+            Crear Nuevo Encuentro
           </a>
         </mat-action-row>
       </ng-template>
@@ -39,7 +39,7 @@
             color="accent"
             *ngIf="isAdmin"
           >
-            Inscripciones
+            Ver Inscripciones
           </button>
           <button
             mat-stroked-button

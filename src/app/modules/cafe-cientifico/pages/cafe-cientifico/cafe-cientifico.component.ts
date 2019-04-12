@@ -5,8 +5,7 @@ import { UserRoleService } from 'src/app/shared/providers/services/user-role.ser
 
 @Component({
   selector: 'indev-cafe-cientifico',
-  templateUrl: './cafe-cientifico.component.html',
-  styleUrls: ['./cafe-cientifico.component.scss']
+  templateUrl: './cafe-cientifico.component.html'
 })
 export class CafeCientificoComponent implements OnInit {
   constructor(private _route: ActivatedRoute, private _userRole: UserRoleService) {}
