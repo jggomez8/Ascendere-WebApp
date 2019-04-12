@@ -9,7 +9,7 @@ import { from, Observable, of } from 'rxjs';
 export class UserRoleService {
   constructor(private _afAuth: AngularFireAuth) {}
 
-  private get _customClaims(): Observable<any> {
+  private _customClaims(role): Observable<any> {
     return this._afAuth.authState.pipe(
       switchMap(authState =>
         of(authState).pipe(
@@ -17,14 +17,15 @@ export class UserRoleService {
           map(token => token.claims),
           catchError(err => of(null))
         )
-      )
+      ),
+      map(claims => claims && claims.role === role)
     );
   }
 
   get isAdmin() {
-    return this._customClaims.pipe(map(claims => claims && claims.role === 'admin'));
+    return this._customClaims('admin');
   }
   get isModerator() {
-    return this._customClaims.pipe(map(claims => claims && claims.role === 'moderator'));
+    return this._customClaims('moderator');
   }
 }
