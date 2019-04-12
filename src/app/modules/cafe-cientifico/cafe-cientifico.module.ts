@@ -6,11 +6,12 @@ import { CafeCientificoComponent } from './pages/cafe-cientifico/cafe-cientifico
 import { CarteleraEncuentrosComponent } from './components/cartelera-encuentros/cartelera-encuentros.component';
 import { HeroEncuentroComponent } from './components/hero-encuentro/hero-encuentro.component';
 import { EncuentroDetailComponent } from './pages/encuentro-detail/encuentro-detail.component';
-import { EncuentroResolver } from './resolver/encuentro.resolver';
 import { IncripcionEncuentroComponent } from './pages/incripcion-encuentro/incripcion-encuentro.component';
 import { EncuentroComponent } from './pages/encuentro/encuentro.component';
 import { CafeCientificoAdminComponent } from './pages/cafe-cientifico-admin/cafe-cientifico-admin.component';
 import { CreateEncuentroComponent } from './pages/create-encuentro/create-encuentro.component';
+import { EncuentroResolver } from './providers/encuentro.resolver';
+import { EncuentrosService } from './providers/encuentros.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { CreateEncuentroComponent } from './pages/create-encuentro/create-encuen
     CreateEncuentroComponent
   ],
   imports: [CommonModule, CafeCientificoRoutingModule, SharedModule],
-  providers: [EncuentroResolver]
+  providers: [EncuentroResolver, EncuentrosService]
 })
 export class CafeCientificoModule {}

@@ -12,7 +12,6 @@ export class CafeCientificoComponent implements OnInit {
   constructor(private _route: ActivatedRoute, private _userRole: UserRoleService) {}
 
   encuentros: Encuentro[];
-  user: firebase.User;
   isAdmin: boolean;
 
   /**

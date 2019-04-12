@@ -41,6 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthenticatedGuard } from './providers/authenticated.guard';
 import { UserRoleService } from './providers/services/user-role.service';
 import { IsAdminGuard } from './providers/guards/is-admin.guard';
+import { StepControlsComponent } from './components/stepper/stepper-controls.component';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localeEsAr, 'es-Ar');
@@ -72,7 +73,10 @@ const DECLARATIONS = [
   ReturnFabComponent,
 
   // pipe
-  SafePipe
+  SafePipe,
+
+  // Other Components
+  StepControlsComponent
 ];
 
 const PROVIDERS = [

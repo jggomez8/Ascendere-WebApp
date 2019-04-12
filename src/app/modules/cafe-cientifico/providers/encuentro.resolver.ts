@@ -2,16 +2,22 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Encuentro } from 'src/app/interfaces/encuentro';
+import { CreateEncuentroComponent } from '../pages/create-encuentro/create-encuentro.component';
 
 @Injectable()
 export class EncuentroResolver implements Resolve<Encuentro> {
-  constructor(private _afs: AngularFirestore, private router: Router) {}
+  constructor(private _afs: AngularFirestore, private _router: Router) {}
 
   /**
-   * Get documents from firebase
+   * get data from server if the calling component is Encuentros Detail
+   * return a Encuentro if it exist, Otherwise if calling component is
+   * an AdminComponent it doesn't mather if id is not provided,
+   * return a null object only on that special case
    */
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
+      if (route.component === CreateEncuentroComponent && !route.params.id) return null;
+
       const cursoDocument: AngularFirestoreDocument<Encuentro> = this._afs
         .collection('formacion-docente')
         .doc('cafe-cientifico')
@@ -26,7 +32,7 @@ export class EncuentroResolver implements Resolve<Encuentro> {
     } catch (error) {
       console.error(error);
       // TODO: add err page
-      this.router.navigate(['/404']);
+      this._router.navigate(['/404']);
       return null;
     }
   }

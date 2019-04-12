@@ -6,7 +6,7 @@ export class Encuentro {
   public created: firestore.Timestamp;
   public editor: string;
   public edited: firestore.Timestamp;
-  public _description: string;
+  public description: string;
   public img: string;
   public name: string;
   public _postulations: firestore.Timestamp;
@@ -22,7 +22,7 @@ export class Encuentro {
     this.created = args['created'];
     this.editor = args['editor'];
     this.edited = args['edited'];
-    this._description = args['description'];
+    this.description = args['description'];
     this.img = args['img'];
     this.name = args['name'];
     this._date = args['date'];
@@ -36,14 +36,15 @@ export class Encuentro {
     });
   }
 
-  get description() {
+  // TODO: fix this
+  get content() {
     return this.banner
       ? `
     ![${this.altImage}](${this.banner})
 
-    ${this._description}
+    ${this.description}
     `
-      : this._description;
+      : this.description;
   }
 
   get postulations() {
