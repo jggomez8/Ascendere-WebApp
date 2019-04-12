@@ -42,7 +42,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: CafeCientificoAdminComponent
+        component: CafeCientificoAdminComponent,
+        resolve: {
+          encuentros: EncuentrosResolver
+        }
       },
       {
         path: 'create',

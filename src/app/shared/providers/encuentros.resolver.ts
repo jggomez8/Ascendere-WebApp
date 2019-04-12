@@ -3,6 +3,7 @@ import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@a
 import { Encuentro } from 'src/app/interfaces/encuentro';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { HomeComponent } from 'src/app/modules/home/pages/home/home.component';
+import { CafeCientificoAdminComponent } from 'src/app/modules/cafe-cientifico/pages/cafe-cientifico-admin/cafe-cientifico-admin.component';
 
 @Injectable()
 export class EncuentrosResolver implements Resolve<Encuentro[]> {
@@ -42,6 +43,13 @@ export class EncuentrosResolver implements Resolve<Encuentro[]> {
           ref.orderBy('date', 'desc').where('date', '>=', startDate)
         );
     }
+
+    // TODO: add pagination
+    if (component === CafeCientificoAdminComponent)
+      return this._afs
+        .collection('formacion-docente')
+        .doc('cafe-cientifico')
+        .collection('encuentros', ref => ref.orderBy('date', 'desc'));
 
     return this._afs
       .collection('formacion-docente')

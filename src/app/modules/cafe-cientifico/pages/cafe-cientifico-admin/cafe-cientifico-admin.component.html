@@ -1,8 +1,64 @@
+<indev-header>
+  <h2>Modulo Administrador</h2>
+  <h1>Encuentros - Cafe Científico</h1>
+</indev-header>
+
 <section indev-section class="container">
-  <indev-section-title>Encuentros - Cafe Científico</indev-section-title>
-  <indev-section-controls>
-    <a mat-stroked-button [routerLink]="['/cafe-cientifico/admin/create']">
-      Crear Nuevo Encuentro
-    </a>
-  </indev-section-controls>
+  <mat-accordion>
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Nuevo Encuentro</mat-panel-title>
+      </mat-expansion-panel-header>
+      <ng-template matExpansionPanelContent>
+        <markdown>Ir al formulario para crear un Nuevo Encuentro</markdown>
+        <mat-action-row>
+          <a
+            mat-raised-button
+            color="primary"
+            [routerLink]="['/cafe-cientifico/admin/create']"
+            *ngIf="isAdmin"
+          >
+            Nuevo
+          </a>
+        </mat-action-row>
+      </ng-template>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngFor="let encuentro of encuentros">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ encuentro.name }}</mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ng-template matExpansionPanelContent>
+        <markdown [data]="encuentro.description"> </markdown>
+        <!-- actions -->
+        <mat-action-row>
+          <button
+            mat-stroked-button
+            [routerLink]="['inscriptions', encuentro.id]"
+            color="accent"
+            *ngIf="isAdmin"
+          >
+            Inscripciones
+          </button>
+          <button
+            mat-stroked-button
+            [routerLink]="['/cafe-cientifico/admin/create', encuentro.id]"
+            color="primary"
+            *ngIf="isAdmin"
+          >
+            Editar
+          </button>
+          <button
+            mat-raised-button
+            [routerLink]="['/cafe-cientifico/encuentro', encuentro.id]"
+            color="primary"
+            *ngIf="isAdmin"
+          >
+            Ver Encuentro
+          </button>
+        </mat-action-row>
+      </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
 </section>

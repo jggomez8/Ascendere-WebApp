@@ -15,7 +15,8 @@ import {
   MatStepperModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatDialogModule
+  MatDialogModule,
+  MatExpansionModule
 } from '@angular/material';
 
 const MAT_MODULES = [
@@ -32,7 +33,8 @@ const MAT_MODULES = [
   MatStepperModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatDialogModule
+  MatDialogModule,
+  MatExpansionModule
 ];
 
 @NgModule({
@@ -42,7 +44,7 @@ const MAT_MODULES = [
   providers: [
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
-      useValue: { verticalPosition: 'top', duration: 4500 }
+      useValue: { verticalPosition: 'bottom', duration: 4500 }
     }
   ]
 })

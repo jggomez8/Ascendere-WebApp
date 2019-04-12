@@ -14,9 +14,21 @@ mat-form-field {
     height: 8vh;
   }
 }
+mat-accordion mat-expansion-panel {
+  background-color: var(--surface-color) !important;
+
+  mat-action-row {
+    margin-top: 8px;
+    > * {
+      margin-left: 0 !important;
+    }
+    > *:not(:last-child) {
+      margin-right: 10px !important;
+    }
+  }
+}
 
 mat-vertical-stepper {
-  background-color: var(--surface-color);
   border-radius: 8px;
   box-shadow: 2px 2px 10px #0000003e;
 }

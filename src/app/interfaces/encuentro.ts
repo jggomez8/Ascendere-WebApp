@@ -48,10 +48,12 @@ export class Encuentro {
   }
 
   get postulations() {
-    return new Date(this._postulations.seconds * 1000);
+    return !!this._postulations ? new Date(this._postulations.seconds * 1000) : null;
   }
 
   get canInscribe() {
+    if (!this._postulations) return false;
+
     const temp = new Date();
     const todayDate = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate());
     return this.postulations >= todayDate;
