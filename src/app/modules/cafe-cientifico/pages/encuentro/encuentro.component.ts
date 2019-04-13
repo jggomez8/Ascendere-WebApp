@@ -63,7 +63,7 @@ export class EncuentroComponent implements OnInit, OnDestroy {
 
   delete() {
     const popup = this._snackBar.open(
-      `❗Seguro que quieres eliminar el encuentro: ${this.encuentro.name}?`,
+      `❗ Seguro que quieres eliminar el encuentro: ${this.encuentro.name}?`,
       'Confirmar'
     );
     this._popUpSub = popup.onAction().subscribe(async () => {
