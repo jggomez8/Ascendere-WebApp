@@ -18,7 +18,7 @@ const routes: Routes = [
       noticias: NoticiasResolver,
       tips: TipsResolver,
       innovaTips: InnovaTipsResolver,
-      proyectosInnovacion: ProyectosInnovacionResolver
+      proyectos: ProyectosInnovacionResolver
     }
   }
 ];

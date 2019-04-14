@@ -16,8 +16,6 @@ export class EncuentroResolver implements Resolve<Encuentro> {
    */
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
-      if (route.component === CreateEncuentroComponent && !route.params.id) return null;
-
       const cursoDocument: AngularFirestoreDocument<Encuentro> = this._afs
         .collection('formacion-docente')
         .doc('cafe-cientifico')

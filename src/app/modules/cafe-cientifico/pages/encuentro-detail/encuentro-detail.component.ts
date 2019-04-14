@@ -13,8 +13,6 @@ export class EncuentroDetailComponent implements OnInit {
   encuentro: Encuentro;
 
   ngOnInit() {
-    console.log(this._route.snapshot.data);
-
     this.encuentro = this._route.snapshot.data['encuentro'];
   }
 }

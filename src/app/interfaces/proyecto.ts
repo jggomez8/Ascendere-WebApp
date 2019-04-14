@@ -138,6 +138,31 @@ export class Proyecto {
     };
     return types[this.type];
   }
+
+  get markdown() {
+    let area = 'Area: \n';
+
+    if (this.area.tecnica) area += '- Área Técnica \n';
+    if (this.area.biologica) area += '- Área Biológica y Biomédica \n';
+    if (this.area.administrativa) area += '- Área Administrativa \n';
+    if (this.area.sociohumanistica) area += '- Área Sociohumanística \n';
+
+    return `
+    **Tipo Proyecto:** ${this.nombreTipo}
+
+    ${this.coordinator ? `**Coordinador:** ${this.coordinator} ` : ''}
+
+    ${this.modality ? `**Modalidad:** ${this.modality} ` : ''}
+
+    ${
+      this.strategicLine
+        ? `**Línea estratégica que se desarrollará en la propuesta:** ${this.strategicLine} `
+        : ''
+    }
+
+    ${area}
+    `;
+  }
 }
 
 export class Area {
@@ -157,13 +182,13 @@ export class Participant {
   name: string; // nombre
   department: string; // carrera
   subject: string; // carrera
-  mail: string; // carrera
+  email: string; // carrera
 
   constructor(args) {
     this.name = args['name'];
     this.department = args['department'];
     this.subject = args['subject'];
-    this.mail = args['mail'];
+    this.email = args['email'];
   }
 }
 export class Period {

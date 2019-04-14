@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-// declarations
 import { ProyectosInnovacionComponent } from './pages/proyectos-innovacion/proyectos-innovacion.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { ProyectoDetailComponent } from './pages/proyecto/proyecto-detail.component';
-
-// providers
 import { ProyectosInnovacionResolver } from '../../shared/providers/proyectos.resolver';
 import { ProyectoResolver } from './providers/proyecto.resolver';
+import { IsAdminGuard } from 'src/app/shared/providers/guards/is-admin.guard';
+import { CreateProyectoComponent } from './pages/create-proyecto/create-proyecto.component';
+import { ProyectosInnovacionAdminComponent } from './pages/proyectos-innovacion-admin/proyectos-innovacion-admin.component';
 
 const routes: Routes = [
   {
@@ -24,8 +23,7 @@ const routes: Routes = [
     resolve: {
       proyectos: ProyectosInnovacionResolver
     },
-    runGuardsAndResolvers: 'paramsOrQueryParamsChange',
-    
+    runGuardsAndResolvers: 'paramsOrQueryParamsChange'
   },
   {
     path: 'proyecto/:id',
@@ -34,6 +32,30 @@ const routes: Routes = [
       proyecto: ProyectoResolver
     },
     runGuardsAndResolvers: 'paramsChange'
+  },
+  {
+    path: 'admin',
+    canActivate: [IsAdminGuard],
+    children: [
+      {
+        path: '',
+        component: ProyectosInnovacionAdminComponent,
+        resolve: {
+          proyectos: ProyectosInnovacionResolver
+        }
+      },
+      {
+        path: 'create',
+        component: CreateProyectoComponent
+      },
+      {
+        path: 'create/:id',
+        component: CreateProyectoComponent,
+        resolve: {
+          proyecto: ProyectoResolver
+        }
+      }
+    ]
   }
 ];
 

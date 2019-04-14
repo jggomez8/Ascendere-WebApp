@@ -8,17 +8,18 @@ import {
 import { ProyectosInnovacionComponent } from '../../modules/proyectos-innovacion/pages/proyectos-innovacion/proyectos-innovacion.component';
 import { ProyectosComponent } from '../../modules/proyectos-innovacion/pages/proyectos/proyectos.component';
 import { HomeComponent } from '../../modules/home/pages/home/home.component';
-import { ProyectosInnovacion } from 'src/app/interfaces/proyecto';
+import { Proyecto, ProyectosInnovacion } from 'src/app/interfaces/proyecto';
+import { ProyectosInnovacionAdminComponent } from 'src/app/modules/proyectos-innovacion/pages/proyectos-innovacion-admin/proyectos-innovacion-admin.component';
 
 @Injectable()
-export class ProyectosInnovacionResolver implements Resolve<ProyectosInnovacion> {
+export class ProyectosInnovacionResolver implements Resolve<Proyecto[]> {
   constructor(private _afs: AngularFirestore, private router: Router) {}
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
       const proyectosCollection = this.getCollectionQuery(route);
       const proyectosSnap = await proyectosCollection.get().toPromise();
-      return new ProyectosInnovacion(proyectosSnap);
+      return proyectosSnap.docs.map(doc => new Proyecto(Object.assign({ id: doc.id }, doc.data())));
     } catch (error) {
       console.error(error);
       // TODO: add err page
@@ -33,7 +34,7 @@ export class ProyectosInnovacionResolver implements Resolve<ProyectosInnovacion>
    */
   private getCollectionQuery(
     route: ActivatedRouteSnapshot
-  ): AngularFirestoreCollection<ProyectosInnovacion> {
+  ): AngularFirestoreCollection<Proyecto[]> {
     const component = route.component;
     const proyectosDocument: AngularFirestoreDocument = this._afs
       .collection('innovacion-docente')
@@ -47,6 +48,9 @@ export class ProyectosInnovacionResolver implements Resolve<ProyectosInnovacion>
 
       return proyectosDocument.collection('proyectos', ref => ref.limit(projects2BeFetched));
     }
+
+    if (component === ProyectosInnovacionAdminComponent)
+      return proyectosDocument.collection('proyectos', ref => ref.orderBy('name'));
 
     // validate route data
     const proyectoType = route.queryParams['type'];

@@ -6,9 +6,11 @@ import { ProyectosInnovacionComponent } from './pages/proyectos-innovacion/proye
 import { ProyectoDetailComponent } from './pages/proyecto/proyecto-detail.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { ProyectoResolver } from './providers/proyecto.resolver';
+import { CreateProyectoComponent } from './pages/create-proyecto/create-proyecto.component';
+import { ProyectosInnovacionAdminComponent } from './pages/proyectos-innovacion-admin/proyectos-innovacion-admin.component';
 
 @NgModule({
-  declarations: [ProyectosInnovacionComponent, ProyectosComponent, ProyectoDetailComponent],
+  declarations: [ProyectosInnovacionComponent, ProyectosComponent, ProyectoDetailComponent, CreateProyectoComponent, ProyectosInnovacionAdminComponent],
   imports: [CommonModule, ProyectosInnovacionRoutingModule, SharedModule],
   providers: [ProyectoResolver]
 })

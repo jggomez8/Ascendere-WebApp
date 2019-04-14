@@ -8,8 +8,7 @@ import { EncuentrosService } from '../../providers/encuentros.service';
 
 @Component({
   selector: 'indev-create-encuentro',
-  templateUrl: './create-encuentro.component.html',
-  styleUrls: ['./create-encuentro.component.scss']
+  templateUrl: './create-encuentro.component.html'
 })
 export class CreateEncuentroComponent implements OnInit {
   constructor(
@@ -24,7 +23,7 @@ export class CreateEncuentroComponent implements OnInit {
   encuentro: Encuentro;
 
   ngOnInit() {
-    this.encuentro = this._route.snapshot.data['encuentro'] as Encuentro;
+    this.encuentro = (this._route.snapshot.data['encuentro'] as Encuentro) || null;
 
     this._buildForm();
 

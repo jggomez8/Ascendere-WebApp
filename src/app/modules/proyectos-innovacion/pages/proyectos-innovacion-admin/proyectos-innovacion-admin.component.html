@@ -1,0 +1,56 @@
+<indev-header>
+  <h2>Funciones Administrador</h2>
+  <h1>Proyectos Innovación</h1>
+</indev-header>
+
+<section indev-section class="container">
+  <mat-accordion>
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Nuevo Proyecto</mat-panel-title>
+      </mat-expansion-panel-header>
+      <ng-template matExpansionPanelContent>
+        <markdown>Ir al formulario para crear un Nuevo Proyecto de Innovación</markdown>
+        <mat-action-row>
+          <a
+            mat-raised-button
+            color="primary"
+            [routerLink]="['/proyectos-innovacion/admin/create']"
+            *ngIf="isAdmin"
+          >
+            Crear Nuevo
+          </a>
+        </mat-action-row>
+      </ng-template>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngFor="let proyecto of proyectos">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ proyecto.name }}</mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ng-template matExpansionPanelContent>
+        <markdown [data]="proyecto.markdown"> </markdown>
+        <!-- actions -->
+        <mat-action-row>
+          <button
+            mat-stroked-button
+            [routerLink]="['/proyectos-innovacion/admin/create', proyecto.id]"
+            color="primary"
+            *ngIf="isAdmin"
+          >
+            Editar
+          </button>
+          <button
+            mat-raised-button
+            [routerLink]="['/proyectos-innovacion/proyecto', proyecto.id]"
+            color="primary"
+            *ngIf="isAdmin"
+          >
+            Ver Proyecto
+          </button>
+        </mat-action-row>
+      </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

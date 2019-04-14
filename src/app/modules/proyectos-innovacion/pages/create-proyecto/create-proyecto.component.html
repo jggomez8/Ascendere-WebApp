@@ -1,0 +1,265 @@
+<indev-header>
+  <h2>Proyectos Innovación</h2>
+  <h1 *ngIf="!!proyecto; else newProyecto">{{ proyecto.name }}</h1>
+  <ng-template #newProyecto>Nuevo Proyecto</ng-template>
+</indev-header>
+
+<section indev-section class="container">
+  <form [formGroup]="proyectoFormGroup" (ngSubmit)="submit()">
+    <mat-vertical-stepper [linear]="!proyecto" #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Informacion de la Propuesta</ng-template>
+
+        <!--  -->
+        <!-- name -->
+        <!--  -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" formControlName="name" required />
+          <mat-error>El nombre es requerido</mat-error>
+        </mat-form-field>
+
+        <div class="row" style="--vertical: 0">
+          <!--  -->
+          <!-- coordinator -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre Coordinador</mat-label>
+            <input matInput type="text" formControlName="coordinator" required />
+            <mat-error>El nombre del coordinador es requerido</mat-error>
+          </mat-form-field>
+
+          <!--  -->
+          <!-- modality -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Modalidad</mat-label>
+            <input matInput type="text" formControlName="modality" />
+          </mat-form-field>
+
+          <!--  -->
+          <!-- subject -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Asignatura</mat-label>
+            <input matInput type="text" formControlName="subject" />
+          </mat-form-field>
+
+          <!--  -->
+          <!-- strategicLine -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Línea estratégica</mat-label>
+            <input matInput type="text" formControlName="strategicLine" />
+            <mat-hint>Línea estratégica que se desarrollará en la propuesta</mat-hint>
+          </mat-form-field>
+
+          <!--  -->
+          <!-- type -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Tipo de Proyecto</mat-label>
+            <mat-select [formControl]="type">
+              <mat-option>--</mat-option>
+              <mat-option value="proyecto-actual">Proyecto Actual</mat-option>
+              <mat-option value="buena-practica">Buena Practica</mat-option>
+            </mat-select>
+            <mat-error>Seleccione un tipo valido</mat-error>
+          </mat-form-field>
+        </div>
+
+        <step-controls>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <!--  -->
+        <!-- area -->
+        <!--  -->
+
+        <ng-template matStepLabel>Área</ng-template>
+        <form formGroupName="area">
+          <mat-checkbox color="primary" formControlName="tecnica">
+            Área Técnica
+          </mat-checkbox>
+          <mat-checkbox color="primary" formControlName="biologica">
+            Área Biológica y Biomédica
+          </mat-checkbox>
+          <mat-checkbox color="primary" formControlName="administrativa">
+            Área Administrativa
+          </mat-checkbox>
+          <mat-checkbox color="primary" formControlName="sociohumanistica">
+            Área SocioHumanística
+          </mat-checkbox>
+        </form>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Imágenes, Infografia y Video</ng-template>
+        <div class="row" style="--vertical: 0">
+          <!--  -->
+          <!-- imagen -->
+          <!--  -->
+          <id-upload-file
+            [path]="getUploadPath"
+            type="img"
+            label="Url imagen"
+            [formControlChild]="img"
+          ></id-upload-file>
+
+          <!--  -->
+          <!-- infografic -->
+          <!--  -->
+
+          <id-upload-file
+            [path]="getUploadPath"
+            type="infografic"
+            label="Url Infografia"
+            [formControlChild]="infografic"
+          ></id-upload-file>
+
+          <!--  -->
+          <!-- videoID -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Id del video</mat-label>
+            <input matInput type="text" formControlName="videoID" />
+          </mat-form-field>
+        </div>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <!--  -->
+        <!-- period -->
+        <!--  -->
+        <ng-template matStepLabel>Período académico de ejecución</ng-template>
+        <div formArrayName="periods" class="row" style="--vertical: 0">
+          <div *ngFor="let period of periods.controls; let i = index" [formGroupName]="i">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre del Periodo</mat-label>
+              <input matInput type="text" formControlName="name" required />
+              <mat-error>El periodo es requerido</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <step-controls>
+          <button mat-button color="warn" (click)="removePeriod()" type="button">
+            Eliminar ultimo Periodo
+          </button>
+          <button mat-button color="primary" (click)="addPeriod()" type="button">
+            Añadir Periodo
+          </button>
+        </step-controls>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <!--  -->
+        <!-- participants -->
+        <!--  -->
+        <ng-template matStepLabel>Datos de los docentes que participan en la propuesta</ng-template>
+        <div formArrayName="participants">
+          <div
+            *ngFor="let participant of participants.controls; let i = index"
+            [formGroupName]="i"
+            class="row"
+            style="--vertical: 0"
+          >
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre del Docente</mat-label>
+              <input matInput type="text" formControlName="name" required />
+              <mat-error>El nombre es requerido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Departamento del Docente</mat-label>
+              <input matInput type="text" formControlName="department" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Asignatura del Docente</mat-label>
+              <input matInput type="text" formControlName="subject" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Correo Electrónico del Docente</mat-label>
+              <input matInput type="email" formControlName="email" />
+            </mat-form-field>
+          </div>
+        </div>
+        <step-controls>
+          <button mat-button color="warn" (click)="removeParticipant()" type="button">
+            Eliminar ultimo Docente
+          </button>
+          <button mat-button color="primary" (click)="addParticipant()" type="button">
+            Añadir Docente
+          </button>
+        </step-controls>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <!--  -->
+        <!-- Documents -->
+        <!--  -->
+        <ng-template matStepLabel>Archivos para Descargar</ng-template>
+        <div formArrayName="documents">
+          <div *ngFor="let document of documents.controls; let i = index" [formGroupName]="i">
+            <id-upload-file
+              label="Contenido descargable"
+              [path]="getUploadPath"
+              errorMessage="El archivo es requerido"
+              [formControlChild]="documentUrl(i)"
+              required
+            ></id-upload-file>
+          </div>
+        </div>
+        <step-controls>
+          <button type="button" mat-button color="warn" (click)="removeDocument()">
+            Eliminar ultimo Documento
+          </button>
+          <button type="button" mat-button color="primary" (click)="addDocument()">
+            Añadir Documento
+          </button>
+        </step-controls>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Finalizar</ng-template>
+        <p>
+          Presiona guardar para continuar, y regresar a la pagina anterior
+        </p>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button type="submit" color="primary">Finalizar</button>
+        </step-controls>
+      </mat-step>
+    </mat-vertical-stepper>
+  </form>
+</section>

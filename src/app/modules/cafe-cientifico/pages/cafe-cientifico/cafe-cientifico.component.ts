@@ -8,7 +8,7 @@ import { UserRoleService } from 'src/app/shared/providers/services/user-role.ser
   templateUrl: './cafe-cientifico.component.html'
 })
 export class CafeCientificoComponent implements OnInit {
-  constructor(private _route: ActivatedRoute, private _userRole: UserRoleService) {}
+  constructor(private _route: ActivatedRoute, public userRole: UserRoleService) {}
 
   encuentros: Encuentro[];
   isAdmin: boolean;
@@ -20,7 +20,7 @@ export class CafeCientificoComponent implements OnInit {
   ngOnInit(): void {
     this.encuentros = this._route.snapshot.data['encuentros'] as Encuentro[];
 
-    this._userRole.isAdmin.subscribe(val => {
+    this.userRole.isAdmin.subscribe(val => {
       this.isAdmin = val;
     });
   }

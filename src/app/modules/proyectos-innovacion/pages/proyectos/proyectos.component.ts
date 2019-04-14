@@ -24,7 +24,7 @@ export class ProyectosComponent implements OnInit, OnDestroy {
   /**
    * Store all projects fo be displayed in the page
    */
-  proyectos: ProyectosInnovacion;
+  proyectos: Proyecto[];
 
   pageTitle: string;
 
@@ -37,7 +37,7 @@ export class ProyectosComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._projectsSub = this._route.data.subscribe(
       data => {
-        this.proyectos = data['proyectos'] as ProyectosInnovacion;
+        this.proyectos = data['proyectos'] as Proyecto[];
       },
       err => console.error('TODO: do something')
     );

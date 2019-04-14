@@ -15,8 +15,6 @@ export class CafeCientificoAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.encuentros = this._route.snapshot.data['encuentros'] as Encuentro[];
-    this._userRole.isAdmin.subscribe(val => {
-      this.isAdmin = val;
-    });
+    this._userRole.isAdmin.subscribe(val => (this.isAdmin = val));
   }
 }

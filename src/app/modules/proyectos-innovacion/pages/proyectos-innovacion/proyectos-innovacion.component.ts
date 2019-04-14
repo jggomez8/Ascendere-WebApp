@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserRoleService } from 'src/app/shared/providers/services/user-role.service';
 
 @Component({
   selector: 'indev-proyectos-innovacion',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./proyectos-innovacion.component.scss']
 })
 export class ProyectosInnovacionComponent implements OnInit {
+  constructor(public userRole: UserRoleService) {}
 
-  constructor() { }
+  isAdmin: boolean;
 
   ngOnInit() {
+    this.userRole.isAdmin.subscribe(val => {
+      this.isAdmin = val;
+    });
   }
-
 }

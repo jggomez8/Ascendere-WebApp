@@ -1,13 +1,13 @@
+<section indev-section class="container" *ngIf="isAdmin">
+  <indev-section-title>Funciones de Administrador</indev-section-title>
+  <indev-section-controls>
+    <a mat-button [routerLink]="['/proyectos-innovacion/admin']">Ver Más</a>
+  </indev-section-controls>
+</section>
+
 <indev-header>
-  <h1 class="TextTheme--display2">
-    Proyectos de
-    <br />
-    <span class="TextTheme--display3">Innovación Docente</span>
-    <br />
-    <span class="TextTheme--title">
-      Docentes <span class="TextTheme--ascendere">ASCENDERS</span>
-    </span>
-  </h1>
+  <h2>Docentes <span class="TextTheme--ascendere">Ascendere</span></h2>
+  <h1>Proyectos de Innovación Docente</h1>
   <img src="/assets/images/ProyectosInnovacion.svg" alt="ProyectosInnovacion Icon" />
   <markdown src="/assets/markdown/proyectos-innovacion/proyectos-innovacion.md"> </markdown>
 </indev-header>

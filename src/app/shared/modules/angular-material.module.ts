@@ -17,10 +17,10 @@ import {
   MatNativeDateModule,
   MatDialogModule,
   MatExpansionModule,
-  MatBottomSheetModule,
   MatDividerModule,
   MatListModule,
-  MatMenuModule
+  MatMenuModule,
+  MatCheckboxModule
 } from '@angular/material';
 
 const MAT_MODULES = [
@@ -41,7 +41,8 @@ const MAT_MODULES = [
   MatExpansionModule,
   MatDividerModule,
   MatListModule,
-  MatMenuModule
+  MatMenuModule,
+  MatCheckboxModule
 ];
 
 @NgModule({

@@ -49,11 +49,7 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: CreateEncuentroComponent,
-        runGuardsAndResolvers: 'pathParamsOrQueryParamsChange',
-        resolve: {
-          encuentro: EncuentroResolver
-        }
+        component: CreateEncuentroComponent
       },
       {
         path: 'create/:id',
