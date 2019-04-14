@@ -1,11 +1,13 @@
 <div class="nav">
   <div class="container">
     <div class="leading">
-      <button mat-icon-button class="leading">
-        <mat-icon class="back" aria-label="Navigate one page back" (click)="navigateBack()">
+      <button class="back" mat-icon-button (click)="location.back()">
+        <mat-icon aria-label="Navigate one page back">
           arrow_backward
         </mat-icon>
-        <mat-icon class="menu" aria-label="Navigate one page back" (click)="navigateBack()">
+      </button>
+      <button class="menu" mat-icon-button (click)="drawerState.changeState()">
+        <mat-icon aria-label="Toggle Drawer state between open and close">
           menu
         </mat-icon>
       </button>
@@ -27,7 +29,32 @@
         ></indev-menu-button>
 
         <ng-template #templateName>
-          <indev-menu-summary [menuSummaryData]="headerMenuItem"></indev-menu-summary>
+          <!-- Summary container, need to position summary container -->
+          <div class="summary">
+            <button mat-button class="menu-item">
+              <h3>{{ headerMenuItem.name }} 🔻</h3>
+            </button>
+
+            <ul class="summary-content">
+              <li
+                *ngFor="let section of headerMenuItem.children"
+                class="summary-section"
+                [ngClass]="{ 'remove-section-decorator': !section.children }"
+              >
+                <indev-menu-button
+                  [menuItemData]="section"
+                  color="primary"
+                  *ngIf="section.name"
+                ></indev-menu-button>
+
+                <ul *ngIf="section.children">
+                  <li *ngFor="let sectionSummary of section.children">
+                    <indev-menu-button [menuItemData]="sectionSummary"></indev-menu-button>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </ng-template>
       </div>
     </div>
@@ -49,17 +76,17 @@
         </mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <a *ngIf="!user" mat-menu-item [routerLink]="['/login/signIn']">
-          Iniciar Sesión
+        <a *ngIf="!(afAuth.authState | async)" mat-menu-item [routerLink]="['/login/signIn']">
+          🙂 Iniciar Sesión
         </a>
-        <a *ngIf="!user" mat-menu-item [routerLink]="['/login/signUp']">
-          Registrarse
+        <a *ngIf="!(afAuth.authState | async)" mat-menu-item [routerLink]="['/login/signUp']">
+          ➕ Registrarse
         </a>
-        <a *ngIf="user" mat-menu-item (click)="signOut()">
-          Cerrar Sección
+        <a *ngIf="(afAuth.authState | async)" mat-menu-item (click)="afAuth.auth.signOut()">
+          ❌ Cerrar Sección
         </a>
         <a mat-menu-item href="mailto:bruno.be81@gmail.com">
-          Informar de un error
+          📝 Informar de un error
         </a>
       </mat-menu>
     </div>

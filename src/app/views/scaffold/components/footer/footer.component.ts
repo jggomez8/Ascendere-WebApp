@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  // TODO: remove elements if admin modules
   constructor(private _snackBar: MatSnackBar) {}
 
   spotEasterEgg($event: Event) {
