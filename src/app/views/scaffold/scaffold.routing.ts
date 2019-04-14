@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShellViewComponent } from './shell-view.component';
+import { ScaffoldComponent as ScafoldComponent } from './scaffold.component';
 import { AuthenticatedGuard } from 'src/app/shared/providers/authenticated.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: ShellViewComponent,
+    component: ScafoldComponent,
     children: [
       {
         path: '',
@@ -15,8 +15,7 @@ const routes: Routes = [
       {
         path: 'proyectos-innovacion',
         loadChildren:
-          '../../modules/proyectos-innovacion/proyectos-innovacion.module#ProyectosInnovacionModule',
-        canLoad: [AuthenticatedGuard]
+          '../../modules/proyectos-innovacion/proyectos-innovacion.module#ProyectosInnovacionModule'
       },
       {
         path: 'jornadas',
@@ -74,4 +73,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ShellViewRoutingModule {}
+export class ScaffoldRoutingModule {}

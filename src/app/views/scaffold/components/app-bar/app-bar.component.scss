@@ -1,0 +1,44 @@
+.nav {
+  background-color: var(--background-color);
+  color: var(--on-background);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.404);
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .leading {
+      margin-left: -7px;
+      @media screen and(min-width: 1024px) {
+        // on laptop
+        margin-left: -30px;
+      }
+
+      .back {
+        display: none;
+        @media screen and(min-width: 1024px) {
+          display: inherit;
+        }
+      }
+      .menu {
+        display: inherit;
+        @media screen and(min-width: 1024px) {
+          display: none;
+        }
+      }
+    }
+
+    .navigation {
+      display: none;
+      @media screen and(min-width: 1024px) {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+}

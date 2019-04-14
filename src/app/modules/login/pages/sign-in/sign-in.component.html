@@ -30,7 +30,7 @@
 
       <!-- Sign in button or spinner -->
       <button mat-raised-button color="primary" (click)="signIn()" [disabled]="isLoading">
-        {{ isLoading ? 'Cargando' : 'Ingresar' }}
+        {{ isLoading ? 'Cargando...' : 'Ingresar' }}
       </button>
     </form>
     <button mat-stroked-button [routerLink]="['new']" color="primary">

@@ -16,7 +16,11 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatDialogModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatBottomSheetModule,
+  MatDividerModule,
+  MatListModule,
+  MatMenuModule
 } from '@angular/material';
 
 const MAT_MODULES = [
@@ -34,7 +38,10 @@ const MAT_MODULES = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatDialogModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatDividerModule,
+  MatListModule,
+  MatMenuModule
 ];
 
 @NgModule({

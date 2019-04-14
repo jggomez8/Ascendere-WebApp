@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: './views/shell-view/shell-view.module#ShellViewModule'
+        loadChildren: './views/scaffold/scaffold.module#ScaffoldModule'
       },
       {
         path: 'ascendere',

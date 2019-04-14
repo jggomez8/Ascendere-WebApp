@@ -1,0 +1,36 @@
+<div class="background"></div>
+<aside>
+  <div class="links" *ngFor="let headerMenuItem of headerMenu">
+    <indev-menu-button
+      *ngIf="!headerMenuItem.children; else dropdownButton"
+      [menuItemData]="headerMenuItem"
+      color="primary"
+    ></indev-menu-button>
+
+    <ng-template #dropdownButton>
+      <button mat-button class="menu-item" disabled>
+        <h3>{{ headerMenuItem.name }} 🔻</h3>
+      </button>
+
+      <ul class="summary-content">
+        <li
+          *ngFor="let section of headerMenuItem.children"
+          class="summary-section"
+          [ngClass]="{ 'remove-section-decorator': !section.children }"
+        >
+          <indev-menu-button
+            [menuItemData]="section"
+            color="primary"
+            *ngIf="section.name"
+          ></indev-menu-button>
+
+          <ul *ngIf="section.children">
+            <li *ngFor="let sectionSummary of section.children">
+              <indev-menu-button [menuItemData]="sectionSummary"></indev-menu-button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+</aside>

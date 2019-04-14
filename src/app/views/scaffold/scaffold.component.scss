@@ -1,0 +1,38 @@
+.scaffold {
+  position: absolute;
+  top: 56px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  indev-drawer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  indev-app-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+
+  .body {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+
+    display: block;
+
+    flex: 1;
+  }
+}

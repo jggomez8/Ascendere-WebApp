@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShellViewComponent } from './shell-view.component';
+import { DrawerComponent } from './drawer.component';
 
-describe('ShellViewComponent', () => {
-  let component: ShellViewComponent;
-  let fixture: ComponentFixture<ShellViewComponent>;
+describe('DrawerComponent', () => {
+  let component: DrawerComponent;
+  let fixture: ComponentFixture<DrawerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShellViewComponent ]
+      declarations: [ DrawerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShellViewComponent);
+    fixture = TestBed.createComponent(DrawerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

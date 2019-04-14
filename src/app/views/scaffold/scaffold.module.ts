@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShellViewComponent } from './shell-view.component';
-import { ShellViewRoutingModule } from './shell-view.routing';
+import { ScaffoldComponent } from './scaffold.component';
+import { ScaffoldRoutingModule } from './scaffold.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { MenuSummaryComponent } from './components/menu-summary/menu-summary.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AppBarComponent } from './components/app-bar/app-bar.component';
+import { DrawerComponent } from './components/drawer/drawer.component';
 
 @NgModule({
   declarations: [
-    ShellViewComponent,
-    NavbarComponent,
+    ScaffoldComponent,
     MenuButtonComponent,
     MenuSummaryComponent,
     FooterComponent,
+    AppBarComponent,
+    DrawerComponent
   ],
-  imports: [CommonModule, ShellViewRoutingModule, SharedModule]
+  imports: [CommonModule, ScaffoldRoutingModule, SharedModule]
 })
-export class ShellViewModule {}
+export class ScaffoldModule {}

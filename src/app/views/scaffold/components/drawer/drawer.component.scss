@@ -1,0 +1,53 @@
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.315);
+  z-index: 4;
+
+  @media screen and(min-width: 1024px) {
+    display: none;
+  }
+}
+aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min-content;
+  overflow: hidden scroll;
+
+  background-color: var(--background-color);
+  z-index: 5;
+
+  padding: 20px;
+
+  @media screen and(min-width: 1024px) {
+    display: none;
+  }
+  .links {
+    > ul {
+      margin-left: 20px;
+      > li:not(:last-child) {
+        padding-bottom: 10px;
+        border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+      }
+      > li:not(:first-child) {
+        padding-top: 10px;
+      }
+    }
+
+    indev-menu-button,
+    button[mat-button] {
+      margin-left: -16px;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 6px;
+      margin-bottom: 6px;
+    }
+  }
+}

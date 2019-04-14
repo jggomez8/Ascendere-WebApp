@@ -1,0 +1,67 @@
+<div class="nav">
+  <div class="container">
+    <div class="leading">
+      <button mat-icon-button class="leading">
+        <mat-icon class="back" aria-label="Navigate one page back" (click)="navigateBack()">
+          arrow_backward
+        </mat-icon>
+        <mat-icon class="menu" aria-label="Navigate one page back" (click)="navigateBack()">
+          menu
+        </mat-icon>
+      </button>
+
+      <a mat-button [routerLink]="['/']">
+        <span class="TextTheme--subtitle TextTheme--ascendere">
+          Ascendere
+        </span>
+      </a>
+    </div>
+
+    <div class="navigation">
+      <!-- Each item from main navbar is clickable. -->
+      <div *ngFor="let headerMenuItem of headerMenu">
+        <!-- Two Cases, simple link or dropdown, it depends wether it has children or not -->
+        <indev-menu-button
+          [menuItemData]="headerMenuItem"
+          *ngIf="!headerMenuItem.children; else templateName"
+        ></indev-menu-button>
+
+        <ng-template #templateName>
+          <indev-menu-summary [menuSummaryData]="headerMenuItem"></indev-menu-summary>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Elements to be displayed at the right side of the application navbar -->
+    <div class="action">
+      <button mat-icon-button>
+        <mat-icon aria-label="Open bottom sheet options" (click)="sharePage()">
+          share
+        </mat-icon>
+      </button>
+
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <button mat-icon-button>
+        <mat-icon aria-label="Open bottom sheet options" [matMenuTriggerFor]="menu">
+          more_vert
+        </mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <a *ngIf="!user" mat-menu-item [routerLink]="['/login/signIn']">
+          Iniciar Sesión
+        </a>
+        <a *ngIf="!user" mat-menu-item [routerLink]="['/login/signUp']">
+          Registrarse
+        </a>
+        <a *ngIf="user" mat-menu-item (click)="signOut()">
+          Cerrar Sección
+        </a>
+        <a mat-menu-item href="mailto:bruno.be81@gmail.com">
+          Informar de un error
+        </a>
+      </mat-menu>
+    </div>
+  </div>
+</div>

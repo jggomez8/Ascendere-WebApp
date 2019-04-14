@@ -1,19 +1,16 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarItem } from '../../interfaces/navbar-item.interface';
-import { Router, NavigationStart, Event } from '@angular/router';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
-  selector: 'indev-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'indev-drawer',
+  templateUrl: './drawer.component.html',
+  styleUrls: ['./drawer.component.scss']
 })
-export class NavbarComponent implements OnInit {
-  constructor(private _router: Router, private _afAuth: AngularFireAuth) {}
+export class DrawerComponent implements OnInit {
+  constructor() {}
 
-  @ViewChild('mainNavbar') mainNavbarElement: ElementRef;
-  public user: firebase.User;
+  ngOnInit() {}
+
   headerMenu: Array<NavbarItem> = [
     {
       name: 'Servicios',
@@ -171,52 +168,4 @@ export class NavbarComponent implements OnInit {
       ]
     }
   ];
-
-  ngOnInit() {
-    // Listen to changes if the user navigates to a different page, in
-    // which case navbar needs to be closed if user is in responsive mode
-    this._router.events.subscribe(this._closeNavbarOnNavigation());
-
-    // Subscribe to current user state, instead of awaiting for first result since
-    // user can log out and state will never be updated
-    this._afAuth.authState.subscribe(user => {
-      this.user = user;
-    });
-  }
-
-  /**
-   * Method to close navigation menu if the user is in mobile mode and also
-   * the sidebar is opened.
-   */
-  private _closeNavbarOnNavigation() {
-    return (event: Event) => {
-      if (event instanceof NavigationStart) {
-        const el = this.mainNavbarElement.nativeElement as HTMLElement;
-        if (el.classList.contains('active-navbar')) {
-          el.classList.remove('active-navbar');
-        }
-      }
-    };
-  }
-
-  /**
-   * toggle navbar open or close by adding or removing class `active-navbar`
-   * to navbar element
-   */
-  toggleNavbar() {
-    const el = this.mainNavbarElement.nativeElement as HTMLElement;
-    if (el.classList.contains('active-navbar')) {
-      el.classList.remove('active-navbar');
-      return;
-    }
-    el.classList.add('active-navbar');
-  }
-
-  /**
-   * Call `Sign out` method om afAuth service for a correct logOut, and clean user data.
-   * Also update this component user
-   */
-  signOut() {
-    this._afAuth.auth.signOut();
-  }
 }

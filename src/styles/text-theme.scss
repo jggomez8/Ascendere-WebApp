@@ -4,7 +4,6 @@
 body {
   font-family: Roboto, sans-serif !important;
   font-size: 1rem;
-  font-display: swap;
   line-height: 1.6;
   text-rendering: optimizelegibility;
 }
@@ -128,8 +127,8 @@ mat-error {
 
 /* button, button */
 .TextTheme--button,
-button[class*='mat-'],
-a[class*='mat-'] {
+button[class*='mat-']:not([class*='mat-icon']),
+a[class*='mat-']:not([class*='mat-icon']) {
   font-weight: 500 !important;
   font-size: 0.75rem !important;
   letter-spacing: 0.078125rem !important;
