@@ -1,0 +1,56 @@
+<indev-header>
+  <h2>Funciones Administrador</h2>
+  <h1>Programa de Formación</h1>
+</indev-header>
+
+<section indev-section class="container">
+  <mat-accordion>
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Nuevo Curso</mat-panel-title>
+      </mat-expansion-panel-header>
+      <ng-template matExpansionPanelContent>
+        <markdown>Ir al formulario para crear un Nuevo Curso</markdown>
+        <mat-action-row>
+          <a
+            mat-raised-button
+            color="primary"
+            [routerLink]="['/programa-formacion/admin/create']"
+            *ngIf="isAdmin"
+          >
+            Crear Nuevo Curso
+          </a>
+        </mat-action-row>
+      </ng-template>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngFor="let curso of cursos">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ curso.name }}</mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ng-template matExpansionPanelContent>
+        <markdown [data]="curso.description"> </markdown>
+        <!-- actions -->
+        <mat-action-row>
+          <button
+            mat-stroked-button
+            [routerLink]="['/programa-formacion/admin/create', curso.id]"
+            color="primary"
+            *ngIf="isAdmin"
+          >
+            Editar
+          </button>
+          <button
+            mat-raised-button
+            [routerLink]="['/programa-formacion/curso', curso.id]"
+            color="primary"
+            *ngIf="isAdmin"
+          >
+            Ver Curso
+          </button>
+        </mat-action-row>
+      </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

@@ -54,7 +54,7 @@ const routes: Routes = [
       {
         path: 'create/:id',
         component: CreateEncuentroComponent,
-        runGuardsAndResolvers: 'pathParamsOrQueryParamsChange',
+        runGuardsAndResolvers: 'paramsChange',
         resolve: {
           encuentro: EncuentroResolver
         }

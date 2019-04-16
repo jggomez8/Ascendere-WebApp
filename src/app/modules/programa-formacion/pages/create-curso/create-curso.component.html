@@ -1,0 +1,291 @@
+<indev-header>
+  <h2>Cursos - Programa Formación</h2>
+  <h1 *ngIf="!!curso; else newCurso">{{ curso.name }}</h1>
+  <ng-template #newCurso>Nuevo Curso</ng-template>
+</indev-header>
+<section indev-section class="container">
+  <form [formGroup]="cursoFormGroup" (ngSubmit)="submit()">
+    <mat-vertical-stepper [linear]="!curso" #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Información del Curso</ng-template>
+
+        <div class="row" style="--vertical: 0">
+          <!--  -->
+          <!-- name -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" formControlName="name" required />
+            <mat-error>El nombre es requerido</mat-error>
+          </mat-form-field>
+
+          <!--  -->
+          <!-- img -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Tipo de curso</mat-label>
+            <mat-select [formControl]="img">
+              <mat-option>--</mat-option>
+              <mat-option *ngFor="let type of types" [value]="type.url">
+                {{ type.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error>Seleccione un tipo valido</mat-error>
+          </mat-form-field>
+
+          <!--  -->
+          <!-- date -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha del Curso</mat-label>
+            <input matInput [matDatepicker]="fecha" formControlName="date" required />
+            <mat-datepicker-toggle matSuffix [for]="fecha"></mat-datepicker-toggle>
+            <mat-datepicker #fecha></mat-datepicker>
+            <mat-error>La fecha es requerida</mat-error>
+          </mat-form-field>
+
+          <!--  -->
+          <!-- endDate -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha del Curso</mat-label>
+            <input matInput [matDatepicker]="endDate" formControlName="endDate" />
+            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate></mat-datepicker>
+            <mat-hint>Este campo es Opcional</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <!--  -->
+        <!-- description -->
+        <!--  -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <textarea
+            matInput
+            type="text"
+            class="big-text-area"
+            formControlName="description"
+          ></textarea>
+        </mat-form-field>
+
+        <step-controls>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Postulaciones</ng-template>
+
+        <form formGroupName="postulation">
+          <div class="row" style="--vertical: 0">
+            <!--  -->
+            <!-- date -->
+            <!--  -->
+
+            <mat-form-field appearance="outline">
+              <mat-label>Fecha del Curso</mat-label>
+              <input matInput [matDatepicker]="postulationDate" formControlName="date" />
+              <mat-datepicker-toggle matSuffix [for]="postulationDate"></mat-datepicker-toggle>
+              <mat-datepicker #postulationDate></mat-datepicker>
+            </mat-form-field>
+
+            <!--  -->
+            <!-- link -->
+            <!--  -->
+
+            <mat-form-field appearance="outline">
+              <mat-label>Link para postular</mat-label>
+              <input matInput type="text" formControlName="link" />
+            </mat-form-field>
+          </div>
+
+          <!--  -->
+          <!-- message -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Mensaje</mat-label>
+            <textarea
+              matInput
+              type="text"
+              formControlName="message"
+              class="medium-text-area"
+            ></textarea>
+          </mat-form-field>
+        </form>
+
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Instructores</ng-template>
+
+        <!--  -->
+        <!-- instructors -->
+        <!--  -->
+        <div formArrayName="instructors">
+          <div
+            *ngFor="let instructor of instructors.controls; let i = index"
+            [formGroupName]="i"
+            formGroupName="postulation"
+            class="row"
+            style="--vertical: 0"
+          >
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre del Instructor</mat-label>
+              <input matInput type="text" formControlName="name" required />
+              <mat-error>El nombre es requerido</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Acerca de</mat-label>
+              <input matInput type="text" formControlName="about" />
+            </mat-form-field>
+          </div>
+        </div>
+        <step-controls>
+          <button mat-button color="warn" type="button" (click)="removeInstructor()">
+            Eliminar ultimo instructor
+          </button>
+          <button mat-button color="primary" type="button" (click)="addInstructor()">
+            Añadir instructor
+          </button>
+        </step-controls>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Duración del Curso</ng-template>
+        <!--  -->
+        <!-- duration -->
+        <!--  -->
+        <form formGroupName="duration" class="row" style="--vertical: 0">
+          <mat-form-field appearance="outline">
+            <mat-label>Número de Horas</mat-label>
+            <input matInput type="number" formControlName="hours" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Número de Días</mat-label>
+            <input matInput type="number" formControlName="days" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Número de Semanas</mat-label>
+            <input matInput type="number" formControlName="weeks" />
+          </mat-form-field>
+        </form>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Información adicional del Curso</ng-template>
+
+        <div class="row" style="--vertical: 0">
+          <!--  -->
+          <!-- Place -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Lugar del Curso</mat-label>
+            <input matInput type="text" formControlName="place" />
+            <mat-hint>Ejemplo: "Laboratorio LiiD, Aula 723"</mat-hint>
+          </mat-form-field>
+
+          <!--  -->
+          <!-- schedule -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Horario</mat-label>
+            <input matInput type="text" formControlName="schedule" />
+            <mat-hint>Ejemplo: "Online" o "15:30 a 19:00"</mat-hint>
+          </mat-form-field>
+
+          <!--  -->
+          <!-- module -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Módulo del Curso</mat-label>
+            <input matInput type="text" formControlName="module" />
+          </mat-form-field>
+
+          <!--  -->
+          <!-- addressedTo -->
+          <!--  -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Dirigido a</mat-label>
+            <input matInput type="text" formControlName="addressedTo" />
+          </mat-form-field>
+        </div>
+
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Contenido del Curso</ng-template>
+
+        <!--  -->
+        <!-- downloadableContent -->
+        <!--  -->
+
+        <div formArrayName="downloadableContent">
+          <div
+            *ngFor="let downloadable of downloadableContent.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <id-upload-file
+              label="Contenido descargable"
+              [path]="uploadPath"
+              errorMessage="El archivo es requerido"
+              [formControlChild]="downloadableContentUrl(i)"
+              required
+            ></id-upload-file>
+          </div>
+        </div>
+        <step-controls>
+          <button mat-button color="warn" type="button" (click)="removeDownloadableContent()">
+            Eliminar ultimo archivo
+          </button>
+          <button mat-button color="primary" type="button" (click)="addDownloadableContent()">
+            Añadir archivo
+          </button>
+        </step-controls>
+
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Finalizar</ng-template>
+        <p>
+          Presiona guardar para continuar, y regresar a la pagina anterior
+        </p>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="submit">
+            Guardar
+          </button>
+        </step-controls>
+      </mat-step>
+    </mat-vertical-stepper>
+  </form>
+</section>
