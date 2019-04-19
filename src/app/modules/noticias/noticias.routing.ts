@@ -19,8 +19,10 @@ const routes: Routes = [
     path: 'noticia/:id',
     component: NoticiaDetailComponent,
     resolve: {
-      noticia: NoticiaDetailResolver
-    }
+      noticia: NoticiaDetailResolver,
+      noticias: NoticiasResolver
+    },
+    runGuardsAndResolvers: 'paramsChange'
   },
   {
     path: 'create',

@@ -184,8 +184,10 @@ markdown {
     }
   }
   p img {
-    width: auto;
-    max-width: 100%;
+    width: 100%;
+    @media screen and(min-width: 840px) {
+      width: 80%;
+    }
   }
 
   blockquote {

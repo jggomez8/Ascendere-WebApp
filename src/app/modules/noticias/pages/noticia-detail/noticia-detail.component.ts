@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { Noticia } from 'src/app/interfaces/noticia';
 import { ActivatedRoute } from '@angular/router';
 import { UserRoleService } from 'src/app/shared/providers/services/user-role.service';
@@ -23,16 +23,42 @@ import { UserRoleService } from 'src/app/shared/providers/services/user-role.ser
     <section indev-section class="container">
       <markdown [data]="noticia.html"></markdown>
     </section>
+
+    <section indev-section class="container">
+      <indev-section-title>Otras Noticias</indev-section-title>
+      <indev-section-controls>
+        <a [routerLink]="['/noticias']" mat-button color="primary">
+          Ver más
+        </a>
+      </indev-section-controls>
+      <div class="grid" *ngIf="noticias.length > 0; else emptyMessage">
+        <indev-noticia-card *ngFor="let noticia of noticias" [noticia]="noticia">
+        </indev-noticia-card>
+      </div>
+      <ng-template #emptyMessage>
+        <span class="TextTheme--headline">
+          ❗ No se encontraron noticias
+        </span>
+      </ng-template>
+    </section>
   `
 })
 export class NoticiaDetailComponent implements OnInit {
-  constructor(private _route: ActivatedRoute, public userRole: UserRoleService) {}
+  constructor(
+    private _route: ActivatedRoute,
+    public userRole: UserRoleService,
+    private _el: ElementRef
+  ) {}
 
   noticia: Noticia;
   user: boolean;
+  noticias: Noticia[];
 
   ngOnInit() {
-    this.noticia = this._route.snapshot.data['noticia'] as Noticia;
+    this._route.data.subscribe(data => {
+      this.noticia = data['noticia'] as Noticia;
+      this.noticias = data['noticias'] as Noticia[];
+    });
 
     this.userRole.isAdmin.subscribe(val => (this.user = val));
   }

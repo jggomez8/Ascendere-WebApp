@@ -3,6 +3,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@a
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { Noticia } from 'src/app/interfaces/noticia';
 import { HomeComponent } from 'src/app/modules/home/pages/home/home.component';
+import { NoticiaDetailComponent } from 'src/app/modules/noticias/pages/noticia-detail/noticia-detail.component';
 
 @Injectable()
 export class NoticiasResolver implements Resolve<Noticia[]> {
@@ -29,7 +30,7 @@ export class NoticiasResolver implements Resolve<Noticia[]> {
   ): AngularFirestoreCollection<Noticia[]> {
     const component = route.component;
 
-    if (component === HomeComponent) {
+    if (component === HomeComponent || component === NoticiaDetailComponent) {
       // TODO: add limit date
       return this._afs
         .collection('observatorio')
