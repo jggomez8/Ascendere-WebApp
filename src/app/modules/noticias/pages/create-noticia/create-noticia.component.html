@@ -1,0 +1,94 @@
+<indev-header>
+  <h2>Noticias - Observatorio EduTendencias</h2>
+  <h1 *ngIf="!!noticia; else newNoticia">{{ noticia.name }}</h1>
+  <ng-template #newNoticia>Nueva Noticia</ng-template>
+</indev-header>
+
+<section indev-section class="container">
+  <form [formGroup]="noticiaFormGroup" (ngSubmit)="submit()">
+    <mat-vertical-stepper [linear]="!noticia" #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Información de la Noticia</ng-template>
+
+        <!--  -->
+        <!-- name -->
+        <!--  -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" formControlName="name" required />
+          <mat-error>El nombre es requerido</mat-error>
+        </mat-form-field>
+
+        <!--  -->
+        <!-- img -->
+        <!--  -->
+
+        <id-upload-file
+          [path]="uploadPath"
+          type="imagen"
+          label="Url de la Imagen"
+          errorMessage="La url es requerida"
+          [formControlChild]="img"
+          required
+        ></id-upload-file>
+
+        <!--  -->
+        <!-- description -->
+        <!--  -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Resumen de la Noticia</mat-label>
+          <textarea
+            matInput
+            type="text"
+            class="medium-text-area"
+            formControlName="description"
+            required
+          ></textarea>
+        </mat-form-field>
+
+        <step-controls>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Contenido de la Noticia</ng-template>
+
+        <!--  -->
+        <!-- html -->
+        <!--  -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contenido</mat-label>
+          <textarea
+            matInput
+            type="text"
+            class="big-text-area"
+            formControlName="html"
+            required
+          ></textarea>
+        </mat-form-field>
+
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Finalizar</ng-template>
+        <p>
+          Presiona guardar para continuar, y regresar a la pagina anterior
+        </p>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="submit">
+            Guardar
+          </button>
+        </step-controls>
+      </mat-step>
+    </mat-vertical-stepper>
+  </form>
+</section>

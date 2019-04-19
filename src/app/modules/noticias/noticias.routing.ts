@@ -4,6 +4,8 @@ import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { NoticiasResolver } from '../../shared/providers/noticias.resolver';
 import { NoticiaDetailComponent } from './pages/noticia-detail/noticia-detail.component';
 import { NoticiaDetailResolver } from './providers/noticia-detail.resolver';
+import { CreateNoticiaComponent } from './pages/create-noticia/create-noticia.component';
+import { IsAdminGuard } from 'src/app/shared/providers/guards/is-admin.guard';
 
 const routes: Routes = [
   {
@@ -19,6 +21,19 @@ const routes: Routes = [
     resolve: {
       noticia: NoticiaDetailResolver
     }
+  },
+  {
+    path: 'create',
+    component: CreateNoticiaComponent,
+    canActivate: [IsAdminGuard]
+  },
+  {
+    path: 'edit/:id',
+    component: CreateNoticiaComponent,
+    resolve: {
+      noticia: NoticiaDetailResolver
+    },
+    canActivate: [IsAdminGuard]
   }
 ];
 

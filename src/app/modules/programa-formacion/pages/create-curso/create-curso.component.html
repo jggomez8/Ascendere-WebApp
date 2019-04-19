@@ -9,17 +9,16 @@
       <mat-step>
         <ng-template matStepLabel>Información del Curso</ng-template>
 
+        <!--  -->
+        <!-- name -->
+        <!--  -->
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" formControlName="name" required />
+          <mat-error>El nombre es requerido</mat-error>
+        </mat-form-field>
+
         <div class="row" style="--vertical: 0">
-          <!--  -->
-          <!-- name -->
-          <!--  -->
-
-          <mat-form-field appearance="outline">
-            <mat-label>Nombre</mat-label>
-            <input matInput type="text" formControlName="name" required />
-            <mat-error>El nombre es requerido</mat-error>
-          </mat-form-field>
-
           <!--  -->
           <!-- img -->
           <!--  -->

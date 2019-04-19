@@ -1,8 +1,0 @@
-<indev-header>
-  <h1 class="TextTheme--display2">{{ noticia.name }}</h1>
-  <markdown>#### Fecha: {{ noticia.date | date: 'fullDate' }}</markdown>
-</indev-header>
-
-<section indev-section class="container">
-  <markdown [data]="noticia.html"></markdown>
-</section>

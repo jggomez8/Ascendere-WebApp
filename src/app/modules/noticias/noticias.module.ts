@@ -5,10 +5,12 @@ import { NoticiaDetailComponent } from './pages/noticia-detail/noticia-detail.co
 import { NoticiaDetailResolver } from './providers/noticia-detail.resolver';
 import { NoticiasRoutingModule } from './noticias.routing';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CreateNoticiaComponent } from './pages/create-noticia/create-noticia.component';
+import { NoticiasService } from './providers/noticias.service';
 
 @NgModule({
-  declarations: [NoticiasComponent, NoticiaDetailComponent],
+  declarations: [NoticiasComponent, NoticiaDetailComponent, CreateNoticiaComponent],
   imports: [CommonModule, NoticiasRoutingModule, SharedModule],
-  providers: [NoticiaDetailResolver]
+  providers: [NoticiaDetailResolver, NoticiasService]
 })
 export class NoticiasModule {}

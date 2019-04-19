@@ -7,13 +7,14 @@ import { DrawerService } from './providers/drawer.service';
     <div class="scaffold">
       <indev-app-bar></indev-app-bar>
 
+      <indev-drawer *ngIf="(drawerState.state | async)"></indev-drawer>
+
       <main [ngStyle]="{ overflow: (drawerState.state | async) ? 'hidden' : 'scroll' }">
         <router-outlet></router-outlet>
         <indev-go-top-fab></indev-go-top-fab>
         <!-- TODO: add fab -->
         <indev-footer></indev-footer>
       </main>
-      <indev-drawer *ngIf="(drawerState.state | async)"></indev-drawer>
     </div>
   `,
   styles: [
@@ -44,15 +45,13 @@ import { DrawerService } from './providers/drawer.service';
       }
 
       main {
+        display: block;
+        flex: 1;
         width: 100%;
         box-sizing: border-box;
         position: relative;
         -webkit-overflow-scrolling: touch;
-        overflow: auto;
-
-        display: block;
-
-        flex: 1;
+        overflow: hidden scroll;
       }
     `
   ]

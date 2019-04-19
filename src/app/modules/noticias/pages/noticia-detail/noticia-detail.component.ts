@@ -1,30 +1,39 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Noticia } from 'src/app/interfaces/noticia';
-import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { UserRoleService } from 'src/app/shared/providers/services/user-role.service';
 
 @Component({
   selector: 'indev-noticia-detail',
-  templateUrl: './noticia-detail.component.html',
-  styleUrls: ['./noticia-detail.component.scss']
+  template: `
+    <indev-header>
+      <h2>Fecha: {{ noticia.date | date: 'fullDate' }}</h2>
+      <h1 class="TextTheme--display2">{{ noticia.name }}</h1>
+    </indev-header>
+
+    <section indev-section class="container" *ngIf="user">
+      <indev-section-title>Funciones de Administrador</indev-section-title>
+      <indev-section-controls>
+        <a [routerLink]="['/noticias/edit', noticia.id]" mat-raised-button color="primary">
+          Editar Noticia
+        </a>
+      </indev-section-controls>
+    </section>
+
+    <section indev-section class="container">
+      <markdown [data]="noticia.html"></markdown>
+    </section>
+  `
 })
-export class NoticiaDetailComponent implements OnInit, OnDestroy {
+export class NoticiaDetailComponent implements OnInit {
+  constructor(private _route: ActivatedRoute, public userRole: UserRoleService) {}
+
   noticia: Noticia;
-
-  private _noticiaSub: Subscription;
-
-  constructor(private _route: ActivatedRoute) {}
+  user: boolean;
 
   ngOnInit() {
-    this._noticiaSub = this._route.data.subscribe(
-      data => {
-        this.noticia = data['noticia'] as Noticia;
-      },
-      err => console.error('TODO: do something')
-    );
-  }
+    this.noticia = this._route.snapshot.data['noticia'] as Noticia;
 
-  ngOnDestroy() {
-    this._noticiaSub.unsubscribe();
+    this.userRole.isAdmin.subscribe(val => (this.user = val));
   }
 }
