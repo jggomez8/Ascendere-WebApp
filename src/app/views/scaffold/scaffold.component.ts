@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { DrawerService } from './providers/drawer.service';
-
+import { Router, Event, NavigationEnd } from '@angular/router';
+import { MatButton } from '@angular/material';
 @Component({
   selector: 'indev-shell-view',
   template: `
@@ -8,11 +9,16 @@ import { DrawerService } from './providers/drawer.service';
       <indev-app-bar></indev-app-bar>
 
       <indev-drawer *ngIf="(drawerState.state | async)"></indev-drawer>
-
-      <main [ngStyle]="{ overflow: (drawerState.state | async) ? 'hidden' : 'scroll' }">
+      <main
+        #main
+        [ngStyle]="{ overflow: (drawerState.state | async) ? 'hidden' : 'hidden scroll' }"
+      >
         <router-outlet></router-outlet>
-        <indev-go-top-fab></indev-go-top-fab>
-        <!-- TODO: add fab -->
+        <div class="fab" #fab>
+          <button mat-fab>
+            <mat-icon aria-label="Scroll to top btn" (click)="scrollTop()">arrow_upward</mat-icon>
+          </button>
+        </div>
         <indev-footer></indev-footer>
       </main>
     </div>
@@ -52,12 +58,55 @@ import { DrawerService } from './providers/drawer.service';
         position: relative;
         -webkit-overflow-scrolling: touch;
         overflow: hidden scroll;
+        overflow: hidden scroll;
+        overflow: hidden scroll;
+      }
+
+      .fab {
+        display: none;
+        position: fixed;
+        z-index: 200;
+        bottom: 25px;
+        right: 15px;
+      }
+      @media screen and (min-width: 1024px) {
+        .fab {
+          bottom: 40px;
+          right: 40px;
+        }
       }
     `
   ]
 })
-export class ScaffoldComponent implements OnInit {
-  constructor(public drawerState: DrawerService) {}
+export class ScaffoldComponent implements OnInit, AfterViewInit {
+  constructor(public drawerState: DrawerService, private _router: Router) {}
 
-  ngOnInit() {}
+  @ViewChild('main') mainRef: ElementRef;
+  @ViewChild('fab') fabRef: ElementRef;
+
+  /**
+   * Subscribe to router events, so that when user navigates to another page,
+   * the content inside of it is scrolled to the top of the main container.
+   */
+  ngOnInit() {
+    this._router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        // TODO: Ask if scroll has to be set to smooth ot auto
+        (this.mainRef.nativeElement as HTMLElement).scrollTo({ top: 0, behavior: 'auto' });
+      }
+    });
+  }
+
+  ngAfterViewInit() {
+    let mainEl = this.mainRef.nativeElement as HTMLElement;
+    let fabEl = this.fabRef.nativeElement as HTMLElement;
+
+    mainEl.addEventListener('scroll', () => {
+      fabEl.style.display = mainEl.scrollTop > 250 ? 'initial' : 'none';
+    });
+  }
+
+  scrollTop() {
+    (this.mainRef.nativeElement as HTMLElement).scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
