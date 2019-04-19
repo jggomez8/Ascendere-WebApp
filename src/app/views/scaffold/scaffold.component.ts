@@ -89,6 +89,10 @@ export class ScaffoldComponent implements OnInit, AfterViewInit {
    * the content inside of it is scrolled to the top of the main container.
    */
   ngOnInit() {
+    // TODO: remove fab button
+    // TODO: add unsubscribe
+    // TODO: add app loader
+
     this._router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         // TODO: Ask if scroll has to be set to smooth ot auto
