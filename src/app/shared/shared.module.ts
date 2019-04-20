@@ -45,6 +45,7 @@ import { StepControlsComponent } from './components/stepper/stepper-controls.com
 import { DropZoneComponent } from './components/drop-zone/drop-zone.component';
 import { DropZoneDirective } from './directives/drop-zone.directive';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
+import { AdminActionsComponent } from './components/admin-actions/admin-actions.component';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localeEsAr, 'es-Ar');
@@ -82,7 +83,8 @@ const DECLARATIONS = [
   StepControlsComponent,
   DropZoneComponent,
   DropZoneDirective,
-  UploadFileComponent
+  UploadFileComponent,
+  AdminActionsComponent
 ];
 
 const PROVIDERS = [

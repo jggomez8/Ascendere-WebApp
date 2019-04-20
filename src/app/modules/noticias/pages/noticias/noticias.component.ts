@@ -6,13 +6,9 @@ import { UserRoleService } from 'src/app/shared/providers/services/user-role.ser
 @Component({
   selector: 'indev-noticias',
   template: `
-    <section indev-section class="container" *ngIf="user">
-      <indev-section-title>Funciones Administrador</indev-section-title>
-      <indev-section-controls>
-        <a [routerLink]="['/noticias/create']" mat-raised-button color="primary">Crear Noticia</a>
-      </indev-section-controls>
-    </section>
-
+    <indev-admin-actions>
+      <a [routerLink]="['/noticias/create']" mat-flat-button color="primary">Crear Noticia</a>
+    </indev-admin-actions>
     <indev-header>
       <h1 class="TextTheme--display2">
         Noticias
@@ -33,14 +29,11 @@ import { UserRoleService } from 'src/app/shared/providers/services/user-role.ser
   `
 })
 export class NoticiasComponent implements OnInit {
-  constructor(private _route: ActivatedRoute, public userRole: UserRoleService) {}
+  constructor(private _route: ActivatedRoute) {}
 
-  user: boolean;
   noticias: Noticia[];
 
   ngOnInit() {
     this.noticias = this._route.snapshot.data['noticias'] as Noticia[];
-
-    this.userRole.isAdmin.subscribe(val => (this.user = val));
   }
 }
