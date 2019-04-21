@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,7 +15,8 @@ export class SignInComponent implements OnInit, OnDestroy {
     private _snackBar: MatSnackBar,
     private route: ActivatedRoute,
     private router: Router,
-    private _afAuth: AngularFireAuth
+    private _afAuth: AngularFireAuth,
+    private _el: ElementRef<HTMLElement>
   ) {}
 
   authForm: FormGroup;
@@ -41,6 +42,7 @@ export class SignInComponent implements OnInit, OnDestroy {
    * or show sign in error
    */
   async signIn() {
+    let el: HTMLElement;
     try {
       if (this.authForm.invalid) return;
 

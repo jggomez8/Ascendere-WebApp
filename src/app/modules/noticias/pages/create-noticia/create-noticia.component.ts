@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Noticia } from 'src/app/interfaces/noticia';
-import { Location } from '@angular/common';
 import { NoticiasService } from '../../providers/noticias.service';
 
 @Component({
@@ -14,9 +13,9 @@ export class CreateNoticiaComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
-    private _location: Location,
     private _route: ActivatedRoute,
-    private _noticiasServiceService: NoticiasService
+    private _noticiasServiceService: NoticiasService,
+    private _router: Router
   ) {}
 
   noticiaFormGroup: FormGroup;
@@ -46,21 +45,29 @@ export class CreateNoticiaComponent implements OnInit {
     this.noticiaFormGroup.controls['html'].setValue(this.noticia.html);
   }
 
+  /**
+   * Validate if form is valid, or completed.
+   * if success navigate user to detail page,
+   * otherwise show error message
+   */
   async submit() {
-    // validate form
     if (this.noticiaFormGroup.invalid) {
       this._snackBar.open('❗ La forma es invalida');
       return;
     }
     try {
-      if (!!this.noticia)
+      if (!!this.noticia) {
         await this._noticiasServiceService.updateNoticia(
           this.noticia.id,
           this.noticiaFormGroup.value
         );
-      else await this._noticiasServiceService.createNoticia(this.noticiaFormGroup.value);
-      this._snackBar.open('✋ Se guardaron los cambios correctamente');
-      this._location.back();
+        this._router.navigate(['/noticias/noticia', this.noticia.id]);
+        this._snackBar.open('👌 Se actualizo la noticia correctamente');
+      } else {
+        await this._noticiasServiceService.createNoticia(this.noticiaFormGroup.value);
+        this._router.navigate(['/noticias']);
+        this._snackBar.open('👍 Se creo la noticia correctamente');
+      }
     } catch (error) {
       this._snackBar.open('❗ Ocurrido un error al guardar, por favor vuelve a intentarlo');
     }

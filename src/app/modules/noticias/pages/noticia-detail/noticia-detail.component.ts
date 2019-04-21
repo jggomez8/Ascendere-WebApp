@@ -1,14 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from 'src/app/interfaces/noticia';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
+import { Subscription } from 'rxjs';
+import { Location } from '@angular/common';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'indev-noticia-detail',
   template: `
     <indev-admin-actions>
-      <a [routerLink]="['/noticias/edit', noticia.id]" mat-flat-button color="primary">
+      <a [routerLink]="['/noticias/create']" mat-menu-item>
+        Nueva Noticia
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item [routerLink]="['/noticias/edit', noticia.id]">
         Editar Noticia
       </a>
+      <button mat-menu-item (click)="delete()">
+        Eliminar Noticia
+      </button>
     </indev-admin-actions>
 
     <indev-header>
@@ -35,16 +47,38 @@ import { ActivatedRoute } from '@angular/router';
   `
 })
 export class NoticiaDetailComponent implements OnInit {
-  constructor(private _route: ActivatedRoute) {}
+  constructor(
+    private _route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
+    private _location: Location,
+    private _afs: AngularFirestore
+  ) {}
 
   noticia: Noticia;
   user: boolean;
   noticias: Noticia[];
 
+  private _popUpSub: Subscription;
+
   ngOnInit() {
     this._route.data.subscribe(data => {
       this.noticia = data['noticia'] as Noticia;
       this.noticias = data['noticias'] as Noticia[];
+    });
+  }
+
+  delete() {
+    const popup = this._snackBar.open(
+      `❗ Seguro que quieres eliminar la noticia: ${this.noticia.name}?`,
+      'Confirmar'
+    );
+    this._popUpSub = popup.onAction().subscribe(async () => {
+      await this._afs
+        .collection('observatorio/edutendencias/noticias')
+        .doc(this.noticia.id)
+        .delete();
+      this._snackBar.open(`👍 La noticia fue eliminada correctamente.`);
+      this._location.back();
     });
   }
 }

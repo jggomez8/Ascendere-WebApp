@@ -7,7 +7,7 @@ import { UserRoleService } from 'src/app/shared/providers/services/user-role.ser
   selector: 'indev-noticias',
   template: `
     <indev-admin-actions>
-      <a [routerLink]="['/noticias/create']" mat-flat-button color="primary">Crear Noticia</a>
+      <a [routerLink]="['/noticias/create']" mat-menu-item>Crear Noticia</a>
     </indev-admin-actions>
     <indev-header>
       <h1 class="TextTheme--display2">

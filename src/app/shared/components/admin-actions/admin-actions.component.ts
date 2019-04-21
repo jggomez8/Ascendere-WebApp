@@ -8,12 +8,13 @@ import { Subscription } from 'rxjs';
     <section *ngIf="isAdmin">
       <div class="container">
         <span class="TextTheme--title">Funciones de Administrador</span>
-
-        <div class="actions">
-          <ng-content select="button"></ng-content>
-          <ng-content select="a"></ng-content>
-        </div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
       </div>
+      <mat-menu #menu="matMenu">
+        <ng-content></ng-content>
+      </mat-menu>
     </section>
   `,
   styles: [
@@ -27,16 +28,13 @@ import { Subscription } from 'rxjs';
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
 
-        padding-top: 20px;
+        padding-top: 16px;
         padding-bottom: 16px;
       }
       section .container span.TextTheme--title {
         margin-right: 16px;
-      }
-      section .container .actions {
-        margin-right: -16px;
-        margin-left: -16px;
       }
     `
   ]
