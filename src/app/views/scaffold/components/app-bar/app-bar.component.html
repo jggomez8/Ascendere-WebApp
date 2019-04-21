@@ -76,10 +76,20 @@
         </mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <a *ngIf="!(afAuth.authState | async)" mat-menu-item [routerLink]="['/login/signIn']">
+        <a
+          *ngIf="!(afAuth.authState | async)"
+          mat-menu-item
+          [routerLink]="['/login/signIn']"
+          [queryParams]="{ return_to: route.url }"
+        >
           🙂 Iniciar Sesión
         </a>
-        <a *ngIf="!(afAuth.authState | async)" mat-menu-item [routerLink]="['/login/signUp']">
+        <a
+          *ngIf="!(afAuth.authState | async)"
+          mat-menu-item
+          [routerLink]="['/login/signUp']"
+          [queryParams]="{ return_to: route.url }"
+        >
           ➕ Registrarse
         </a>
         <a *ngIf="(afAuth.authState | async)" mat-menu-item (click)="afAuth.auth.signOut()">

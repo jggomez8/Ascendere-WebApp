@@ -34,6 +34,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       anchorScrolling: 'enabled',
       paramsInheritanceStrategy: 'always'
+      // enableTracing: true
     })
   ],
   exports: [RouterModule]

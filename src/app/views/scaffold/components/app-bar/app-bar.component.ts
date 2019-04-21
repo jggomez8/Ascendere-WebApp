@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Subscription } from 'rxjs';
 import { DrawerService } from '../../providers/drawer.service';
 import { NavbarLinks } from '../../interfaces/navbar-item.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'indev-app-bar',
@@ -14,7 +14,8 @@ export class AppBarComponent extends NavbarLinks {
   constructor(
     public afAuth: AngularFireAuth,
     public location: Location,
-    public drawerState: DrawerService
+    public drawerState: DrawerService,
+    public route: Router
   ) {
     super();
   }

@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { MatSnackBar } from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'indev-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent implements OnInit, OnDestroy {
   constructor(
     private _fb: FormBuilder,
-    private _auth: AuthService,
     private _snackBar: MatSnackBar,
-    private _router: Router
+    private route: ActivatedRoute,
+    private router: Router,
+    private _afAuth: AngularFireAuth
   ) {}
 
   authForm: FormGroup;
@@ -29,41 +30,51 @@ export class SignInComponent implements OnInit {
   }
 
   /**
-   * Sign user in, or show sign in error
+   * Clean error messages, if necessary
+   */
+  ngOnDestroy() {
+    this._snackBar.dismiss();
+  }
+
+  /**
+   * Sign user in an then redirect this user to corresponding page,
+   * or show sign in error
    */
   async signIn() {
     try {
       if (this.authForm.invalid) return;
 
-      // only valid forms will be submitted
       this.isLoading = true;
       const { email, password } = this.authForm.value;
-      const userCredentials = await this._auth.signIn(email, password);
-
-      // USer successfully signed in
-      console.log(userCredentials);
-      this.gotoHome();
-      this._snackBar.dismiss();
+      await this._afAuth.auth.signInWithEmailAndPassword(email, password);
+      this._returnTo();
     } catch (e) {
-      // Manage login errors
-      this.isLoading = false;
-      let message: string;
-
-      if (e.code === 'auth/wrong-password') message = 'Contraseña Incorrecta';
-      else if (e.code === 'auth/invalid-email') message = 'Correo Electrónico Invalido';
-      else if (e.code === 'auth/user-not-found') message = 'No se encontró el usuario';
-      else message = 'Ha ocurrido un error al iniciar sección';
-
-      this._snackBar.open(message, null, {
-        verticalPosition: 'top'
-      });
+      this._showErrorMessage(e);
     }
   }
 
   /**
-   * Navigate user if already signed in
+   * Navigate user to las page user visited, if no page is provided
+   * user is redirected to home page
    */
-  gotoHome(): void {
-    this._router.navigate(['/']);
+  private _returnTo() {
+    const params = this.route.snapshot.queryParamMap['params'];
+
+    this.router.navigate([params['return_to']]);
+  }
+
+  /**
+   * Show message based on user input
+   */
+  private _showErrorMessage(error) {
+    this.isLoading = false;
+    let message: string;
+
+    if (error.code === 'auth/wrong-password') message = 'Contraseña Incorrecta';
+    else if (error.code === 'auth/invalid-email') message = 'Correo Electrónico Invalido';
+    else if (error.code === 'auth/user-not-found') message = 'No se encontró el usuario';
+    else message = 'Ha ocurrido un error al iniciar sección';
+
+    this._snackBar.open(message);
   }
 }
