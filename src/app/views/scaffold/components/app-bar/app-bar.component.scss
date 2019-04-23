@@ -29,6 +29,13 @@
           display: none;
         }
       }
+      .back,
+      .menu {
+        margin-right: 16px;
+      }
+      a {
+        margin-left: -16px;
+      }
     }
 
     .navigation {

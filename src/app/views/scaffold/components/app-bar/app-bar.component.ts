@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { DrawerService } from '../../providers/drawer.service';
 import { NavbarLinks } from '../../interfaces/navbar-item.interface';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'indev-app-bar',
@@ -31,5 +32,13 @@ export class AppBarComponent extends NavbarLinks {
     //     .then(() => console.log('Successful share'))
     //     .catch(error => console.log('Error sharing', error));
     // }
+  }
+
+  get isNotAtHome(): boolean {
+    return this.route.url !== '/';
+  }
+
+  get isNotAtAdmin(): boolean {
+    return !this.route.url.includes('admin');
   }
 }

@@ -1,7 +1,7 @@
 <div class="nav">
   <div class="container">
     <div class="leading">
-      <button ngif class="back" mat-icon-button (click)="location.back()">
+      <button *ngIf="isNotAtHome" class="back" mat-icon-button (click)="location.back()">
         <mat-icon aria-label="Navigate one page back">
           arrow_backward
         </mat-icon>
@@ -61,7 +61,7 @@
 
     <!-- Elements to be displayed at the right side of the application navbar -->
     <div class="action">
-      <button mat-icon-button>
+      <button mat-icon-button *ngIf="isNotAtAdmin">
         <mat-icon aria-label="Open bottom sheet options" (click)="sharePage()">
           share
         </mat-icon>
