@@ -1,18 +1,19 @@
-<h2 class="TextTheme--headline" *ngIf="encuentro.canInscribe">
-  Inscribete hasta el
-  <a
-    class="TextTheme--ascendere"
-    style="text-transform: none"
-    [routerLink]="['/', 'cafe-cientifico', 'encuentro', encuentro.id, 'inscripcion']"
-  >
-    {{ encuentro.postulations | date: 'fullDate' }}
-  </a>
-</h2>
+<section indev-section>
+  <h2 class="TextTheme--headline" *ngIf="encuentro.canInscribe">
+    Inscribete hasta el
+    <a
+      class="TextTheme--ascendere"
+      style="text-transform: none"
+      [routerLink]="['/', 'cafe-cientifico', 'encuentro', encuentro.id, 'inscripcion']"
+    >
+      {{ encuentro.postulations | date: 'fullDate' }}
+    </a>
+  </h2>
+  <markdown [data]="encuentro.description"> </markdown>
+</section>
 
-<markdown [data]="encuentro.description"> </markdown>
-
-<div *ngIf="encuentro.hasGuests" class="guests">
-  <h3 class="TextTheme--headline">👨‍🏫 Invitados</h3>
+<section indev-section *ngIf="encuentro.hasGuests" class="guests">
+  <indev-section-title>👨‍🏫 Invitados</indev-section-title>
   <ul>
     <li *ngFor="let guest of encuentro.guests">
       <span class="TextTheme--title">{{ guest.name }}</span>
@@ -21,7 +22,7 @@
       </div>
     </li>
   </ul>
-</div>
+</section>
 
 <div *ngIf="encuentro.canInscribe" class="inscription">
   <a

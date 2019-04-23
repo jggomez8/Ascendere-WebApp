@@ -10,20 +10,16 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'indev-encuentro',
   template: `
-    <section indev-section class="container" *ngIf="isAdmin">
-      <indev-section-title>Funciones Administrador</indev-section-title>
-      <indev-section-controls>
-        <a mat-stroked-button color="warn" (click)="delete()">Eliminar Encuentro</a>
-        <a mat-stroked-button color="accent">ver Inscritos</a>
-        <a
-          mat-stroked-button
-          color="primary"
-          [routerLink]="['/cafe-cientifico/admin/create', encuentro.id]"
-        >
-          Editar Encuentro
-        </a>
-      </indev-section-controls>
-    </section>
+    <indev-admin-actions>
+      <a [routerLink]="['/cafe-cientifico/admin/create']" mat-menu-item>Crear Encuentro</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item>ver Inscritos</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item [routerLink]="['/cafe-cientifico/admin/create', encuentro.id]">
+        Editar Encuentro
+      </a>
+      <a mat-menu-item (click)="delete()">Eliminar Encuentro</a>
+    </indev-admin-actions>
 
     <indev-header>
       <h1 class="TextTheme--display2">☕ {{ encuentro.name }}</h1>
@@ -35,19 +31,15 @@ import { Location } from '@angular/common';
     </section>
   `
 })
-export class EncuentroComponent implements OnInit, OnDestroy {
+export class EncuentroComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
-    private _userRole: UserRoleService,
     private _encuentrosService: EncuentrosService,
     private _snackBar: MatSnackBar,
     private _location: Location
   ) {}
 
   encuentro: Encuentro;
-  isAdmin: boolean;
-
-  private _popUpSub: Subscription;
 
   /**
    * Get this encuentro data, and verify if this user is an Admin, in order to
@@ -55,10 +47,6 @@ export class EncuentroComponent implements OnInit, OnDestroy {
    */
   ngOnInit() {
     this.encuentro = this._route.snapshot.data['encuentro'];
-
-    this._userRole.isAdmin.subscribe(val => {
-      this.isAdmin = val;
-    });
   }
 
   delete() {
@@ -66,14 +54,10 @@ export class EncuentroComponent implements OnInit, OnDestroy {
       `❗ Seguro que quieres eliminar el encuentro: ${this.encuentro.name}?`,
       'Confirmar'
     );
-    this._popUpSub = popup.onAction().subscribe(async () => {
+    popup.onAction().subscribe(async () => {
       await this._encuentrosService.encuentrosCollection.doc(this.encuentro.id).delete();
       this._snackBar.open(`👍 El encuentro fue eliminado correctamente.`);
       this._location.back();
     });
-  }
-
-  ngOnDestroy() {
-    if (!!this._popUpSub) this._popUpSub.unsubscribe();
   }
 }
