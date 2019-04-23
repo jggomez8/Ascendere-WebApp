@@ -7,10 +7,16 @@ import { ProyectoDetailComponent } from './pages/proyecto/proyecto-detail.compon
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { ProyectoResolver } from './providers/proyecto.resolver';
 import { CreateProyectoComponent } from './pages/create-proyecto/create-proyecto.component';
-import { ProyectosInnovacionAdminComponent } from './pages/proyectos-innovacion-admin/proyectos-innovacion-admin.component';
+import { ConvocatoriaComponent } from './components/convocatoria/convocatoria.component';
 
 @NgModule({
-  declarations: [ProyectosInnovacionComponent, ProyectosComponent, ProyectoDetailComponent, CreateProyectoComponent, ProyectosInnovacionAdminComponent],
+  declarations: [
+    ProyectosInnovacionComponent,
+    ProyectosComponent,
+    ProyectoDetailComponent,
+    CreateProyectoComponent,
+    ConvocatoriaComponent
+  ],
   imports: [CommonModule, ProyectosInnovacionRoutingModule, SharedModule],
   providers: [ProyectoResolver]
 })

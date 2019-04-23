@@ -1,7 +1,5 @@
-import { Component, OnInit, OnDestroy, Sanitizer } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Proyecto } from 'src/app/interfaces/proyecto';
 
 @Component({
@@ -9,23 +7,12 @@ import { Proyecto } from 'src/app/interfaces/proyecto';
   templateUrl: './proyecto-detail.component.html',
   styleUrls: ['./proyecto-detail.component.scss']
 })
-export class ProyectoDetailComponent implements OnInit, OnDestroy {
+export class ProyectoDetailComponent implements OnInit {
   constructor(private _route: ActivatedRoute) {}
 
   proyecto: Proyecto;
 
-  private _projectSub: Subscription;
-
   ngOnInit() {
-    this._projectSub = this._route.data.subscribe(
-      data => {
-        this.proyecto = data['proyecto'] as Proyecto;
-      },
-      err => console.error('TODO: do something')
-    );
-  }
-
-  ngOnDestroy() {
-    this._projectSub.unsubscribe();
+    this.proyecto = this._route.snapshot.data['proyecto'];
   }
 }

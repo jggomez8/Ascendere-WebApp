@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Noticia } from 'src/app/interfaces/noticia';
-import { UserRoleService } from 'src/app/shared/providers/services/user-role.service';
 
 @Component({
   selector: 'indev-noticias',
@@ -9,6 +8,7 @@ import { UserRoleService } from 'src/app/shared/providers/services/user-role.ser
     <indev-admin-actions>
       <a [routerLink]="['/noticias/create']" mat-menu-item>Crear Noticia</a>
     </indev-admin-actions>
+
     <indev-header>
       <h1 class="TextTheme--display2">
         Noticias

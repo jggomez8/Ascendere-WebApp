@@ -9,7 +9,6 @@ import { ProyectosInnovacionComponent } from '../../modules/proyectos-innovacion
 import { ProyectosComponent } from '../../modules/proyectos-innovacion/pages/proyectos/proyectos.component';
 import { HomeComponent } from '../../modules/home/pages/home/home.component';
 import { Proyecto, ProyectosInnovacion } from 'src/app/interfaces/proyecto';
-import { ProyectosInnovacionAdminComponent } from 'src/app/modules/proyectos-innovacion/pages/proyectos-innovacion-admin/proyectos-innovacion-admin.component';
 
 @Injectable()
 export class ProyectosInnovacionResolver implements Resolve<Proyecto[]> {
@@ -48,9 +47,6 @@ export class ProyectosInnovacionResolver implements Resolve<Proyecto[]> {
 
       return proyectosDocument.collection('proyectos', ref => ref.limit(projects2BeFetched));
     }
-
-    if (component === ProyectosInnovacionAdminComponent)
-      return proyectosDocument.collection('proyectos', ref => ref.orderBy('name'));
 
     // validate route data
     const proyectoType = route.queryParams['type'];

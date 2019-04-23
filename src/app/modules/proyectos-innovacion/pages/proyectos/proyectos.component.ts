@@ -1,12 +1,31 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Proyecto, ProyectosInnovacion } from 'src/app/interfaces/proyecto';
+import { Proyecto } from 'src/app/interfaces/proyecto';
 
 @Component({
   selector: 'indev-proyectos',
-  templateUrl: './proyectos.component.html',
-  styleUrls: ['./proyectos.component.scss']
+  template: `
+    <indev-admin-actions>
+      <a [routerLink]="['/proyectos-innovacion/admin/create']" mat-menu-item>Crear Proyecto</a>
+    </indev-admin-actions>
+    <indev-header *ngIf="pageTitle">
+      <h1 class="TextTheme--display2">{{ pageTitle }}</h1>
+    </indev-header>
+    <section indev-section class="container">
+      <div class="grid" style="--size: 400px" *ngIf="proyectos.length > 0; else emptyMessage">
+        <indev-proyecto-card
+          *ngFor="let proyecto of proyectos"
+          [proyecto]="proyecto"
+        ></indev-proyecto-card>
+      </div>
+      <ng-template #emptyMessage>
+        <span class="TextTheme--display1">
+          ❗ Lo sentimos, pero no se encontraron proyectos.
+        </span>
+      </ng-template>
+    </section>
+  `
 })
 export class ProyectosComponent implements OnInit, OnDestroy {
   constructor(private _route: ActivatedRoute) {}

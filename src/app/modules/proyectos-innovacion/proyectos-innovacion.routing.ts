@@ -7,7 +7,6 @@ import { ProyectosInnovacionResolver } from '../../shared/providers/proyectos.re
 import { ProyectoResolver } from './providers/proyecto.resolver';
 import { IsAdminGuard } from 'src/app/shared/providers/guards/is-admin.guard';
 import { CreateProyectoComponent } from './pages/create-proyecto/create-proyecto.component';
-import { ProyectosInnovacionAdminComponent } from './pages/proyectos-innovacion-admin/proyectos-innovacion-admin.component';
 
 const routes: Routes = [
   {
@@ -37,13 +36,6 @@ const routes: Routes = [
     path: 'admin',
     canActivate: [IsAdminGuard],
     children: [
-      {
-        path: '',
-        component: ProyectosInnovacionAdminComponent,
-        resolve: {
-          proyectos: ProyectosInnovacionResolver
-        }
-      },
       {
         path: 'create',
         component: CreateProyectoComponent

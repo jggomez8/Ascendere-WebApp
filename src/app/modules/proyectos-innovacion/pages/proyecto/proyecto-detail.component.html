@@ -1,3 +1,9 @@
+<indev-admin-actions>
+  <a [routerLink]="['/proyectos-innovacion/admin/create']" mat-menu-item>Crear Proyecto</a>
+  <mat-divider></mat-divider>
+  <a [routerLink]="['/proyectos-innovacion/admin/create', proyecto.id]" mat-menu-item>Editar</a>
+</indev-admin-actions>
+
 <indev-header>
   <h1 class="TextTheme--display2">
     {{ proyecto.name }}
