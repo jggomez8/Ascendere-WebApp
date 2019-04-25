@@ -3,23 +3,22 @@ import { InnovaTip } from 'src/app/interfaces/innova-tip';
 
 @Component({
   selector: 'indev-innova-tip-card',
-  templateUrl: './innova-tip-card.component.html',
+  template: `
+    <div class="card" [routerLink]="['/innova-tips/tip', innovaTip.id]">
+      <div class="aspect-ratio">
+        <img [src]="innovaTip.img" [alt]="innovaTip.altImg" />
+      </div>
+      <div class="content">
+        <h3 class="TextTheme--title">{{ innovaTip.name }}</h3>
+        <span class="TextTheme--overline">{{ innovaTip.publishedAt | date }}</span>
+      </div>
+      <div class="actions">
+        <mat-icon>play_arrow</mat-icon>
+      </div>
+    </div>
+  `,
   styleUrls: ['./innova-tip-card.component.scss']
 })
 export class InnovaTipCardComponent {
   @Input() innovaTip: InnovaTip;
-
-  @ViewChild('modal') modalRef: ElementRef;
-
-  actionModal() {
-    let modal = this.modalRef.nativeElement as HTMLElement;
-    if (modal.classList.contains('active')) {
-      modal.classList.remove('active');
-      document.documentElement.style.overflow = 'auto';
-
-      return;
-    }
-    modal.classList.add('active');
-    document.documentElement.style.overflow = 'hidden';
-  }
 }

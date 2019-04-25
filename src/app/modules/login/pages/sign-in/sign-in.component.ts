@@ -15,8 +15,7 @@ export class SignInComponent implements OnInit, OnDestroy {
     private _snackBar: MatSnackBar,
     private route: ActivatedRoute,
     private router: Router,
-    private _afAuth: AngularFireAuth,
-    private _el: ElementRef<HTMLElement>
+    private _afAuth: AngularFireAuth
   ) {}
 
   authForm: FormGroup;
@@ -42,7 +41,6 @@ export class SignInComponent implements OnInit, OnDestroy {
    * or show sign in error
    */
   async signIn() {
-    let el: HTMLElement;
     try {
       if (this.authForm.invalid) return;
 

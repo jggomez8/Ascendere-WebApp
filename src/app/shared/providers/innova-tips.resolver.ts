@@ -3,6 +3,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@a
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { InnovaTip } from 'src/app/interfaces/innova-tip';
 import { HomeComponent } from 'src/app/modules/home/pages/home/home.component';
+import { TipComponent } from 'src/app/modules/innova-tips/pages/tip/tip.component';
 
 @Injectable()
 export class InnovaTipsResolver implements Resolve<InnovaTip[]> {
@@ -30,7 +31,7 @@ export class InnovaTipsResolver implements Resolve<InnovaTip[]> {
   ): AngularFirestoreCollection<InnovaTip[]> {
     const component = route.component;
 
-    if (component === HomeComponent) {
+    if (component === HomeComponent || component == TipComponent) {
       // TODO: add date
       return this._afs
         .collection('formacion-docente')

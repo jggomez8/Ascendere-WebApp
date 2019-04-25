@@ -30,4 +30,17 @@ export class InnovaTip {
   get url() {
     return `https://youtu.be/${this.id}`;
   }
+
+  get markdown() {
+    return `
+      <iframe
+        src="${this.videoSrc}"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+
+    ${this.description}
+    `;
+  }
 }

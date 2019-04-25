@@ -5,6 +5,10 @@ import { InnovaTip } from 'src/app/interfaces/innova-tip';
 @Component({
   selector: 'indev-innova-tips',
   template: `
+    <indev-admin-actions>
+      <a [routerLink]="['/innova-tips/admin/create']" mat-menu-item>Añadir InnovaTip</a>
+    </indev-admin-actions>
+
     <indev-header>
       <h1 class="TextTheme--display2">
         <span class="TextTheme--display3">InnovaTips</span>
@@ -13,12 +17,10 @@ import { InnovaTip } from 'src/app/interfaces/innova-tip';
       <markdown src="/assets/markdown/innova-tips/innova-tips.md"> </markdown>
     </indev-header>
 
-    <div class="container">
-      <section indev-section>
-        <indev-section-title>
-          Portafolio de InnovaTips
-        </indev-section-title>
-      </section>
+    <section indev-section class="container">
+      <indev-section-title>
+        Portafolio de InnovaTips
+      </indev-section-title>
 
       <div class="grid" style="--size: 350px" *ngIf="innovaTips.length > 0; emptyMessage">
         <indev-innova-tip-card
@@ -32,7 +34,7 @@ import { InnovaTip } from 'src/app/interfaces/innova-tip';
           ❗ No se encontraron tips para mostrar
         </span>
       </ng-template>
-    </div>
+    </section>
   `
 })
 export class InnovaTipsComponent implements OnInit {

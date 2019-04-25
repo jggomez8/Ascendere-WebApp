@@ -29,8 +29,7 @@ function image(href: string, _: string, text: string) {
 }
 
 function html(html: string) {
-  if (html.includes('iframe'))
-    return `<div class="aspect-ratio" style="--aspect-ratio: 21/9">${html}</div>`;
+  if (html.includes('iframe')) return `<p class="aspect-ratio">${html}</p>`;
   if (html.includes('object'))
     return `<div class="aspect-ratio" style="--aspect-ratio: 3/4">${html}</div>`;
   return html;

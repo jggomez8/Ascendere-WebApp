@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { Subscription } from 'rxjs';
 import { Location } from '@angular/common';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -58,8 +57,6 @@ export class NoticiaDetailComponent implements OnInit {
   user: boolean;
   noticias: Noticia[];
 
-  private _popUpSub: Subscription;
-
   ngOnInit() {
     this._route.data.subscribe(data => {
       this.noticia = data['noticia'] as Noticia;
@@ -72,7 +69,7 @@ export class NoticiaDetailComponent implements OnInit {
       `❗ Seguro que quieres eliminar la noticia: ${this.noticia.name}?`,
       'Confirmar'
     );
-    this._popUpSub = popup.onAction().subscribe(async () => {
+    popup.onAction().subscribe(async () => {
       await this._afs
         .collection('observatorio/edutendencias/noticias')
         .doc(this.noticia.id)
