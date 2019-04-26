@@ -4,19 +4,30 @@ import { Location } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Articulo } from 'src/app/interfaces/articulo';
 import { MatSnackBar } from '@angular/material';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'indev-articulo',
   template: `
+    <indev-admin-actions>
+      <a [routerLink]="['/articulo/admin/create']" mat-menu-item>Crear Articulo</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item [routerLink]="['/articulo/admin/create', articulo.id]">
+        Editar Articulo
+      </a>
+      <a mat-menu-item (click)="delete()">Eliminar Articulo</a>
+    </indev-admin-actions>
+
     <indev-header>
       <h1 class="TextTheme--display2">
         {{ articulo.name }}
       </h1>
     </indev-header>
+
     <section indev-section class="container">
       <markdown *ngIf="articulo.hasContent; else source" [data]="articulo.content"></markdown>
       <ng-template #source>
-        <markdown [src]="articulo.source" (error)="onError($event)"></markdown>
+        <markdown [src]="articulo.source"></markdown>
       </ng-template>
     </section>
   `
@@ -28,7 +39,8 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   constructor(
     private _route: ActivatedRoute,
     private _snackBar: MatSnackBar,
-    private _location: Location
+    private _location: Location,
+    private _afs: AngularFirestore
   ) {}
 
   ngOnInit() {
@@ -42,10 +54,17 @@ export class ArticuloComponent implements OnInit, OnDestroy {
     this._sub.unsubscribe();
   }
 
-  onError($event) {
-    const snackBarRef = this._snackBar.open('No se pudo Cargar el articulo.', 'Regresar');
-
-    snackBarRef.onAction().subscribe(() => {
+  delete() {
+    const popup = this._snackBar.open(
+      `❗ Seguro que quieres eliminar el encuentro: ${this.articulo.name}?`,
+      'Confirmar'
+    );
+    popup.onAction().subscribe(async () => {
+      await this._afs
+        .collection('articulo')
+        .doc(this.articulo.id)
+        .delete();
+      this._snackBar.open(`👍 El encuentro fue eliminado correctamente.`);
       this._location.back();
     });
   }

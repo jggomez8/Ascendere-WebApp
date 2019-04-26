@@ -1,10 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Encuentro } from 'src/app/interfaces/encuentro';
-import { UserRoleService } from 'src/app/shared/providers/services/user-role.service';
 import { EncuentrosService } from '../../providers/encuentros.service';
 import { MatSnackBar } from '@angular/material';
-import { Subscription } from 'rxjs';
 import { Location } from '@angular/common';
 
 @Component({
