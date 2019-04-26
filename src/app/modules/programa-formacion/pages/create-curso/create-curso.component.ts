@@ -8,8 +8,7 @@ import { ProgramaFormacionService } from '../../providers/programa-formacion.ser
 
 @Component({
   selector: 'indev-create-curso',
-  templateUrl: './create-curso.component.html',
-  styleUrls: ['./create-curso.component.scss']
+  templateUrl: './create-curso.component.html'
 })
 export class CreateCursoComponent implements OnInit {
   constructor(

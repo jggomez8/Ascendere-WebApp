@@ -46,6 +46,7 @@ import { DropZoneComponent } from './components/drop-zone/drop-zone.component';
 import { DropZoneDirective } from './directives/drop-zone.directive';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
 import { AdminActionsComponent } from './components/admin-actions/admin-actions.component';
+import { HttpModule } from '@angular/http';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localeEsAr, 'es-Ar');
@@ -110,6 +111,7 @@ const PROVIDERS = [
   imports: [
     CommonModule,
     RouterModule,
+    HttpModule,
     MarkdownModule.forChild(),
     AngularMaterialModule,
     FirebaseModule,
@@ -119,6 +121,7 @@ const PROVIDERS = [
     CommonModule,
     RouterModule,
     MarkdownModule,
+    HttpModule,
     ...DECLARATIONS,
     AngularMaterialModule,
     FirebaseModule,

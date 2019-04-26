@@ -3,6 +3,7 @@
   <h1 *ngIf="!!curso; else newCurso">{{ curso.name }}</h1>
   <ng-template #newCurso>Nuevo Curso</ng-template>
 </indev-header>
+
 <section indev-section class="container">
   <form [formGroup]="cursoFormGroup" (ngSubmit)="submit()">
     <mat-vertical-stepper [linear]="!curso" #stepper>

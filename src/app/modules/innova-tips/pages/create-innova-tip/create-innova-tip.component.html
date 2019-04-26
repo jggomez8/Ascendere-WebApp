@@ -1,0 +1,50 @@
+<indev-header>
+  <h2>InnovaTips</h2>
+  <h1 #newInnovaTip>Nuevo InnovaTip</h1>
+</indev-header>
+
+<section indev-section class="container">
+  <form [formGroup]="innovaTipFormGroup" (ngSubmit)="submit()">
+    <mat-vertical-stepper linear #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Información del InnovaTip</ng-template>
+
+        <!--  -->
+        <!-- id video -->
+        <!--  -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Id del video</mat-label>
+          <input matInput type="text" formControlName="videoId" required />
+          <mat-error>El id es requerido</mat-error>
+        </mat-form-field>
+
+        <!--  -->
+        <!-- YouTube api key -->
+        <!--  -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>YouTube api Key</mat-label>
+          <input matInput type="text" formControlName="apiKey" required />
+          <mat-error>La key es requerido</mat-error>
+        </mat-form-field>
+
+        <step-controls>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Finalizar</ng-template>
+        <p>
+          Presiona guardar para continuar, y regresar a la pagina anterior
+        </p>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="submit">
+            Guardar
+          </button>
+        </step-controls>
+      </mat-step>
+    </mat-vertical-stepper>
+  </form>
+</section>

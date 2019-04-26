@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-// component
 import { InnovaTipsComponent } from './pages/innova-tips/innova-tips.component';
-
-// provider
 import { InnovaTipsResolver } from '../../shared/providers/innova-tips.resolver';
 import { IsAdminGuard } from 'src/app/shared/providers/guards/is-admin.guard';
-import { CreateComponent } from './pages/create/create.component';
 import { TipComponent } from './pages/tip/tip.component';
 import { InnovaTipResolver } from './providers/innova-tip.resolve';
+import { CreateInnovaTipComponent } from './pages/create-innova-tip/create-innova-tip.component';
 
 const routes: Routes = [
   {
@@ -33,7 +29,7 @@ const routes: Routes = [
     children: [
       {
         path: 'create',
-        component: CreateComponent
+        component: CreateInnovaTipComponent
       }
     ]
   }
