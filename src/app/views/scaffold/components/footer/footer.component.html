@@ -1,6 +1,5 @@
-<!-- Footer has various parts: A subscribe section, a social media area. Project resume, other nav, and utpl with other logos section -->
 <footer>
-  <div class="container">
+  <div class="container" *ngIf="isNotAtAdmin">
     <section indev-section class="subscribe-section">
       <indev-section-title>
         ¿Cómo te mantienes al día en todas las novedades sobre educación?
@@ -140,26 +139,22 @@
         </li>
       </ul>
     </section>
-    <section indev-section class="website-goodBye">
-      <div class="wrapper">
-        <a
-          href="https://github.com/InDevelopmentCompany/Ascendere-WebApp/blob/master/LICENSE"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Copyright © 2019 indev | MIT License
-        </a>
-        <span>
-          With 🧡 and 👨‍💻 by
-          <a
-            href="https://github.com/InDevelopmentCompany"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @InDevelopmentCompany
-          </a>
-        </span>
-      </div>
-    </section>
   </div>
+  <section indev-section class="website-goodBye container">
+    <div class="wrapper">
+      <a
+        href="https://github.com/InDevelopmentCompany/Ascendere-WebApp/blob/master/LICENSE"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Copyright © 2019 indev | MIT License
+      </a>
+      <span>
+        With 🧡 and 👨‍💻 by
+        <a href="https://github.com/InDevelopmentCompany" target="_blank" rel="noopener noreferrer">
+          @InDevelopmentCompany
+        </a>
+      </span>
+    </div>
+  </section>
 </footer>

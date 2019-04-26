@@ -14,8 +14,7 @@ footer {
       'social'
       'contact'
       'nav'
-      'hello'
-      'bye';
+      'hello';
     @media screen and (min-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
       // on tablets
@@ -23,8 +22,7 @@ footer {
         'subscribe subscribe'
         'social social'
         'hello nav'
-        'hello contact'
-        'bye bye';
+        'hello contact';
     }
     @media screen and(min-width: 840px) {
       // on laptop
@@ -32,8 +30,7 @@ footer {
       grid-template-areas:
         'subscribe subscribe subscribe'
         'social social social'
-        'hello nav contact'
-        'bye bye bye';
+        'hello nav contact';
     }
     @media screen and(min-width: 1024px) {
       // on laptop l
@@ -43,18 +40,6 @@ footer {
       // on 4k
     }
 
-    section {
-      width: 100%;
-      padding: 0;
-
-      a:not(.mat-button) {
-        color: var(--primary-color);
-        text-decoration: none;
-        &:visited {
-          color: var(--secondary-color);
-        }
-      }
-    }
     .subscribe-section {
       grid-area: subscribe;
       text-align: center;
@@ -139,21 +124,33 @@ footer {
         }
       }
     }
-    .website-goodBye {
-      grid-area: bye;
-      border-top: 1px dotted rgba(97, 97, 97, 0.534);
-      .wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
+  }
+}
 
-        padding-bottom: 30px;
-        > * {
-          padding-top: 15px;
-        }
-      }
+section[indev-section] {
+  width: 100%;
+
+  a:not(.mat-button) {
+    color: var(--primary-color);
+    text-decoration: none;
+    &:visited {
+      color: var(--secondary-color);
+    }
+  }
+}
+
+.website-goodBye {
+  border-top: 1px dotted rgba(97, 97, 97, 0.534);
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    > *:not(:last-child) {
+      margin-right: 15px;
+      margin-bottom: 5px;
     }
   }
 }
