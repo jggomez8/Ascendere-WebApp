@@ -122,7 +122,7 @@ export class NavbarLinks {
             },
             {
               name: 'Asesoramiento',
-              routerLink: ['/', 'articulo', 'asesoramiento-pedagogico']
+              routerLink: ['/', 'articulo', 'asesoramiento-pedag-gico']
             }
           ]
         }

@@ -25,10 +25,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
     </indev-header>
 
     <section indev-section class="container">
-      <markdown *ngIf="articulo.hasContent; else source" [data]="articulo.content"></markdown>
-      <ng-template #source>
-        <markdown [src]="articulo.source"></markdown>
-      </ng-template>
+      <markdown [data]="articulo.content"></markdown>
     </section>
   `
 })
@@ -56,7 +53,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
 
   delete() {
     const popup = this._snackBar.open(
-      `❗ Seguro que quieres eliminar el encuentro: ${this.articulo.name}?`,
+      `❗ Seguro que quieres eliminar el artículo: ${this.articulo.name}?`,
       'Confirmar'
     );
     popup.onAction().subscribe(async () => {
@@ -64,7 +61,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
         .collection('articulo')
         .doc(this.articulo.id)
         .delete();
-      this._snackBar.open(`👍 El encuentro fue eliminado correctamente.`);
+      this._snackBar.open(`👍 El artículo fue eliminado correctamente.`);
       this._location.back();
     });
   }

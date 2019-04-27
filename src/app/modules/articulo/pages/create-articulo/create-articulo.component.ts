@@ -22,14 +22,18 @@ export class CreateArticuloComponent implements OnInit {
 
   articuloFormGroup: FormGroup;
   articulo: Articulo;
+
   private _user: firebase.User;
 
   ngOnInit() {
+    this._afAuth.authState.subscribe(user => {
+      this._user = user;
+    });
+
     this.articulo = this._route.snapshot.data['articulo'];
 
-    this._buildForm();
-
     if (!!this.articulo) this._loadFormWithData();
+    else this._buildForm();
   }
 
   private _buildForm() {
@@ -40,38 +44,69 @@ export class CreateArticuloComponent implements OnInit {
   }
 
   private _loadFormWithData() {
-    this.articuloFormGroup.controls['name'].setValue(this.articulo.name);
-    this.articuloFormGroup.controls['description'].setValue(this.articulo.content);
+    this.articuloFormGroup = this._formBuilder.group({
+      name: [this.articulo.name, Validators.required],
+      content: [this.articulo.content, Validators.required]
+    });
   }
 
   async submit() {
-    if (this.articuloFormGroup.invalid) {
-      this._snackBar.open('❗ La forma es invalida');
-      return;
-    }
+    console.log(this.articuloFormGroup.value);
+
     try {
+      // Validate if form is valid
+      if (this.articuloFormGroup.invalid) {
+        this._snackBar.open('❗ La forma es invalida');
+        return;
+      }
+
+      // Validate if user is authenticated
+
+      if (!this._user) {
+        this._snackBar.open('❗ No tienes permiso para realizar esta acción.');
+        return;
+      }
+
+      // update article
       if (!!this.articulo) {
+        console.log('updating');
+
         this._afs
           .collection('articulo')
-          .doc('sdf')
+          .doc(this.articulo.id)
           .set({
-            addBy: this._user.uid,
-            added: new Date(),
+            editor: this._user.uid,
+            edited: new Date(),
             ...this.articuloFormGroup.value
           });
-        await this._noticiasServiceService.updateNoticia(
-          this.noticia.id,
-          this.articuloFormGroup.value
-        );
-        this._router.navigate(['/noticias/noticia', this.noticia.id]);
-        this._snackBar.open('👌 Se actualizo la noticia correctamente');
-      } else {
-        await this._noticiasServiceService.createNoticia(this.articuloFormGroup.value);
-        this._router.navigate(['/noticias']);
-        this._snackBar.open('👍 Se creo la noticia correctamente');
+
+        this._router.navigate(['/articulo', this.articulo.id]);
+        this._snackBar.open('👌 El artículo se actualizo correctamente');
+        return;
       }
+
+      // create new article
+      const date = new Date();
+      const name = this._scapedName;
+      await this._afs
+        .collection('articulo')
+        .doc(name)
+        .set({
+          creator: this._user.uid,
+          created: date,
+          editor: this._user.uid,
+          edited: date,
+          ...this.articuloFormGroup.value
+        });
+      this._router.navigate(['/articulo', name]);
+      this._snackBar.open('👍 El artículo se creo correctamente');
     } catch (error) {
       this._snackBar.open('❗ Ocurrido un error al guardar, por favor vuelve a intentarlo');
     }
+  }
+
+  private get _scapedName() {
+    const name: string = this.articuloFormGroup.controls['name'].value;
+    return name.toLowerCase().replace(/[^\w]+/g, '-');
   }
 }

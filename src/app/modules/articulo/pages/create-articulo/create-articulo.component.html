@@ -1,3 +1,57 @@
-<p>
-  create-articulo works!
-</p>
+<indev-header>
+  <h2>Artículos - Administrador</h2>
+  <h1 *ngIf="!!articulo; else newArticulo">{{ articulo.name }}</h1>
+  <ng-template #newArticulo>Nuevo Artículo</ng-template>
+</indev-header>
+
+<section indev-section class="container">
+  <form [formGroup]="articuloFormGroup" (ngSubmit)="submit()">
+    <mat-vertical-stepper [linear]="!articulo" #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Información de la artículo</ng-template>
+
+        <!--  -->
+        <!-- name -->
+        <!--  -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" formControlName="name" required />
+          <mat-error>El nombre es requerido</mat-error>
+        </mat-form-field>
+
+        <!--  -->
+        <!-- content -->
+        <!--  -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Resumen de la Noticia</mat-label>
+          <textarea
+            matInput
+            type="text"
+            class="big-text-area"
+            formControlName="content"
+            required
+          ></textarea>
+        </mat-form-field>
+
+        <step-controls>
+          <button mat-raised-button color="primary" type="button" matStepperNext>Siguiente</button>
+        </step-controls>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Finalizar</ng-template>
+        <p>
+          Presiona guardar para continuar, y regresar a la pagina anterior
+        </p>
+        <step-controls>
+          <button mat-button matStepperPrevious type="button">Anterior</button>
+          <button mat-raised-button color="primary" type="submit">
+            Guardar
+          </button>
+        </step-controls>
+      </mat-step>
+    </mat-vertical-stepper>
+  </form>
+</section>
