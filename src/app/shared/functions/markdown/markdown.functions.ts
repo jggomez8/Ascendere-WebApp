@@ -51,15 +51,10 @@ function link(href: string, _: string, text: string) {
 
   // check if link redirects outside the app
   if (href.match(linkRegExp)) {
-    // Check if link refers to document
-    const fileRegExp = RegExp('(.*?)\\.(xls|doc|pdf)$');
-    // TODO: check if icon is museful or remove it
-    let icon = href.match(fileRegExp) ? '📄' : '';
-
     // Navigate safely outside the app
     return `
     <a href="${href}" target="_blank" rel="noopener noreferrer">
-      ${text} ${icon}
+      ${text}
     </a>
     `;
   }

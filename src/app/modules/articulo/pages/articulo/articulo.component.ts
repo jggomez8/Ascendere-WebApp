@@ -19,9 +19,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
     </indev-admin-actions>
 
     <indev-header>
-      <h1 class="TextTheme--display2">
-        {{ articulo.name }}
-      </h1>
+      <h2>Articulo</h2>
+      <h1 class="TextTheme--display2">{{ articulo.name }}</h1>
     </indev-header>
 
     <section indev-section class="container">

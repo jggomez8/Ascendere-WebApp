@@ -106,7 +106,7 @@ export class NavbarLinks {
           children: [
             {
               name: 'Como Elaborar mi Plan Docente',
-              routerLink: ['/', 'articulo', 'plan-docente']
+              routerLink: ['/', 'articulo', 'c-mo-elaborar-mi-plan-docente']
             },
             {
               name: 'Repositorio de Planes Docentes',
