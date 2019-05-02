@@ -3,8 +3,7 @@ import { Location } from '@angular/common';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { DrawerService } from '../../providers/drawer.service';
 import { NavbarLinks } from '../../interfaces/navbar-item.interface';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'indev-app-bar',

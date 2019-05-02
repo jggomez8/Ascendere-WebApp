@@ -92,8 +92,8 @@
         >
           ➕ Registrarse
         </a>
-        <a *ngIf="(afAuth.authState | async)" mat-menu-item (click)="afAuth.auth.signOut()">
-          ❌ Cerrar Sección
+        <a *ngIf="afAuth.authState | async" mat-menu-item (click)="afAuth.auth.signOut()">
+          ❌ Cerrar Sesión
         </a>
         <a mat-menu-item href="mailto:bruno.be81@gmail.com">
           📝 Informar de un error

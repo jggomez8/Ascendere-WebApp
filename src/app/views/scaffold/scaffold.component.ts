@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { DrawerService } from './providers/drawer.service';
 import { Router, Event, NavigationEnd } from '@angular/router';
-import { MatButton } from '@angular/material';
+
 @Component({
   selector: 'indev-shell-view',
   template: `
     <div class="scaffold">
       <indev-app-bar></indev-app-bar>
 
-      <indev-drawer *ngIf="(drawerState.state | async)"></indev-drawer>
+      <indev-drawer *ngIf="drawerState.state | async"></indev-drawer>
       <main
         #main
         [ngStyle]="{ overflow: (drawerState.state | async) ? 'hidden' : 'hidden scroll' }"
