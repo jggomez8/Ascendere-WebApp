@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AppBarComponent } from './components/app-bar/app-bar.component';
 import { DrawerComponent } from './components/drawer/drawer.component';
 import { DrawerService } from './providers/drawer.service';
+import { SubscribeService } from './providers/subscribe.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,6 @@ import { DrawerService } from './providers/drawer.service';
     DrawerComponent
   ],
   imports: [CommonModule, ScaffoldRoutingModule, SharedModule],
-  providers: [DrawerService]
+  providers: [DrawerService, SubscribeService]
 })
 export class ScaffoldModule {}

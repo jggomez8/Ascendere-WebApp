@@ -6,17 +6,30 @@
       </indev-section-title>
       <div class="wrap">
         <p class="TextTheme--subhead">
-          Un buen comienzo es inscribirse en nuestro boletín semanal. Te traemos las ultimas
+          Un buen comienzo es inscribirse epn nuestro boletín semanal. Te traemos las ultimas
           notificas, cursos, encuentros y más para que te mantengas informado.
         </p>
-        <!-- TODO: add form validation, and submit -->
-        <mat-form-field appearance="outline">
-          <mat-label>Correo Electrónico</mat-label>
-          <input matInput placeholder="ascendere@utpl.edu.ec" />
-          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-          <!-- <mat-hint>Correo electrónico debe ser valido</mat-hint> -->
-        </mat-form-field>
-        <button mat-stroked-button color="primary">Suscribirse</button>
+        <br />
+        <form [formGroup]="subscribeForm" (ngSubmit)="submit()">
+          <mat-form-field appearance="outline">
+            <mat-label>Correo Electrónico</mat-label>
+            <input
+              formControlName="email"
+              type="email"
+              matInput
+              placeholder="ascendere@utpl.edu.ec"
+              required
+            />
+            <mat-hint>
+              Use el correo al que quiere recibir notificaciones
+              <span class="TextTheme--ascendere">ASCENDERE</span>
+            </mat-hint>
+            <mat-error>
+              Tiene que ingresar un correo valido, con el formato: 'ascendere@utpl.edu.ec' o similar
+            </mat-error>
+          </mat-form-field>
+          <button mat-stroked-button color="primary" type="submit">Suscribirse</button>
+        </form>
       </div>
     </section>
     <section indev-section class="social-links">
