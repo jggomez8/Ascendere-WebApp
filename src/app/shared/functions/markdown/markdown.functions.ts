@@ -7,6 +7,18 @@ export function indevMarkedOptionsFactory(): MarkedOptions {
   renderer.image = image;
   renderer.link = link;
   renderer.html = html;
+  renderer.table = (header, body) => {
+    console.log({ header, body });
+
+    return `
+    <div class="table-container">
+      <table>
+        ${header}
+        ${body}
+      </table>
+    </div>
+      `;
+  };
 
   return {
     renderer: renderer,

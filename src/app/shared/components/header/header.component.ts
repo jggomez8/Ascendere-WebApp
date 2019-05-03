@@ -7,7 +7,6 @@ import {
   OnInit,
   AfterContentInit
 } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'indev-header',
@@ -35,7 +34,7 @@ import { Title } from '@angular/platform-browser';
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent implements OnInit, AfterContentInit {
-  constructor(private _titleService: Title) {}
+  constructor() {}
 
   @Input() style: Object = {};
 
@@ -46,12 +45,7 @@ export class HeaderComponent implements OnInit, AfterContentInit {
   @ViewChild('subHeader') subHeaderRef: ElementRef<HTMLElement>;
   @ViewChild('header') headerRef: ElementRef<HTMLElement>;
 
-  ngOnInit() {
-    // TODO: add metatag
-    let el = this.headerRef.nativeElement.firstChild;
-    console.log(el);
-    console.log(el.textContent);
-  }
+  ngOnInit() {}
 
   ngAfterContentInit(): void {
     const imageEl = this.imageRef.nativeElement as HTMLElement;
