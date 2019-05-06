@@ -1,12 +1,15 @@
+<indev-admin-actions>
+  <a [routerLink]="['/programa-formacion/admin/create']" mat-menu-item>Crear Curso</a>
+  <mat-divider></mat-divider>
+  <a [routerLink]="['/programa-formacion/admin/create', curso.id]" mat-menu-item>Editar Curso</a>
+  <a mat-menu-item (click)="delete()">Eliminar Curso</a>
+</indev-admin-actions>
+
 <indev-header [style]="curso.typeBackground">
-  <h1 class="TextTheme--display2">
-    <span class="TextTheme--title">
-      {{ curso.type | uppercase }}
-    </span>
-    <br />
-    {{ curso.name }}
-  </h1>
+  <h2>{{ curso.type | uppercase }}</h2>
+  <h1>{{ curso.name }}</h1>
 </indev-header>
+
 <section indev-section>
   <div class="container">
     <aside>

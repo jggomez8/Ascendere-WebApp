@@ -5,8 +5,12 @@ import { Curso } from 'src/app/interfaces/curso';
 @Component({
   selector: 'indev-portfolio',
   template: `
+    <indev-admin-actions>
+      <a [routerLink]="['/programa-formacion/admin/create']" mat-menu-item>Crear Curso</a>
+    </indev-admin-actions>
+
     <indev-header>
-      <h1 class="TextTheme--display2">Portafolio de Cursos</h1>
+      <h1>Portafolio de Cursos</h1>
     </indev-header>
 
     <section indev-section class="container">

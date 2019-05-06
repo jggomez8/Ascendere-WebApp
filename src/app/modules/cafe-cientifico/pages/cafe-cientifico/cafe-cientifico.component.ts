@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Encuentro } from 'src/app/interfaces/encuentro';
-import { UserRoleService } from 'src/app/shared/providers/services/user-role.service';
 
 @Component({
   selector: 'indev-cafe-cientifico',

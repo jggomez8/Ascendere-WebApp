@@ -33,8 +33,6 @@ export class FooterComponent implements OnInit {
 
     const { email } = this.subscribeForm.value;
     this._subService.subscribeWithEmail(email).subscribe(res => {
-      console.log(res);
-
       this._snackBar.open(res);
     });
   }

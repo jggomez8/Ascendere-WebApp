@@ -38,13 +38,22 @@ export class Encuentro {
 
   // TODO: fix this
   get content() {
-    return this.banner
+    let text = this.banner
       ? `
-    ![${this.altImage}](${this.banner})
+    [![${this.altImage}](${this.banner})](${this.img})
 
     ${this.description}
     `
       : this.description;
+
+    if (!!this.participation)
+      text = `
+    ${text}
+
+    **Participa:** ${this.participation}
+    `;
+
+    return text;
   }
 
   get postulations() {

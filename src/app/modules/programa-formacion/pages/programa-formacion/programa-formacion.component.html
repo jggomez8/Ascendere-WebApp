@@ -1,16 +1,9 @@
-<section indev-section class="container">
-  <indev-section-title>Modulo Admin</indev-section-title>
-  <indev-section-controls>
-    <a [routerLink]="['/programa-formacion/admin']" mat-button>Admin</a>
-  </indev-section-controls>
-</section>
+<indev-admin-actions>
+  <a [routerLink]="['/programa-formacion/admin/create']" mat-menu-item>Crear Curso</a>
+</indev-admin-actions>
 
 <indev-header>
-  <h1 class="TextTheme--display2">
-    Programa de
-    <br />
-    <span class="TextTheme--display3">Formación Docente</span>
-  </h1>
+  <h1>Programa de Formación Docente</h1>
   <img src="/assets/images/ProgramaFormacion.svg" alt="ProgramaFormacion Icon" />
   <markdown src="/assets/markdown/programa-formacion/programa-formacion.md"> </markdown>
 </indev-header>

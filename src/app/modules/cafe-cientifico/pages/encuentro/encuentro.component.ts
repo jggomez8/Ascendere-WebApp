@@ -24,9 +24,7 @@ import { Location } from '@angular/common';
       <h2>Fecha 📆 {{ encuentro.date | date: 'fullDate' }}</h2>
     </indev-header>
 
-    <section indev-section class="container">
-      <router-outlet></router-outlet>
-    </section>
+    <router-outlet></router-outlet>
   `
 })
 export class EncuentroComponent implements OnInit {

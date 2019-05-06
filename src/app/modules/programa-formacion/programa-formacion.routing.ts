@@ -6,7 +6,6 @@ import { CursoComponent } from './pages/curso/curso.component';
 import { CursoResolver } from './providers/curso.resolver';
 import { PortfolioCursosComponent } from './pages/portfolio-cursos/portfolio-cursos.component';
 import { IsAdminGuard } from 'src/app/shared/providers/guards/is-admin.guard';
-import { ProgramaFormacionAdminComponent } from './pages/programa-formacion-admin/programa-formacion-admin.component';
 import { CreateCursoComponent } from './pages/create-curso/create-curso.component';
 import { BannerTypeResolver } from './providers/bannerType.resolver';
 
@@ -36,13 +35,6 @@ const routes: Routes = [
     path: 'admin',
     canActivate: [IsAdminGuard],
     children: [
-      {
-        path: '',
-        component: ProgramaFormacionAdminComponent,
-        resolve: {
-          cursos: CursosResolver
-        }
-      },
       {
         path: 'create',
         component: CreateCursoComponent,

@@ -5,7 +5,6 @@ import { Curso } from 'src/app/interfaces/curso';
 import { ProgramaFormacionComponent } from '../../modules/programa-formacion/pages/programa-formacion/programa-formacion.component';
 import { HomeComponent } from '../../modules/home/pages/home/home.component';
 import { PortfolioCursosComponent } from 'src/app/modules/programa-formacion/pages/portfolio-cursos/portfolio-cursos.component';
-import { ProgramaFormacionAdminComponent } from 'src/app/modules/programa-formacion/pages/programa-formacion-admin/programa-formacion-admin.component';
 
 @Injectable()
 export class CursosResolver implements Resolve<Curso[]> {
@@ -39,12 +38,6 @@ export class CursosResolver implements Resolve<Curso[]> {
         .doc('programa-formacion')
         .collection('cursos', ref => ref.where('date', '>=', startDate).orderBy('date', 'asc'));
     }
-
-    if (component === ProgramaFormacionAdminComponent)
-      return this._afs
-        .collection('formacion-docente')
-        .doc('programa-formacion')
-        .collection('cursos', ref => ref.orderBy('date', 'desc').limit(2));
 
     // Check if component is portfolio type, if so use queries in the route
     if (component === PortfolioCursosComponent) {

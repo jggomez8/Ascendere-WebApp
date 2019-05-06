@@ -9,7 +9,7 @@ import { Curso } from 'src/app/interfaces/curso';
 export class ProgramaFormacionComponent implements OnInit {
   constructor(private _route: ActivatedRoute) {}
 
-  public cursos: Curso[];
+  cursos: Curso[];
 
   ngOnInit(): void {
     this.cursos = this._route.snapshot.data['cursos'] as Curso[];

@@ -8,7 +8,6 @@ import { HeroEncuentroComponent } from './components/hero-encuentro/hero-encuent
 import { EncuentroDetailComponent } from './pages/encuentro-detail/encuentro-detail.component';
 import { IncripcionEncuentroComponent } from './pages/incripcion-encuentro/incripcion-encuentro.component';
 import { EncuentroComponent } from './pages/encuentro/encuentro.component';
-import { CafeCientificoAdminComponent } from './pages/cafe-cientifico-admin/cafe-cientifico-admin.component';
 import { CreateEncuentroComponent } from './pages/create-encuentro/create-encuentro.component';
 import { EncuentroResolver } from './providers/encuentro.resolver';
 import { EncuentrosService } from './providers/encuentros.service';
@@ -21,7 +20,6 @@ import { EncuentrosService } from './providers/encuentros.service';
     EncuentroDetailComponent,
     IncripcionEncuentroComponent,
     EncuentroComponent,
-    CafeCientificoAdminComponent,
     CreateEncuentroComponent
   ],
   imports: [CommonModule, CafeCientificoRoutingModule, SharedModule],

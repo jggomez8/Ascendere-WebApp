@@ -1,6 +1,6 @@
-<section indev-section>
+<section indev-section class="container">
   <h2 class="TextTheme--headline" *ngIf="encuentro.canInscribe">
-    Inscribete hasta el
+    Inscríbete hasta el
     <a
       class="TextTheme--ascendere"
       style="text-transform: none"
@@ -9,10 +9,10 @@
       {{ encuentro.postulations | date: 'fullDate' }}
     </a>
   </h2>
-  <markdown [data]="encuentro.description"> </markdown>
+  <markdown [data]="encuentro.content"> </markdown>
 </section>
 
-<section indev-section *ngIf="encuentro.hasGuests" class="guests">
+<section indev-section *ngIf="encuentro.hasGuests" class="container guests">
   <indev-section-title>👨‍🏫 Invitados</indev-section-title>
   <ul>
     <li *ngFor="let guest of encuentro.guests">
@@ -24,7 +24,7 @@
   </ul>
 </section>
 
-<div *ngIf="encuentro.canInscribe" class="inscription">
+<div *ngIf="encuentro.canInscribe" class="container inscription">
   <a
     mat-raised-button
     color="primary"
