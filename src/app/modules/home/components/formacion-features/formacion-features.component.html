@@ -7,12 +7,12 @@
     <aside>
       <section indev-section>
         <indev-section-title before>Formación</indev-section-title>
-        <ul>
-          <li class="TextTheme--headline active"><a>Cursos</a></li>
-          <li class="TextTheme--headline"><a>Encuentros</a></li>
-          <li class="TextTheme--headline"><a>Vitamina</a></li>
-          <li class="TextTheme--headline"><a>InnovaTips</a></li>
-        </ul>
+        <a class="TextTheme--headline" *ngIf="encuentros.length > 0">Cafés Científicos</a>
+        <!-- <a class="TextTheme--headline">Debates Estudiantiles</a> -->
+        <a class="TextTheme--headline" *ngIf="innovaTips.length > 0">InnovaTips</a>
+        <a class="TextTheme--headline" *ngIf="cursos.length > 0">Cursos</a>
+        <!-- <a class="TextTheme--headline">Talleres Académicos</a> -->
+        <!-- <a class="TextTheme--headline">Vitaminas I</a> -->
       </section>
     </aside>
     <!--  -->
@@ -22,9 +22,9 @@
       <section indev-section *ngIf="cursos.length > 0" id="cursos">
         <indev-section-title before>Próximos Cursos</indev-section-title>
         <indev-section-controls>
-          <a mat-button color="primary" [routerLink]="['/programa-formacion']"
-            >Programa de Formación</a
-          >
+          <a mat-button color="primary" [routerLink]="['/programa-formacion']">
+            Programa de Formación
+          </a>
         </indev-section-controls>
         <div class="grid">
           <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"></indev-curso-card>
@@ -34,9 +34,11 @@
       <!--  -->
       <!--  -->
       <section indev-section *ngIf="encuentros.length > 0" id="encuentros">
-        <indev-section-title before>Próximos Encuentros</indev-section-title>
+        <indev-section-title before>Próximo Café Científico</indev-section-title>
         <indev-section-controls>
-          <a mat-button color="primary" [routerLink]="['/cafe-cientifico']">Ver más Encuentros</a>
+          <a mat-button color="primary" [routerLink]="['/cafe-cientifico']">
+            Ver más Cafés Científicos
+          </a>
         </indev-section-controls>
         <div class="grid" style="--size: 400px">
           <indev-encuentro-card

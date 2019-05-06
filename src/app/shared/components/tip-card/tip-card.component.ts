@@ -21,8 +21,6 @@ import { HomeComponent } from 'src/app/modules/home/pages/home/home.component';
           <markdown [data]="tip.description"></markdown>
         </div>
 
-        <markdown [data]="tip.description"></markdown>
-
         <a
           [href]="tip.link"
           target="_blank"

@@ -4,8 +4,16 @@ header {
   overflow: hidden;
 
   position: relative;
-  background: var(--primary-color);
-
+  background: rgb(32, 237, 148);
+  background: radial-gradient(
+    circle,
+    rgba(32, 237, 148, 1) 0%,
+    rgba(28, 231, 198, 1) 21%,
+    rgba(0, 188, 212, 1) 90%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
   .blob {
     z-index: 2;
 

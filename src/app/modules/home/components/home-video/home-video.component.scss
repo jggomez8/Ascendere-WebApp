@@ -21,19 +21,23 @@ section[indev-section] {
       padding-top: 40px;
       padding-bottom: 40px;
 
-      background-image: linear-gradient(
+      background: rgb(255, 196, 0);
+      background: linear-gradient(
         to bottom,
-        var(--secondary-color) 0,
-        var(--secondary-color) 67%,
-        var(--primary-color) 100%
+        rgba(255, 196, 0, 1) 12%,
+        rgba(255, 196, 0, 1) 54%,
+        rgba(32, 237, 148, 1) 85%,
+        rgba(0, 188, 212, 1) 96%
       );
       @media screen and(min-width: 840px) {
         // on laptop
-        background-image: linear-gradient(
-          to right,
-          var(--secondary-color) 0,
-          var(--secondary-color) 67%,
-          var(--primary-color) 100%
+        background: rgb(255, 196, 0);
+        background: linear-gradient(
+          90deg,
+          rgba(255, 196, 0, 1) 12%,
+          rgba(255, 196, 0, 1) 54%,
+          rgba(32, 237, 148, 1) 85%,
+          rgba(0, 188, 212, 1) 96%
         );
       }
       .row {

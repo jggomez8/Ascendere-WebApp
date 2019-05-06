@@ -56,11 +56,7 @@
       margin-bottom: 16px;
     }
     > .aspect-ratio {
-      display: none;
       --aspect-ratio: 3/1;
-      @media screen and (min-width: 840px) {
-        display: block;
-      }
       > markdown {
         position: absolute;
         top: 0;
