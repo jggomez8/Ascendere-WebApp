@@ -20,13 +20,8 @@ import { Subscription } from 'rxjs';
   styles: [
     `
       section {
-        background: rgb(32, 237, 148);
-        background: linear-gradient(
-          to right,
-          rgba(32, 237, 148, 1) 0%,
-          rgba(28, 231, 198, 1) 21%,
-          rgba(0, 188, 212, 1) 90%
-        );
+        background: #36a6bf;
+        background: linear-gradient(259deg, #36a6bf 0%, #4ecbd9 30%, #37a4ce 100%);
         color: var(--on-primary);
       }
       section .container {

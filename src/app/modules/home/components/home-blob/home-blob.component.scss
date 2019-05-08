@@ -4,16 +4,10 @@ header {
   overflow: hidden;
 
   position: relative;
-  background: rgb(32, 237, 148);
-  background: radial-gradient(
-    circle,
-    rgba(32, 237, 148, 1) 0%,
-    rgba(28, 231, 198, 1) 21%,
-    rgba(0, 188, 212, 1) 90%
-  );
+  background: #36a6bf;
+  background: linear-gradient(259deg, #36a6bf 0%, #4ecbd9 30%, #37a4ce 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: top;
   .blob {
     z-index: 2;
 
@@ -39,12 +33,17 @@ header {
     }
   }
   > svg {
+    display: none;
+
     z-index: 3;
     position: absolute;
     bottom: 0;
     right: 0;
     left: 0;
     fill: white;
+    @media screen and (min-width: 840px) {
+      display: block;
+    }
   }
 }
 
