@@ -8,6 +8,8 @@ import { ObservatorioFeaturesComponent } from './components/observatorio-feature
 import { FormacionFeaturesComponent } from './components/formacion-features/formacion-features.component';
 import { HomeBlobComponent } from './components/home-blob/home-blob.component';
 import { HomeVideoComponent } from './components/home-video/home-video.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { PersonalCardComponent } from '../ascendere/personal-card/personal-card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,11 @@ import { HomeVideoComponent } from './components/home-video/home-video.component
     FeaturedProjectsComponent,
     ObservatorioFeaturesComponent,
     HomeBlobComponent,
-    HomeVideoComponent
+    HomeVideoComponent,
+
+    // Components used in quienes-somos page
+    QuienesSomosComponent,
+    PersonalCardComponent
   ],
   imports: [CommonModule, HomeRoutingModule, SharedModule]
 })

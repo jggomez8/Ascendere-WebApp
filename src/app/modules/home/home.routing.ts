@@ -7,6 +7,7 @@ import { NoticiasResolver } from 'src/app/shared/providers/noticias.resolver';
 import { TipsResolver } from 'src/app/shared/providers/tips.resolver';
 import { InnovaTipsResolver } from 'src/app/shared/providers/innova-tips.resolver';
 import { ProyectosInnovacionResolver } from 'src/app/shared/providers/proyectos.resolver';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       innovaTips: InnovaTipsResolver,
       proyectos: ProyectosInnovacionResolver
     }
+  },
+  {
+    path: 'quienes-somos',
+    component: QuienesSomosComponent
   }
 ];
 

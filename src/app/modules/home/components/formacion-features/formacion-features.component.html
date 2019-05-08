@@ -7,12 +7,14 @@
     <aside>
       <section indev-section>
         <indev-section-title before>Formación</indev-section-title>
-        <a class="TextTheme--headline" *ngIf="encuentros.length > 0">Cafés Científicos</a>
-        <!-- <a class="TextTheme--headline">Debates Estudiantiles</a> -->
-        <a class="TextTheme--headline" *ngIf="innovaTips.length > 0">InnovaTips</a>
-        <a class="TextTheme--headline" *ngIf="cursos.length > 0">Cursos</a>
-        <!-- <a class="TextTheme--headline">Talleres Académicos</a> -->
-        <!-- <a class="TextTheme--headline">Vitaminas I</a> -->
+        <div class="links">
+          <a mat-button [routerLink]="['/cafe-cientifico']">☕ Cafés Científicos</a>
+          <a mat-button [routerLink]="['/debate-estudiantil']">👨‍🎓 Debates Estudiantiles</a>
+          <a mat-button [routerLink]="['/innova-tips']">👌 InnovaTips</a>
+          <a mat-button [routerLink]="['/programa-formacion']">📚 Cursos</a>
+          <a mat-button [routerLink]="['/talleres-academicos']">🎒 Talleres Académicos</a>
+          <a mat-button [routerLink]="['/vitamina-i']">💊 Vitaminas I</a>
+        </div>
       </section>
     </aside>
     <!--  -->
@@ -21,25 +23,23 @@
     <div class="scroll-content">
       <section indev-section *ngIf="cursos.length > 0" id="cursos">
         <indev-section-title before>Próximos Cursos</indev-section-title>
-        <indev-section-controls>
+        <!-- <indev-section-controls>
           <a mat-button color="primary" [routerLink]="['/programa-formacion']">
             Programa de Formación
           </a>
-        </indev-section-controls>
+        </indev-section-controls> -->
         <div class="grid">
           <indev-curso-card *ngFor="let curso of cursos" [curso]="curso"></indev-curso-card>
         </div>
       </section>
-      <!--  -->
-      <!--  -->
-      <!--  -->
+
       <section indev-section *ngIf="encuentros.length > 0" id="encuentros">
         <indev-section-title before>Próximo Café Científico</indev-section-title>
-        <indev-section-controls>
+        <!-- <indev-section-controls>
           <a mat-button color="primary" [routerLink]="['/cafe-cientifico']">
             Ver más Cafés Científicos
           </a>
-        </indev-section-controls>
+        </indev-section-controls> -->
         <div class="grid" style="--size: 400px">
           <indev-encuentro-card
             *ngFor="let encuentro of encuentros"
@@ -47,14 +47,12 @@
           ></indev-encuentro-card>
         </div>
       </section>
-      <!--  -->
-      <!--  -->
-      <!--  -->
+
       <section indev-section *ngIf="innovaTips.length > 0" id="innova-tips">
         <indev-section-title before>Últimos InnovaTips</indev-section-title>
-        <indev-section-controls>
+        <!-- <indev-section-controls>
           <a mat-button color="primary" [routerLink]="['/innova-tips']">Ver más InnovaTips</a>
-        </indev-section-controls>
+        </indev-section-controls> -->
         <div class="grid" style="--size: 400px">
           <indev-innova-tip-card
             *ngFor="let innovaTip of innovaTips"

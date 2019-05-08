@@ -45,28 +45,15 @@
         top: 0;
         align-self: flex-start;
       }
-      a {
-        display: block;
-        cursor: pointer;
-        padding: 15px 0 10px;
-        position: relative;
-
-        &::before {
-          content: '';
-
-          position: absolute;
-          left: 0;
-          bottom: 10px;
-          height: 3px;
-          width: 0;
-          border-radius: 3px;
-
-          background: var(--on-secondary) none repeat scroll 0 0;
-          -webkit-transition: 0.5s;
-          transition: 0.5s;
-        }
-        &:hover::before {
-          width: 100%;
+      .links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        a[mat-button] {
+          margin-left: -16px;
+          font-size: 18px !important;
+          font-weight: normal !important;
+          text-transform: none !important;
         }
       }
     }
