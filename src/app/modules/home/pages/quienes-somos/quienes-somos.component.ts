@@ -3,13 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'indev-quienes-somos',
   template: `
-    <!-- Main page -->
     <div class="hero-banner aspect-ratio" style="--aspect-ratio: 21/9">
-      <img src="/assets/images/ascendere/banner-quienes-somos.jpg" alt="Banner Quienes Somos" />
+      <img src="/assets/images/home/banner-quienes-somos.jpg" alt="Banner Quienes Somos" />
     </div>
 
     <section class="container" indev-section>
-      <markdown src="/assets/markdown/ascendere/quienes-somos.md"></markdown>
+      <markdown src="/assets/markdown/home/quienes-somos.md"></markdown>
     </section>
     <section class="container" indev-section>
       <div class="grid">
@@ -21,7 +20,7 @@ import { Component } from '@angular/core';
     </section>
 
     <section class="container" indev-section>
-      <markdown src="/assets/markdown/ascendere/indev.md"></markdown>
+      <markdown src="/assets/markdown/home/indev.md"></markdown>
     </section>
   `,
   styles: [
@@ -48,22 +47,22 @@ export class QuienesSomosComponent {
     {
       name: 'PhD. María Isabel Loaiza',
       content: 'Dirección de Innovación, Formación y Evaluación Docente',
-      image: '/assets/images/ascendere/maria-isabel.jpg'
+      image: '/assets/images/home/maria-isabel.jpg'
     },
     {
       name: 'Ing. Nuve Briceño',
       content: 'Formación Docente',
-      image: '/assets/images/ascendere/nuve-bricenio.jpg'
+      image: '/assets/images/home/nuve-bricenio.jpg'
     },
     {
       name: 'Mgtr. Angela Salazar',
       content: 'Innovación Docente',
-      image: '/assets/images/ascendere/angela-salazar.jpg'
+      image: '/assets/images/home/angela-salazar.jpg'
     },
     {
       name: 'Mgtr. Lourdes Cueva',
       content: 'Evaluación Docente',
-      image: '/assets/images/ascendere/lourdes-cueva.jpg'
+      image: '/assets/images/home/lourdes-cueva.jpg'
     }
   ];
 }
