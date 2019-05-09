@@ -51,6 +51,10 @@ export class AppComponent implements OnInit {
         event instanceof NavigationError
       ) {
         this.loading = false;
+
+        if (event instanceof NavigationEnd) {
+          (<any>window).ga('create', 'UA-139840164-1', 'auto');
+        }
         return;
       }
       // default case, do nothing
