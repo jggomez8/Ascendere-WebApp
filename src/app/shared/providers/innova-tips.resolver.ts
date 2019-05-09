@@ -14,15 +14,11 @@ export class InnovaTipsResolver implements Resolve<InnovaTip[]> {
       const innovaTipsCollection = this._getInnovaTipsCollection(route);
       const innovaTipsSnap = await innovaTipsCollection.get().toPromise();
 
-      if (innovaTipsSnap.empty) return [];
       return innovaTipsSnap.docs.map(
         doc => new InnovaTip(Object.assign({ id: doc.id }, doc.data()))
       );
     } catch (error) {
-      console.error(error);
-      // TODO: add err page
-      this.router.navigate(['/404']);
-      return null;
+      return [];
     }
   }
 

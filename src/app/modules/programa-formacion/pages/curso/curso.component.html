@@ -11,7 +11,7 @@
 </indev-header>
 
 <section indev-section>
-  <div class="container">
+  <div id="content" class="container">
     <aside>
       <div class="TextTheme--subtitle">
         <span *ngIf="curso.canPostulate; else noPostulationMessage">
@@ -108,5 +108,15 @@
         </span>
       </p>
     </main>
+  </div>
+</section>
+
+<section indev-section class="container" *ngIf="cursos.length > 0">
+  <indev-section-title>Otros Cursos</indev-section-title>
+  <indev-section-controls>
+    <a mat-button color="primary" [routerLink]="['portafolio']">Portafolio de Cursos</a>
+  </indev-section-controls>
+  <div class="grid">
+    <indev-curso-card *ngFor="let c of cursos" [curso]="c"> </indev-curso-card>
   </div>
 </section>

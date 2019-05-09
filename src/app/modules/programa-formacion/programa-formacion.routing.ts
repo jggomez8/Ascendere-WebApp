@@ -28,7 +28,8 @@ const routes: Routes = [
     path: 'curso/:id',
     component: CursoComponent,
     resolve: {
-      curso: CursoResolver
+      curso: CursoResolver,
+      cursos: CursosResolver
     }
   },
   {

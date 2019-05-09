@@ -1,6 +1,6 @@
 <!-- this card has 2 layers: background image of the employee and on top the name and data, when hover more information appears -->
 <div class="card aspect-ratio" style="--aspect-ratio: 3/4">
-  <img [src]="persona.image" [alt]="'Image: ' + persona.name" />
+  <img [src]="persona.image" loading="lazy" [alt]="'Image: ' + persona.name" />
 
   <div class="content" #content>
     <span class="TextTheme--title">{{ persona.name }}</span>

@@ -20,16 +20,15 @@ export class CursoComponent implements OnInit, OnDestroy {
   ) {}
 
   curso: Curso;
+  cursos: Curso[];
 
   private _cursoSub: Subscription;
 
   ngOnInit() {
-    this._cursoSub = this._route.data.subscribe(
-      data => {
-        this.curso = data['curso'] as Curso;
-      },
-      err => console.error('TODO: do something')
-    );
+    this._cursoSub = this._route.data.subscribe(data => {
+      this.curso = data['curso'];
+      this.cursos = data['cursos'];
+    });
   }
 
   ngOnDestroy() {

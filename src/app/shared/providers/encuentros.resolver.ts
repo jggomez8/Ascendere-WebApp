@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Encuentro } from 'src/app/interfaces/encuentro';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { HomeComponent } from 'src/app/modules/home/pages/home/home.component';
 
 @Injectable()
 export class EncuentrosResolver implements Resolve<Encuentro[]> {
-  constructor(private _afs: AngularFirestore, private router: Router) {}
+  constructor(private _afs: AngularFirestore) {}
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
@@ -14,15 +14,11 @@ export class EncuentrosResolver implements Resolve<Encuentro[]> {
         .get()
         .toPromise();
 
-      if (encuentrosSnap.empty) return [];
       return encuentrosSnap.docs.map(
         doc => new Encuentro(Object.assign({ id: doc.id }, doc.data()))
       );
     } catch (error) {
-      console.error(error);
-      // TODO: add err page
-      this.router.navigate(['/404']);
-      return null;
+      return [];
     }
   }
 

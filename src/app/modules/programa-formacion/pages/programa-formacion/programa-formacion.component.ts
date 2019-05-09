@@ -12,6 +12,6 @@ export class ProgramaFormacionComponent implements OnInit {
   cursos: Curso[];
 
   ngOnInit(): void {
-    this.cursos = this._route.snapshot.data['cursos'] as Curso[];
+    this.cursos = this._route.snapshot.data['cursos'] || [];
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {
   AngularFirestoreCollection,
   AngularFirestore,
@@ -12,18 +12,16 @@ import { Proyecto, ProyectosInnovacion } from 'src/app/interfaces/proyecto';
 
 @Injectable()
 export class ProyectosInnovacionResolver implements Resolve<Proyecto[]> {
-  constructor(private _afs: AngularFirestore, private router: Router) {}
+  constructor(private _afs: AngularFirestore) {}
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     try {
       const proyectosCollection = this.getCollectionQuery(route);
       const proyectosSnap = await proyectosCollection.get().toPromise();
+
       return proyectosSnap.docs.map(doc => new Proyecto(Object.assign({ id: doc.id }, doc.data())));
     } catch (error) {
-      console.error(error);
-      // TODO: add err page
-      this.router.navigate(['/404']);
-      return null;
+      return [];
     }
   }
 
